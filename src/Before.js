@@ -1,5 +1,7 @@
 console.info("[test114514] HSLO Endymion v4.1a");
 
+window.masterURL = "https://ex-script.com/fstyle/hslo/";
+
 window.WebSocketDayo = WebSocket;
 window.WebSocketDayo._send = window.WebSocketDayo.send;
 

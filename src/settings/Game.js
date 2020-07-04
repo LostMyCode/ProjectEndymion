@@ -11,7 +11,7 @@ export default {
         '_2CL65dfacb39960c223': 'toggle',
         '_2CL7d0596c36891967f': !0x1,
         '_2CL850f236ecda2e139': function (isEnabled) {
-            Endy.enablePrivateHSLO = isEnabled;
+            Endy.enableMaouCircle = isEnabled;
         }
     },
     'Tab3Toggle': {
