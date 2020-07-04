@@ -40,7 +40,6 @@ export default new class MaouCircle {
         this.ctx.drawImage(this.inner, -this.halfSize, -this.halfSize);
 
         this.ctx.rotate(rad);
-        this.lastRad = this.rad;
         requestAnimationFrame(this.loop.bind(this));
     }
 }
