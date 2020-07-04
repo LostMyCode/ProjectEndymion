@@ -1,3 +1,5 @@
+import Endy from "../settings/Endy";
+
 export default new class MaouCircle {
     constructor() {
         this.outer = new Image();
@@ -26,6 +28,8 @@ export default new class MaouCircle {
     }
 
     loop() {
+        if (!Endy.enableMaouCircle) return setTimeout(this.loop.bind(this), 500);
+
         this.ctx.clearRect(-this.halfSize, -this.halfSize, this.imageSize, this.imageSize);
         let rad = this.rad;
         
