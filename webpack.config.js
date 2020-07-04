@@ -5,6 +5,7 @@ const mode = 'development'
 const masterURL = mode == 'production' ? 'https://ex-script.com/fstyle/hslo/' : 'http://127.0.0.1:5500/dist/'
 
 module.exports = {
+    devtool: "#source-map",
     entry: ['./src/index.js'],
     mode,
     output: {
