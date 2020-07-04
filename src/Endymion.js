@@ -20,24 +20,8 @@ import "./components/Analytics";
 'use strict';
 
 var myTurn = false;
-
-
 var Top1Spectator = null;
 var handShakedTabCount = 0;
-//var Settings.Endy.enableFullmap = null; // init null not boolean
-
-var circleSize = 1.1;
-var magicCircleImage = new Image();
-magicCircleImage.src = "https://ex-script.com/fstyle/hslo/private/hslo_ring.png";
-var circlePlus = new Image();
-circlePlus.src = "https://ex-script.com/fstyle/hslo/private/maou_inner.png";
-var magicCircleRotation = 0;
-var magicCircleRad = magicCircleRotation * Math.PI / 180;
-setInterval(function() {
-    if (magicCircleRotation < 360) magicCircleRotation += 1;
-    else magicCircleRotation = 0;
-    magicCircleRad = magicCircleRotation * Math.PI / 180;
-}, 40);
 
 let boxSize = {
     0: {
@@ -55,7 +39,6 @@ let boxSize = {
 const arrayMax = function (a, b) {return Math.max(a, b);}
 const arrayMin = function (a, b) {return Math.min(a, b);}
 const inurArea = function (t, x, y) {
-    //return x > boxSize[t].minX && x < boxSize[t].maxX && y > boxSize[t].minY && y < boxSize[t].maxY;
     if (!boxSize[0].minX || !boxSize[1].minX) return false;
     const tab1area = x > boxSize[0].minX && x < boxSize[0].maxX && y > boxSize[0].minY && y < boxSize[0].maxY;
     const tab2area = x > boxSize[1].minX && x < boxSize[1].maxX && y > boxSize[1].minY && y < boxSize[1].maxY;
