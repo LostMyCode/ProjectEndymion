@@ -10,7 +10,7 @@ import "./components/BotScriptHandler";
 // deco
 import makeRbbFrame from "./components/RainbowBorder";
 import particles from "./components/Particles";
-import "./components/LottieCanvas";
+// import "./components/LottieCanvas";
 
 // analytics
 import "./components/Analytics";
@@ -532,8 +532,13 @@ this['_2CL90b42a0a84ed04cf']['src']!==aNv&&(this['_2CL90b42a0a84ed04cf']['src']=
     // set border glow color
     this['_2CL25458ce6a67650f5']!==aNv&&(this['_2CL25458ce6a67650f5']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);
 }},{'key':'_2CL5ccf801b06cd2731','set':function set(aNv){this['_2CL4ea27230f2222e35']!==aNv&&(this['_2CL4ea27230f2222e35']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}}]);return bgN;}())(),bgM=new aQt['a']['Mipmaps']();
-var bgX=new(function(){function bgY(){_classCallCheck(this,bgY);this['_2CL32df53789f4b5acb']=document['createElement']('canvas'),this['_2CLeed7430278d45d85']=this['_2CL32df53789f4b5acb']['getContext']('2d'),this['_2CL25b7f362b415b3de']=[],this['_2CL49ebc19e096f1963']=0x100,this['_2CL7aeb085f5fe17c66']=0x0,this['_2CLf6e5846f1b211fe6']='#000000',this['_2CLbc49113881c5b35f']=0x0,this['_2CL25458ce6a67650f5']='#000000',this['_2CL4ea27230f2222e35']=0x0,this['_2CL52e0d71a7fc74f7f']=!0x1;}_createClass(bgY,[{'key':'_2CLcc32da8337a77c45','value':function _2CLcc32da8337a77c45(){this['_2CLd33d3f60bb918a22']=0xa+aPB['_2CLe15deec8df50ac0c'],this['_2CL1849df6af84c6815']=aPB['_2CL1db05798018ba778'],this['_2CLe6455616d604609d']=aPB['_2CLb5e4ccad6bc0974c'],this['_2CLc82757cb890604c3']=aPB['_2CLb18c002fd29a3fcb'],this['_2CL5ccf801b06cd2731']=aPB['_2CLf7cf0ff97db7cf1b'],this['_2CL52e0d71a7fc74f7f']&&(this['_2CL243fcaa2fafc4ba5'](),this['_2CL240bdaf7fba805e1']());}},{'key':'_2CL243fcaa2fafc4ba5','value':function _2CL243fcaa2fafc4ba5(){aQt['a']['Hage']['Tx_GF'](this['_2CLeed7430278d45d85'],this['_2CL49ebc19e096f1963'],this['_2CL7aeb085f5fe17c66'],this['_2CLf6e5846f1b211fe6'],this['_2CLbc49113881c5b35f'],this['_2CL25458ce6a67650f5'],this['_2CL4ea27230f2222e35']),this['_2CL52e0d71a7fc74f7f']=!0x1;}},{'key':'_2CL240bdaf7fba805e1','value':function _2CL240bdaf7fba805e1(){this['_2CL25b7f362b415b3de']=bgM['create'](this['_2CL32df53789f4b5acb'],0x5);}},{'key':'_2CLf4ad84629c622f05','value':function _2CLf4ad84629c622f05(aNv){var aNw=this['_2CL49ebc19e096f1963']>>0x1,aNx=0x0;for(;aNw>=aNv&&aNx<0x4;){aNx++,aNw>>=0x1;}return this['_2CL25b7f362b415b3de'][aNx];}},{'key':'_2CLd33d3f60bb918a22','set':function set(aNv){this['_2CL7aeb085f5fe17c66']!==aNv&&(this['_2CL7aeb085f5fe17c66']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}},{'key':'_2CL1849df6af84c6815','set':function set(aNv){this['_2CLf6e5846f1b211fe6']!==aNv&&(this['_2CLf6e5846f1b211fe6']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}},{'key':'_2CLe6455616d604609d','set':function set(aNv){this['_2CLbc49113881c5b35f']!==aNv&&(this['_2CLbc49113881c5b35f']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}},{'key':'_2CLc82757cb890604c3','set':function set(aNv){this['_2CL25458ce6a67650f5']!==aNv&&(this['_2CL25458ce6a67650f5']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}},{'key':'_2CL5ccf801b06cd2731','set':function set(aNv){this['_2CL4ea27230f2222e35']!==aNv&&(this['_2CL4ea27230f2222e35']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}},{'key':'_2CL12298acfaf2e57e9','get':function get(){return this['_2CL49ebc19e096f1963'];}}]);return bgY;}())();var bh7=new(function(){function bh8(){_classCallCheck(this,bh8);this['_2CLa995113bcdd5c560']=0x2*Math['PI'];}_createClass(bh8,[{'key':'_2CLada4ff707a69b7e1','value':function _2CLada4ff707a69b7e1(aNv){switch(aPB['_2CL986d79226a8f4718']){case'off':return;case'normal':this['_2CL6b490a3787fbcaf1'](aNv);break;case'rainbow':this['_2CL37a233930a2c24d5'](aNv);}}},{'key':'_2CL6b490a3787fbcaf1','value':function _2CL6b490a3787fbcaf1(aNv){aPB['_2CLfc3c7e30ace78744']?this['_2CL47e32ba4a20e2fb2'](aNv):this['_2CL9a60abf292242a81'](aNv);}},{'key':'_2CL47e32ba4a20e2fb2','value':function _2CL47e32ba4a20e2fb2(aNv){bgX['_2CLcc32da8337a77c45']();var aNw=Math['min'](0x12c,b2u['_2CL986d79226a8f4718']['length']),aNx=bgX['_2CL12298acfaf2e57e9'],aNy=bgX['_2CLf4ad84629c622f05'](aNx*aSL['_2CL7f272a4f358d5b70']|0x0);
+var bgX=new(function(){function bgY(){_classCallCheck(this,bgY);this['_2CL32df53789f4b5acb']=document['createElement']('canvas'),this['_2CLeed7430278d45d85']=this['_2CL32df53789f4b5acb']['getContext']('2d'),this['_2CL25b7f362b415b3de']=[],this['_2CL49ebc19e096f1963']=0x100,this['_2CL7aeb085f5fe17c66']=0x0,this['_2CLf6e5846f1b211fe6']='#000000',this['_2CLbc49113881c5b35f']=0x0,this['_2CL25458ce6a67650f5']='#000000',this['_2CL4ea27230f2222e35']=0x0,this['_2CL52e0d71a7fc74f7f']=!0x1;}_createClass(bgY,[{'key':'_2CLcc32da8337a77c45','value':function _2CLcc32da8337a77c45(){this['_2CLd33d3f60bb918a22']=0xa+aPB['_2CLe15deec8df50ac0c'],this['_2CL1849df6af84c6815']=aPB['_2CL1db05798018ba778'],this['_2CLe6455616d604609d']=aPB['_2CLb5e4ccad6bc0974c'],this['_2CLc82757cb890604c3']=aPB['_2CLb18c002fd29a3fcb'],this['_2CL5ccf801b06cd2731']=aPB['_2CLf7cf0ff97db7cf1b'],this['_2CL52e0d71a7fc74f7f']&&(this['_2CL243fcaa2fafc4ba5'](),this['_2CL240bdaf7fba805e1']());}},{'key':'_2CL243fcaa2fafc4ba5','value':function _2CL243fcaa2fafc4ba5(){aQt['a']['Hage']['Tx_GF'](this['_2CLeed7430278d45d85'],this['_2CL49ebc19e096f1963'],this['_2CL7aeb085f5fe17c66'],this['_2CLf6e5846f1b211fe6'],this['_2CLbc49113881c5b35f'],this['_2CL25458ce6a67650f5'],this['_2CL4ea27230f2222e35']),this['_2CL52e0d71a7fc74f7f']=!0x1;}},{'key':'_2CL240bdaf7fba805e1','value':function _2CL240bdaf7fba805e1(){this['_2CL25b7f362b415b3de']=bgM['create'](this['_2CL32df53789f4b5acb'],0x5);}},{'key':'_2CLf4ad84629c622f05','value':function _2CLf4ad84629c622f05(aNv){var aNw=this['_2CL49ebc19e096f1963']>>0x1,aNx=0x0;for(;aNw>=aNv&&aNx<0x4;){aNx++,aNw>>=0x1;}return this['_2CL25b7f362b415b3de'][aNx];}},{'key':'_2CLd33d3f60bb918a22','set':function set(aNv){this['_2CL7aeb085f5fe17c66']!==aNv&&(this['_2CL7aeb085f5fe17c66']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}},{'key':'_2CL1849df6af84c6815','set':function set(aNv){this['_2CLf6e5846f1b211fe6']!==aNv&&(this['_2CLf6e5846f1b211fe6']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}},{'key':'_2CLe6455616d604609d','set':function set(aNv){this['_2CLbc49113881c5b35f']!==aNv&&(this['_2CLbc49113881c5b35f']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}},{'key':'_2CLc82757cb890604c3','set':function set(aNv){this['_2CL25458ce6a67650f5']!==aNv&&(this['_2CL25458ce6a67650f5']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}},{'key':'_2CL5ccf801b06cd2731','set':function set(aNv){this['_2CL4ea27230f2222e35']!==aNv&&(this['_2CL4ea27230f2222e35']=aNv,this['_2CL52e0d71a7fc74f7f']=!0x0);}},{'key':'_2CL12298acfaf2e57e9','get':function get(){return this['_2CL49ebc19e096f1963'];}}]);return bgY;}())();var bh7=new(function(){function bh8(){_classCallCheck(this,bh8);this['_2CLa995113bcdd5c560']=0x2*Math['PI'];}_createClass(bh8,[{'key':'_2CLada4ff707a69b7e1','value':function _2CLada4ff707a69b7e1(aNv){switch(aPB['_2CL986d79226a8f4718']){case'off':return;case'normal':this['_2CL6b490a3787fbcaf1'](aNv);break;case'rainbow':this['_2CL37a233930a2c24d5'](aNv);}}},{'key':'_2CL6b490a3787fbcaf1','value':function _2CL6b490a3787fbcaf1(aNv){aPB['_2CLfc3c7e30ace78744']?this['_2CL47e32ba4a20e2fb2'](aNv):this['_2CL9a60abf292242a81'](aNv);}},{'key':'_2CL47e32ba4a20e2fb2','value':function _2CL47e32ba4a20e2fb2(aNv){bgX['_2CLcc32da8337a77c45']();
+
+let foodAmount = b2u['_2CL986d79226a8f4718']['length'];
+var aNw=Math['min'](0x12c,foodAmount),aNx=bgX['_2CL12298acfaf2e57e9'],aNy=bgX['_2CLf4ad84629c622f05'](aNx*aSL['_2CL7f272a4f358d5b70']|0x0);
 // draw foods
+if (!Settings.Endy.enableFoodDrawLimit) aNw = foodAmount;
+
 for(var bhf=0x0;bhf<aNw | 0; bhf = (bhf + 1) | 0){
     var bhg=b2u['_2CL986d79226a8f4718'][bhf];
     let foodX = bhg['_2CL8725029ea89712ee']-(aNx>>0x1),
@@ -626,7 +631,7 @@ switch(
         !0x0 // anticlockwise
     ),
     aNv['closePath'](),
-    aNv.save(),
+    // aNv.save(), // for lottie animation in cell
     this['_2CL1849df6af84c6815']['_2CL7f4279a1384d12af'](aNw['_2CL1849df6af84c6815']),
     this['_2CL1849df6af84c6815']['_2CLc6d998caee5983f8']=aPB['_2CLa631f8ba0062c4a2'],
     aPB['_2CLfadf136230ced339']
@@ -656,10 +661,13 @@ var aNy=aPB['_2CL72cbdb098f5c0db6']&&aNx;if(aNy){var bkf=this['_2CL1849df6af84c6
     aNv['drawImage'](aNA,aNw['_2CL8725029ea89712ee']-bkl,aNw['_2CL36a4dc9ccf2bdc09']-bkl,0x2*bkl,0x2*bkl);
 
 }
-aNv.clip();
-/* aNv.globalAlpha = 0.8; */
+
+// draw lottie
+/* aNv.clip();
+// aNv.globalAlpha = 0.8;
 aNv.drawImage(vuiCanvas, x - s * 2, y - s * 1, s * 2 * 2, s * 1 * 2);
-aNv.restore();
+aNv.restore(); */
+
 // draw magic(maou) circle
 if (drawMaou) {
     //TODO: draw maou in another canvas

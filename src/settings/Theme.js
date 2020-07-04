@@ -315,6 +315,14 @@ export default {
         '_2CLe3712e4c0c1f2dfe': 0x1,
         '_2CL7d0596c36891967f': 0x4
     },
+    'FoodDrawLimit': {
+        '_2CL1e22c6e0e181ac56': 'Food draw limit',
+        '_2CL65dfacb39960c223': 'toggle',
+        '_2CL7d0596c36891967f': 0x1,
+        '_2CL850f236ecda2e139': function (isEnabled) {
+            Endy.enableFoodDrawLimit = isEnabled;
+        }
+    },
     '_2CLfc3c7e30ace78744': {
         '_2CL1e22c6e0e181ac56': 'Food glow',
         '_2CL65dfacb39960c223': 'toggle',

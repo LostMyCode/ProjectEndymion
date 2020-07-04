@@ -3,6 +3,7 @@ const EndymionSettings = {
     enableTab3: null,
     exTabCount: 0,
     HSLOCircleForOnlyMe: false,
+    enableFoodDrawLimit: true,
     aVR: null, // toast func
     setBackground: function() {},
 };
