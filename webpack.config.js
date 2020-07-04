@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // const mode = 'production'
 const mode = 'development'
-const masterURL = mode == 'production' ? 'https://ex-script.com/fstyle/hslo/' : 'http://127.0.0.1:5500/'
+const masterURL = mode == 'production' ? 'https://ex-script.com/fstyle/hslo/' : 'http://127.0.0.1:5500/dist/'
 
 module.exports = {
     entry: ['./src/index.js'],
