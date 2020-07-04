@@ -1,3 +1,5 @@
+import Endy from "../settings/Endy";
+
 var Particles = (function () {
     function Particles() {
         this.canvas = document.createElement('canvas');
@@ -74,6 +76,10 @@ var Particles = (function () {
         this.ctx.fill(); */
     };
     Particles.prototype.loop = function () {
+        if (!Endy.enableParticles) return setTimeout(() => {
+            this.loop();
+        }, 500);
+        
         var _this = this;
         this.ctx.clearRect(-this.canvas.width / 2, -this.canvas.height / 2, this.canvas.width, this.canvas.height);
         if (this.counter < this.particles.length) {

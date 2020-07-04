@@ -621,7 +621,7 @@ aNv.drawImage(vuiCanvas, x - s * 4, y - s * 2, s * 4 * 2, s * 2 * 2); */
 
 // draw particle
 let ff = 1.5;
-if (s > 300) aNv.drawImage(particles.canvas, x - s * ff, y - s * ff, s * 2 * ff, s * 2 * ff);
+if (Settings.Endy.enableParticles && s > 300) aNv.drawImage(particles.canvas, x - s * ff, y - s * ff, s * 2 * ff, s * 2 * ff);
 
 switch(
     aNv['beginPath'](),

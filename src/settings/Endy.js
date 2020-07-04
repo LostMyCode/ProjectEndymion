@@ -5,6 +5,7 @@ const EndymionSettings = {
     enableMaouCircle: false,
     HSLOCircleForOnlyMe: false,
     enableFoodDrawLimit: true,
+    enableParticles: false, 
     aVR: null, // toast func
     setBackground: function() {},
 };
