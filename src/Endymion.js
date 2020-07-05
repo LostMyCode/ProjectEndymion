@@ -464,7 +464,7 @@ var b2B=!![];var b2C=![];var b2D=undefined;try{for(var b2E=aNw[Symbol['iterator'
 }},{'key':'_2CL6b81dcda3856c9e4','value':function _2CL6b81dcda3856c9e4(aNv,aNw,aNx){
     // consume 
     var aNy=this['_2CLbeee5e2d7e8e9083'][aNv],aNz=this['_2CL9661498b4088206f'][aNv],aNA=aNy['get'](aNx),aNJ=aNy['get'](aNw);
-    if (!aNA['_2CLda3f37aa1ea3a5d4'] && aNA['_2CLd33d3f60bb918a22'] > 200) consumes.add(new Commander(
+    if (!aNA['_2CLda3f37aa1ea3a5d4'] && aNA['_2CLd33d3f60bb918a22'] > 120) consumes.add(new Commander(
             aNA['_2CL8725029ea89712ee'],
             aNA['_2CL36a4dc9ccf2bdc09'],
             aNA['_2CLd33d3f60bb918a22'] * 2

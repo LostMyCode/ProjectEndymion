@@ -1,5 +1,6 @@
 import Endy from "./Endy";
 import makeRbbFrame from "./../components/RainbowBorder";
+import Commander from "./../components/Commander";
 
 export default {
     '_2CLfadf136230ced339': {
@@ -42,6 +43,22 @@ export default {
         '_2CL7d0596c36891967f': !0x1,
         '_2CL850f236ecda2e139': function (isEnabled) {
             Endy.enableParticles = isEnabled;
+        }
+    },
+    'CellEatEffects': {
+        '_2CL1e22c6e0e181ac56': 'Cell eat effects',
+        '_2CL65dfacb39960c223': 'toggle',
+        '_2CL7d0596c36891967f': !0x1,
+        '_2CL850f236ecda2e139': function (isEnabled) {
+            Endy.enableEatEffects = isEnabled;
+        }
+    },
+    'CellEatEffectsColor': {
+        '_2CL1e22c6e0e181ac56': 'Cell eat effect color',
+        '_2CL65dfacb39960c223': 'colorpicker',
+        '_2CL7d0596c36891967f': '#ffffff',
+        '_2CL850f236ecda2e139': function (color) {
+            Commander.changeColor(color);
         }
     },
     '_2CL0dc5bfdd8ae1fa9f': {

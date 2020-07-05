@@ -3,9 +3,11 @@ export default (function () {
     const animation = new class Animation {
         constructor() {
             this.images = [new Image(), new Image(), new Image()];
+            this.colorFilter = null;
 
             for (let i = 0; i < 3; i++) {
                 this.images[i].src = `${masterURL}resources/maoucircle${i + 1}.png`;
+                this.images[i].onload = () => {}
             }
 
             this.rot = 0;
@@ -20,7 +22,9 @@ export default (function () {
 
             this.ctx.transform(1, 0, 0, -1, this.halfSize, this.halfSize);
             // document.body.appendChild(this.canvas);
-            this.loop();
+
+            this.colorFilter = this.createColoredImage(this.canvas, "rgb(0, 255, 0)");
+            this.draw();
         }
 
         update() {
@@ -32,7 +36,7 @@ export default (function () {
             this.rad = this.rot * Math.PI / 180;
         }
 
-        loop() {
+        draw() {
             this.update();
             this.ctx.clearRect(-this.halfSize, -this.halfSize, this.canvasSize, this.canvasSize);
             let rad = this.rad;
@@ -47,7 +51,27 @@ export default (function () {
             this.ctx.drawImage(this.images[2], -this.halfSize, -this.halfSize);
 
             this.ctx.rotate(-rad);
-            requestAnimationFrame(this.loop.bind(this));
+
+            this.ctx.save();
+            this.ctx.globalCompositeOperation = 'source-in';
+            this.ctx.drawImage(this.colorFilter, -this.halfSize, -this.halfSize);
+            this.ctx.restore();
+            requestAnimationFrame(this.draw.bind(this));
+        }
+
+        createColoredImage(img, color) { // chcolor.js by conifer.jp
+            var canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext('2d');
+               
+            ctx.save();
+            ctx.fillStyle = color;
+            ctx.globalCompositeOperation = 'darker';
+            ctx.fillRect(0, 0, img.width, img.height);
+            ctx.restore();
+        
+            return canvas;
         }
     }
 
@@ -84,6 +108,11 @@ export default (function () {
             );
 
             ctx.globalAlpha = 1;
+        }
+
+        static changeColor(color) {
+            const a = animation;
+            a.colorFilter = a.createColoredImage(a.canvas, color);
         }
     }
 
