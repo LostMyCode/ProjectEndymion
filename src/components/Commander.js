@@ -88,9 +88,12 @@ export default (function () {
             this.opacity = 1;
             this.size = Math.max(10, s / 10);
             this.complete = false;
+
+            this.createdAt = new Date();
         }
 
         update(ctx) {
+            if (Date.now() - this.createdAt > 5000) return this.complete = true;
             if (this.size > this.s * 0.4) this.opacity *= 0.93;
             this.size *= 1.02;
 
