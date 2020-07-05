@@ -112,6 +112,8 @@ var aPB={};var aPC={'_2CLf0fe088ee4d7ef41':function(){function aPD(){var aNv=arg
             /* let initX = -7070 + 2357;
             let initY = -7070 + 1414; */
             for (let i = 0; i < Settings.Endy.exTabCount; i++) {
+                if (i == 15) initY -= 2828;
+                // console.log(i,initX, initY)
                 aT1['sendSpectatePacket'](i + 2)
                 aT1['_2CL6d7a0917fdca1591'](i + 2)
                 aT1['sendMovePacket'](initX, initY, i + 2)
@@ -119,7 +121,7 @@ var aPB={};var aPC={'_2CLf0fe088ee4d7ef41':function(){function aPD(){var aNv=arg
                 /* if (i == 4) initX += 4714, initY = -7070 + 1414;
                 if (i == 9) initX += 4714, initY = -7070 + 1414;  */ 
                 if (i == 4) initX += 5000, initY = -8485.2 + 2828;
-                if (i == 9) initX += 5000, initY = -8485.2 + 2828; 
+                if (i == 9) initX += 5000, initY = -8485.2 + 2828;
             }
         }
         if (Settings.Endy.exTabCount == 1) {
