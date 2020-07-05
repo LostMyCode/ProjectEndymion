@@ -59,7 +59,6 @@ export default {
         '_2CL7d0596c36891967f': '#ffffff',
         '_2CL850f236ecda2e139': function (color) {
             Commander.changeColor(color);
-            console.log(color);
         }
     },
     '_2CL0dc5bfdd8ae1fa9f': {
