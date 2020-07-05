@@ -1,3 +1,5 @@
+import Endy from "../settings/Endy";
+
 export default (function () {
 
     const animation = new class Animation {
@@ -37,6 +39,8 @@ export default (function () {
         }
 
         draw() {
+            if (!Endy.enableEatEffects) return setTimeout(this.draw.bind(this), 500);
+
             this.update();
             this.ctx.clearRect(-this.halfSize, -this.halfSize, this.canvasSize, this.canvasSize);
             let rad = this.rad;
