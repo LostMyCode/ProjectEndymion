@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npx webpack --watch",
-    "clean": "rd /s /q dist"
+    "clean": "rd /s /q dist",
+    "build": "npx webpack --mode=production"
   },
   "keywords": [],
   "author": "",
