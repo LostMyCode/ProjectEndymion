@@ -9,7 +9,6 @@ const EndymionSettings = {
     enableParticles: false, 
     enableEatEffects: false,
     aVR: null, // toast func
-    setBackground: function() {},
     minimapClass: null,
 };
 

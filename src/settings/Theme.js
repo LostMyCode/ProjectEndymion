@@ -161,7 +161,7 @@ export default {
     '_2CLb3ac7c3b6c1b2a7d': {
         '_2CL1e22c6e0e181ac56': 'Background image URL',
         '_2CL65dfacb39960c223': 'input',
-        '_2CL7d0596c36891967f': Endy.setBackground
+        '_2CL7d0596c36891967f': "" // default value
     },
     '_2CLecab002b7ebf4d7e': {
         '_2CL1e22c6e0e181ac56': 'Background image color',
