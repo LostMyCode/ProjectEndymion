@@ -29,7 +29,6 @@ export default function makeRbbFrame() {
             $("#backOverlay").fadeIn(700),
             $("#rbbLoader").fadeIn(700),
             showRbbLoader = true;
-            console.log(completeFrame)
         }
         $("#rbbLoader").text(`Rendering rainbow border: ${rbbFrames.length} / ${59}`);
         for (let c of borderColor) {

@@ -580,6 +580,7 @@ for(var bhf=0x0;bhf<aNw | 0; bhf = (bhf + 1) | 0){
     );
 
 }}},{'key':'_2CL9a60abf292242a81','value':function _2CL9a60abf292242a81(aNv){
+    // draw foods
     let foodAmount = b2u['_2CL986d79226a8f4718']['length'];
     var aNw= Settings.Endy.enableFoodDrawLimit ? Math['min'](0x12c,foodAmount) : foodAmount;
 
@@ -596,6 +597,7 @@ for(var bhf=0x0;bhf<aNw | 0; bhf = (bhf + 1) | 0){
     }
     aNv['fill']();
 }},{'key':'_2CL37a233930a2c24d5','value':function _2CL37a233930a2c24d5(aNv){
+    // draw foods
     let foodAmount = b2u['_2CL986d79226a8f4718']['length'];
     var aNw= Settings.Endy.enableFoodDrawLimit ? Math['min'](0x12c,foodAmount) : foodAmount;
 
