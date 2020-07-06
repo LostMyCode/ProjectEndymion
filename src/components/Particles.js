@@ -19,7 +19,7 @@ var Particles = (function () {
         /* this.canvas.style.width = '100%'; */
         this.ctx.transform(scale, 0, 0, -scale, this.canvas.width / 2, this.canvas.height / 2);
         /* document.body.appendChild(this.canvas); */
-        for (var i = 0; i < 180; i++) {
+        for (var i = 0; i < 150; i++) {
             this.createParticle();
         }
     };
