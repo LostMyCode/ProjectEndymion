@@ -257,7 +257,7 @@ export default {
         '_2CL1e22c6e0e181ac56': 'Enable rainbow border',
         '_2CL65dfacb39960c223': 'toggle',
         '_2CL850f236ecda2e139': function (isEnabled) {
-            enableRainbowBorder = isEnabled;
+            Endy.enableRainbowBorder = isEnabled;
             if (isEnabled && !completeFrame) makeRbbFrame(), nyna('HSLO', 'RenderRainbowBorder', Date.now(), 1);
         }
     },

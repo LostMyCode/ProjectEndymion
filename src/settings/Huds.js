@@ -1,3 +1,5 @@
+import Endy from "./Endy";
+
 export default {
     '_2CL44cd027169234270': {
         '_2CL1e22c6e0e181ac56': 'Show HUDs',
@@ -55,7 +57,7 @@ export default {
         '_2CL850f236ecda2e139': function _2CL850f236ecda2e139(aNv) {
             var aNw = document['getElementById']('minimap'),
                 aNx = document['getElementById']('time-hud');
-            aNv ? (aNw['style']['display'] = 'flex', aNx['style']['bottom'] = '' ['concat'](b4H['_2CL12298acfaf2e57e9'] + 0x14, 'px')) : (aNw['style']['display'] = 'none', aNx['style']['bottom'] = '10px');
+            aNv ? (aNw['style']['display'] = 'flex', aNx['style']['bottom'] = '' ['concat'](Endy.minimapClass['_2CL12298acfaf2e57e9'] + 0x14, 'px')) : (aNw['style']['display'] = 'none', aNx['style']['bottom'] = '10px');
         }
     },
     '_2CLafc646b5fc1d0589': {
@@ -68,7 +70,7 @@ export default {
         '_2CL850f236ecda2e139': function _2CL850f236ecda2e139(aNv) {
             var aNw = document['getElementById']('minimap'),
                 aNx = 'none' === aNw['style']['display'];
-            aNw['style']['transform'] = 'scale(' ['concat'](aNv, ')'), b4H['_2CLbb3162f3d7cffd48'](0xb4 * aNv | 0x0), document['getElementById']('time-hud')['style']['bottom'] = '' ['concat'](0x14 + (aNx ? -0xa : 0xb4 * aNv) | 0x0, 'px');
+            aNw['style']['transform'] = 'scale(' ['concat'](aNv, ')'), Endy.minimapClass['_2CLbb3162f3d7cffd48'](0xb4 * aNv | 0x0), document['getElementById']('time-hud')['style']['bottom'] = '' ['concat'](0x14 + (aNx ? -0xa : 0xb4 * aNv) | 0x0, 'px');
         }
     },
     '_2CL37d09b74427e481c': {

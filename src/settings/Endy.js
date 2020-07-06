@@ -4,11 +4,13 @@ const EndymionSettings = {
     exTabCount: 0,
     enableMaouCircle: false,
     HSLOCircleForOnlyMe: false,
+    enableRainbowBorder: false,
     enableFoodDrawLimit: true,
     enableParticles: false, 
     enableEatEffects: false,
     aVR: null, // toast func
     setBackground: function() {},
+    minimapClass: null,
 };
 
 export default EndymionSettings;

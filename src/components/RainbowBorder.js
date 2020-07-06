@@ -1,3 +1,5 @@
+import Endy from "../settings/Endy";
+
 let showRbbLoader = false;
 let changeAmount = 17;
 let borderColor = [
@@ -8,7 +10,6 @@ let borderColor = [
     { r: 0, g: 0, b: 255 }
 ]
 
-window.enableRainbowBorder = false;
 window.currentFrame = 0;
 window.completeFrame = false;
 window.rbbFrames = [];
@@ -23,7 +24,7 @@ function setGrad(ctx, grad, c) {
 }
 
 export default function makeRbbFrame() {
-    if (!!enableRainbowBorder && !completeFrame) {
+    if (!!Endy.enableRainbowBorder && !completeFrame) {
         if (!showRbbLoader) {
             $("#backOverlay").fadeIn(700),
             $("#rbbLoader").fadeIn(700),
