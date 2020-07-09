@@ -38,9 +38,9 @@ export default {
                 if (isEnabled) Endy.aVR['showToast']('info', 'Fullmap', 'Fullmap is available only in multibox mode')
             }
             Endy.enableFullmap = isEnabled;
-            if (isEnabled) Endy.exTabCount = 16;
-            else if (Endy.exTabCount == 16 && Endy.enableTab3) Endy.exTabCount = 1;
-            else if (Endy.exTabCount == 16 && !Endy.enableTab3) Endy.exTabCount = 0;
+            if (isEnabled) Endy.exTabCount = 15;
+            else if (Endy.exTabCount == 15 && Endy.enableTab3) Endy.exTabCount = 1;
+            else if (Endy.exTabCount == 15 && !Endy.enableTab3) Endy.exTabCount = 0;
         }
     },
     'HSLOCircleOnlyMeToggle': {
