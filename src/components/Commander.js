@@ -86,7 +86,7 @@ export default (function () {
             this.s = s;
 
             this.opacity = 1;
-            this.size = Math.max(10, s / 10);
+            this.size = s / 10;
             this.complete = false;
 
             this.createdAt = new Date();
@@ -94,7 +94,7 @@ export default (function () {
 
         update(ctx) {
             if (Date.now() - this.createdAt > 5000) return this.complete = true;
-            if (this.size > this.s * 0.4) this.opacity *= 0.93;
+            if (this.size > this.s * 0.4) this.opacity *= 0.95;
             this.size *= 1.02;
 
             this.draw(ctx);
@@ -105,7 +105,6 @@ export default (function () {
         draw(ctx) {
             ctx.beginPath();
             ctx.globalAlpha = this.opacity;
-
             ctx.drawImage(
                 animation.canvas, 
                 this.x - this.size, 
@@ -113,7 +112,6 @@ export default (function () {
                 this.size * 2, 
                 this.size * 2
             );
-
             ctx.globalAlpha = 1;
         }
 
