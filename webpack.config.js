@@ -1,7 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-// const mode = 'production'
-
 module.exports = (env, options) => {
     const mode = options.mode || 'development'
     const masterURL = mode == 'production' ? 'https://ex-script.com/fstyle/hslo/' : 'http://127.0.0.1:5500/dist/'
@@ -12,7 +10,7 @@ module.exports = (env, options) => {
         mode,
         output: {
             path: __dirname + '/dist',
-            filename: 'Endymion.pack.[hash].js',
+            filename: mode == "production" ? 'Endymion.pack.[hash].js' : "Endymion.pack.js",
             publicPath: mode == "production" ? masterURL + "Endymion/" : masterURL
         },
     
@@ -22,8 +20,8 @@ module.exports = (env, options) => {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     use: {
-                        loader: 'babel-loader',   //loader名
-                        options: {                //Babelの設定
+                        loader: 'babel-loader',
+                        options: {
                             presets: ['@babel/preset-env']
                         }
                     }
