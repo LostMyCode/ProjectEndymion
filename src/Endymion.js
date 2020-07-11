@@ -303,7 +303,8 @@ var aWe=new(function(){function aWg(){_classCallCheck(this,aWg);}_createClass(aW
             aWZ = aNw['getInt32'](), // y pos
             aX0 = aNw['getUint16'](); // size
 
-        if (disappearedEntities.has(aWX)) disappearedEntities.delete(aWX);
+        if (Settings.Endy.enableDisappearFade && disappearedEntities.has(aWX)) 
+            disappearedEntities.delete(aWX);
         
         let doit = false;
         if (Settings.Endy.enableFullmap) {
@@ -345,19 +346,23 @@ var aWe=new(function(){function aWg(){_classCallCheck(this,aWg);}_createClass(aW
     var aNy = aNw['getUint16']();
     for (var aX8 = 0x0; aX8 < aNy | 0; /* aX8++ */aX8 = (aX8 + 1) | 0) { // disapper records
         var aX9 = aNw['getUint32']();
-        //b2u['removeDisappearedEntity'](aNv, aX9);
-        const entityInfo = b2u['_2CLca3088e7e87bbb5f'](aNv, aX9);
-        if (
-            entityInfo && 
-            (
-                entityInfo['_2CLda3f37aa1ea3a5d4'] ||
-                entityInfo['_2CL22c774a2efca930d'] ||
-                entityInfo['_2CLfb7b999b913d46c7']
+
+        if (Settings.Endy.enableDisappearFade) {
+            const entityInfo = b2u['_2CLca3088e7e87bbb5f'](aNv, aX9);
+            if (
+                entityInfo && 
+                (
+                    entityInfo['_2CLda3f37aa1ea3a5d4'] ||
+                    entityInfo['_2CL22c774a2efca930d'] ||
+                    entityInfo['_2CLfb7b999b913d46c7']
+                )
             )
-        )
+                b2u['removeDisappearedEntity'](aNv, aX9);
+            else if (entityInfo)
+                disappearedEntities.set(aX9, { opacity: 1, createdAt: Date.now() });
+        } else {
             b2u['removeDisappearedEntity'](aNv, aX9);
-        else if (entityInfo)
-            disappearedEntities.set(aX9, { opacity: 1, createdAt: Date.now() });
+        }
 
         if (Settings.Endy.enableFullmap && aNv < 2) {
             let index = boxSize[aNv].ids.indexOf(aX9);
@@ -675,7 +680,7 @@ const id = aNw['_2CL3584859062ea9ecf'];
 const tabId = aNw["_2CL92d469f1ec77294c"];
 
 const isMe = aNw['isMe'];
-const faded = disappearedEntities.has(id);
+const faded = Settings.Endy.enableDisappearFade && disappearedEntities.has(id);
 
 if (faded) {
     let entity = disappearedEntities.get(id);

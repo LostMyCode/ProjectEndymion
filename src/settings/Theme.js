@@ -37,6 +37,14 @@ export default {
         '_2CLe3712e4c0c1f2dfe': 0.05,
         '_2CL7d0596c36891967f': 0x1
     },
+    'CellDisappearFade': {
+        '_2CL1e22c6e0e181ac56': 'Cell disappear fade',
+        '_2CL65dfacb39960c223': 'toggle',
+        '_2CL7d0596c36891967f': !0x1,
+        '_2CL850f236ecda2e139': function (isEnabled) {
+            Endy.enableDisappearFade = isEnabled;
+        }
+    },
     'CellParticles': {
         '_2CL1e22c6e0e181ac56': 'Cell particles',
         '_2CL65dfacb39960c223': 'toggle',

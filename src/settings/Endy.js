@@ -8,6 +8,7 @@ const EndymionSettings = {
     enableFoodDrawLimit: true,
     enableParticles: false, 
     enableEatEffects: false,
+    enableDisappearFade: false,
     aVR: null, // toast func
     minimapClass: null,
 };
