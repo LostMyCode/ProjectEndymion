@@ -21,7 +21,6 @@ import Commander from "./components/Commander";
 'use strict';
 
 var myTurn = false;
-var Top1Spectator = null;
 
 const consumes = new Set();
 
@@ -86,7 +85,6 @@ const spectatePoints = []; // length 16
     let initX = -10000 + 5000;
     let initY = -8485.2 + 2828;
     for (let i = 0; i < 15; i++) {
-        if (i == 15) initY -= 2828;
         // console.log(i,initX, initY)
         spectatePoints.push({
             x: initX,
@@ -420,7 +418,6 @@ b0l['_2CLada370f97d905f76']();}},{'key':'_2CL91cf1e039f1b751e','value':function 
 window.encKey = 0;
 if (!Settings.Endy.enableFullmap && aNv > 2) return;
 if (!Settings.Endy.enableTab3 && !Settings.Endy.exTabCount && aNv == 2) return;
-if (aNv === 1 && Top1Spectator) Top1Spectator.close();
 if ([0, 1].includes(aNv) && boxSize[aNv].ids.length > 0) {
     boxSize[aNv].ids = [];
     boxSize[aNv].xPosArray = [];
@@ -805,9 +802,7 @@ window.recaptchaExecuteLoop = function() {
         recaptchaExecuteLoop();
     });
 };
-window.SAO = function() {
-    //console.log("Loaded.");
-}
+window.SAO = function() {}
 window.requestCaptchaV2 = function() {
     grecaptcha.v2mode = true;
     grecaptcha.render('recaptcha-screen', {
