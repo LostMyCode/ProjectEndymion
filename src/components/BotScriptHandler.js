@@ -18,6 +18,7 @@ function handleBotScript(script) {
             break;
     }
 }
+window.handleBotScript = handleBotScript;
 if (window.botScript !== undefined) {
     handleBotScript(botScript);
 }
