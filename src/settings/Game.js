@@ -20,8 +20,8 @@ export default {
         '_2CL7d0596c36891967f': 0x1,
         '_2CL850f236ecda2e139': function (isEnabled) {
             if (Endy.enableTab3 !== null) {
-                Endy.aVR['showToast']('info', 'Tab3', 'You need to reconnect to reflect tab3 settings!');
-                if (isEnabled) Endy.aVR['showToast']('info', 'Tab3', 'Tab3 is available only in multibox mode')
+                Endy.Toast['showToast']('info', 'Tab3', 'You need to reconnect to reflect tab3 settings!');
+                if (isEnabled) Endy.Toast['showToast']('info', 'Tab3', 'Tab3 is available only in multibox mode')
             }
             Endy.enableTab3 = isEnabled;
             if (isEnabled && Endy.exTabCount == 0) Endy.exTabCount = 1;
@@ -34,8 +34,8 @@ export default {
         '_2CL7d0596c36891967f': !0x1,
         '_2CL850f236ecda2e139': function (isEnabled) {
             if (Endy.enableFullmap !== null) {
-                Endy.aVR['showToast']('info', 'Fullmap', 'You need to reconnect to reflect fullmap settings!')
-                if (isEnabled) Endy.aVR['showToast']('info', 'Fullmap', 'Fullmap is available only in multibox mode')
+                Endy.Toast['showToast']('info', 'Fullmap', 'You need to reconnect to reflect fullmap settings!')
+                if (isEnabled) Endy.Toast['showToast']('info', 'Fullmap', 'Fullmap is available only in multibox mode')
             }
             Endy.enableFullmap = isEnabled;
             if (isEnabled) Endy.exTabCount = 15;
