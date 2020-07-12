@@ -94,7 +94,7 @@ export default (function () {
 
         update(ctx) {
             if (Date.now() - this.createdAt > 5000) return this.complete = true;
-            if (this.size > this.s * 0.4) this.opacity *= 0.95, this.size *= 1.01;
+            if (this.size > this.s * 0.5) this.opacity *= 0.95, this.size *= 1.01;
             else this.size *= 1.02;
 
             this.draw(ctx);
