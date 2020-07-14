@@ -1,50 +1,6 @@
 export default function (R) {
-    var c = function () {
-        var c = !![];
-        return function (d, e) {
-            var f = c ? function () {
-                if (e) {
-                    var g = e['apply'](d, arguments);
-                    e = null;
-                    return g;
-                }
-            } : function () {};
-            c = ![];
-            return f;
-        };
-    }();
 
     function S(S) {
-        var bls = c(this, function () {
-            var c = function () {
-                    return 'dev';
-                },
-                d = function () {
-                    return 'window';
-                };
-            var e = function () {
-                var f = new RegExp('\\w+ *\\(\\) *{\\w+ *[\'|\"].+[\'|\"];? *}');
-                return !f['test'](c['toString']());
-            };
-            var g = function () {
-                var h = new RegExp('(\\\\[x|u](\\w){2,4})+');
-                return h['test'](d['toString']());
-            };
-            var i = function (j) {
-                /* var k=~-0x1>>0x1+0xff%0x0;if(j['\x69\x6e\x64\x65\x78\x4f\x66']('\x69'===k)){l(j);} */ };
-            var l = function (m) {
-                /* var n=~-0x4>>0x1+0xff%0x0;if(m['\x69\x6e\x64\x65\x78\x4f\x66']((!![]+'')[0x3])!==n){i(m);} */ };
-            /* if (!e()) {
-                if (!g()) {
-                    i('indеxOf');
-                } else {
-                    i('indexOf');
-                }
-            } else {
-                i('indеxOf');
-            } */
-        });
-        bls();
         for (var U, V, W = S[0x0], X = S[0x1], Y = S[0x2], Z = 0x0, a0 = []; Z < W['length']; Z++) {
             V = W[Z], a9[V] && a0['push'](a9[V][0x0]), a9[V] = 0x0;
         }
