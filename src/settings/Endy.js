@@ -11,6 +11,8 @@ const EndymionSettings = {
     enableDisappearFade: false,
     Toast: null, // toast func
     minimapClass: null,
+
+    defaultLoaderImage: masterURL + 'resources/buam66ryLp.jpg?dae15c13db8d80931add1e1312916eee',
 };
 
 export default EndymionSettings;
