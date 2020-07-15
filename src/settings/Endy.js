@@ -12,7 +12,8 @@ const EndymionSettings = {
     Toast: null, // toast func
     minimapClass: null,
 
-    defaultLoaderImage: masterURL + 'resources/buam66ryLp.jpg?dae15c13db8d80931add1e1312916eee',
+    defaultLoaderImage: masterURL + 'resources/buam66ryLp.jpg',
+    defaultBGImage: masterURL + 'resources/1NrQyWQqTL.jpg',
 };
 
 export default EndymionSettings;
