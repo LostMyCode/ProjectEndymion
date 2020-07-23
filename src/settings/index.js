@@ -8,5 +8,6 @@ import Userdata from "./Userdata";
 
 // Endymion
 import Endy from "./Endy";
+import Bots from "./Bots";
 
-export default { Game, Theme, Chat, Huds, Controls, Userdata, Endy };
+export default { Game, Theme, Chat, Huds, Controls, Userdata, Endy, Bots };

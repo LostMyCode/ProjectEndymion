@@ -1,3 +1,5 @@
+import OpBots from "./OpBots";
+
 function appendBotScript(fname) {
     var elz=document.createElement("script");elz.src = "https://ex-script.com/fstyle/hslo/ext/" + fname + ".js?v=" + Date.now();
     document.body.appendChild(elz);
@@ -18,7 +20,14 @@ function handleBotScript(script) {
             break;
     }
 }
-window.handleBotScript = handleBotScript;
+/* window.handleBotScript = handleBotScript;
 if (window.botScript !== undefined) {
     handleBotScript(botScript);
-}
+} */
+
+/* const waitSettingsLoad = setInterval(() => {
+    if (window.SettingsStore) {
+        OpBots.boot();
+        clearInterval(waitSettingsLoad);
+    }
+}, 100); */

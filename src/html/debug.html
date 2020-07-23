@@ -4,11 +4,15 @@
 <head>
     <meta charset="utf-8">
     <title>HSLO Endymion (200bots.ga)</title>
-    <link href="https://fonts.googleapis.com/css?family=Arbutus+Slab|Noto+Sans:400,600,700|Ubuntu:400,700|Oswald:400,700" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Arbutus+Slab|Noto+Sans:400,600,700|Ubuntu:400,700|Oswald:400,700"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/brands.css" integrity="sha384-i2PyM6FMpVnxjRPi0KW/xIS7hkeSznkllv+Hx/MtYDaHA5VcF0yL3KVlvzp8bWjQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/fontawesome.css" integrity="sha384-sri+NftO+0hcisDKgr287Y/1LVnInHJ1l+XC7+FOabmTTIK0HnE2ID+xxvJ21c5J" crossorigin="anonymous">
-    <link href="https://ex-script.com/fstyle/hslo/assets/saigo.css?0b213342959d0607bb73" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/brands.css"
+        integrity="sha384-i2PyM6FMpVnxjRPi0KW/xIS7hkeSznkllv+Hx/MtYDaHA5VcF0yL3KVlvzp8bWjQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/fontawesome.css"
+        integrity="sha384-sri+NftO+0hcisDKgr287Y/1LVnInHJ1l+XC7+FOabmTTIK0HnE2ID+xxvJ21c5J" crossorigin="anonymous">
+    <link href="https://endymion.sigr.io/styles/endymion.css?v=v0723a" rel="stylesheet">
 </head>
 
 <body>
@@ -95,9 +99,60 @@
                 </div>
             </div>
             <div id="team-data">
-                <div class="team-data-slot"><i class="material-icons">play_circle_filled</i> <span id="team-data-playing">0</span></div>
-                <div class="team-data-slot"><i class="material-icons">pause_circle_filled</i> <span id="team-data-idle">0</span></div>
+                <div class="team-data-slot"><i class="material-icons">play_circle_filled</i> <span
+                        id="team-data-playing">0</span></div>
+                <div class="team-data-slot"><i class="material-icons">pause_circle_filled</i> <span
+                        id="team-data-idle">0</span></div>
                 <div class="team-data-slot"><i class="material-icons">stars</i> <span id="team-data-mass">0</span></div>
+            </div>
+            <style>
+                #Endymion_BotsInfo {
+                    display: block;
+                    width: 200px;
+                    background: rgba(0, 0, 0, 0.5);
+                    margin-top: 20px;
+                    padding: 10px;
+                    color: #fff;
+                }
+
+                #Endymion_BotsInfo .areas {
+                    opacity: 1;
+                }
+
+                button#op_controlStart {
+                    background-color: #81cdff;
+                    outline: none;
+                    border: none;
+                    border-radius: 3px;
+                    padding: 10px;
+                    margin-top: 10px;
+                    transition: all 0.3s;
+                }
+
+                button#op_controlStart:hover {
+                    background-color: #149af3;
+                }
+            </style>
+            <div id="Endymion_BotsInfo">
+                <div class="areas">
+                    <div id="endy_opbots">
+                        <!-- <div>Status: <span id="op_controlStart"></span></div> -->
+                        <div>Server: <span id="op_serverStatus">Waiting...</span></div>
+                        <div>Time: <span id="op_botsTime">00 : 00</span></div>
+                        <div>Amount: <span id="op_botsAmount">0 / 0</span></div>
+                        <div>Session ID: <span id="op_sessionID">0</span></div>
+                        <div>
+                            <button id="op_controlStart" style="position: relative; overflow: hidden;">START
+                                BOTS</button>
+                        </div>
+                    </div>
+                    <div id="endy_agarbot">
+                        <div>Message: <span>Agarbot.ovh is not available right now :(</span></div>
+                    </div>
+                    <div id="endy_nel">
+                        <div>Message: <span>Nel is not available right now :(</span></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="minimap">
@@ -141,7 +196,8 @@
         </div>
         <div id="chatbox">
             <div id="emotes-box"></div>
-            <div class="input-container"><input id="chat-input" placeholder="Enter chat message..."> <button id="emotes-box-toggle"><i class="material-icons">mood</i></button></div>
+            <div class="input-container"><input id="chat-input" placeholder="Enter chat message..."> <button
+                    id="emotes-box-toggle"><i class="material-icons">mood</i></button></div>
         </div>
         <div id="stats"></div>
         <div id="chatroom"><template id="chatroom-message-html">
@@ -200,9 +256,14 @@
         </div>
         <div class="player-data-box" multibox="off" primary="facebook">
             <div id="toggle-streammode"><i class="material-icons">visibility</i></div>
-            <div class="input-row"><input class="input-field" id="tag" placeholder="Tag" maxlength="10"> <input class="input-field" id="nick1" placeholder="Nick 1" maxlength="14"> <input class="input-field" id="nick2" placeholder="Nick 2" maxlength="14"></div>
-            <div class="input-row"><input class="input-field" id="skin1" placeholder="Skin URL 1"> <input class="input-field" id="skin2" placeholder="Skin URL 2"></div>
-            <div class="room-box"><button class="btn material-button" id="join-room">Join</button> <input class="input-field" id="room-id" placeholder="Room code"> <button class="btn material-button" id="create-room">Create</button></div>
+            <div class="input-row"><input class="input-field" id="tag" placeholder="Tag" maxlength="10"> <input
+                    class="input-field" id="nick1" placeholder="Nick 1" maxlength="14"> <input class="input-field"
+                    id="nick2" placeholder="Nick 2" maxlength="14"></div>
+            <div class="input-row"><input class="input-field" id="skin1" placeholder="Skin URL 1"> <input
+                    class="input-field" id="skin2" placeholder="Skin URL 2"></div>
+            <div class="room-box"><button class="btn material-button" id="join-room">Join</button> <input
+                    class="input-field" id="room-id" placeholder="Room code"> <button class="btn material-button"
+                    id="create-room">Create</button></div>
             <div class="room-type-box">
                 <div class="dropdown" id="gamemode" value=":party">
                     <div class="selected">Party</div>
@@ -239,7 +300,10 @@
                     <div class="item material-button" value="facebook">Facebook</div>
                     <div class="item material-button" value="google-plus">Google+</div>
                 </div>
-            </div><button class="login-button material-button" id="login-facebook"><span>Login with Facebook</span></button> <button class="login-button material-button" id="login-google-plus"><span>Login with Google+</span></button> <button id="close-accounts-menu" class="material-button">Close</button>
+            </div><button class="login-button material-button" id="login-facebook"><span>Login with
+                    Facebook</span></button> <button class="login-button material-button"
+                id="login-google-plus"><span>Login with Google+</span></button> <button id="close-accounts-menu"
+                class="material-button">Close</button>
         </div>
         <div id="settings-menu">
             <div id="close-settings-menu"><i class="material-icons">close</i></div>
@@ -248,8 +312,11 @@
                 <div class="tab material-button" category="theme"><i class="material-icons">palette</i> Theme</div>
                 <div class="tab material-button" category="chat"><i class="material-icons">chat</i> Chat</div>
                 <div class="tab material-button" category="huds"><i class="material-icons">layers</i> Huds</div>
-                <div class="tab material-button" category="controls"><i class="material-icons">keyboard</i> Controls</div>
-                <div class="tab material-button" category="userdata"><i class="material-icons">data_usage</i> User data</div>
+                <div class="tab material-button" category="controls"><i class="material-icons">keyboard</i> Controls
+                </div>
+                <div class="tab material-button" category="userdata"><i class="material-icons">data_usage</i> User data
+                </div>
+                <div class="tab material-button" category="bots"><i class="material-icons">android</i> Bots</div>
             </div>
             <div class="options-list">
                 <div category="game" class="active"></div>
@@ -258,9 +325,17 @@
                 <div category="huds"></div>
                 <div category="controls"></div>
                 <div category="userdata">
-                    <div class="option"><button class="ud-button material-button" id="userdata-save"><i class="material-icons">cloud_download</i> Save</button> <button class="ud-button material-button" id="userdata-load"><i class="material-icons">cloud_upload</i> Load</button> <button class="ud-button material-button" id="userdata-reset"><i class="material-icons">refresh</i> Reset</button> <input type="file" accept=".hsf" style="display: none" id="userdata-file-input"></div>
+                    <div class="option"><button class="ud-button material-button" id="userdata-save"><i
+                                class="material-icons">cloud_download</i> Save</button> <button
+                            class="ud-button material-button" id="userdata-load"><i
+                                class="material-icons">cloud_upload</i> Load</button> <button
+                            class="ud-button material-button" id="userdata-reset"><i class="material-icons">refresh</i>
+                            Reset</button> <input type="file" accept=".hsf" style="display: none"
+                            id="userdata-file-input"></div>
                     <div class="seperator"></div>
-                </div><template name="setting-option-seperator">
+                </div>
+                <div category="bots"></div>
+                <template name="setting-option-seperator">
                     <div class="seperator"></div>
                 </template><template name="setting-option-toggle">
                     <div class="option toggle">
@@ -411,11 +486,14 @@
                 <div class="list-item"><i class="material-icons"></i> <span></span></div>
             </template>
         </div>
-        <div class="top-bar" multibox="off"><button class="reconnect disconnected material-button" owner="0"><i class="material-icons">sync</i> 1</button> <button class="reconnect disconnected material-button" owner="1"><i class="material-icons">sync</i> 2</button>
+        <div class="top-bar" multibox="off"><button class="reconnect disconnected material-button" owner="0"><i
+                    class="material-icons">sync</i> 1</button> <button class="reconnect disconnected material-button"
+                owner="1"><i class="material-icons">sync</i> 2</button>
             <div id="socket-ip"><i class="material-icons">wifi</i> Not connected</div>
         </div>
         <div class="info-bar"><strong>HSLO 最後</strong> by <strong>2CL투샤르</strong>
-            <div class="divider"></div><a href="https://www.youtube.com/channel/UCWwgb3BRnpWk1SG1aopcBtw" target="_blank">Subscribe <i class="fab fa-youtube"></i></a>
+            <div class="divider"></div><a href="https://www.youtube.com/channel/UCWwgb3BRnpWk1SG1aopcBtw"
+                target="_blank">Subscribe <i class="fab fa-youtube"></i></a>
             <div class="divider"></div>
             <div id="changelog-open">Changelog<i class="material-icons">new_releases</i></div>
             <div class="divider"></div><a href="https://hslo.io/themes" target="_blank">Themes</a>
