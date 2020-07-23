@@ -60,16 +60,18 @@
     opacity: 1;
 }
 
-button#op_controlStart {
+button.startBotsToggle {
     background-color: #81cdff;
     outline: none;
     border: none;
     border-radius: 3px;
     padding: 10px;
     margin-top: 10px;
+    position: relative; 
+    overflow: hidden;
     transition: all 0.3s;
 }
 
-button#op_controlStart:hover {
+button.startBotsToggle:hover {
     background-color: #149af3;
 }
