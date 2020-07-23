@@ -1,5 +1,5 @@
 const config = {
-    "APIKey": "",
+    APIKey: "",
 }
 
 export default class {
@@ -7,6 +7,8 @@ export default class {
         config[key] = value;
     }
     static boot() {
+        if (this.booted) return;
+        this.booted = true;
         const _global = window;
 
         class serverManager {
