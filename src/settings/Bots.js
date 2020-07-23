@@ -1,5 +1,6 @@
 import Endy from "./Endy";
 import OpBots from "../components/OpBots";
+import NelBots from "../components/NelBots";
 
 export default {
     'useBotsToggle': {
@@ -24,7 +25,6 @@ export default {
         '_2CL7d0596c36891967f': 'nel',
         '_2CL850f236ecda2e139': function (label) {
             const panel = document.getElementById("Endymion_BotsInfo");
-            const area = document.getElementById("endy_" + label);
             if (panel) {
                 document.getElementById("endy_nel").style.display = "none";
                 document.getElementById("endy_opbots").style.display = "none";
@@ -34,6 +34,10 @@ export default {
             }
 
             switch (label) {
+                case "nel":
+                    NelBots.boot();
+                    break;
+                    
                 case "opbots":
                     OpBots.boot();
                     break;
@@ -68,18 +72,23 @@ export default {
         '_2CL65dfacb39960c223': 'seperator'
     },
 
+    'NelBotsName': {
+        '_2CL1e22c6e0e181ac56': 'Bots name (nel bots)',
+        '_2CL65dfacb39960c223': 'input',
+        '_2CL7d0596c36891967f': "freebots"
+    },
     'NelBotsAmount': {
-        '_2CL1e22c6e0e181ac56': 'Max amount of nel bots',
+        '_2CL1e22c6e0e181ac56': 'Amount of nel bots',
         '_2CL65dfacb39960c223': 'range',
         '_2CLfc460a790c5a0edf': 1, // min amount
         '_2CL111f1b5b84b5c819': 199, // max amount
         '_2CLe3712e4c0c1f2dfe': 1, // change amount
         '_2CL7d0596c36891967f': 1 // default
     },
-    'NelBotsServerURL': {
+    'NelBotsServer': {
         '_2CL1e22c6e0e181ac56': 'Nel bots server url',
         '_2CL65dfacb39960c223': 'input',
-        '_2CL7d0596c36891967f': "ws://127.0.0.1:8081"
+        '_2CL7d0596c36891967f': "ws://127.0.0.1:8083"
     },
 
     'Seperate_OpBotsDetail': {

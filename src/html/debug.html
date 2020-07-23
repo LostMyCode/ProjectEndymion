@@ -119,17 +119,19 @@
                     opacity: 1;
                 }
 
-                button#op_controlStart {
+                button.startBotsToggle {
                     background-color: #81cdff;
                     outline: none;
                     border: none;
                     border-radius: 3px;
                     padding: 10px;
                     margin-top: 10px;
+                    position: relative; 
+                    overflow: hidden;
                     transition: all 0.3s;
                 }
 
-                button#op_controlStart:hover {
+                button.startBotsToggle:hover {
                     background-color: #149af3;
                 }
             </style>
@@ -137,12 +139,13 @@
                 <div class="areas">
                     <div id="endy_opbots">
                         <!-- <div>Status: <span id="op_controlStart"></span></div> -->
+                        <div>Label: <span>OP-BOTS.COM</span></div>
                         <div>Server: <span id="op_serverStatus">Waiting...</span></div>
                         <div>Time: <span id="op_botsTime">00 : 00</span></div>
                         <div>Amount: <span id="op_botsAmount">0 / 0</span></div>
                         <div>Session ID: <span id="op_sessionID">0</span></div>
                         <div>
-                            <button id="op_controlStart" style="position: relative; overflow: hidden;">START
+                            <button class="startBotsToggle" id="op_controlStart">START
                                 BOTS</button>
                         </div>
                     </div>
@@ -150,7 +153,14 @@
                         <div>Message: <span>Agarbot.ovh is not available right now :(</span></div>
                     </div>
                     <div id="endy_nel">
-                        <div>Message: <span>Nel is not available right now :(</span></div>
+                        <div>Label: <span>Nel Bots</span></div>
+                        <div>Server: <span id="nel_serverStatus">Waiting...</span></div>
+                        <div>Mode: <span id="nel_botsAI">Disabled</span></div>
+                        <div>Amount: <span id="nel_botsAmount">0 / 0 / 0</span></div>
+                        <div>Players: <span id="nel_players">0</span></div>
+                        <div>
+                            <button class="startBotsToggle" id="nel_toggle">Start Bots</button>
+                        </div>
                     </div>
                 </div>
             </div>
