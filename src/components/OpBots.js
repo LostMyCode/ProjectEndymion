@@ -7,7 +7,6 @@ export default class {
         config[key] = value;
     }
     static boot() {
-        const OPBOTS = {}
         const _global = window;
 
         class serverManager {
@@ -43,7 +42,7 @@ export default class {
             }
             connect() {
                 //this.ws = new WebSocket(`ws://${this.wsip}:8000`);
-                _global.gui.changeServerStatus("Connecting...");
+                _global.op_gui.changeServerStatus("Connecting...");
                 window.location.protocol == "https:" ? this.ws = new WebSocket(`wss://${this.wsip}:8001`) : this.ws = new WebSocket(`ws://${this.wsip}:8000`);
                 this.ws.binaryType = "arraybuffer";
                 this.ws.onopen = this.open.bind(this);
@@ -52,10 +51,10 @@ export default class {
                 this.ws.onmessage = this.message.bind(this);
             }
             open() {
-                _global.gui.changeServerStatus("Connected");
+                _global.op_gui.changeServerStatus("Connected");
             }
             close() {
-                _global.gui.changeServerStatus("Disconnected");
+                _global.op_gui.changeServerStatus("Disconnected");
                 this.server = null;
                 this.started = false;
 
@@ -69,7 +68,7 @@ export default class {
                 this.sendData(new Uint8Array([3, 4]));
             }
             message(msg) {
-                msg = _global.inject.normalizeBuffer(msg.data);
+                msg = _global.op_inject.normalizeBuffer(msg.data);
                 let offset = 0;
                 let opcode = msg.getUint8(offset++);
                 switch (opcode) {
@@ -80,15 +79,15 @@ export default class {
                                 this.data.bots = msg.getUint16(offset, true);
                                 offset += 2;
                                 this.data.maxbots = msg.getUint16(offset, true);
-                                _global.gui.changeBotsState(this.data.bots, this.data.maxbots);
+                                _global.op_gui.changeBotsState(this.data.bots, this.data.maxbots);
                                 break;
                             case 2:
                                 this.data.time = msg.getFloat64(offset, true);
-                                _global.gui.changeDateState(this.data.time);
+                                _global.op_gui.changeDateState(this.data.time);
                                 break;
                             case 3:
                                 this.data.sessionID = msg.getFloat64(offset, true);
-                                _global.gui.changeSessionID(this.data.sessionID);
+                                _global.op_gui.changeSessionID(this.data.sessionID);
                                 break;
                         }
                         break;
@@ -106,7 +105,7 @@ export default class {
                             case 0:
                                 this.started = false;
                                 document.getElementById("op_controlStart").innerHTML = "START BOTS";
-                                _global.gui.changeBotsState(0, 0)
+                                _global.op_gui.changeBotsState(0, 0)
                                 break;
                             case 1:
                                 this.started = true;
@@ -236,13 +235,13 @@ export default class {
                     //  console.log(event)
                     switch (event.toLocaleUpperCase()) {
                         case HS.BotSplitHotkey: {
-                            _global.server.sendData(new Uint8Array([3, 1]));
+                            _global.op_server.sendData(new Uint8Array([3, 1]));
                         } break;
                         case HS.BotFeedHotkey: {
-                            _global.server.sendData(new Uint8Array([3, 2]));
+                            _global.op_server.sendData(new Uint8Array([3, 2]));
                         } break;
                         case HS.BotAiHotkey: {
-                            _global.server.sendData(new Uint8Array([3, 3]));
+                            _global.op_server.sendData(new Uint8Array([3, 3]));
                         } break;
                     };
                 });
@@ -266,7 +265,7 @@ export default class {
         class guiHandler {
             constructor() {
                 this.gui = "";
-                _global.server.addController();
+                _global.op_server.addController();
             }
 
             convertTime(time) {
@@ -310,13 +309,12 @@ export default class {
 
         }
 
-        _global.server = new serverManager();
+        _global.op_server = new serverManager();
 
-        _global.inject = new inject();
+        _global.op_inject = new inject();
 
         setTimeout(() => {
-            _global.gui = new guiHandler();
-
+            _global.op_gui = new guiHandler();
             _global.op_keyboard = new keyboardHandler();
         }, 2000);
 
