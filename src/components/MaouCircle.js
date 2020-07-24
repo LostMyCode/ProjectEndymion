@@ -1,11 +1,17 @@
 import Endy from "../settings/Endy";
 
+// images
+import OuterImage from "../assets/hslo_ring.png";
+import InnerImage from "../assets/maou_inner.png";
+
 export default new class MaouCircle {
     constructor() {
         this.outer = new Image();
         this.inner = new Image();
-        this.outer.src = masterURL + "private/hslo_ring.png";
-        this.inner.src = masterURL + "private/maou_inner.png";
+        /* this.outer.src = masterURL + "private/hslo_ring.png";
+        this.inner.src = masterURL + "private/maou_inner.png"; */
+        this.outer.src = OuterImage;
+        this.inner.src = InnerImage;
         this.imageSize = 513;
         this.halfSize = this.imageSize / 2;
 

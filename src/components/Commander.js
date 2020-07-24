@@ -1,14 +1,21 @@
 import Endy from "../settings/Endy";
 
+// images
+import MaouCircle1 from "../assets/maoucircle1.png";
+import MaouCircle2 from "../assets/maoucircle2.png";
+import MaouCircle3 from "../assets/maoucircle3.png";
+
 export default (function () {
 
     const animation = new class Animation {
         constructor() {
+            this.imageUrls = [MaouCircle1, MaouCircle2, MaouCircle3];
             this.images = [new Image(), new Image(), new Image()];
             this.colorFilter = null;
 
             for (let i = 0; i < 3; i++) {
-                this.images[i].src = `${masterURL}resources/maoucircle${i + 1}.png`;
+                // this.images[i].src = `${masterURL}resources/maoucircle${i + 1}.png`;
+                this.images[i].src = this.imageUrls[i];
                 this.images[i].onload = () => {}
             }
 
