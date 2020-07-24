@@ -73,10 +73,10 @@ export default {
     '_2CL7831870038520f30': {
         '_2CL1e22c6e0e181ac56': 'Animation speed',
         '_2CL65dfacb39960c223': 'range',
-        '_2CLfc460a790c5a0edf': 0x1,
-        '_2CL111f1b5b84b5c819': 0xf,
-        '_2CLe3712e4c0c1f2dfe': 0x1,
-        '_2CL7d0596c36891967f': 0xa
+        '_2CLfc460a790c5a0edf': 0x1, // min
+        '_2CL111f1b5b84b5c819': 20, // max
+        '_2CLe3712e4c0c1f2dfe': 0x1, // change amount
+        '_2CL7d0596c36891967f': 0xa // default
     },
     '_2CL551774a986394bd9': {
         '_2CL1e22c6e0e181ac56': 'Cell eat animation',
