@@ -13,11 +13,18 @@ import "./components/BotScriptHandler";
 import makeRbbFrame from "./components/RainbowBorder";
 import particles from "./components/Particles";
 import MaouCircle from "./components/MaouCircle";
+import Commander from "./components/Commander";
 // import "./components/LottieCanvas";
 
 // analytics
 import "./components/Analytics";
-import Commander from "./components/Commander";
+
+// sounds
+import ChatSound from "./assets/chat-message.mp3";
+import NotifSound from "./assets/notification.mp3";
+
+// images
+import ShieldImage from "./assets/shield.png";
 
 'use strict';
 
@@ -51,11 +58,11 @@ const disappearedEntities = new Map();
 
 !Start([EmscHardCoded, , function (aNi, aNj) {
     // commander image
-    aNi.exports = 'https://media.discordapp.net/attachments/603620538455162880/722249628812312606/3BLHQHhoHa.png?3dc6b0def1daca8a8c43ea81e2a1350f';
+    aNi.exports = ShieldImage;
 }, , , , , , , , , , , , function (aNr, aNs) {
-    aNr.exports = GithubPagesURL + 'sounds/notification.mp3';
+    aNr.exports = NotifSound;
 }, function (aNt, aNu) {
-    aNt.exports = GithubPagesURL + 'sounds/chat-message.mp3';
+    aNt.exports = ChatSound;
 }, function (aNv, aNw, aNx) {
 'use strict';aNx.r(aNw);
 var aNN=Loader;
