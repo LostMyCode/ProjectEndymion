@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.1",
+    "css-loader": "^3.6.0",
+    "style-loader": "^1.2.1",
     "whatwg-fetch": "^3.0.0"
   }
 }
