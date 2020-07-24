@@ -1,4 +1,3 @@
-window.masterURL = "https://ex-script.com/fstyle/hslo/"
 const vuiElement = document.createElement("div");
 vuiElement.id = "heybi"
 /* vuiElement.style.display = "none"; */
