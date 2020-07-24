@@ -33,15 +33,17 @@ export default {
                 document.getElementById("endy_" + label).style.display = "block";
             }
 
-            switch (label) {
-                case "nel":
-                    NelBots.boot();
-                    break;
-                    
-                case "opbots":
-                    OpBots.boot();
-                    break;
-            }
+            if (window.SettingsStore.useBotsToggle) {
+                switch (label) {
+                    case "nel":
+                        NelBots.boot();
+                        break;
+                        
+                    case "opbots":
+                        OpBots.boot();
+                        break;
+                }
+            } 
         }
     },
 
