@@ -14,7 +14,39 @@ export default {
             Endy.enableMaouCircle = isEnabled;
         }
     },
-    'Tab3Toggle': {
+    'SpectatorAssist': {
+        '_2CL1e22c6e0e181ac56': 'Spectator assist',
+        '_2CL65dfacb39960c223': 'drop-down',
+        '_2CL362661de726a1fb0': {
+            'none': 'None',
+            'tab3': 'Tab3 (Top1 View)',
+            'fullmap': 'Fullmap View'
+        },
+        '_2CL7d0596c36891967f': 'tab3',
+        '_2CL850f236ecda2e139': function (type) {
+            switch (type) {
+                case "tab3":
+                    if (Endy.enableTab3 !== null) {
+                        Endy.Toast['showToast']('info', 'Tab3', 'You need to reconnect to reflect tab3 settings!');
+                        Endy.Toast['showToast']('info', 'Tab3', 'Tab3 is available only in multibox mode')
+                    }
+                    Endy.enableTab3 = true;
+                    Endy.enableFullmap = false;
+                    break;
+
+                case "fullmap":
+                    if (Endy.enableFullmap !== null) {
+                        Endy.Toast['showToast']('info', 'Fullmap', 'You need to reconnect to reflect fullmap settings!')
+                        Endy.Toast['showToast']('info', 'Fullmap', 'Fullmap is available only in multibox mode')
+                    }
+                    Endy.enableFullmap = true;
+                    Endy.enableTab3 = false;
+                    break;
+            }
+            Endy.specAssistType = type;
+        }
+    },
+    /* 'Tab3Toggle': {
         '_2CL1e22c6e0e181ac56': 'Enable Tab3',
         '_2CL65dfacb39960c223': 'toggle',
         '_2CL7d0596c36891967f': 0x1,
@@ -42,7 +74,7 @@ export default {
             else if (Endy.exTabCount == 15 && Endy.enableTab3) Endy.exTabCount = 1;
             else if (Endy.exTabCount == 15 && !Endy.enableTab3) Endy.exTabCount = 0;
         }
-    },
+    }, */
     'HSLOCircleOnlyMeToggle': {
         '_2CL1e22c6e0e181ac56': 'HSLO Circle for own cells only',
         '_2CL65dfacb39960c223': 'toggle',

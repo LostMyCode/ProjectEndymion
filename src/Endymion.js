@@ -237,18 +237,18 @@ var aWe=new(function(){function aWg(){_classCallCheck(this,aWg);}_createClass(aW
     aT1._2CL0ace867fb8fdbdd5(aNv);
 
     if (
-        (Settings.Endy.enableTab3 || Settings.Endy.enableFullmap) && 
+        Settings.Endy.specAssistType != "none" && 
         aNv > 1 && 
         document.getElementById("gamemode").value == ":party"
     ) {
-        if (Settings.Endy.exTabCount == 15) {
+        if (Settings.Endy.specAssistType == "fullmap") {
             setTimeout(() => {
                 aT1.sendSpectatePacket(aNv)
                 aT1.switchSpectateMode(aNv)
                 aT1.sendMovePacket(spectatePoints[aNv - 2].x, spectatePoints[aNv - 2].y, aNv)
             }, 1000);
         }
-        if (Settings.Endy.exTabCount == 1) {
+        else { // spectate top1
             setTimeout(() => {
                 aT1.sendSpectatePacket(2)
             }, 1000)
@@ -416,8 +416,8 @@ for (let i = 0; i < 15; i++) {
 /* this._2CL91cf1e039f1b751e(2), */
 b0l._2CLada370f97d905f76();}},{'key':'_2CL91cf1e039f1b751e','value':function _2CL91cf1e039f1b751e(aNv){var b1d=this;if(this._2CLe84ab877dd8d6d4e(aNv),aRV._2CL0a0dbaaacf7f9729(aNv),!aY0._2CLeb21482a8346145a&&aNv!==aXI._2CL46e2b32c63641c78())return;
 window.encKey = 0;
-if (!Settings.Endy.enableFullmap && aNv > 2) return;
-if (!Settings.Endy.enableTab3 && !Settings.Endy.exTabCount && aNv == 2) return;
+if (Settings.Endy.specAssistType != "fullmap" && aNv > 2) return;
+if (Settings.Endy.specAssistType == "none" && aNv == 2) return;
 if ([0, 1].includes(aNv) && boxSize[aNv].ids.length > 0) {
     boxSize[aNv].ids = [];
     boxSize[aNv].xPosArray = [];

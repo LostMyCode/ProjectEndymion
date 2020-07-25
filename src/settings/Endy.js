@@ -5,6 +5,7 @@ const EndymionSettings = {
     enableFullmap: null, // init null
     enableTab3: null,
     exTabCount: 0,
+    specAssistType: "none",
     enableMaouCircle: false,
     HSLOCircleForOnlyMe: false,
     enableRainbowBorder: false,
