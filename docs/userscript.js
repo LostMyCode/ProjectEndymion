@@ -34,7 +34,7 @@ const HSLO = new class {
 
     fetch() {
         const request = new XMLHttpRequest();
-        request.open(this.method, this.URL, true);
+        request.open(this.method, this.URL + "?date=" + this.date, true);
         request.onload = () => {
             this.HTML = request.responseText;
             this.write();
