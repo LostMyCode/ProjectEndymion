@@ -25,7 +25,7 @@ export default {
             else
                 document.getElementById("Endymion_BotsInfo").style.display = "none";
 
-            bootBots(window.SettingsStore.BotTypeSelector);
+            isEnabled && bootBots(window.SettingsStore.BotTypeSelector);
         }
     },
     'BotTypeSelector': {
