@@ -2,6 +2,18 @@ import Endy from "./Endy";
 import OpBots from "../components/OpBots";
 import NelBots from "../components/NelBots";
 
+function bootBots(label) {
+    switch (label) {
+        case "nel":
+            NelBots.boot();
+            break;
+
+        case "opbots":
+            OpBots.boot();
+            break;
+    }
+}
+
 export default {
     'useBotsToggle': {
         '_2CL1e22c6e0e181ac56': 'Enable bots',
@@ -12,6 +24,8 @@ export default {
                 document.getElementById("Endymion_BotsInfo").style.display = "block";
             else
                 document.getElementById("Endymion_BotsInfo").style.display = "none";
+
+            bootBots(window.SettingsStore.BotTypeSelector);
         }
     },
     'BotTypeSelector': {
@@ -33,17 +47,7 @@ export default {
                 document.getElementById("endy_" + label).style.display = "block";
             }
 
-            if (window.SettingsStore.useBotsToggle) {
-                switch (label) {
-                    case "nel":
-                        NelBots.boot();
-                        break;
-                        
-                    case "opbots":
-                        OpBots.boot();
-                        break;
-                }
-            } 
+            if (window.SettingsStore.useBotsToggle) bootBots(label);
         }
     },
 
