@@ -6,14 +6,41 @@ export default {
         '_2CL65dfacb39960c223': 'toggle',
         '_2CL7d0596c36891967f': !0x1
     },
-    'HSLOCircleToggle': {
+    'MaouCircleSelect': {
+        '_2CL1e22c6e0e181ac56': 'Maou circle',
+        '_2CL65dfacb39960c223': 'drop-down',
+        '_2CL362661de726a1fb0': {
+            'none': 'None',
+            'everyone': 'Everyone',
+            'onlyme': 'Only Me'
+        },
+        '_2CL7d0596c36891967f': 'none',
+        '_2CL850f236ecda2e139': function (type) {
+            switch (type) {
+                case "none":
+                    Endy.enableMaouCircle = false;
+                    break;
+
+                case "everyone":
+                    Endy.enableMaouCircle = true;
+                    Endy.HSLOCircleForOnlyMe = false;
+                    break;
+
+                case "onlyme":
+                    Endy.enableMaouCircle = true;
+                    Endy.HSLOCircleForOnlyMe = true;
+                    break;
+            }
+        }
+    },
+    /* 'HSLOCircleToggle': {
         '_2CL1e22c6e0e181ac56': 'HSLO Maou Circle',
         '_2CL65dfacb39960c223': 'toggle',
         '_2CL7d0596c36891967f': !0x1,
         '_2CL850f236ecda2e139': function (isEnabled) {
             Endy.enableMaouCircle = isEnabled;
         }
-    },
+    }, */
     'SpectatorAssist': {
         '_2CL1e22c6e0e181ac56': 'Spectator assist',
         '_2CL65dfacb39960c223': 'drop-down',
@@ -75,14 +102,14 @@ export default {
             else if (Endy.exTabCount == 15 && !Endy.enableTab3) Endy.exTabCount = 0;
         }
     }, */
-    'HSLOCircleOnlyMeToggle': {
+    /* 'HSLOCircleOnlyMeToggle': {
         '_2CL1e22c6e0e181ac56': 'HSLO Circle for own cells only',
         '_2CL65dfacb39960c223': 'toggle',
         '_2CL7d0596c36891967f': !0x1,
         '_2CL850f236ecda2e139': function (isEnabled) {
             Endy.HSLOCircleForOnlyMe = isEnabled;
         }
-    },
+    }, */
     '_2CLf0303ecc871fa1cf': {
         '_2CL1e22c6e0e181ac56': 'Zoom speed',
         '_2CL65dfacb39960c223': 'range',
