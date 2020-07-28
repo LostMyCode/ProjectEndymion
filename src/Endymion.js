@@ -525,14 +525,14 @@ var aZ7 = new(function () {
     }, {
         'key': '_2CL8ee793f3ce78ebf5',
         'value': function _2CL8ee793f3ce78ebf5(aNv) {
-            var aNw = aNv.getUint16(),
-                aNx = aNv.getUint8(),
-                aNy = aNv.getUint8(),
+            var playerId = aNv.getUint16(),
+                tabId = aNv.getUint8(),
+                msgType = aNv.getUint8(),
                 message = aNv._2CL9f86d97a7bdf1abb();
-            if (message.includes("ryuten.io")) {
+            /* if (message.includes("ryuten.io")) {
                 return console.log("[test114514] Advertisement messsage from saigo blocked");
-            }
-            aYv._2CL8ee793f3ce78ebf5(aNw, aNx, aNy, message);
+            } */
+            aYv._2CL8ee793f3ce78ebf5(playerId, tabId, msgType, message);
         }
     }, {
         'key': '_2CLe50ece9570a295f9',
