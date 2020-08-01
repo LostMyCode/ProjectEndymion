@@ -1,6 +1,7 @@
 import Endy from "./Endy";
 import OpBots from "../components/OpBots";
 import NelBots from "../components/NelBots";
+import MoreBots from "../components/MoreBots";
 
 function bootBots(label) {
     switch (label) {
@@ -11,6 +12,12 @@ function bootBots(label) {
         case "opbots":
             OpBots.boot();
             break;
+
+        case "agarbot":
+        case "morebots":
+            MoreBots.boot();
+            break;
+
     }
 }
 
@@ -25,7 +32,12 @@ export default {
             else
                 document.getElementById("Endymion_BotsInfo").style.display = "none";
 
-            isEnabled && bootBots(window.SettingsStore.BotTypeSelector);
+            /* 
+                off -> on
+            */
+            isEnabled && setTimeout(() => {
+                bootBots(window.SettingsStore.BotTypeSelector)
+            }, 200);
         }
     },
     'BotTypeSelector': {
@@ -34,7 +46,8 @@ export default {
         '_2CL362661de726a1fb0': {
             'nel': 'Nel (freebots)',
             'opbots': 'OP-BOTS.COM',
-            'agarbot': 'AGARBOT.OVH'
+            'agarbot': 'AGARBOT.OVH',
+            'morebots': 'MoreBots.OVH'
         },
         '_2CL7d0596c36891967f': 'nel',
         '_2CL850f236ecda2e139': function (label) {
@@ -44,6 +57,12 @@ export default {
                 document.getElementById("endy_opbots").style.display = "none";
                 document.getElementById("endy_agarbot").style.display = "none";
 
+                if (label == "agarbot") 
+                    document.getElementById("ab_label").innerHTML = "AgarBot.OVH";
+                if (label == "morebots") 
+                    label = "agarbot",
+                    document.getElementById("ab_label").innerHTML = "MoreBots.OVH";
+                    
                 document.getElementById("endy_" + label).style.display = "block";
             }
 
