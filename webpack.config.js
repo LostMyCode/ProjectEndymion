@@ -65,14 +65,5 @@ module.exports = (env, options) => {
         }
     };
 
-    const userscriptConfig = {
-        entry: ['./src/userscript.js'],
-        mode,
-        output: {
-            path: __dirname + '/docs',
-            filename: 'userscript.js'
-        }
-    }
-
-    return mode == "production" ? [config, userscriptConfig] : config;
+    return config;
 }
