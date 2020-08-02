@@ -5,7 +5,7 @@ module.exports = (env, options) => {
     const mode = options.mode || 'development'
     const masterURL = mode == 'production' ? 'https://hslo.sigr.io/' : 'http://127.0.0.1:5500/dist/'
 
-    const config =  {
+    const config = {
         devtool: mode == "development" ? "#source-map" : "",
         entry: ['./src/index.js'],
         mode,
@@ -65,5 +65,14 @@ module.exports = (env, options) => {
         }
     };
 
-    return config;
+    const userscriptConfig = {
+        entry: ['./src/userscript.js'],
+        mode,
+        output: {
+            path: __dirname + '/docs',
+            filename: 'userscript.js'
+        }
+    }
+
+    return mode == "production" ? [config, userscriptConfig] : config;
 }
