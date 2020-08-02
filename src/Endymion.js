@@ -6,9 +6,6 @@ import Settings from "./settings";
 import ChangeLog from "./components/ChangeLog";
 import Loader from "./components/Loader";
 
-// bots
-import "./components/BotScriptHandler";
-
 // deco
 import makeRbbFrame from "./components/RainbowBorder";
 import particles from "./components/Particles";
