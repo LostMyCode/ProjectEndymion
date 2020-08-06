@@ -155,7 +155,7 @@ export default class {
                         //Connected Bot count = getUint8(1)
                         //Spawned Bot count = getUint8(2)
                         //Server player amount = getUint8(3)
-                        $('#nel_botsAmount').html(`${dataView.getUint8(1)}/${dataView.getUint8(2)}/${bots.amount}`)
+                        $('#nel_botsAmount').html(`${dataView.getUint8(1)}/${dataView.getUint8(2)}/${HS.NelBotsAmount}`)
                         // $('#slots').html(dataView.getUint8(3) + "/200")
                         break;
                     case 5:
