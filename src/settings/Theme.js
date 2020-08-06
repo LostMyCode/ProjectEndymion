@@ -69,6 +69,14 @@ export default {
             Commander.changeColor(color);
         }
     },
+    'CellShadow': {
+        '_2CL1e22c6e0e181ac56': 'Cell shadow',
+        '_2CL65dfacb39960c223': 'toggle',
+        '_2CL7d0596c36891967f': !0x1,
+        '_2CL850f236ecda2e139': function (isEnabled) {
+            Endy.enableCellShadow = isEnabled;
+        }
+    },
     '_2CL0dc5bfdd8ae1fa9f': {
         '_2CL65dfacb39960c223': 'seperator'
     },

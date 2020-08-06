@@ -18,6 +18,8 @@ const EndymionSettings = {
 
     defaultLoaderImage: LoaderBG,
     defaultBGImage: ArenaBG,
+
+    enableCellShadow: false,
 };
 
 export default EndymionSettings;
