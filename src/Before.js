@@ -1,4 +1,25 @@
-console.info("[test114514] HSLO Endymion v4.1a");
+const VERSION = "v4.2a";
+
+// sai hi
+if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+    const args = [
+        `\n %c %c %c HSLO Endymion ${VERSION}  %c  %c  https://dc.sigr.io/  %c %c ♥%c♥%c♥ \n\n`,
+        'background: #ff66a5; padding:5px 0;',
+        'background: #ff66a5; padding:5px 0;',
+        'color: #ff66a5; background: #030307; padding:5px 0;',
+        'background: #ff66a5; padding:5px 0;',
+        'background: #ffc3dc; padding:5px 0;',
+        'background: #ff66a5; padding:5px 0;',
+        'color: #ff2424; background: #fff; padding:5px 0;',
+        'color: #ff2424; background: #fff; padding:5px 0;',
+        'color: #ff2424; background: #fff; padding:5px 0;',
+    ];
+
+    window.console.log.apply(console, args);
+}
+else if (window.console) {
+    console.log("[test114514] HSLO Endymion", VERSION);
+}
 
 window.masterURL = "https://hslo.sigr.io/";
 
@@ -29,7 +50,7 @@ CRC2D_Prototype.drawImage = function() {
     }
 } */
 
-console.lazy = function() {
+console.lazy = function () {
     this.lastTime = this.lastTime || Date.now();
     if (Date.now() - this.lastTime > 1000) {
         this.log.apply(null, arguments);
