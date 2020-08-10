@@ -122,6 +122,7 @@ export default class {
                 document.getElementById('nel_serverStatus').style.color = '#00C02E'
                 document.getElementById('nel_serverStatus').innerText = 'Connected'
                 document.getElementById('nel_toggle').disabled = false
+                document.getElementById('nel_toggle').innerText = 'Start Bots'
                 window.recaptchaExecuteLoop();
             },
             sendToken(token) {

@@ -830,9 +830,9 @@ var b5R=function(){function b5R(aNv){_classCallCheck(this,b5R);var aNw=document.
     var aNv=aXI._2CL46e2b32c63641c78();
     b3Y._2CL158c6b3b1c965555=aNv,
     aT1.sendSpectatePacket(aNv);
-    /* window.panapp = function() {
+    window.panapp = function() {
         aT1.switchSpectateMode(aNv);
-    } */
+    }
 }},{'key':'sendMovePacket','value':function sendMovePacket(){var aNv=arguments.length>0x0&&arguments[0x0]!==undefined?arguments[0x0]:b3Y._2CL158c6b3b1c965555;if(b3Y._2CL3067dea24cc298e4){if(b3Y._2CL32137922dbdb3ee5()){var bbN=b3Y._2CL6d34b6d49ffda54c[aNv];aT1.sendMovePacket(bbN._2CL8725029ea89712ee,bbN._2CL36a4dc9ccf2bdc09,aNv);}else aT1.sendMovePacket(aSL._2CL8725029ea89712ee,aSL._2CL36a4dc9ccf2bdc09,0x0);}else{var bbO=bcc.sendMovePacket._2CL8725029ea89712ee,bbP=bcc.sendMovePacket._2CL36a4dc9ccf2bdc09,bbQ=(bbO-(window.innerWidth>>0x1))/aSL._2CL7f272a4f358d5b70+aSL._2CL8725029ea89712ee,bbR=(bbP-(window.innerHeight>>0x1))/aSL._2CL7f272a4f358d5b70+aSL._2CL36a4dc9ccf2bdc09;
 // xPos and yPos
 window.playerPos = {x: bbQ, y:bbR};
