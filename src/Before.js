@@ -1,3 +1,5 @@
+import webpackRequire from "./webpackRequire.js";
+
 const VERSION = "v4.2a";
 
 // sai hi
@@ -20,6 +22,8 @@ if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
 else if (window.console) {
     console.log("[test114514] HSLO Endymion", VERSION);
 }
+
+window.require = webpackRequire;
 
 window.masterURL = "https://hslo.sigr.io/";
 
