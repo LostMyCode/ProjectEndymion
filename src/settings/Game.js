@@ -52,6 +52,11 @@ export default {
         '_2CL7d0596c36891967f': 'tab3',
         '_2CL850f236ecda2e139': function (type) {
             switch (type) {
+                case "none":
+                    Endy.enableFullmap = false;
+                    Endy.enableTab3 = false;
+                    break;
+                    
                 case "tab3":
                     if (Endy.enableTab3 !== null) {
                         Endy.Toast['showToast']('info', 'Tab3', 'You need to reconnect to reflect tab3 settings!');
