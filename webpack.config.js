@@ -1,13 +1,16 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require("path");
+
+const srcDir = path.resolve(__dirname, "src");
 
 module.exports = (env, options) => {
     const mode = options.mode || 'development'
-    const masterURL = mode == 'production' ? 'https://hslo.sigr.io/' : 'http://127.0.0.1:5500/dist/'
+    const masterURL = mode == 'production' ? '/' : './' // you can just open that normally 
 
     const config = {
         devtool: mode == "development" ? "#source-map" : "",
-        entry: ['./src/index.js'],
+        entry: [path.resolve(srcDir, "index.js")],
         mode,
         output: {
             path: mode == "production" ? __dirname + '/docs' : __dirname + '/dist',
@@ -55,7 +58,7 @@ module.exports = (env, options) => {
                 filename: "assets/endymion.css?[hash]",
             }),
             new HtmlWebpackPlugin({
-                template: mode == "production" ? "./src/html/index.html" : "./src/html/debug.html",
+                template: mode == "production" ? path.resolve(srcDir, "html", "index.html") : path.resolve(srcDir, "html, "debug.html"), // why not ejs
                 filename: "index.html",
             })
         ],
