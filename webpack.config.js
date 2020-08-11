@@ -13,7 +13,7 @@ module.exports = (env, options) => {
         entry: [path.resolve(srcDir, "index.js")],
         mode,
         output: {
-            path: mode == "production" ? __dirname + '/docs' : __dirname + '/dist',
+            path: path.resolve(__dirname, mode == "production" ? 'docs' : 'dist'),
             filename: 'Endymion.pack.js?[hash]',
             publicPath: masterURL
         },
