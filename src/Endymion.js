@@ -23,6 +23,9 @@ import NotifSound from "./assets/notification.mp3";
 // images
 import ShieldImage from "./assets/shield.png";
 
+// additional
+import "./components/Information.js";
+
 'use strict';
 
 var myTurn = false;
