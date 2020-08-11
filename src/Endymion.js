@@ -84,6 +84,9 @@ const spectatePoints = []; // length 16
     }
 })();
 
+/* spectator assist mode cache */
+let currentAssistMode = "none";
+
 var aPw=Settings.Game;
 var aPx=Settings.Theme;
 var aPA=Settings.Chat;
@@ -572,6 +575,7 @@ b0l._2CLada370f97d905f76();}},{'key':'_2CL91cf1e039f1b751e','value':function _2C
 window.encKey = 0;
 if (Settings.Endy.specAssistType != "fullmap" && aNv > 2) return;
 if (Settings.Endy.specAssistType == "none" && aNv == 2) return;
+if (currentAssistMode != Settings.Endy.specAssistType) currentAssistMode = Settings.Endy.specAssistType;
 if ([0, 1].includes(aNv) && boxSize[aNv].ids.length > 0) {
     boxSize[aNv].ids = [];
     boxSize[aNv].xPosArray = [];
@@ -1032,7 +1036,8 @@ if (faded) {
 }
 
 if (
-    Settings.Endy.enableFullmap && 
+    /* Settings.Endy.enableFullmap &&  */
+    currentAssistMode == "fullmap" &&
     tabId < 2 && !isMe // dont use tab0,1 view
     /* tabId > 1 && 
     inurArea(
