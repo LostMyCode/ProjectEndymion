@@ -1,4 +1,4 @@
-export default function browserRequire(module) {
+export default function webpackRequire(module) {
 	if (module.startsWith("./")) { // dumb
 		return require(`./${module.slice(2)}`);
 	}/* else if(module.startsWith("../")) {
