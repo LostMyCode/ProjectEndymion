@@ -898,10 +898,16 @@ var bgX=new(function(){function bgY(){_classCallCheck(this,bgY);this._2CL32df537
 let foodAmount = b2u._2CL986d79226a8f4718.length;
 var aNw=Math.min(0x12c,foodAmount),aNx=bgX._2CL12298acfaf2e57e9,aNy=bgX._2CLf4ad84629c622f05(aNx*aSL._2CL7f272a4f358d5b70|0x0);
 // draw foods (if food glow is enabled)
+const fullMapMode = Settings.Endy.enableFullmap;
+// console.lazy(b2u._2CL986d79226a8f4718) //_2CL92d469f1ec77294c
+
 if (!Settings.Endy.enableFoodDrawLimit) aNw = foodAmount;
 
-for(var bhf=0x0;bhf<aNw | 0; bhf = (bhf + 1) | 0){
+for(var bhf=0; bhf<aNw | 0; bhf = (bhf + 1) | 0){
     var bhg=b2u._2CL986d79226a8f4718[bhf];
+
+    if (fullMapMode && bhg._2CL92d469f1ec77294c < 2) continue;
+
     let foodX = bhg._2CL8725029ea89712ee-(aNx>>0x1),
         foodY = bhg._2CL36a4dc9ccf2bdc09-(aNx>>0x1);
     /* if (
@@ -1027,12 +1033,13 @@ if (faded) {
 
 if (
     Settings.Endy.enableFullmap && 
-    tabId > 1 && 
+    tabId < 2 && !isMe // dont use tab0,1 view
+    /* tabId > 1 && 
     inurArea(
         tabId,
         x,
         y
-    )
+    ) */
 ) {
     return;
 }
