@@ -58,7 +58,7 @@ module.exports = (env, options) => {
                 filename: "assets/endymion.css?[hash]",
             }),
             new HtmlWebpackPlugin({
-                template: mode == "production" ? path.resolve(srcDir, "html", "index.html") : path.resolve(srcDir, "html, "debug.html"), // why not ejs
+                template: path.resolve(srcDir, "html", mode == "production" ? "index.html" : "debug.html"), // why not ejs
                 filename: "index.html",
             })
         ],
