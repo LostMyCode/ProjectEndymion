@@ -1,45 +1,47 @@
 var aU8 = class {
     constructor(aNv) {
-        this._2CL9b410cc0963f1c6e = new DataView(aNv), this._2CL7bbbf1b0f1d3401d = 0x0, this._2CL9152decf80258bb3 = aNv.byteLength;
+        this.dataView = new DataView(aNv);
+        this.index = 0x0;
+        this.maxIndex = aNv.byteLength;
     }
     static _2CLcf339f95dc981425(aNv) {
         return decodeURIComponent(escape(aNv));
     }
     getUint8() {
-        var aNv = this._2CL9b410cc0963f1c6e.getUint8(this._2CL7bbbf1b0f1d3401d, !0x0);
-        return this._2CL7bbbf1b0f1d3401d += 0x1, aNv;
+        var aNv = this.dataView.getUint8(this.index, !0x0);
+        return this.index += 0x1, aNv;
     }
-    _2CLdb612640e6cc8bc3() {
-        var aNv = this._2CL9b410cc0963f1c6e.getInt8(this._2CL7bbbf1b0f1d3401d, !0x0);
-        return this._2CL7bbbf1b0f1d3401d += 0x1, aNv;
+    getInt8() {
+        var aNv = this.dataView.getInt8(this.index, !0x0);
+        return this.index += 0x1, aNv;
     }
     getUint16() {
-        var aNv = this._2CL9b410cc0963f1c6e.getUint16(this._2CL7bbbf1b0f1d3401d, !0x0);
-        return this._2CL7bbbf1b0f1d3401d += 0x2, aNv;
+        var aNv = this.dataView.getUint16(this.index, !0x0);
+        return this.index += 0x2, aNv;
     }
     getInt16() {
-        var aNv = this._2CL9b410cc0963f1c6e.getInt16(this._2CL7bbbf1b0f1d3401d, !0x0);
-        return this._2CL7bbbf1b0f1d3401d += 0x2, aNv;
+        var aNv = this.dataView.getInt16(this.index, !0x0);
+        return this.index += 0x2, aNv;
     }
     getUint32() {
-        var aNv = this._2CL9b410cc0963f1c6e.getUint32(this._2CL7bbbf1b0f1d3401d, !0x0);
-        return this._2CL7bbbf1b0f1d3401d += 0x4, aNv;
+        var aNv = this.dataView.getUint32(this.index, !0x0);
+        return this.index += 0x4, aNv;
     }
     getInt32() {
-        var aNv = this._2CL9b410cc0963f1c6e.getInt32(this._2CL7bbbf1b0f1d3401d, !0x0);
-        return this._2CL7bbbf1b0f1d3401d += 0x4, aNv;
+        var aNv = this.dataView.getInt32(this.index, !0x0);
+        return this.index += 0x4, aNv;
     }
     getFloat32() {
-        var aNv = this._2CL9b410cc0963f1c6e.getFloat32(this._2CL7bbbf1b0f1d3401d, !0x0);
-        return this._2CL7bbbf1b0f1d3401d += 0x4, aNv;
+        var aNv = this.dataView.getFloat32(this.index, !0x0);
+        return this.index += 0x4, aNv;
     }
     getFloat64() {
-        var aNv = this._2CL9b410cc0963f1c6e.getFloat64(this._2CL7bbbf1b0f1d3401d, !0x0);
-        return this._2CL7bbbf1b0f1d3401d += 0x8, aNv;
+        var aNv = this.dataView.getFloat64(this.index, !0x0);
+        return this.index += 0x8, aNv;
     }
     _2CLeb1055518b4a5161() {
         var aNv = 0x0;
-        for (; !this._2CLb6dd55c2d46c5c9e;) {
+        for (; !this.endOfBuffer;) {
             var aUk = this.getUint8();
             if (aNv = aNv << 0x7 | 0x7f & aUk, !(0x80 & aUk)) break;
         }
@@ -53,9 +55,9 @@ var aU8 = class {
         }
         return aNw;
     }
-    _2CL34ff01b86073eaba() {
+    readUTF8string() {
         var aNv = '';
-        for (; !this._2CLb6dd55c2d46c5c9e;) {
+        for (; !this.endOfBuffer;) {
             var aUq = this.getUint8();
             if (0x0 === aUq) break;
             aNv += String.fromCharCode(aUq);
@@ -73,7 +75,7 @@ var aU8 = class {
     }
     _2CL167df624e7ef157b() {
         var aNv = '';
-        for (; !this._2CLb6dd55c2d46c5c9e;) {
+        for (; !this.endOfBuffer;) {
             var aUw = this.getUint16();
             if (0x0 === aUw) break;
             aNv += String.fromCharCode(aUw);
@@ -82,9 +84,9 @@ var aU8 = class {
     }
     _2CLa558945aac881300() {
         var aNv = this.getUint32(),
-            aNw = new Uint8Array(this._2CL9b410cc0963f1c6e.buffer),
+            aNw = new Uint8Array(this.dataView.buffer),
             aNx = new Uint8Array(aNv);
-        this._2CLd5e8e1e5db552484(aNw, aNx, 0x5), this._2CL9b410cc0963f1c6e = new DataView(aNx.buffer), this._2CL7bbbf1b0f1d3401d = 0x0, this._2CL9152decf80258bb3 = aNv;
+        this._2CLd5e8e1e5db552484(aNw, aNx, 0x5), this.dataView = new DataView(aNx.buffer), this.index = 0x0, this.maxIndex = aNv;
     }
     _2CLd5e8e1e5db552484(aNv, aNw, aNx, aNy) {
         aNx = aNx || 0x0, aNy = aNy || aNv.length - aNx;
@@ -119,8 +121,8 @@ var aU8 = class {
         }
         return aNA;
     }
-    get _2CLb6dd55c2d46c5c9e() {
-        return this._2CL7bbbf1b0f1d3401d >= this._2CL9152decf80258bb3;
+    get endOfBuffer() {
+        return this.index >= this.maxIndex;
     }
 }
 

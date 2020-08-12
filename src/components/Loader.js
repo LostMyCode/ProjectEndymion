@@ -28,7 +28,7 @@ var aNA = function () {
         this._2CL1ef101f9a0c03f9d = 0x0;
         this._2CL99f366efebead96d = 0x0;
         this._2CL79d47d8ac85b4c42 = 0x0;
-        this._2CLccc113ff0f46e31c();
+        this._init_hatena();
         this._2CL26c6da77d5462ba8 = window.innerWidth * Math.random();
         this._2CL516d2a3ba155227c = window.innerHeight * Math.random();
         this._2CL1ef101f9a0c03f9d += 0x4e20 * (Math.random() - 0.5);
@@ -36,7 +36,7 @@ var aNA = function () {
     _createClass(aNA, [{
         'key': '_2CLb732806230c52119',
         'value': function _2CLb732806230c52119() {
-            this._2CL60d7edcba9f2248b() && this._2CLccc113ff0f46e31c();
+            this._2CL60d7edcba9f2248b() && this._init_hatena();
             var aNv = Date.now(),
                 aNw = 0x1e * (0.1 + 0.9 * this._2CL9530bc8f94fc32a9),
                 aNx = aNv - this._2CL1ef101f9a0c03f9d;
@@ -52,8 +52,8 @@ var aNA = function () {
             return this._2CL8725029ea89712ee < 0x0 || this._2CL36a4dc9ccf2bdc09 < 0x0;
         }
     }, {
-        'key': '_2CLccc113ff0f46e31c',
-        'value': function _2CLccc113ff0f46e31c() {
+        'key': '_init_hatena',
+        'value': function _init_hatena() {
             var aNv = window.innerHeight / aNz;
             this._2CL26c6da77d5462ba8 = (aNv + window.innerWidth) * Math.random(), this._2CL516d2a3ba155227c = window.innerHeight + 0.25 * window.innerHeight * Math.random(), this._2CL9530bc8f94fc32a9 = Math.random(), this._2CLd33d3f60bb918a22 = 2.4 + 0.7 * this._2CL9530bc8f94fc32a9 * 0x8, this._2CL659907fefaeeb24a = 0.2 + 0.8 * this._2CL9530bc8f94fc32a9, this._2CL1ef101f9a0c03f9d = Date.now(), this._2CL99f366efebead96d = 0x1388 + 0x2710 * Math.random(), this._2CL79d47d8ac85b4c42 = 0xa + 0x14 * Math.random();
         }
