@@ -20,8 +20,8 @@ var aNA = function () {
         _classCallCheck(this, aNA);
         this._2CL26c6da77d5462ba8 = 0x0;
         this._2CL516d2a3ba155227c = 0x0;
-        this._2CL8725029ea89712ee = 0x0;
-        this._2CL36a4dc9ccf2bdc09 = 0x0;
+        this.xPos_kamo = 0x0;
+        this.yPos_kamo = 0x0;
         this._2CL9530bc8f94fc32a9 = 0x0;
         this._2CLd33d3f60bb918a22 = 0x0;
         this._2CL659907fefaeeb24a = 0x0;
@@ -40,16 +40,16 @@ var aNA = function () {
             var aNv = Date.now(),
                 aNw = 0x1e * (0.1 + 0.9 * this._2CL9530bc8f94fc32a9),
                 aNx = aNv - this._2CL1ef101f9a0c03f9d;
-            this._2CL8725029ea89712ee = this._2CL26c6da77d5462ba8 + Math.cos(aNy) * aNw * aNx / 0x3e8, this._2CL36a4dc9ccf2bdc09 = this._2CL516d2a3ba155227c + Math.sin(aNy) * aNw * aNx / 0x3e8;
+            this.xPos_kamo = this._2CL26c6da77d5462ba8 + Math.cos(aNy) * aNw * aNx / 0x3e8, this.yPos_kamo = this._2CL516d2a3ba155227c + Math.sin(aNy) * aNw * aNx / 0x3e8;
             var aNz = 0x2 * Math.PI * (aNx % this._2CL99f366efebead96d) / this._2CL99f366efebead96d,
                 aNA = this._2CL79d47d8ac85b4c42 * Math.cos(aNz),
                 aNH = this._2CL79d47d8ac85b4c42 * Math.sin(aNz);
-            this._2CL8725029ea89712ee += aNA * this._2CL9530bc8f94fc32a9, this._2CL36a4dc9ccf2bdc09 += aNH * this._2CL9530bc8f94fc32a9;
+            this.xPos_kamo += aNA * this._2CL9530bc8f94fc32a9, this.yPos_kamo += aNH * this._2CL9530bc8f94fc32a9;
         }
     }, {
         'key': '_2CL60d7edcba9f2248b',
         'value': function _2CL60d7edcba9f2248b() {
-            return this._2CL8725029ea89712ee < 0x0 || this._2CL36a4dc9ccf2bdc09 < 0x0;
+            return this.xPos_kamo < 0x0 || this.yPos_kamo < 0x0;
         }
     }, {
         'key': '_init_hatena',
@@ -140,7 +140,7 @@ export default new (function () {
             try {
                 for (var aO0 = this.orbEntities[Symbol.iterator](), aO1; !(aNX = (aO1 = aO0.next())['done']); aNX = !![]) {
                     var aO2 = aO1.value;
-                    aO2._2CLb732806230c52119(), aNv.globalAlpha = aO2._2CL659907fefaeeb24a, aNv.drawImage(aNM, aO2._2CL8725029ea89712ee - aO2._2CLd33d3f60bb918a22, aO2._2CL36a4dc9ccf2bdc09 - aO2._2CLd33d3f60bb918a22, 0x2 * aO2._2CLd33d3f60bb918a22, 0x2 * aO2._2CLd33d3f60bb918a22);
+                    aO2._2CLb732806230c52119(), aNv.globalAlpha = aO2._2CL659907fefaeeb24a, aNv.drawImage(aNM, aO2.xPos_kamo - aO2._2CLd33d3f60bb918a22, aO2.yPos_kamo - aO2._2CLd33d3f60bb918a22, 0x2 * aO2._2CLd33d3f60bb918a22, 0x2 * aO2._2CLd33d3f60bb918a22);
                 }
             } catch (aO3) {
                 aNY = !![];
