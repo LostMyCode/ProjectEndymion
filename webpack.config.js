@@ -6,7 +6,7 @@ const srcDir = path.resolve(__dirname, "src");
 
 module.exports = (env, options) => {
     const mode = options.mode || 'development'
-    const masterURL = mode == 'production' ? '/' : './' // you can just open that normally 
+    const masterURL = mode == 'production' ? 'https://hslo.sigr.io/' : 'http://127.0.0.1:5500/dist/';
 
     const config = {
         devtool: mode == "development" ? "#source-map" : "",
@@ -58,7 +58,7 @@ module.exports = (env, options) => {
                 filename: "assets/endymion.css?[hash]",
             }),
             new HtmlWebpackPlugin({
-                template: path.resolve(srcDir, "html", mode == "production" ? "index.html" : "debug.html"), // why not ejs
+                template: path.resolve(srcDir, "html", "index.html"), // why not ejs
                 filename: "index.html",
             })
         ],
