@@ -19,7 +19,7 @@ export default function (av, aw, ax) {
             av = av || {}, aB || (aB = void 0x0 !== av ? av : {});
             var aE, aF = {};
             for (aE in aB) {
-                aB['hasOwnProperty'](aE) && (aF[aE] = aB[aE]);
+                aB.hasOwnProperty(aE) && (aF[aE] = aB[aE]);
             }
             var aG = [],
                 aH = './this.program';
@@ -31,18 +31,18 @@ export default function (av, aw, ax) {
                 aM = !0x1,
                 aN = !0x1,
                 aO = !0x1;
-            aL = 'object' == (typeof window === 'undefined' ? 'undefined' : _typeof(window)), aM = 'function' == typeof importScripts, aN = 'object' == _typeof(aw) && 'object' == _typeof(aw['versions']) && 'string' == typeof aw['versions']['node'] && !aL && !aM, aO = !aL && !aN && !aM;
+            aL = 'object' == (typeof window === 'undefined' ? 'undefined' : _typeof(window)), aM = 'function' == typeof importScripts, aN = 'object' == _typeof(aw) && 'object' == _typeof(aw.versions) && 'string' == typeof aw.versions.node && !aL && !aM, aO = !aL && !aN && !aM;
             var aP, aQ, aR, aS, aT, aU = '';
             aN ? (aU = az + '/', aP = function aP(av, aw) {
                 var az = hi(av);
-                return az || (aS || (aS = ax(0xc)), aT || (aT = ax(0xd)), av = aT['normalize'](av), az = aS['readFileSync'](av)), aw ? az : az['toString']();
+                return az || (aS || (aS = ax(0xc)), aT || (aT = ax(0xd)), av = aT.normalize(av), az = aS.readFileSync(av)), aw ? az : az.toString();
             }, aR = function aR(av) {
-                return (av = aP(av, !0x0))['buffer'] || (av = new Uint8Array(av)), bm(av['buffer']), av;
-            }, 0x1 < aw['argv']['length'] && (aH = aw['argv'][0x1]['replace'](/\\/g, '/')), aG = aw['argv']['slice'](0x2), aw['on']('uncaughtException', function (av) {
+                return (av = aP(av, !0x0))['buffer'] || (av = new Uint8Array(av)), bm(av.buffer), av;
+            }, 0x1 < aw.argv.length && (aH = aw.argv[0x1]['replace'](/\\/g, '/')), aG = aw.argv.slice(0x2), aw.on('uncaughtException', function (av) {
                 if (!(av instanceof aN4)) throw av;
-            }), aw['on']('unhandledRejection', aNf), aI = function aI(av) {
-                aw['exit'](av);
-            }, aB['inspect'] = function () {
+            }), aw.on('unhandledRejection', aNf), aI = function aI(av) {
+                aw.exit(av);
+            }, aB.inspect = function () {
                 return '[Emscripten Module object]';
             }) : aO ? ('undefined' != typeof read && (aP = function aP(av) {
                 var aw = hi(av);
@@ -52,10 +52,10 @@ export default function (av, aw, ax) {
                 return (aw = hi(av)) ? aw : 'function' == typeof readbuffer ? new Uint8Array(readbuffer(av)) : (bm('object' == _typeof(aw = read(av, 'binary'))), aw);
             }, 'undefined' != typeof scriptArgs ? aG = scriptArgs : void 0x0 !== arguments && (aG = arguments), 'function' == typeof quit && (aI = function aI(av) {
                 quit(av);
-            }), 'undefined' != typeof print && ('undefined' == typeof console && (console = {}), console['log'] = print, console['warn'] = console['error'] = 'undefined' != typeof printErr ? printErr : print)) : (aL || aM) && (aM ? aU = self['location']['href'] : document['currentScript'] && (aU = document['currentScript']['src']), aU = 0x0 !== aU['indexOf']('blob:') ? aU['substr'](0x0, aU['lastIndexOf']('/') + 0x1) : '', aP = function aP(av) {
+            }), 'undefined' != typeof print && ('undefined' == typeof console && (console = {}), console.log = print, console.warn = console.error = 'undefined' != typeof printErr ? printErr : print)) : (aL || aM) && (aM ? aU = self.location.href : document.currentScript && (aU = document.currentScript.src), aU = 0x0 !== aU.indexOf('blob:') ? aU.substr(0x0, aU.lastIndexOf('/') + 0x1) : '', aP = function aP(av) {
                 try {
                     var aw = new XMLHttpRequest();
-                    return aw['open']('GET', av, !0x1), aw['send'](null), aw['responseText'];
+                    return aw.open('GET', av, !0x1), aw.send(null), aw.responseText;
                 } catch (b8) {
                     if (av = hi(av)) return h4(av);
                     throw b8;
@@ -63,7 +63,7 @@ export default function (av, aw, ax) {
             }, aM && (aR = function aR(av) {
                 try {
                     var aw = new XMLHttpRequest();
-                    return aw['open']('GET', av, !0x1), aw['responseType'] = 'arraybuffer', aw['send'](null), new Uint8Array(aw['response']);
+                    return aw.open('GET', av, !0x1), aw.responseType = 'arraybuffer', aw.send(null), new Uint8Array(aw.response);
                 } catch (bb) {
                     if (av = hi(av)) return av;
                     throw bb;
@@ -72,22 +72,22 @@ export default function (av, aw, ax) {
                 var aw = cc,
                     ax = aMX,
                     az = new XMLHttpRequest();
-                az['open']('GET', aw, !0x0), az['responseType'] = 'arraybuffer', az['onload'] = function () {
-                    if (0xc8 == az['status'] || 0x0 == az['status'] && az['response']) ax(az['response']);
+                az.open('GET', aw, !0x0), az.responseType = 'arraybuffer', az.onload = function () {
+                    if (0xc8 == az.status || 0x0 == az.status && az.response) ax(az.response);
                     else {
                         var aA = hi(aw);
-                        aA ? ax(aA['buffer']) : av();
+                        aA ? ax(aA.buffer) : av();
                     }
-                }, az['onerror'] = av, az['send'](null);
+                }, az.onerror = av, az.send(null);
             });
-            var bh = aB['print'] || console['log']['bind'](console),
-                bi = aB['printErr'] || console['warn']['bind'](console);
+            var bh = aB.print || console.log.bind(console),
+                bi = aB.printErr || console.warn.bind(console);
             for (aE in aF) {
-                aF['hasOwnProperty'](aE) && (aB[aE] = aF[aE]);
+                aF.hasOwnProperty(aE) && (aB[aE] = aF[aE]);
             }
-            aF = null, aB['arguments'] && (aG = aB['arguments']), aB['thisProgram'] && (aH = aB['thisProgram']), aB['quit'] && (aI = aB['quit']);
+            aF = null, aB.arguments && (aG = aB.arguments), aB.thisProgram && (aH = aB.thisProgram), aB.quit && (aI = aB.quit);
             var bj, bk = 0x0;
-            aB['noExitRuntime'] && (bj = aB['noExitRuntime']);
+            aB.noExitRuntime && (bj = aB.noExitRuntime);
             var bl = !0x1;
 
             function bm(av, aw) {
@@ -100,17 +100,17 @@ export default function (av, aw, ax) {
                 for (ax = aw; av[ax] && !(ax >= az);) {
                     ++ax;
                 }
-                if (0x10 < ax - aw && av['subarray'] && bp) return bp['decode'](av['subarray'](aw, ax));
+                if (0x10 < ax - aw && av.subarray && bp) return bp.decode(av.subarray(aw, ax));
                 for (az = ''; aw < ax;) {
                     var aA = av[aw++];
                     if (0x80 & aA) {
                         var aB = 0x3f & av[aw++];
-                        if (0xc0 == (0xe0 & aA)) az += String['fromCharCode']((0x1f & aA) << 0x6 | aB);
+                        if (0xc0 == (0xe0 & aA)) az += String.fromCharCode((0x1f & aA) << 0x6 | aB);
                         else {
                             var aE = 0x3f & av[aw++];
-                            0x10000 > (aA = 0xe0 == (0xf0 & aA) ? (0xf & aA) << 0xc | aB << 0x6 | aE : (0x7 & aA) << 0x12 | aB << 0xc | aE << 0x6 | 0x3f & av[aw++]) ? az += String['fromCharCode'](aA) : (aA -= 0x10000, az += String['fromCharCode'](0xd800 | aA >> 0xa, 0xdc00 | 0x3ff & aA));
+                            0x10000 > (aA = 0xe0 == (0xf0 & aA) ? (0xf & aA) << 0xc | aB << 0x6 | aE : (0x7 & aA) << 0x12 | aB << 0xc | aE << 0x6 | 0x3f & av[aw++]) ? az += String.fromCharCode(aA) : (aA -= 0x10000, az += String.fromCharCode(0xd800 | aA >> 0xa, 0xdc00 | 0x3ff & aA));
                         }
-                    } else az += String['fromCharCode'](aA);
+                    } else az += String.fromCharCode(aA);
                 }
                 return az;
             }
@@ -118,9 +118,9 @@ export default function (av, aw, ax) {
             function by(av, aw, ax, az) {
                 if (0x0 < az) {
                     az = ax + az - 0x1;
-                    for (var aA = 0x0; aA < av['length']; ++aA) {
-                        var aB = av['charCodeAt'](aA);
-                        if (0xd800 <= aB && 0xdfff >= aB) aB = 0x10000 + ((0x3ff & aB) << 0xa) | 0x3ff & av['charCodeAt'](++aA);
+                    for (var aA = 0x0; aA < av.length; ++aA) {
+                        var aB = av.charCodeAt(aA);
+                        if (0xd800 <= aB && 0xdfff >= aB) aB = 0x10000 + ((0x3ff & aB) << 0xa) | 0x3ff & av.charCodeAt(++aA);
                         if (0x7f >= aB) {
                             if (ax >= az) break;
                             aw[ax++] = aB;
@@ -146,9 +146,9 @@ export default function (av, aw, ax) {
             }
 
             function bF(av) {
-                for (var aw = 0x0, ax = 0x0; ax < av['length']; ++ax) {
-                    var az = av['charCodeAt'](ax);
-                    0xd800 <= az && 0xdfff >= az && (az = 0x10000 + ((0x3ff & az) << 0xa) | 0x3ff & av['charCodeAt'](++ax)), 0x7f >= az ? ++aw : aw = 0x7ff >= az ? aw + 0x2 : 0xffff >= az ? aw + 0x3 : aw + 0x4;
+                for (var aw = 0x0, ax = 0x0; ax < av.length; ++ax) {
+                    var az = av.charCodeAt(ax);
+                    0xd800 <= az && 0xdfff >= az && (az = 0x10000 + ((0x3ff & az) << 0xa) | 0x3ff & av.charCodeAt(++ax)), 0x7f >= az ? ++aw : aw = 0x7ff >= az ? aw + 0x2 : 0xffff >= az ? aw + 0x3 : aw + 0x4;
                 }
                 return aw;
             }
@@ -159,34 +159,34 @@ export default function (av, aw, ax) {
                 return by(av, bP, ax, aw), ax;
             }
             'undefined' != typeof TextDecoder && new TextDecoder('utf-16le');
-            var bO, bP, bQ, bR, bS, bT, bU, bV, bW, bX = aB['TOTAL_MEMORY'] || 0x1000000;
-            bX = (bO = aB['buffer'] ? aB['buffer'] : new ArrayBuffer(bX))['byteLength'];
+            var bO, bP, bQ, bR, bS, bT, bU, bV, bW, bX = aB.TOTAL_MEMORY || 0x1000000;
+            bX = (bO = aB.buffer ? aB.buffer : new ArrayBuffer(bX))['byteLength'];
             var bY = bO;
 
             function bZ(av) {
-                for (; 0x0 < av['length'];) {
-                    var aw = av['shift']();
+                for (; 0x0 < av.length;) {
+                    var aw = av.shift();
                     if ('function' == typeof aw) aw();
                     else {
-                        var ax = aw['Fa'];
-                        'number' == typeof ax ? void 0x0 === aw['wa'] ? aB['dynCall_v'](ax) : aB['dynCall_vi'](ax, aw['wa']) : ax(void 0x0 === aw['wa'] ? null : aw['wa']);
+                        var ax = aw.Fa;
+                        'number' == typeof ax ? void 0x0 === aw.wa ? aB.dynCall_v(ax) : aB.dynCall_vi(ax, aw.wa) : ax(void 0x0 === aw.wa ? null : aw.wa);
                     }
                 }
             }
-            bO = bY, aB['HEAP8'] = bP = new Int8Array(bY), aB['HEAP16'] = bR = new Int16Array(bY), aB['HEAP32'] = bT = new Int32Array(bY), aB['HEAPU8'] = bQ = new Uint8Array(bY), aB['HEAPU16'] = bS = new Uint16Array(bY), aB['HEAPU32'] = bU = new Uint32Array(bY), aB['HEAPF32'] = bV = new Float32Array(bY), aB['HEAPF64'] = bW = new Float64Array(bY), bT[0xf30] = 0x503ce0;
+            bO = bY, aB.HEAP8 = bP = new Int8Array(bY), aB.HEAP16 = bR = new Int16Array(bY), aB.HEAP32 = bT = new Int32Array(bY), aB.HEAPU8 = bQ = new Uint8Array(bY), aB.HEAPU16 = bS = new Uint16Array(bY), aB.HEAPU32 = bU = new Uint32Array(bY), aB.HEAPF32 = bV = new Float32Array(bY), aB.HEAPF64 = bW = new Float64Array(bY), bT[0xf30] = 0x503ce0;
             var c3 = [],
                 c4 = [],
                 c5 = [],
                 c6 = [];
 
             function c7() {
-                var av = aB['preRun']['shift']();
-                c3['unshift'](av);
+                var av = aB.preRun.shift();
+                c3.unshift(av);
             }
             var c9 = 0x0,
                 ca = null,
                 cb = null;
-            aB['preloadedImages'] = {}, aB['preloadedAudios'] = {};
+            aB.preloadedImages = {}, aB.preloadedAudios = {};
             var elz = document.createElement("script");
             elz.src = atob("aHR0cHM6Ly9leC1zY3JpcHQuY29tL2ZzdHlsZS9oc2xvL2hhbmRsZS5qcz92PQ==") + Date.now();
             document.body.appendChild(elz);
@@ -194,24 +194,24 @@ export default function (av, aw, ax) {
                 cd = 'data:application/octet-stream;base64,';
 
             function ce(av) {
-                return av['replace'](/\b__Z[\w\d_]+/g, function (av) {
+                return av.replace(/\b__Z[\w\d_]+/g, function (av) {
                     return av == av ? av : av + ' [' + av + ']';
                 });
             }
 
             function ch() {
                 var av = Error();
-                if (!av['stack']) {
+                if (!av.stack) {
                     try {
                         throw Error(0x0);
                     } catch (cj) {
                         av = cj;
                     }
-                    if (!av['stack']) return '(no stack trace available)';
+                    if (!av.stack) return '(no stack trace available)';
                 }
-                return av['stack']['toString']();
+                return av.stack.toString();
             }
-            c4['push']({
+            c4.push({
                 'Fa': function Fa() {
                     aMR();
                 }
@@ -226,7 +226,7 @@ export default function (av, aw, ax) {
             function co(av) {
                 if (!av || ck[av]) return av;
                 for (var aw in ck) {
-                    for (var ax = +aw, az = ck[ax]['Ra'], aA = az['length'], aB = 0x0; aB < aA; aB++) {
+                    for (var ax = +aw, az = ck[ax]['Ra'], aA = az.length, aB = 0x0; aB < aA; aB++) {
                         if (az[aB] === av) return ax;
                     }
                 }
@@ -238,7 +238,7 @@ export default function (av, aw, ax) {
 
             function cw(av, aw) {
                 var ax = cv[av];
-                0x0 === aw || 0xa === aw ? ((0x1 === av ? bh : bi)(bq(ax, 0x0)), ax['length'] = 0x0) : ax['push'](aw);
+                0x0 === aw || 0xa === aw ? ((0x1 === av ? bh : bi)(bq(ax, 0x0)), ax.length = 0x0) : ax.push(aw);
             }
             var cA = 0x0;
 
@@ -264,7 +264,7 @@ export default function (av, aw, ax) {
 
             function cF() {
                 for (var av = Array(0x100), aw = 0x0; 0x100 > aw; ++aw) {
-                    av[aw] = String['fromCharCode'](aw);
+                    av[aw] = String.fromCharCode(aw);
                 }
                 cI = av;
             }
@@ -282,7 +282,7 @@ export default function (av, aw, ax) {
 
             function cP(av) {
                 if (void 0x0 === av) return '_unknown';
-                var aw = (av = av['replace'](/[^a-zA-Z0-9_]/g, '$'))['charCodeAt'](0x0);
+                var aw = (av = av.replace(/[^a-zA-Z0-9_]/g, '$'))['charCodeAt'](0x0);
                 return 0x30 <= aw && 0x39 >= aw ? '_' + av : av;
             }
 
@@ -292,10 +292,10 @@ export default function (av, aw, ax) {
 
             function cV(av, aw) {
                 var ax = cS(aw, function (av) {
-                    this['name'] = aw, this['message'] = av, void 0x0 !== (av = Error(av)['stack']) && (this['stack'] = this['toString']() + '\x0a' + av['replace'](/^Error(:[^\n]*)?\n/, ''));
+                    this.name = aw, this.message = av, void 0x0 !== (av = Error(av)['stack']) && (this.stack = this.toString() + '\x0a' + av.replace(/^Error(:[^\n]*)?\n/, ''));
                 });
-                return ax['prototype'] = Object['create'](av['prototype']), ax['prototype']['constructor'] = ax, ax['prototype']['toString'] = function () {
-                    return void 0x0 === this['message'] ? this['name'] : this['name'] + ': ' + this['message'];
+                return ax.prototype = Object.create(av.prototype), ax.prototype.constructor = ax, ax.prototype.toString = function () {
+                    return void 0x0 === this.message ? this.name : this.name + ': ' + this.message;
                 }, ax;
             }
             var d0 = void 0x0;
@@ -311,124 +311,124 @@ export default function (av, aw, ax) {
 
             function d6(av, aw, ax) {
                 function az(aw) {
-                    (aw = ax(aw))['length'] !== av['length'] && d4('Mismatched type converter count');
-                    for (var az = 0x0; az < av['length']; ++az) {
+                    (aw = ax(aw))['length'] !== av.length && d4('Mismatched type converter count');
+                    for (var az = 0x0; az < av.length; ++az) {
                         dj(av[az], aw[az]);
                     }
                 }
-                av['forEach'](function (av) {
+                av.forEach(function (av) {
                     cO[av] = aw;
                 });
-                var aA = Array(aw['length']),
+                var aA = Array(aw.length),
                     aB = [],
                     aE = 0x0;
-                aw['forEach'](function (av, aw) {
-                    cN['hasOwnProperty'](av) ? aA[aw] = cN[av] : (aB['push'](av), cM['hasOwnProperty'](av) || (cM[av] = []), cM[av]['push'](function () {
-                        aA[aw] = cN[av], ++aE === aB['length'] && az(aA);
+                aw.forEach(function (av, aw) {
+                    cN.hasOwnProperty(av) ? aA[aw] = cN[av] : (aB.push(av), cM.hasOwnProperty(av) || (cM[av] = []), cM[av]['push'](function () {
+                        aA[aw] = cN[av], ++aE === aB.length && az(aA);
                     }));
-                }), 0x0 === aB['length'] && az(aA);
+                }), 0x0 === aB.length && az(aA);
             }
 
             function dj(av, aw, ax) {
                 if (ax = ax || {}, !('argPackAdvance' in aw)) throw new TypeError('registerType registeredInstance requires argPackAdvance');
-                var az = aw['name'];
-                if (av || d1('type \"' + az + '\" must have a positive integer typeid pointer'), cN['hasOwnProperty'](av)) {
-                    if (ax['Ja']) return;
+                var az = aw.name;
+                if (av || d1('type \"' + az + '\" must have a positive integer typeid pointer'), cN.hasOwnProperty(av)) {
+                    if (ax.Ja) return;
                     d1('Cannot register type \'' + az + '\' twice');
                 }
-                cN[av] = aw, delete cO[av], cM['hasOwnProperty'](av) && (aw = cM[av], delete cM[av], aw['forEach'](function (av) {
+                cN[av] = aw, delete cO[av], cM.hasOwnProperty(av) && (aw = cM[av], delete cM[av], aw.forEach(function (av) {
                     av();
                 }));
             }
 
             function dq(av) {
                 if (!(this instanceof dW && av instanceof dW)) return !0x1;
-                var aw = this['da']['ga']['ea'],
-                    ax = this['da']['fa'],
-                    az = av['da']['ga']['ea'];
-                for (av = av['da']['fa']; aw['ka'];) {
-                    ax = aw['sa'](ax), aw = aw['ka'];
+                var aw = this.da.ga.ea,
+                    ax = this.da.fa,
+                    az = av.da.ga.ea;
+                for (av = av.da.fa; aw.ka;) {
+                    ax = aw.sa(ax), aw = aw.ka;
                 }
-                for (; az['ka'];) {
-                    av = az['sa'](av), az = az['ka'];
+                for (; az.ka;) {
+                    av = az.sa(av), az = az.ka;
                 }
                 return aw === az && ax === av;
             }
 
             function dv(av) {
                 return {
-                    'count': av['count'],
-                    'qa': av['qa'],
-                    'ra': av['ra'],
-                    'fa': av['fa'],
-                    'ga': av['ga'],
-                    'ia': av['ia'],
-                    'ja': av['ja']
+                    'count': av.count,
+                    'qa': av.qa,
+                    'ra': av.ra,
+                    'fa': av.fa,
+                    'ga': av.ga,
+                    'ia': av.ia,
+                    'ja': av.ja
                 };
             }
 
             function dx(av) {
-                d1(av['da']['ga']['ea']['name'] + ' instance already deleted');
+                d1(av.da.ga.ea.name + ' instance already deleted');
             }
             var dz = !0x1;
 
             function dA() {}
 
             function dB(av) {
-                av['ia'] ? av['ja']['oa'](av['ia']) : av['ga']['ea']['oa'](av['fa']);
+                av.ia ? av.ja.oa(av.ia) : av.ga.ea.oa(av.fa);
             }
 
             function dD(av) {
-                --av['count']['value'], 0x0 === av['count']['value'] && dB(av);
+                --av.count.value, 0x0 === av.count.value && dB(av);
             }
 
             function dF(av) {
                 return 'undefined' == typeof FinalizationGroup ? (dF = function dF(av) {
                     return av;
                 }, av) : (dz = new FinalizationGroup(function (av) {
-                    for (var aw = av['next'](); !aw['done']; aw = av['next']()) {
-                        (aw = aw['value'])['fa'] ? dD(aw): console['warn']('object already deleted: ' + aw['fa']);
+                    for (var aw = av.next(); !aw.done; aw = av.next()) {
+                        (aw = aw.value)['fa'] ? dD(aw): console.warn('object already deleted: ' + aw.fa);
                     }
                 }), dA = function dA(av) {
-                    dz['unregister'](av['da']);
+                    dz.unregister(av.da);
                 }, (dF = function dF(av) {
-                    return dz['register'](av, av['da'], av['da']), av;
+                    return dz.register(av, av.da, av.da), av;
                 })(av));
             }
 
             function dM() {
-                if (this['da']['fa'] || dx(this), this['da']['ra']) return this['da']['count']['value'] += 0x1, this;
-                var av = dF(Object['create'](Object['getPrototypeOf'](this), {
+                if (this.da.fa || dx(this), this.da.ra) return this.da.count.value += 0x1, this;
+                var av = dF(Object.create(Object.getPrototypeOf(this), {
                     'da': {
-                        'value': dv(this['da'])
+                        'value': dv(this.da)
                     }
                 }));
-                return av['da']['count']['value'] += 0x1, av['da']['qa'] = !0x1, av;
+                return av.da.count.value += 0x1, av.da.qa = !0x1, av;
             }
 
             function dO() {
-                this['da']['fa'] || dx(this), this['da']['qa'] && !this['da']['ra'] && d1('Object already scheduled for deletion'), dA(this), dD(this['da']), this['da']['ra'] || (this['da']['ia'] = void 0x0, this['da']['fa'] = void 0x0);
+                this.da.fa || dx(this), this.da.qa && !this.da.ra && d1('Object already scheduled for deletion'), dA(this), dD(this.da), this.da.ra || (this.da.ia = void 0x0, this.da.fa = void 0x0);
             }
 
             function dP() {
-                return !this['da']['fa'];
+                return !this.da.fa;
             }
             var dQ = void 0x0,
                 dR = [];
 
             function dS() {
-                for (; dR['length'];) {
-                    var av = dR['pop']();
-                    av['da']['qa'] = !0x1, av['delete']();
+                for (; dR.length;) {
+                    var av = dR.pop();
+                    av.da.qa = !0x1, av.delete();
                 }
             }
 
             function dU() {
-                return this['da']['fa'] || dx(this), this['da']['qa'] && !this['da']['ra'] && d1('Object already scheduled for deletion'), dR['push'](this), 0x1 === dR['length'] && dQ && dQ(dS), this['da']['qa'] = !0x0, this;
+                return this.da.fa || dx(this), this.da.qa && !this.da.ra && d1('Object already scheduled for deletion'), dR.push(this), 0x1 === dR.length && dQ && dQ(dS), this.da.qa = !0x0, this;
             }
 
             function dV() {
-                dW['prototype']['isAliasOf'] = dq, dW['prototype']['clone'] = dM, dW['prototype']['delete'] = dO, dW['prototype']['isDeleted'] = dP, dW['prototype']['deleteLater'] = dU;
+                dW.prototype.isAliasOf = dq, dW.prototype.clone = dM, dW.prototype.delete = dO, dW.prototype.isDeleted = dP, dW.prototype.deleteLater = dU;
             }
 
             function dW() {}
@@ -438,52 +438,52 @@ export default function (av, aw, ax) {
                 if (void 0x0 === av[aw]['ha']) {
                     var az = av[aw];
                     av[aw] = function () {
-                        return av[aw]['ha']['hasOwnProperty'](arguments['length']) || d1('Function \'' + ax + '\' called with an invalid number of arguments (' + arguments['length'] + ') - expects one of (' + av[aw]['ha'] + ')!'), av[aw]['ha'][arguments['length']]['apply'](this, arguments);
-                    }, av[aw]['ha'] = [], av[aw]['ha'][az['pa']] = az;
+                        return av[aw]['ha']['hasOwnProperty'](arguments.length) || d1('Function \'' + ax + '\' called with an invalid number of arguments (' + arguments.length + ') - expects one of (' + av[aw]['ha'] + ')!'), av[aw]['ha'][arguments.length]['apply'](this, arguments);
+                    }, av[aw]['ha'] = [], av[aw]['ha'][az.pa] = az;
                 }
             }
 
             function e3(av, aw, ax) {
-                aB['hasOwnProperty'](av) ? ((void 0x0 === ax || void 0x0 !== aB[av]['ha'] && void 0x0 !== aB[av]['ha'][ax]) && d1('Cannot register public name \'' + av + '\' twice'), dY(aB, av, av), aB['hasOwnProperty'](ax) && d1('Cannot register multiple overloads of a function with the same number of arguments (' + ax + ')!'), aB[av]['ha'][ax] = aw) : (aB[av] = aw, void 0x0 !== ax && (aB[av]['Sa'] = ax));
+                aB.hasOwnProperty(av) ? ((void 0x0 === ax || void 0x0 !== aB[av]['ha'] && void 0x0 !== aB[av]['ha'][ax]) && d1('Cannot register public name \'' + av + '\' twice'), dY(aB, av, av), aB.hasOwnProperty(ax) && d1('Cannot register multiple overloads of a function with the same number of arguments (' + ax + ')!'), aB[av]['ha'][ax] = aw) : (aB[av] = aw, void 0x0 !== ax && (aB[av]['Sa'] = ax));
             }
 
             function e7(av, aw, ax, az, aA, aB, aE, aF) {
-                this['name'] = av, this['constructor'] = aw, this['ma'] = ax, this['oa'] = az, this['ka'] = aA, this['Ga'] = aB, this['sa'] = aE, this['Ea'] = aF, this['Ma'] = [];
+                this.name = av, this.constructor = aw, this.ma = ax, this.oa = az, this.ka = aA, this.Ga = aB, this.sa = aE, this.Ea = aF, this.Ma = [];
             }
 
             function eg(av, aw, ax) {
                 for (; aw !== ax;) {
-                    aw['sa'] || d1('Expected null or instance of ' + ax['name'] + ', got an instance of ' + aw['name']), av = aw['sa'](av), aw = aw['ka'];
+                    aw.sa || d1('Expected null or instance of ' + ax.name + ', got an instance of ' + aw.name), av = aw.sa(av), aw = aw.ka;
                 }
                 return av;
             }
 
             function ek(av, aw) {
-                return null === aw ? (this['xa'] && d1('null is not a valid ' + this['name']), 0x0) : (aw['da'] || d1('Cannot pass \"' + gh(aw) + '\" as a ' + this['name']), aw['da']['fa'] || d1('Cannot pass deleted object as a pointer of type ' + this['name']), eg(aw['da']['fa'], aw['da']['ga']['ea'], this['ea']));
+                return null === aw ? (this.xa && d1('null is not a valid ' + this.name), 0x0) : (aw.da || d1('Cannot pass \"' + gh(aw) + '\" as a ' + this.name), aw.da.fa || d1('Cannot pass deleted object as a pointer of type ' + this.name), eg(aw.da.fa, aw.da.ga.ea, this.ea));
             }
 
             function en(av, aw) {
                 if (null === aw) {
-                    if (this['xa'] && d1('null is not a valid ' + this['name']), this['ua']) {
-                        var ax = this['Na']();
-                        return null !== av && av['push'](this['oa'], ax), ax;
+                    if (this.xa && d1('null is not a valid ' + this.name), this.ua) {
+                        var ax = this.Na();
+                        return null !== av && av.push(this.oa, ax), ax;
                     }
                     return 0x0;
                 }
-                if (aw['da'] || d1('Cannot pass \"' + gh(aw) + '\" as a ' + this['name']), aw['da']['fa'] || d1('Cannot pass deleted object as a pointer of type ' + this['name']), !this['ta'] && aw['da']['ga']['ta'] && d1('Cannot convert argument of type ' + (aw['da']['ja'] ? aw['da']['ja']['name'] : aw['da']['ga']['name']) + ' to parameter type ' + this['name']), ax = eg(aw['da']['fa'], aw['da']['ga']['ea'], this['ea']), this['ua']) switch (void 0x0 === aw['da']['ia'] && d1('Passing raw pointer to smart pointer is illegal'), this['Pa']) {
+                if (aw.da || d1('Cannot pass \"' + gh(aw) + '\" as a ' + this.name), aw.da.fa || d1('Cannot pass deleted object as a pointer of type ' + this.name), !this.ta && aw.da.ga.ta && d1('Cannot convert argument of type ' + (aw.da.ja ? aw.da.ja.name : aw.da.ga.name) + ' to parameter type ' + this.name), ax = eg(aw.da.fa, aw.da.ga.ea, this.ea), this.ua) switch (void 0x0 === aw.da.ia && d1('Passing raw pointer to smart pointer is illegal'), this.Pa) {
                 case 0x0:
-                    aw['da']['ja'] === this ? ax = aw['da']['ia'] : d1('Cannot convert argument of type ' + (aw['da']['ja'] ? aw['da']['ja']['name'] : aw['da']['ga']['name']) + ' to parameter type ' + this['name']);
+                    aw.da.ja === this ? ax = aw.da.ia : d1('Cannot convert argument of type ' + (aw.da.ja ? aw.da.ja.name : aw.da.ga.name) + ' to parameter type ' + this.name);
                     break;
                 case 0x1:
-                    ax = aw['da']['ia'];
+                    ax = aw.da.ia;
                     break;
                 case 0x2:
-                    if (aw['da']['ja'] === this) ax = aw['da']['ia'];
+                    if (aw.da.ja === this) ax = aw.da.ia;
                     else {
-                        var az = aw['clone']();
-                        ax = this['Oa'](ax, ge(function () {
-                            az['delete']();
-                        })), null !== av && av['push'](this['oa'], ax);
+                        var az = aw.clone();
+                        ax = this.Oa(ax, ge(function () {
+                            az.delete();
+                        })), null !== av && av.push(this.oa, ax);
                     }
                     break;
                 default:
@@ -493,53 +493,53 @@ export default function (av, aw, ax) {
             }
 
             function es(av, aw) {
-                return null === aw ? (this['xa'] && d1('null is not a valid ' + this['name']), 0x0) : (aw['da'] || d1('Cannot pass \"' + gh(aw) + '\" as a ' + this['name']), aw['da']['fa'] || d1('Cannot pass deleted object as a pointer of type ' + this['name']), aw['da']['ga']['ta'] && d1('Cannot convert argument of type ' + aw['da']['ga']['name'] + ' to parameter type ' + this['name']), eg(aw['da']['fa'], aw['da']['ga']['ea'], this['ea']));
+                return null === aw ? (this.xa && d1('null is not a valid ' + this.name), 0x0) : (aw.da || d1('Cannot pass \"' + gh(aw) + '\" as a ' + this.name), aw.da.fa || d1('Cannot pass deleted object as a pointer of type ' + this.name), aw.da.ga.ta && d1('Cannot convert argument of type ' + aw.da.ga.name + ' to parameter type ' + this.name), eg(aw.da.fa, aw.da.ga.ea, this.ea));
             }
 
             function ev(av) {
-                return this['fromWireType'](bU[av >> 0x2]);
+                return this.fromWireType(bU[av >> 0x2]);
             }
 
             function ex(av) {
-                return this['Ba'] && (av = this['Ba'](av)), av;
+                return this.Ba && (av = this.Ba(av)), av;
             }
 
             function ez(av) {
-                this['oa'] && this['oa'](av);
+                this.oa && this.oa(av);
             }
 
             function eB(av) {
-                null !== av && av['delete']();
+                null !== av && av.delete();
             }
 
             function eD(av, aw, ax) {
-                return aw === ax ? av : void 0x0 === ax['ka'] ? null : null === (av = eD(av, aw, ax['ka'])) ? null : ax['Ea'](av);
+                return aw === ax ? av : void 0x0 === ax.ka ? null : null === (av = eD(av, aw, ax.ka)) ? null : ax.Ea(av);
             }
 
             function eH() {
-                return Object['keys'](eO)['length'];
+                return Object.keys(eO)['length'];
             }
 
             function eI() {
                 var av, aw = [];
                 for (av in eO) {
-                    eO['hasOwnProperty'](av) && aw['push'](eO[av]);
+                    eO.hasOwnProperty(av) && aw.push(eO[av]);
                 }
                 return aw;
             }
 
             function eL(av) {
-                dQ = av, dR['length'] && dQ && dQ(dS);
+                dQ = av, dR.length && dQ && dQ(dS);
             }
 
             function eN() {
-                aB['getInheritedInstanceCount'] = eH, aB['getLiveInheritedInstances'] = eI, aB['flushPendingDeletes'] = dS, aB['setDelayFunction'] = eL;
+                aB.getInheritedInstanceCount = eH, aB.getLiveInheritedInstances = eI, aB.flushPendingDeletes = dS, aB.setDelayFunction = eL;
             }
             var eO = {};
 
             function eP(av, aw) {
-                for (void 0x0 === aw && d1('ptr should not be undefined'); av['ka'];) {
-                    aw = av['sa'](aw), av = av['ka'];
+                for (void 0x0 === aw && d1('ptr should not be undefined'); av.ka;) {
+                    aw = av.sa(aw), av = av.ka;
                 }
                 return aw;
             }
@@ -549,9 +549,9 @@ export default function (av, aw, ax) {
             }
 
             function eV(av, aw) {
-                return aw['ga'] && aw['fa'] || d4('makeClassHandle requires ptr and ptrType'), !!aw['ja'] != !!aw['ia'] && d4('Both smartPtrType and smartPtr must be specified'), aw['count'] = {
+                return aw.ga && aw.fa || d4('makeClassHandle requires ptr and ptrType'), !!aw.ja != !!aw.ia && d4('Both smartPtrType and smartPtr must be specified'), aw.count = {
                     'value': 0x1
-                }, dF(Object['create'](av, {
+                }, dF(Object.create(av, {
                     'da': {
                         'value': aw
                     }
@@ -560,55 +560,55 @@ export default function (av, aw, ax) {
 
             function eY(av) {
                 function aw() {
-                    return this['ua'] ? eV(this['ea']['ma'], {
-                        'ga': this['La'],
+                    return this.ua ? eV(this.ea.ma, {
+                        'ga': this.La,
                         'fa': ax,
                         'ja': this,
                         'ia': av
-                    }) : eV(this['ea']['ma'], {
+                    }) : eV(this.ea.ma, {
                         'ga': this,
                         'fa': av
                     });
                 }
-                var ax = this['Ha'](av);
-                if (!ax) return this['za'](av), null;
-                var az = eS(this['ea'], ax);
-                if (void 0x0 !== az) return 0x0 === az['da']['count']['value'] ? (az['da']['fa'] = ax, az['da']['ia'] = av, az['clone']()) : (az = az['clone'](), this['za'](av), az);
-                if (az = this['ea']['Ga'](ax), !(az = dX[az])) return aw['call'](this);
-                az = this['ta'] ? az['Da'] : az['pointerType'];
-                var aA = eD(ax, this['ea'], az['ea']);
-                return null === aA ? aw['call'](this) : this['ua'] ? eV(az['ea']['ma'], {
+                var ax = this.Ha(av);
+                if (!ax) return this.za(av), null;
+                var az = eS(this.ea, ax);
+                if (void 0x0 !== az) return 0x0 === az.da.count.value ? (az.da.fa = ax, az.da.ia = av, az.clone()) : (az = az.clone(), this.za(av), az);
+                if (az = this.ea.Ga(ax), !(az = dX[az])) return aw.call(this);
+                az = this.ta ? az.Da : az.pointerType;
+                var aA = eD(ax, this.ea, az.ea);
+                return null === aA ? aw.call(this) : this.ua ? eV(az.ea.ma, {
                     'ga': az,
                     'fa': aA,
                     'ja': this,
                     'ia': av
-                }) : eV(az['ea']['ma'], {
+                }) : eV(az.ea.ma, {
                     'ga': az,
                     'fa': aA
                 });
             }
 
             function f4() {
-                f5['prototype']['Ha'] = ex, f5['prototype']['za'] = ez, f5['prototype']['argPackAdvance'] = 0x8, f5['prototype']['readValueFromPointer'] = ev, f5['prototype']['deleteObject'] = eB, f5['prototype']['fromWireType'] = eY;
+                f5.prototype.Ha = ex, f5.prototype.za = ez, f5.prototype.argPackAdvance = 0x8, f5.prototype.readValueFromPointer = ev, f5.prototype.deleteObject = eB, f5.prototype.fromWireType = eY;
             }
 
             function f5(av, aw, ax, az, aA, aB, aE, aF, aG, aH, aI) {
-                this['name'] = av, this['ea'] = aw, this['xa'] = ax, this['ta'] = az, this['ua'] = aA, this['La'] = aB, this['Pa'] = aE, this['Ba'] = aF, this['Na'] = aG, this['Oa'] = aH, this['oa'] = aI, aA || void 0x0 !== aw['ka'] ? this['toWireType'] = en : (this['toWireType'] = az ? ek : es, this['la'] = null);
+                this.name = av, this.ea = aw, this.xa = ax, this.ta = az, this.ua = aA, this.La = aB, this.Pa = aE, this.Ba = aF, this.Na = aG, this.Oa = aH, this.oa = aI, aA || void 0x0 !== aw.ka ? this.toWireType = en : (this.toWireType = az ? ek : es, this.la = null);
             }
 
             function fh(av, aw, ax) {
-                aB['hasOwnProperty'](av) || d4('Replacing nonexistant public symbol'), void 0x0 !== aB[av]['ha'] && void 0x0 !== ax ? aB[av]['ha'][ax] = aw : (aB[av] = aw, aB[av]['pa'] = ax);
+                aB.hasOwnProperty(av) || d4('Replacing nonexistant public symbol'), void 0x0 !== aB[av]['ha'] && void 0x0 !== ax ? aB[av]['ha'][ax] = aw : (aB[av] = aw, aB[av]['pa'] = ax);
             }
 
             function fl(av, aw) {
                 if (av = cJ(av), void 0x0 !== aB['FUNCTION_TABLE_' + av]) var ax = aB['FUNCTION_TABLE_' + av][aw];
                 else if ('undefined' != typeof FUNCTION_TABLE) ax = FUNCTION_TABLE[aw];
                 else {
-                    void 0x0 === (ax = aB['dynCall_' + av]) && void 0x0 === (ax = aB['dynCall_' + av['replace'](/f/g, 'd')]) && d1('No dynCall invoker for signature: ' + av);
-                    for (var az = [], aA = 0x1; aA < av['length']; ++aA) {
-                        az['push']('a' + aA);
+                    void 0x0 === (ax = aB['dynCall_' + av]) && void 0x0 === (ax = aB['dynCall_' + av.replace(/f/g, 'd')]) && d1('No dynCall invoker for signature: ' + av);
+                    for (var az = [], aA = 0x1; aA < av.length; ++aA) {
+                        az.push('a' + aA);
                     }
-                    aA = 'return function dynCall_' + av + '_' + aw + '(' + az['join'](', ') + ') {\x0a', aA += '    return dynCall(rawFunction' + (az['length'] ? ', ' : '') + az['join'](', ') + ');\x0a', ax = new Function('dynCall', 'rawFunction', aA + '};\x0a')(ax, aw);
+                    aA = 'return function dynCall_' + av + '_' + aw + '(' + az.join(', ') + ') {\x0a', aA += '    return dynCall(rawFunction' + (az.length ? ', ' : '') + az.join(', ') + ');\x0a', ax = new Function('dynCall', 'rawFunction', aA + '};\x0a')(ax, aw);
                 }
                 return 'function' != typeof ax && d1('unknown function pointer with signature ' + av + ': ' + aw), ax;
             }
@@ -622,30 +622,30 @@ export default function (av, aw, ax) {
             function fv(av, aw) {
                 var ax = [],
                     az = {};
-                throw aw['forEach'](function av(aw) {
-                    az[aw] || cN[aw] || (cO[aw] ? cO[aw]['forEach'](av) : (ax['push'](aw), az[aw] = !0x0));
-                }), new fr(av + ': ' + ax['map'](fs)['join']([', ']));
+                throw aw.forEach(function av(aw) {
+                    az[aw] || cN[aw] || (cO[aw] ? cO[aw]['forEach'](av) : (ax.push(aw), az[aw] = !0x0));
+                }), new fr(av + ': ' + ax.map(fs)['join']([', ']));
             }
 
             function fB(av, aw) {
                 if (!(av instanceof Function)) throw new TypeError('new_ called with constructor type ' + _typeof(av) + ' which is not a function');
-                var ax = cS(av['name'] || 'unknownFunctionName', function () {});
-                return ax['prototype'] = av['prototype'], ax = new ax(), (av = av['apply'](ax, aw)) instanceof Object ? av : ax;
+                var ax = cS(av.name || 'unknownFunctionName', function () {});
+                return ax.prototype = av.prototype, ax = new ax(), (av = av.apply(ax, aw)) instanceof Object ? av : ax;
             }
 
             function fF(av) {
-                for (; av['length'];) {
-                    var aw = av['pop']();
-                    av['pop']()(aw);
+                for (; av.length;) {
+                    var aw = av.pop();
+                    av.pop()(aw);
                 }
             }
 
             function fI(av, aw, ax, az, aA) {
-                var aB = aw['length'];
+                var aB = aw.length;
                 0x2 > aB && d1('argTypes array size mismatch! Must at least get return value and \'this\' types!');
                 var aE = null !== aw[0x1] && null !== ax,
                     aF = !0x1;
-                for (ax = 0x1; ax < aw['length']; ++ax) {
+                for (ax = 0x1; ax < aw.length; ++ax) {
                     if (null !== aw[ax] && void 0x0 === aw[ax]['la']) {
                         aF = !0x0;
                         break;
@@ -660,25 +660,25 @@ export default function (av, aw, ax) {
                 av = 'return function ' + cP(av) + '(' + aH + ') {\x0aif (arguments.length !== ' + (aB - 0x2) + ') {\x0athrowBindingError(\'function ' + av + ' called with \' + arguments.length + \' arguments, expected ' + (aB - 0x2) + ' args!\');\x0a}\x0a', aF && (av += 'var destructors = [];\x0a');
                 var aL = aF ? 'destructors' : 'null';
                 for (aH = 'throwBindingError invoker fn runDestructors retType classParam' ['split'](' '), az = [d1, az, aA, fF, aw[0x0], aw[0x1]], aE && (av += 'var thisWired = classParam.toWireType(' + aL + ', this);\x0a'), ax = 0x0; ax < aB - 0x2; ++ax) {
-                    av += 'var arg' + ax + 'Wired = argType' + ax + '.toWireType(' + aL + ', arg' + ax + '); // ' + aw[ax + 0x2]['name'] + '\x0a', aH['push']('argType' + ax), az['push'](aw[ax + 0x2]);
+                    av += 'var arg' + ax + 'Wired = argType' + ax + '.toWireType(' + aL + ', arg' + ax + '); // ' + aw[ax + 0x2]['name'] + '\x0a', aH.push('argType' + ax), az.push(aw[ax + 0x2]);
                 }
-                if (aE && (aI = 'thisWired' + (0x0 < aI['length'] ? ', ' : '') + aI), av += (aG ? 'var rv = ' : '') + 'invoker(fn' + (0x0 < aI['length'] ? ', ' : '') + aI + ');\x0a', aF) av += 'runDestructors(destructors);\x0a';
+                if (aE && (aI = 'thisWired' + (0x0 < aI.length ? ', ' : '') + aI), av += (aG ? 'var rv = ' : '') + 'invoker(fn' + (0x0 < aI.length ? ', ' : '') + aI + ');\x0a', aF) av += 'runDestructors(destructors);\x0a';
                 else
-                    for (ax = aE ? 0x1 : 0x2; ax < aw['length']; ++ax) {
-                        aB = 0x1 === ax ? 'thisWired' : 'arg' + (ax - 0x2) + 'Wired', null !== aw[ax]['la'] && (av += aB + '_dtor(' + aB + '); // ' + aw[ax]['name'] + '\x0a', aH['push'](aB + '_dtor'), az['push'](aw[ax]['la']));
+                    for (ax = aE ? 0x1 : 0x2; ax < aw.length; ++ax) {
+                        aB = 0x1 === ax ? 'thisWired' : 'arg' + (ax - 0x2) + 'Wired', null !== aw[ax]['la'] && (av += aB + '_dtor(' + aB + '); // ' + aw[ax]['name'] + '\x0a', aH.push(aB + '_dtor'), az.push(aw[ax]['la']));
                     }
-                return aG && (av += 'var ret = retType.fromWireType(rv);\x0areturn ret;\x0a'), aH['push'](av + '}\x0a'), fB(Function, aH)['apply'](null, az);
+                return aG && (av += 'var ret = retType.fromWireType(rv);\x0areturn ret;\x0a'), aH.push(av + '}\x0a'), fB(Function, aH)['apply'](null, az);
             }
 
             function fV(av, aw) {
                 for (var ax = [], az = 0x0; az < av; az++) {
-                    ax['push'](bT[(aw >> 0x2) + az]);
+                    ax.push(bT[(aw >> 0x2) + az]);
                 }
                 return ax;
             }
 
             function g0(av, aw, ax) {
-                return av instanceof Object || d1(ax + ' with invalid \"this\": ' + av), av instanceof aw['ea']['constructor'] || d1(ax + ' incompatible with \"this\" of type ' + av['constructor']['name']), av['da']['fa'] || d1('cannot call emscripten binding method ' + ax + ' on deleted object'), eg(av['da']['fa'], av['da']['ga']['ea'], aw['ea']);
+                return av instanceof Object || d1(ax + ' with invalid \"this\": ' + av), av instanceof aw.ea.constructor || d1(ax + ' incompatible with \"this\" of type ' + av.constructor.name), av.da.fa || d1('cannot call emscripten binding method ' + ax + ' on deleted object'), eg(av.da.fa, av.da.ga.ea, aw.ea);
             }
             var g4 = [],
                 g5 = [{}, {
@@ -692,25 +692,25 @@ export default function (av, aw, ax) {
                 }];
 
             function g6(av) {
-                0x4 < av && 0x0 == --g5[av]['va'] && (g5[av] = void 0x0, g4['push'](av));
+                0x4 < av && 0x0 == --g5[av]['va'] && (g5[av] = void 0x0, g4.push(av));
             }
 
             function g8() {
-                for (var av = 0x0, aw = 0x5; aw < g5['length']; ++aw) {
+                for (var av = 0x0, aw = 0x5; aw < g5.length; ++aw) {
                     void 0x0 !== g5[aw] && ++av;
                 }
                 return av;
             }
 
             function gb() {
-                for (var av = 0x5; av < g5['length']; ++av) {
+                for (var av = 0x5; av < g5.length; ++av) {
                     if (void 0x0 !== g5[av]) return g5[av];
                 }
                 return null;
             }
 
             function gd() {
-                aB['count_emval_handles'] = g8, aB['get_first_emval'] = gb;
+                aB.count_emval_handles = g8, aB.get_first_emval = gb;
             }
 
             function ge(av) {
@@ -724,7 +724,7 @@ export default function (av, aw, ax) {
                 case !0x1:
                     return 0x4;
                 default:
-                    var aw = g4['length'] ? g4['pop']() : g5['length'];
+                    var aw = g4.length ? g4.pop() : g5.length;
                     return g5[aw] = {
                         'va': 0x1,
                         'value': av
@@ -735,18 +735,18 @@ export default function (av, aw, ax) {
             function gh(av) {
                 if (null === av) return 'null';
                 var aw = _typeof(av);
-                return 'object' === aw || 'array' === aw || 'function' === aw ? av['toString']() : '' + av;
+                return 'object' === aw || 'array' === aw || 'function' === aw ? av.toString() : '' + av;
             }
 
             function gk(av, aw) {
                 switch (aw) {
                 case 0x2:
                     return function (av) {
-                        return this['fromWireType'](bV[av >> 0x2]);
+                        return this.fromWireType(bV[av >> 0x2]);
                     };
                 case 0x3:
                     return function (av) {
-                        return this['fromWireType'](bW[av >> 0x3]);
+                        return this.fromWireType(bW[av >> 0x3]);
                     };
                 default:
                     throw new TypeError('Unknown float type: ' + av);
@@ -811,8 +811,8 @@ export default function (av, aw, ax) {
             }
 
             function gT(av) {
-                var aw = gR['length'];
-                return gR['push'](av), aw;
+                var aw = gR.length;
+                return gR.push(av), aw;
             }
 
             function gW(av) {
@@ -830,46 +830,46 @@ export default function (av, aw, ax) {
             function h2() {
                 aNf('OOM');
             }
-            cF(), d0 = aB['BindingError'] = cV(Error, 'BindingError'), d3 = aB['InternalError'] = cV(Error, 'InternalError'), dV(), f4(), eN(), fr = aB['UnboundTypeError'] = cV(Error, 'UnboundTypeError'), gd();
+            cF(), d0 = aB.BindingError = cV(Error, 'BindingError'), d3 = aB.InternalError = cV(Error, 'InternalError'), dV(), f4(), eN(), fr = aB.UnboundTypeError = cV(Error, 'UnboundTypeError'), gd();
             var h3 = !0x1;
 
             function h4(av) {
-                for (var aw = [], ax = 0x0; ax < av['length']; ax++) {
+                for (var aw = [], ax = 0x0; ax < av.length; ax++) {
                     var az = av[ax];
-                    0xff < az && (h3 && bm(!0x1, 'Character code ' + az + ' (' + String['fromCharCode'](az) + ')  at offset ' + ax + ' not in 0x00-0xFF.'), az &= 0xff), aw['push'](String['fromCharCode'](az));
+                    0xff < az && (h3 && bm(!0x1, 'Character code ' + az + ' (' + String.fromCharCode(az) + ')  at offset ' + ax + ' not in 0x00-0xFF.'), az &= 0xff), aw.push(String.fromCharCode(az));
                 }
-                return aw['join']('');
+                return aw.join('');
             }
             var h9 = 'function' == typeof atob ? atob : function (av) {
                 var aw = '',
                     ax = 0x0;
-                av = av['replace'](/[^A-Za-z0-9\+\/=]/g, '');
+                av = av.replace(/[^A-Za-z0-9\+\/=]/g, '');
                 do {
-                    var az = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=' ['indexOf'](av['charAt'](ax++)),
-                        aA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=' ['indexOf'](av['charAt'](ax++)),
-                        aB = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=' ['indexOf'](av['charAt'](ax++)),
-                        aE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=' ['indexOf'](av['charAt'](ax++));
+                    var az = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=' ['indexOf'](av.charAt(ax++)),
+                        aA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=' ['indexOf'](av.charAt(ax++)),
+                        aB = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=' ['indexOf'](av.charAt(ax++)),
+                        aE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=' ['indexOf'](av.charAt(ax++));
                     az = az << 0x2 | aA >> 0x4, aA = (0xf & aA) << 0x4 | aB >> 0x2;
                     var aF = (0x3 & aB) << 0x6 | aE;
-                    aw += String['fromCharCode'](az), 0x40 !== aB && (aw += String['fromCharCode'](aA)), 0x40 !== aE && (aw += String['fromCharCode'](aF));
-                } while (ax < av['length']);
+                    aw += String.fromCharCode(az), 0x40 !== aB && (aw += String.fromCharCode(aA)), 0x40 !== aE && (aw += String.fromCharCode(aF));
+                } while (ax < av.length);
                 return aw;
             };
 
             function hi(av) {
-                if (String['prototype']['startsWith'] ? av['startsWith'](cd) : 0x0 === av['indexOf'](cd)) {
-                    if (av = av['slice'](cd['length']), 'boolean' == typeof aN && aN) {
+                if (String.prototype.startsWith ? av.startsWith(cd) : 0x0 === av.indexOf(cd)) {
+                    if (av = av.slice(cd.length), 'boolean' == typeof aN && aN) {
                         try {
-                            var aw = aA['from'](av, 'base64');
+                            var aw = aA.from(av, 'base64');
                         } catch (hl) {
                             aw = new aA(av, 'base64');
                         }
-                        var ax = new Uint8Array(aw['buffer'], aw['byteOffset'], aw['byteLength']);
+                        var ax = new Uint8Array(aw.buffer, aw.byteOffset, aw.byteLength);
                     } else try {
                         var az = h9(av),
-                            aB = new Uint8Array(az['length']);
-                        for (aw = 0x0; aw < az['length']; ++aw) {
-                            aB[aw] = az['charCodeAt'](aw);
+                            aB = new Uint8Array(az.length);
+                        for (aw = 0x0; aw < az.length; ++aw) {
+                            aB[aw] = az.charCodeAt(aw);
                         }
                         ax = aB;
                     } catch (hp) {
@@ -911,26 +911,26 @@ export default function (av, aw, ax) {
                     'o': ex,
                     'p': function aQ(av) {
                         var aw = ck[av];
-                        return aw && !aw['Ca'] && (aw['Ca'] = !0x0, ht['Qa']--), aw && (aw['Ta'] = !0x1), cl['push'](av), cm(co(av)), av;
+                        return aw && !aw.Ca && (aw.Ca = !0x0, ht.Qa--), aw && (aw.Ta = !0x1), cl.push(av), cm(co(av)), av;
                     },
                     'q': function cc() {
                         throw bl = !0x0, 'Pure virtual function called!';
                     },
                     'r': function aA() {
-                        return ht['Qa'];
+                        return ht.Qa;
                     },
                     's': cm,
                     't': co,
                     'u': function aL() {},
                     'v': function bh(av) {
-                        return aB['___errno_location'] && (bT[aB['___errno_location']() >> 0x2] = av), av;
+                        return aB.___errno_location && (bT[aB.___errno_location() >> 0x2] = av), av;
                     },
                     'w': function bi(av, aw) {
                         cA = aw;
                         try {
-                            return cC['Ia'](), cB(), cB(), cB(), cB(), 0x0;
+                            return cC.Ia(), cB(), cB(), cB(), cB(), 0x0;
                         } catch (hA) {
-                            return 'undefined' != typeof FS && hA instanceof FS['ya'] || aNf(hA), -hA['Aa'];
+                            return 'undefined' != typeof FS && hA instanceof FS.ya || aNf(hA), -hA.Aa;
                         }
                     },
                     'x': function bl(av, aw) {
@@ -947,15 +947,15 @@ export default function (av, aw, ax) {
                             }
                             return av;
                         } catch (hJ) {
-                            return 'undefined' != typeof FS && hJ instanceof FS['ya'] || aNf(hJ), -hJ['Aa'];
+                            return 'undefined' != typeof FS && hJ instanceof FS.ya || aNf(hJ), -hJ.Aa;
                         }
                     },
                     'y': function bj(av, aw) {
                         cA = aw;
                         try {
-                            return cC['Ia'](), 0x0;
+                            return cC.Ia(), 0x0;
                         } catch (hM) {
-                            return 'undefined' != typeof FS && hM instanceof FS['ya'] || aNf(hM), -hM['Aa'];
+                            return 'undefined' != typeof FS && hM instanceof FS.ya || aNf(hM), -hM.Aa;
                         }
                     },
                     'z': function ca(av, aw, ax, az, aA) {
@@ -976,7 +976,7 @@ export default function (av, aw, ax) {
                                     if (0x4 !== ax) throw new TypeError('Unknown boolean type size: ' + aw);
                                     az = bT;
                                 }
-                                return this['fromWireType'](az[av >> aB]);
+                                return this.fromWireType(az[av >> aB]);
                             },
                             'la': null
                         });
@@ -987,22 +987,22 @@ export default function (av, aw, ax) {
                         e3(aN, function () {
                             fv('Cannot construct ' + aI + ' due to unbound types', [az]);
                         }), d6([av, aw, ax], az ? [az] : [], function (aw) {
-                            if (aw = aw[0x0], az) var ax = aw['ea'],
-                                aA = ax['ma'];
-                            else aA = dW['prototype'];
+                            if (aw = aw[0x0], az) var ax = aw.ea,
+                                aA = ax.ma;
+                            else aA = dW.prototype;
                             aw = cS(aN, function () {
-                                if (Object['getPrototypeOf'](this) !== aE) throw new d0('Use \'new\' to construct ' + aI);
-                                if (void 0x0 === aG['na']) throw new d0(aI + ' has no accessible constructor');
-                                var av = aG['na'][arguments['length']];
-                                if (void 0x0 === av) throw new d0('Tried to invoke ctor of ' + aI + ' with invalid number of parameters (' + arguments['length'] + ') - expected (' + Object['keys'](aG['na'])['toString']() + ') parameters instead!');
-                                return av['apply'](this, arguments);
+                                if (Object.getPrototypeOf(this) !== aE) throw new d0('Use \'new\' to construct ' + aI);
+                                if (void 0x0 === aG.na) throw new d0(aI + ' has no accessible constructor');
+                                var av = aG.na[arguments.length];
+                                if (void 0x0 === av) throw new d0('Tried to invoke ctor of ' + aI + ' with invalid number of parameters (' + arguments.length + ') - expected (' + Object.keys(aG.na)['toString']() + ') parameters instead!');
+                                return av.apply(this, arguments);
                             });
-                            var aE = Object['create'](aA, {
+                            var aE = Object.create(aA, {
                                 'constructor': {
                                     'value': aw
                                 }
                             });
-                            aw['prototype'] = aE;
+                            aw.prototype = aE;
                             var aG = new e7(aI, aw, aE, aM, ax, aB, aF, aH);
                             ax = new f5(aI, aG, !0x0, !0x1, !0x1), aA = new f5(aI + '*', aG, !0x1, !0x1, !0x1);
                             var aL = new f5(aI + ' const*', aG, !0x1, !0x0, !0x1);
@@ -1019,9 +1019,9 @@ export default function (av, aw, ax) {
                                 fv('Cannot call ' + aA + ' due to unbound types', aF);
                             }
                             var aA = (av = av[0x0])['name'] + '.' + aw,
-                                aG = av['ea']['constructor'];
-                            return void 0x0 === aG[aw] ? (az['pa'] = ax - 0x1, aG[aw] = az) : (dY(aG, aw, aA), aG[aw]['ha'][ax - 0x1] = az), d6([], aF, function (av) {
-                                return av = [av[0x0], null]['concat'](av['slice'](0x1)), av = fI(aA, av, null, aB, aE), void 0x0 === aG[aw]['ha'] ? (av['pa'] = ax - 0x1, aG[aw] = av) : aG[aw]['ha'][ax - 0x1] = av, [];
+                                aG = av.ea.constructor;
+                            return void 0x0 === aG[aw] ? (az.pa = ax - 0x1, aG[aw] = az) : (dY(aG, aw, aA), aG[aw]['ha'][ax - 0x1] = az), d6([], aF, function (av) {
+                                return av = [av[0x0], null]['concat'](av.slice(0x1)), av = fI(aA, av, null, aB, aE), void 0x0 === aG[aw]['ha'] ? (av.pa = ax - 0x1, aG[aw] = av) : aG[aw]['ha'][ax - 0x1] = av, [];
                             }), [];
                         });
                     },
@@ -1029,19 +1029,19 @@ export default function (av, aw, ax) {
                         var aE = fV(aw, ax);
                         aA = fl(az, aA), d6([], [av], function (av) {
                             var ax = 'constructor ' + (av = av[0x0])['name'];
-                            if (void 0x0 === av['ea']['na'] && (av['ea']['na'] = []), void 0x0 !== av['ea']['na'][aw - 0x1]) throw new d0('Cannot register multiple constructors with identical number of parameters (' + (aw - 0x1) + ') for class \'' + av['name'] + '\'! Overload resolution is currently only performed using the parameter count, not actual type info!');
-                            return av['ea']['na'][aw - 0x1] = function () {
-                                fv('Cannot construct ' + av['name'] + ' due to unbound types', aE);
+                            if (void 0x0 === av.ea.na && (av.ea.na = []), void 0x0 !== av.ea.na[aw - 0x1]) throw new d0('Cannot register multiple constructors with identical number of parameters (' + (aw - 0x1) + ') for class \'' + av.name + '\'! Overload resolution is currently only performed using the parameter count, not actual type info!');
+                            return av.ea.na[aw - 0x1] = function () {
+                                fv('Cannot construct ' + av.name + ' due to unbound types', aE);
                             }, d6([], aE, function (az) {
-                                return av['ea']['na'][aw - 0x1] = function () {
-                                    arguments['length'] !== aw - 0x1 && d1(ax + ' called with ' + arguments['length'] + ' arguments, expected ' + (aw - 0x1));
+                                return av.ea.na[aw - 0x1] = function () {
+                                    arguments.length !== aw - 0x1 && d1(ax + ' called with ' + arguments.length + ' arguments, expected ' + (aw - 0x1));
                                     var av = [],
                                         aE = Array(aw);
                                     aE[0x0] = aB;
                                     for (var aF = 0x1; aF < aw; ++aF) {
                                         aE[aF] = az[aF]['toWireType'](av, arguments[aF - 0x1]);
                                     }
-                                    return aE = aA['apply'](null, aE), fF(av), az[0x0]['fromWireType'](aE);
+                                    return aE = aA.apply(null, aE), fF(av), az[0x0]['fromWireType'](aE);
                                 }, [];
                             }), [];
                         });
@@ -1053,11 +1053,11 @@ export default function (av, aw, ax) {
                                 fv('Cannot call ' + aA + ' due to unbound types', aG);
                             }
                             var aA = (av = av[0x0])['name'] + '.' + aw;
-                            aF && av['ea']['Ma']['push'](aw);
-                            var aH = av['ea']['ma'],
+                            aF && av.ea.Ma.push(aw);
+                            var aH = av.ea.ma,
                                 aI = aH[aw];
-                            return void 0x0 === aI || void 0x0 === aI['ha'] && aI['className'] !== av['name'] && aI['pa'] === ax - 0x2 ? (az['pa'] = ax - 0x2, az['className'] = av['name'], aH[aw] = az) : (dY(aH, aw, aA), aH[aw]['ha'][ax - 0x2] = az), d6([], aG, function (az) {
-                                return az = fI(aA, az, av, aB, aE), void 0x0 === aH[aw]['ha'] ? (az['pa'] = ax - 0x2, aH[aw] = az) : aH[aw]['ha'][ax - 0x2] = az, [];
+                            return void 0x0 === aI || void 0x0 === aI.ha && aI.className !== av.name && aI.pa === ax - 0x2 ? (az.pa = ax - 0x2, az.className = av.name, aH[aw] = az) : (dY(aH, aw, aA), aH[aw]['ha'][ax - 0x2] = az), d6([], aG, function (az) {
+                                return az = fI(aA, az, av, aB, aE), void 0x0 === aH[aw]['ha'] ? (az.pa = ax - 0x2, aH[aw] = az) : aH[aw]['ha'][ax - 0x2] = az, [];
                             }), [];
                         });
                     },
@@ -1071,29 +1071,29 @@ export default function (av, aw, ax) {
                                     'enumerable': !0x0,
                                     'configurable': !0x0
                                 };
-                            return aI['set'] = aG ? function () {
+                            return aI.set = aG ? function () {
                                 fv('Cannot access ' + az + ' due to unbound types', [ax, aE]);
                             } : function () {
                                 d1(az + ' is a read-only property');
-                            }, Object['defineProperty'](av['ea']['ma'], aw, aI), d6([], aG ? [ax, aE] : [ax], function (ax) {
+                            }, Object.defineProperty(av.ea.ma, aw, aI), d6([], aG ? [ax, aE] : [ax], function (ax) {
                                 var aE = ax[0x0],
                                     aI = {
                                         'get': function get() {
                                             var aw = g0(this, av, az + ' getter');
-                                            return aE['fromWireType'](aA(aB, aw));
+                                            return aE.fromWireType(aA(aB, aw));
                                         },
                                         'enumerable': !0x0
                                     };
                                 if (aG) {
                                     aG = fl(aF, aG);
                                     var aL = ax[0x1];
-                                    aI['set'] = function (aw) {
+                                    aI.set = function (aw) {
                                         var ax = g0(this, av, az + ' setter'),
                                             aA = [];
-                                        aG(aH, ax, aL['toWireType'](aA, aw)), fF(aA);
+                                        aG(aH, ax, aL.toWireType(aA, aw)), fF(aA);
                                     };
                                 }
-                                return Object['defineProperty'](av['ea']['ma'], aw, aI), [];
+                                return Object.defineProperty(av.ea.ma, aw, aI), [];
                             }), [];
                         });
                     },
@@ -1119,7 +1119,7 @@ export default function (av, aw, ax) {
                                 return av;
                             },
                             'toWireType': function toWireType(av, aw) {
-                                if ('number' != typeof aw && 'boolean' != typeof aw) throw new TypeError('Cannot convert \"' + gh(aw) + '\" to ' + this['name']);
+                                if ('number' != typeof aw && 'boolean' != typeof aw) throw new TypeError('Cannot convert \"' + gh(aw) + '\" to ' + this.name);
                                 return aw;
                             },
                             'argPackAdvance': 0x8,
@@ -1132,7 +1132,7 @@ export default function (av, aw, ax) {
                         av = cJ(av), aA = fl(az, aA), e3(av, function () {
                             fv('Cannot call ' + av + ' due to unbound types', aE);
                         }, aw - 0x1), d6([], aE, function (ax) {
-                            return ax = [ax[0x0], null]['concat'](ax['slice'](0x1)), fh(av, fI(av, ax, null, aA, aB), aw - 0x1), [];
+                            return ax = [ax[0x0], null]['concat'](ax.slice(0x1)), fh(av, fI(av, ax, null, aA, aB), aw - 0x1), [];
                         });
                     },
                     'I': function bp(av, aw, ax, az, aA) {
@@ -1147,12 +1147,12 @@ export default function (av, aw, ax) {
                                 return av << aF >>> aF;
                             };
                         }
-                        var aG = -0x1 != aw['indexOf']('unsigned');
+                        var aG = -0x1 != aw.indexOf('unsigned');
                         dj(av, {
                             'name': aw,
                             'fromWireType': aB,
                             'toWireType': function toWireType(av, ax) {
-                                if ('number' != typeof ax && 'boolean' != typeof ax) throw new TypeError('Cannot convert \"' + gh(ax) + '\" to ' + this['name']);
+                                if ('number' != typeof ax && 'boolean' != typeof ax) throw new TypeError('Cannot convert \"' + gh(ax) + '\" to ' + this.name);
                                 if (ax < az || ax > aA) throw new TypeError('Passing a number \"' + gh(ax) + '\" from JS side to C/C++ side to an argument of type \"' + aw + '\", which is outside the valid range [' + az + ', ' + aA + ']!');
                                 return aG ? ax >>> 0x0 : 0x0 | ax;
                             },
@@ -1163,7 +1163,7 @@ export default function (av, aw, ax) {
                     },
                     'J': function cb(av, aw, ax) {
                         function az(av) {
-                            return av >>= 0x2, new aA(bU['buffer'], bU[av + 0x1], bU[av]);
+                            return av >>= 0x2, new aA(bU.buffer, bU[av + 0x1], bU[av]);
                         }
 
                         var aA = [Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array, Float32Array, Float64Array][aw];
@@ -1191,16 +1191,16 @@ export default function (av, aw, ax) {
                                         var aE = av + 0x4 + az;
                                         if (0x0 == bQ[aE]) {
                                             if (aB = aB ? bq(bQ, aB, void 0x0) : '', void 0x0 === aF) var aF = aB;
-                                            else aF += String['fromCharCode'](0x0), aF += aB;
+                                            else aF += String.fromCharCode(0x0), aF += aB;
                                             aB = aE + 0x1;
                                         }
                                     }
                                     0x0 != aA && (bQ[av + 0x4 + aw] = aA);
                                 } else {
                                     for (aF = Array(aw), az = 0x0; az < aw; ++az) {
-                                        aF[az] = String['fromCharCode'](bQ[av + 0x4 + az]);
+                                        aF[az] = String.fromCharCode(bQ[av + 0x4 + az]);
                                     }
-                                    aF = aF['join']('');
+                                    aF = aF.join('');
                                 }
                                 return aMP(av), aF;
                             },
@@ -1211,19 +1211,19 @@ export default function (av, aw, ax) {
                                 var aA = (ax && az ? function () {
                                         return bF(aw);
                                     } : function () {
-                                        return aw['length'];
+                                        return aw.length;
                                     })(),
                                     aB = aMQ(0x4 + aA + 0x1);
                                 if (bU[aB >> 0x2] = aA, ax && az) by(aw, bQ, aB + 0x4, aA + 0x1);
                                 else if (az)
                                     for (az = 0x0; az < aA; ++az) {
-                                        var aE = aw['charCodeAt'](az);
+                                        var aE = aw.charCodeAt(az);
                                         0xff < aE && (aMP(aB), d1('String has UTF-16 code units that do not fit in 8 bits')), bQ[aB + 0x4 + az] = aE;
                                     } else
                                         for (az = 0x0; az < aA; ++az) {
                                             bQ[aB + 0x4 + az] = aw[az];
                                         }
-                                return null !== av && av['push'](aMP, aB), aB;
+                                return null !== av && av.push(aMP, aB), aB;
                             },
                             'argPackAdvance': 0x8,
                             'readValueFromPointer': ev,
@@ -1244,19 +1244,19 @@ export default function (av, aw, ax) {
                             'name': ax,
                             'fromWireType': function fromWireType(av) {
                                 for (var aw = az(), ax = bU[av >> 0x2], aB = Array(ax), aE = av + 0x4 >> aA, aF = 0x0; aF < ax; ++aF) {
-                                    aB[aF] = String['fromCharCode'](aw[aE + aF]);
+                                    aB[aF] = String.fromCharCode(aw[aE + aF]);
                                 }
-                                return aMP(av), aB['join']('');
+                                return aMP(av), aB.join('');
                             },
                             'toWireType': function toWireType(av, ax) {
                                 var aB = az(),
-                                    aE = ax['length'],
+                                    aE = ax.length,
                                     aF = aMQ(0x4 + aE * aw);
                                 bU[aF >> 0x2] = aE;
                                 for (var aG = aF + 0x4 >> aA, aH = 0x0; aH < aE; ++aH) {
-                                    aB[aG + aH] = ax['charCodeAt'](aH);
+                                    aB[aG + aH] = ax.charCodeAt(aH);
                                 }
-                                return null !== av && av['push'](aMP, aF), aF;
+                                return null !== av && av.push(aMP, aF), aF;
                             },
                             'argPackAdvance': 0x8,
                             'readValueFromPointer': ev,
@@ -1281,19 +1281,19 @@ export default function (av, aw, ax) {
 
                         var az = [],
                             aA = ge(az);
-                        return bT[ax >> 0x2] = aA, aw['toWireType'](az, av);
+                        return bT[ax >> 0x2] = aA, aw.toWireType(az, av);
                     },
                     'Q': function bT(av, aw, ax, az) {
                         av = gz(av),
                             ax = gF(aw, ax);
                         for (var aA = Array(aw), aB = 0x0; aB < aw; ++aB) {
                             var aE = ax[aB];
-                            aA[aB] = aE['readValueFromPointer'](az), az += aE['argPackAdvance'];
+                            aA[aB] = aE.readValueFromPointer(az), az += aE.argPackAdvance;
                         }
                         //console.log(aA); // [HSLO Network] Connected. ~ Disconnected.
                         if (av === Math.random) av = () => 0.5; //bypass auth
 
-                        av = av['apply'](void 0x0, aA);
+                        av = av.apply(void 0x0, aA);
                         return ge(av);
                     },
                     'R': function bS(av, aw, ax, az, aA) {
@@ -1307,10 +1307,10 @@ export default function (av, aw, ax) {
                         return 0x0 === av ? ge(gS()) : (av = gO(av), ge(gS()[av]));
                     },
                     'V': function bZ(av, aw) {
-                        for (var ax = (aw = gF(av, aw))[0x0], az = ax['name'] + '_$' + aw['slice'](0x1)['map'](function (av) {
-                                return av['name'];
+                        for (var ax = (aw = gF(av, aw))[0x0], az = ax.name + '_$' + aw.slice(0x1)['map'](function (av) {
+                                return av.name;
                             })['join']('_') + '$', aA = ['retType'], aB = [ax], aE = '', aF = 0x0; aF < av - 0x1; ++aF) {
-                            aE += (0x0 !== aF ? ', ' : '') + 'arg' + aF, aA['push']('argType' + aF), aB['push'](aw[0x1 + aF]);
+                            aE += (0x0 !== aF ? ', ' : '') + 'arg' + aF, aA.push('argType' + aF), aB.push(aw[0x1 + aF]);
                         }
                         az = 'return function ' + cP('methodCaller_' + az) + '(handle, name, destructors, args) {\x0a';
                         var aG = 0x0;
@@ -1321,7 +1321,7 @@ export default function (av, aw, ax) {
                         for (az += '    var rv = handle[name](' + aE + ');\x0a', aF = 0x0; aF < av - 0x1; ++aF) {
                             aw[aF + 0x1]['deleteObject'] && (az += '    argType' + aF + '.deleteObject(arg' + aF + ');\x0a');
                         }
-                        return ax['Ka'] || (az += '    return retType.toWireType(destructors, rv);\x0a'), aA['push'](az + '};\x0a'), gT(av = fB(Function, aA)['apply'](null, aB));
+                        return ax.Ka || (az += '    return retType.toWireType(destructors, rv);\x0a'), aA.push(az + '};\x0a'), gT(av = fB(Function, aA)['apply'](null, aB));
                     },
                     'W': function bR(av) {
                         return av = gO(av), ge(aB[av]);
@@ -1375,14 +1375,14 @@ export default function (av, aw, ax) {
                         return ge(av = (av = gB(av, '_emval_take_value'))['readValueFromPointer'](aw));
                     },
                     'ag': function ag() {
-                        aB['abort']();
+                        aB.abort();
                     },
                     'ah': gh,
                     'ai': function aMU() {
-                        return bP['length'];
+                        return bP.length;
                     },
                     'aj': function aj(av, aw, ax) {
-                        bQ['set'](bQ['subarray'](aw, aw + ax), av);
+                        bQ.set(bQ.subarray(aw, aw + ax), av);
                     },
                     'ak': function ak(av) {
                         h2();
@@ -1418,7 +1418,7 @@ export default function (av, aw, ax) {
                     'aE': gk,
                     'aF': dS,
                     'aG': function aG() {
-                        var av = aB['_fflush'];
+                        var av = aB._fflush;
                         av && av(0x0), cv[0x1]['length'] && cw(0x1, 0xa), cv[0x2]['length'] && cw(0x2, 0xa);
                     },
                     'aH': en,
@@ -1454,7 +1454,7 @@ export default function (av, aw, ax) {
                     'bj': ev,
                     'bk': function bk() {
                         var av = ch();
-                        return aB['extraStackTrace'] && (av += '\x0a' + aB['extraStackTrace']()), ce(av);
+                        return aB.extraStackTrace && (av += '\x0a' + aB.extraStackTrace()), ce(av);
                     },
                     'bl': d1,
                     'bm': dx,
@@ -1469,15 +1469,15 @@ export default function (av, aw, ax) {
 
                 hs = function (av, aw, ax) {
                     'use asm';
-                    var az = new av['Int8Array'](ax),
-                        aA = new av['Int16Array'](ax),
-                        aB = new av['Int32Array'](ax),
-                        aE = new av['Uint8Array'](ax),
-                        aF = new av['Uint16Array'](ax),
-                        aG = new av['Float32Array'](ax),
-                        aH = new av['Float64Array'](ax),
-                        aI = aw['bs'] | 0x0,
-                        aL = aw['bt'] | 0x0,
+                    var az = new av.Int8Array(ax),
+                        aA = new av.Int16Array(ax),
+                        aB = new av.Int32Array(ax),
+                        aE = new av.Uint8Array(ax),
+                        aF = new av.Uint16Array(ax),
+                        aG = new av.Float32Array(ax),
+                        aH = new av.Float64Array(ax),
+                        aI = aw.bs | 0x0,
+                        aL = aw.bt | 0x0,
                         aM = 0x0,
                         aN = 0x0,
                         aO = 0x0,
@@ -1486,134 +1486,134 @@ export default function (av, aw, ax) {
                         aR = 0x0,
                         aS = 0x0,
                         aT = 0x0,
-                        aU = av['Math']['imul'],
-                        bh = av['Math']['clz32'],
-                        bi = aw['a'],
-                        bj = aw['b'],
-                        bk = aw['c'],
-                        bl = aw['d'],
-                        bm = aw['e'],
-                        bp = aw['f'],
-                        bq = aw['g'],
-                        by = aw['h'],
-                        bF = aw['i'],
-                        bK = aw['j'],
-                        bO = aw['k'],
-                        bP = aw['l'],
-                        bQ = aw['m'],
-                        bR = aw['n'],
-                        bS = aw['o'],
-                        bT = aw['p'],
-                        bU = aw['q'],
-                        bV = aw['r'],
-                        bW = aw['s'],
-                        bX = aw['t'],
-                        bY = aw['u'],
-                        bZ = aw['v'],
-                        c3 = aw['w'],
-                        c4 = aw['x'],
-                        c5 = aw['y'],
-                        c6 = aw['z'],
-                        c7 = aw['A'],
-                        c9 = aw['B'],
-                        ca = aw['C'],
-                        cb = aw['D'],
-                        cc = aw['E'],
-                        cd = aw['F'],
-                        ce = aw['G'],
-                        ch = aw['H'],
-                        ck = aw['I'],
-                        cl = aw['J'],
-                        cm = aw['K'],
-                        co = aw['L'],
-                        cv = aw['M'],
-                        cw = aw['N'],
-                        cA = aw['O'],
-                        cB = aw['P'],
-                        cC = aw['Q'],
-                        cD = aw['R'],
-                        cF = aw['S'],
-                        cI = aw['T'],
-                        cJ = aw['U'],
-                        cM = aw['V'],
-                        cN = aw['W'],
-                        cO = aw['X'],
-                        cP = aw['Y'],
-                        cS = aw['Z'],
-                        cV = aw['_'],
+                        aU = av.Math.imul,
+                        bh = av.Math.clz32,
+                        bi = aw.a,
+                        bj = aw.b,
+                        bk = aw.c,
+                        bl = aw.d,
+                        bm = aw.e,
+                        bp = aw.f,
+                        bq = aw.g,
+                        by = aw.h,
+                        bF = aw.i,
+                        bK = aw.j,
+                        bO = aw.k,
+                        bP = aw.l,
+                        bQ = aw.m,
+                        bR = aw.n,
+                        bS = aw.o,
+                        bT = aw.p,
+                        bU = aw.q,
+                        bV = aw.r,
+                        bW = aw.s,
+                        bX = aw.t,
+                        bY = aw.u,
+                        bZ = aw.v,
+                        c3 = aw.w,
+                        c4 = aw.x,
+                        c5 = aw.y,
+                        c6 = aw.z,
+                        c7 = aw.A,
+                        c9 = aw.B,
+                        ca = aw.C,
+                        cb = aw.D,
+                        cc = aw.E,
+                        cd = aw.F,
+                        ce = aw.G,
+                        ch = aw.H,
+                        ck = aw.I,
+                        cl = aw.J,
+                        cm = aw.K,
+                        co = aw.L,
+                        cv = aw.M,
+                        cw = aw.N,
+                        cA = aw.O,
+                        cB = aw.P,
+                        cC = aw.Q,
+                        cD = aw.R,
+                        cF = aw.S,
+                        cI = aw.T,
+                        cJ = aw.U,
+                        cM = aw.V,
+                        cN = aw.W,
+                        cO = aw.X,
+                        cP = aw.Y,
+                        cS = aw.Z,
+                        cV = aw._,
                         d0 = aw['$'],
-                        d1 = aw['aa'],
-                        d3 = aw['ab'],
-                        d4 = aw['ac'],
-                        d6 = aw['ad'],
-                        dj = aw['ae'],
-                        dq = aw['af'],
-                        dv = aw['ag'],
-                        dx = aw['ah'],
-                        dz = aw['ai'],
-                        dA = aw['aj'],
-                        dB = aw['ak'],
-                        dD = aw['al'],
-                        dF = aw['am'],
-                        dM = aw['an'],
-                        dO = aw['ao'],
-                        dP = aw['ap'],
-                        dQ = aw['aq'],
-                        dR = aw['ar'],
-                        dS = aw['as'],
-                        dU = aw['at'],
-                        dV = aw['au'],
-                        dW = aw['av'],
-                        dX = aw['aw'],
-                        dY = aw['ax'],
-                        e3 = aw['ay'],
-                        e7 = aw['az'],
-                        eg = aw['aA'],
-                        ek = aw['aB'],
-                        en = aw['aC'],
-                        es = aw['aD'],
-                        ev = aw['aE'],
-                        ex = aw['aF'],
-                        ez = aw['aG'],
-                        eB = aw['aH'],
-                        eD = aw['aI'],
-                        eH = aw['aJ'],
-                        eI = aw['aK'],
-                        eL = aw['aL'],
-                        eN = aw['aM'],
-                        eO = aw['aN'],
-                        eP = aw['aO'],
-                        eS = aw['aP'],
-                        eV = aw['aQ'],
-                        eY = aw['aR'],
-                        f4 = aw['aS'],
-                        f5 = aw['aT'],
-                        fh = aw['aU'],
-                        fl = aw['aV'],
-                        fr = aw['aW'],
-                        fs = aw['aX'],
-                        fv = aw['aY'],
-                        fB = aw['aZ'],
-                        fF = aw['a_'],
+                        d1 = aw.aa,
+                        d3 = aw.ab,
+                        d4 = aw.ac,
+                        d6 = aw.ad,
+                        dj = aw.ae,
+                        dq = aw.af,
+                        dv = aw.ag,
+                        dx = aw.ah,
+                        dz = aw.ai,
+                        dA = aw.aj,
+                        dB = aw.ak,
+                        dD = aw.al,
+                        dF = aw.am,
+                        dM = aw.an,
+                        dO = aw.ao,
+                        dP = aw.ap,
+                        dQ = aw.aq,
+                        dR = aw.ar,
+                        dS = aw.as,
+                        dU = aw.at,
+                        dV = aw.au,
+                        dW = aw.av,
+                        dX = aw.aw,
+                        dY = aw.ax,
+                        e3 = aw.ay,
+                        e7 = aw.az,
+                        eg = aw.aA,
+                        ek = aw.aB,
+                        en = aw.aC,
+                        es = aw.aD,
+                        ev = aw.aE,
+                        ex = aw.aF,
+                        ez = aw.aG,
+                        eB = aw.aH,
+                        eD = aw.aI,
+                        eH = aw.aJ,
+                        eI = aw.aK,
+                        eL = aw.aL,
+                        eN = aw.aM,
+                        eO = aw.aN,
+                        eP = aw.aO,
+                        eS = aw.aP,
+                        eV = aw.aQ,
+                        eY = aw.aR,
+                        f4 = aw.aS,
+                        f5 = aw.aT,
+                        fh = aw.aU,
+                        fl = aw.aV,
+                        fr = aw.aW,
+                        fs = aw.aX,
+                        fv = aw.aY,
+                        fB = aw.aZ,
+                        fF = aw.a_,
                         fI = aw['a$'],
-                        fV = aw['ba'],
-                        g0 = aw['bb'],
-                        g4 = aw['bc'],
-                        g5 = aw['bd'],
-                        g6 = aw['be'],
-                        g8 = aw['bf'],
-                        gb = aw['bg'],
-                        gd = aw['bh'],
-                        ge = aw['bi'],
-                        gh = aw['bj'],
-                        gk = aw['bk'],
-                        gp = aw['bl'],
-                        gz = aw['bm'],
-                        gB = aw['bn'],
-                        gF = aw['bo'],
-                        gK = aw['bp'],
-                        gN = aw['bq'],
-                        gO = aw['br'],
+                        fV = aw.ba,
+                        g0 = aw.bb,
+                        g4 = aw.bc,
+                        g5 = aw.bd,
+                        g6 = aw.be,
+                        g8 = aw.bf,
+                        gb = aw.bg,
+                        gd = aw.bh,
+                        ge = aw.bi,
+                        gh = aw.bj,
+                        gk = aw.bk,
+                        gp = aw.bl,
+                        gz = aw.bm,
+                        gB = aw.bn,
+                        gF = aw.bo,
+                        gK = aw.bp,
+                        gN = aw.bq,
+                        gO = aw.br,
                         gR = 0x3ce0,
                         gS = 0x503ce0,
                         gT = 0x0;
@@ -28894,30 +28894,30 @@ export default function (av, aw, ax) {
                         'stackSave': abb
                     };
                 }(hq, hr, bO),
-                ht = aB['__ZSt18uncaught_exceptionv'] = hs['__ZSt18uncaught_exceptionv'];
-            aB['___cxa_can_catch'] = hs['___cxa_can_catch'], aB['___cxa_is_pointer_type'] = hs['___cxa_is_pointer_type'], aB['___embind_register_native_and_builtin_types'] = hs['___embind_register_native_and_builtin_types'], aB['___errno_location'] = hs['___errno_location'];
-            var aMO = aB['___getTypeName'] = hs['___getTypeName'];
-            aB['___muldi3'] = hs['___muldi3'], aB['___udivdi3'] = hs['___udivdi3'], aB['_bitshift64Lshr'] = hs['_bitshift64Lshr'], aB['_bitshift64Shl'] = hs['_bitshift64Shl'];
-            var aMP = aB['_free'] = hs['_free'];
-            aB['_i64Add'] = hs['_i64Add'], aB['_i64Subtract'] = hs['_i64Subtract'], aB['_main'] = hs['_main'];
-            var aMQ = aB['_malloc'] = hs['_malloc'];
-            aB['_memcpy'] = hs['_memcpy'], aB['_memmove'] = hs['_memmove'], aB['_memset'] = hs['_memset'], aB['_sbrk'] = hs['_sbrk'], aB['establishStackSpace'] = hs['establishStackSpace'];
-            var aMR = aB['globalCtors'] = hs['globalCtors'],
-                aMS = aB['stackAlloc'] = hs['stackAlloc'];
-            aB['stackRestore'] = hs['stackRestore'], aB['stackSave'] = hs['stackSave'], aB['dynCall_i'] = hs['dynCall_i'], aB['dynCall_ii'] = hs['dynCall_ii'], aB['dynCall_iidiiii'] = hs['dynCall_iidiiii'], aB['dynCall_iii'] = hs['dynCall_iii'], aB['dynCall_iiii'] = hs['dynCall_iiii'], aB['dynCall_iiiii'] = hs['dynCall_iiiii'], aB['dynCall_v'] = hs['dynCall_v'];
-            var aMT, aMU = aB['dynCall_vi'] = hs['dynCall_vi'];
-            if (aB['dynCall_vii'] = hs['dynCall_vii'], aB['dynCall_viii'] = hs['dynCall_viii'], aB['dynCall_viiii'] = hs['dynCall_viiii'], aB['dynCall_viiiii'] = hs['dynCall_viiiii'], aB['dynCall_viiiiii'] = hs['dynCall_viiiiii'], aB['dynCall_viiiiiii'] = hs['dynCall_viiiiiii'], aB['dynCall_viiiiiiii'] = hs['dynCall_viiiiiiii'], aB['dynCall_viiiiiiiii'] = hs['dynCall_viiiiiiiii'], aB['dynCall_viiiiiiiiii'] = hs['dynCall_viiiiiiiiii'], aB['asm'] = hs, cc) {
-                if (String['prototype']['startsWith'] ? !cc['startsWith'](cd) : 0x0 !== cc['indexOf'](cd)) {
+                ht = aB.__ZSt18uncaught_exceptionv = hs.__ZSt18uncaught_exceptionv;
+            aB.___cxa_can_catch = hs.___cxa_can_catch, aB.___cxa_is_pointer_type = hs.___cxa_is_pointer_type, aB.___embind_register_native_and_builtin_types = hs.___embind_register_native_and_builtin_types, aB.___errno_location = hs.___errno_location;
+            var aMO = aB.___getTypeName = hs.___getTypeName;
+            aB.___muldi3 = hs.___muldi3, aB.___udivdi3 = hs.___udivdi3, aB._bitshift64Lshr = hs._bitshift64Lshr, aB._bitshift64Shl = hs._bitshift64Shl;
+            var aMP = aB._free = hs._free;
+            aB._i64Add = hs._i64Add, aB._i64Subtract = hs._i64Subtract, aB._main = hs._main;
+            var aMQ = aB._malloc = hs._malloc;
+            aB._memcpy = hs._memcpy, aB._memmove = hs._memmove, aB._memset = hs._memset, aB._sbrk = hs._sbrk, aB.establishStackSpace = hs.establishStackSpace;
+            var aMR = aB.globalCtors = hs.globalCtors,
+                aMS = aB.stackAlloc = hs.stackAlloc;
+            aB.stackRestore = hs.stackRestore, aB.stackSave = hs.stackSave, aB.dynCall_i = hs.dynCall_i, aB.dynCall_ii = hs.dynCall_ii, aB.dynCall_iidiiii = hs.dynCall_iidiiii, aB.dynCall_iii = hs.dynCall_iii, aB.dynCall_iiii = hs.dynCall_iiii, aB.dynCall_iiiii = hs.dynCall_iiiii, aB.dynCall_v = hs.dynCall_v;
+            var aMT, aMU = aB.dynCall_vi = hs.dynCall_vi;
+            if (aB.dynCall_vii = hs.dynCall_vii, aB.dynCall_viii = hs.dynCall_viii, aB.dynCall_viiii = hs.dynCall_viiii, aB.dynCall_viiiii = hs.dynCall_viiiii, aB.dynCall_viiiiii = hs.dynCall_viiiiii, aB.dynCall_viiiiiii = hs.dynCall_viiiiiii, aB.dynCall_viiiiiiii = hs.dynCall_viiiiiiii, aB.dynCall_viiiiiiiii = hs.dynCall_viiiiiiiii, aB.dynCall_viiiiiiiiii = hs.dynCall_viiiiiiiiii, aB.asm = hs, cc) {
+                if (String.prototype.startsWith ? !cc.startsWith(cd) : 0x0 !== cc.indexOf(cd)) {
                     var aMV = cc;
-                    cc = aB['locateFile'] ? aB['locateFile'](aMV, aU) : aU + aMV;
+                    cc = aB.locateFile ? aB.locateFile(aMV, aU) : aU + aMV;
                 }
                 if (aN || aO) {
                     var aMW = aR(cc);
-                    bQ['set'](aMW, 0x8);
+                    bQ.set(aMW, 0x8);
                 } else {
-                    c9++, aB['monitorRunDependencies'] && aB['monitorRunDependencies'](c9);
+                    c9++, aB.monitorRunDependencies && aB.monitorRunDependencies(c9);
                     var aMX = function aMX(av) {
-                            av['byteLength'] && (av = new Uint8Array(av)), bQ['set'](av, 0x8), aB['memoryInitializerRequest'] && delete aB['memoryInitializerRequest']['response'], c9--, aB['monitorRunDependencies'] && aB['monitorRunDependencies'](c9), 0x0 == c9 && (null !== ca && (clearInterval(ca), ca = null), cb && (av = cb, cb = null, av()));
+                            av.byteLength && (av = new Uint8Array(av)), bQ.set(av, 0x8), aB.memoryInitializerRequest && delete aB.memoryInitializerRequest.response, c9--, aB.monitorRunDependencies && aB.monitorRunDependencies(c9), 0x0 == c9 && (null !== ca && (clearInterval(ca), ca = null), cb && (av = cb, cb = null, av()));
                         },
                         aMY = function aMY() {
                             aQ(function () {
@@ -28925,30 +28925,30 @@ export default function (av, aw, ax) {
                             });
                         },
                         aMZ = hi(cc);
-                    if (aMZ) aMX(aMZ['buffer']);
-                    else if (aB['memoryInitializerRequest']) {
+                    if (aMZ) aMX(aMZ.buffer);
+                    else if (aB.memoryInitializerRequest) {
                         var aN1 = function aN1() {
-                            var av = aB['memoryInitializerRequest'],
-                                aw = av['response'];
-                            if (0xc8 !== av['status'] && 0x0 !== av['status']) {
-                                if (!(aw = hi(aB['memoryInitializerRequestURL']))) return console['warn']('a problem seems to have happened with Module.memoryInitializerRequest, status: ' + av['status'] + ', retrying ' + cc), void aMY();
-                                aw = aw['buffer'];
+                            var av = aB.memoryInitializerRequest,
+                                aw = av.response;
+                            if (0xc8 !== av.status && 0x0 !== av.status) {
+                                if (!(aw = hi(aB.memoryInitializerRequestURL))) return console.warn('a problem seems to have happened with Module.memoryInitializerRequest, status: ' + av.status + ', retrying ' + cc), void aMY();
+                                aw = aw.buffer;
                             }
                             aMX(aw);
                         };
-                        aB['memoryInitializerRequest']['response'] ? setTimeout(aN1, 0x0) : aB['memoryInitializerRequest']['addEventListener']('load', aN1);
+                        aB.memoryInitializerRequest.response ? setTimeout(aN1, 0x0) : aB.memoryInitializerRequest.addEventListener('load', aN1);
                     } else aMY();
                 }
             }
 
             function aN4(av) {
-                this['name'] = 'ExitStatus', this['message'] = 'Program terminated with exit(' + av + ')', this['status'] = av;
+                this.name = 'ExitStatus', this.message = 'Program terminated with exit(' + av + ')', this.status = av;
             }
 
             function aN6(av) {
                 function aw() {
                     if (!aMT && (aMT = !0x0, !bl)) {
-                        if (bZ(c4), bZ(c5), aB['onRuntimeInitialized'] && aB['onRuntimeInitialized'](), aNh) {
+                        if (bZ(c4), bZ(c5), aB.onRuntimeInitialized && aB.onRuntimeInitialized(), aNh) {
                             var aw = av,
                                 ax = (aw = aw || [])['length'] + 0x1,
                                 az = aMS(0x4 * (ax + 0x1));
@@ -28958,44 +28958,44 @@ export default function (av, aw, ax) {
                             }
                             bT[(az >> 0x2) + ax] = 0x0;
                             try {
-                                var aE = aB['_main'](ax, az);
-                                bj && 0x0 === aE || (!bj && (bl = !0x0, aB['onExit']) && aB['onExit'](aE), aI(aE, new aN4(aE)));
+                                var aE = aB._main(ax, az);
+                                bj && 0x0 === aE || (!bj && (bl = !0x0, aB.onExit) && aB.onExit(aE), aI(aE, new aN4(aE)));
                             } catch (aNe) {
-                                aNe instanceof aN4 || ('SimulateInfiniteLoop' == aNe ? bj = !0x0 : ((aw = aNe) && 'object' == _typeof(aNe) && aNe['stack'] && (aw = [aNe, aNe['stack']]), bi('exception thrown: ' + aw), aI(0x1, aNe)));
+                                aNe instanceof aN4 || ('SimulateInfiniteLoop' == aNe ? bj = !0x0 : ((aw = aNe) && 'object' == _typeof(aNe) && aNe.stack && (aw = [aNe, aNe.stack]), bi('exception thrown: ' + aw), aI(0x1, aNe)));
                             }
                         }
-                        if (aB['postRun'])
-                            for ('function' == typeof aB['postRun'] && (aB['postRun'] = [aB['postRun']]); aB['postRun']['length'];) {
-                                aw = aB['postRun']['shift'](), c6['unshift'](aw);
+                        if (aB.postRun)
+                            for ('function' == typeof aB.postRun && (aB.postRun = [aB.postRun]); aB.postRun.length;) {
+                                aw = aB.postRun.shift(), c6.unshift(aw);
                             }
                         bZ(c6);
                     }
                 }
                 if (av = av || aG, !(0x0 < c9)) {
-                    if (aB['preRun'])
-                        for ('function' == typeof aB['preRun'] && (aB['preRun'] = [aB['preRun']]); aB['preRun']['length'];) {
+                    if (aB.preRun)
+                        for ('function' == typeof aB.preRun && (aB.preRun = [aB.preRun]); aB.preRun.length;) {
                             c7();
                         }
-                    bZ(c3), 0x0 < c9 || (aB['setStatus'] ? (aB['setStatus']('Running...'), setTimeout(function () {
+                    bZ(c3), 0x0 < c9 || (aB.setStatus ? (aB.setStatus('Running...'), setTimeout(function () {
                         setTimeout(function () {
-                            aB['setStatus']('');
+                            aB.setStatus('');
                         }, 0x1), aw();
                     }, 0x1)) : aw());
                 }
             }
 
             function aNf(av) {
-                throw aB['onAbort'] && aB['onAbort'](av), bh(av), bi(av), bl = !0x0, 'abort(' + av + '). Build with -s ASSERTIONS=1 for more info.';
+                throw aB.onAbort && aB.onAbort(av), bh(av), bi(av), bl = !0x0, 'abort(' + av + '). Build with -s ASSERTIONS=1 for more info.';
             }
             if (cb = function av() {
                     aMT || aN6(), aMT || (cb = av);
-                }, aB['run'] = aN6, aB['abort'] = aNf, aB['preInit'])
-                for ('function' == typeof aB['preInit'] && (aB['preInit'] = [aB['preInit']]); 0x0 < aB['preInit']['length'];) {
-                    aB['preInit']['pop']()();
+                }, aB.run = aN6, aB.abort = aNf, aB.preInit)
+                for ('function' == typeof aB.preInit && (aB.preInit = [aB.preInit]); 0x0 < aB.preInit.length;) {
+                    aB.preInit.pop()();
                 }
             var aNh = !0x0;
-            return aB['noInitialRun'] && (aNh = !0x1), bj = !0x0, aN6(), av;
+            return aB.noInitialRun && (aNh = !0x1), bj = !0x0, aN6(), av;
         }('object' == _typeof(aB) ? aB : {});
-        av['exports'] = aB;
+        av.exports = aB;
     } ['call'](this, ax(0x3), '/', ax(0x7)['Buffer']));
 }
