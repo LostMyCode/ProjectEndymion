@@ -71,8 +71,8 @@ export default (function () {
             }
         }
     }, {
-        'key': '_2CLc762a0eed09dc66d',
-        'value': function _2CLc762a0eed09dc66d(aNv) {
+        'key': 'writeStringUTF8',
+        'value': function writeStringUTF8(aNv) {
             for (var aSA = 0x0; aSA < aNv.length; aSA++) {
                 var aSB = aNv.charCodeAt(aSA);
                 this.writeUint8(aSB);

@@ -82,13 +82,13 @@ var aU8 = class {
         }
         return aNv;
     }
-    _2CLa558945aac881300() {
+    decompressMessage() {
         var aNv = this.getUint32(),
             aNw = new Uint8Array(this.dataView.buffer),
             aNx = new Uint8Array(aNv);
-        this._2CLd5e8e1e5db552484(aNw, aNx, 0x5), this.dataView = new DataView(aNx.buffer), this.index = 0x0, this.maxIndex = aNv;
+        this.decodeBlock(aNw, aNx, 0x5), this.dataView = new DataView(aNx.buffer), this.index = 0x0, this.maxIndex = aNv;
     }
-    _2CLd5e8e1e5db552484(aNv, aNw, aNx, aNy) {
+    decodeBlock(aNv, aNw, aNx, aNy) {
         aNx = aNx || 0x0, aNy = aNy || aNv.length - aNx;
         var aNz = aNx,
             aNA = 0x0;

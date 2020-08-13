@@ -23,7 +23,7 @@ var aNA = function () {
         this.xPos_kamo = 0x0;
         this.yPos_kamo = 0x0;
         this._2CL9530bc8f94fc32a9 = 0x0;
-        this._2CLd33d3f60bb918a22 = 0x0;
+        this.radius_kamo = 0x0;
         this._2CL659907fefaeeb24a = 0x0;
         this._2CL1ef101f9a0c03f9d = 0x0;
         this._2CL99f366efebead96d = 0x0;
@@ -55,7 +55,7 @@ var aNA = function () {
         'key': '_init_hatena',
         'value': function _init_hatena() {
             var aNv = window.innerHeight / aNz;
-            this._2CL26c6da77d5462ba8 = (aNv + window.innerWidth) * Math.random(), this._2CL516d2a3ba155227c = window.innerHeight + 0.25 * window.innerHeight * Math.random(), this._2CL9530bc8f94fc32a9 = Math.random(), this._2CLd33d3f60bb918a22 = 2.4 + 0.7 * this._2CL9530bc8f94fc32a9 * 0x8, this._2CL659907fefaeeb24a = 0.2 + 0.8 * this._2CL9530bc8f94fc32a9, this._2CL1ef101f9a0c03f9d = Date.now(), this._2CL99f366efebead96d = 0x1388 + 0x2710 * Math.random(), this._2CL79d47d8ac85b4c42 = 0xa + 0x14 * Math.random();
+            this._2CL26c6da77d5462ba8 = (aNv + window.innerWidth) * Math.random(), this._2CL516d2a3ba155227c = window.innerHeight + 0.25 * window.innerHeight * Math.random(), this._2CL9530bc8f94fc32a9 = Math.random(), this.radius_kamo = 2.4 + 0.7 * this._2CL9530bc8f94fc32a9 * 0x8, this._2CL659907fefaeeb24a = 0.2 + 0.8 * this._2CL9530bc8f94fc32a9, this._2CL1ef101f9a0c03f9d = Date.now(), this._2CL99f366efebead96d = 0x1388 + 0x2710 * Math.random(), this._2CL79d47d8ac85b4c42 = 0xa + 0x14 * Math.random();
         }
     }]);
     return aNA;
@@ -140,7 +140,7 @@ export default new (function () {
             try {
                 for (var aO0 = this.orbEntities[Symbol.iterator](), aO1; !(aNX = (aO1 = aO0.next())['done']); aNX = !![]) {
                     var aO2 = aO1.value;
-                    aO2._2CLb732806230c52119(), aNv.globalAlpha = aO2._2CL659907fefaeeb24a, aNv.drawImage(aNM, aO2.xPos_kamo - aO2._2CLd33d3f60bb918a22, aO2.yPos_kamo - aO2._2CLd33d3f60bb918a22, 0x2 * aO2._2CLd33d3f60bb918a22, 0x2 * aO2._2CLd33d3f60bb918a22);
+                    aO2._2CLb732806230c52119(), aNv.globalAlpha = aO2._2CL659907fefaeeb24a, aNv.drawImage(aNM, aO2.xPos_kamo - aO2.radius_kamo, aO2.yPos_kamo - aO2.radius_kamo, 0x2 * aO2.radius_kamo, 0x2 * aO2.radius_kamo);
                 }
             } catch (aO3) {
                 aNY = !![];
