@@ -6556,13 +6556,13 @@ const disappearedEntities = new Map();
                     if (
                         /* Settings.Endy.enableFullmap &&  */
                         currentAssistMode == "fullmap" &&
-                        tabId < 2 && !isMe // dont use tab0,1 view
-                        /* tabId > 1 && 
+                        // tabId < 2 && !isMe // dont use tab0,1 view
+                        tabId > 1 && 
                         inurArea(
                             tabId,
                             x,
                             y
-                        ) */
+                        )
                     ) {
                         return;
                     }
