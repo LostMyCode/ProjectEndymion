@@ -623,7 +623,7 @@ const disappearedEntities = new Map();
                 aQx = _possibleConstructorReturn(this, _getPrototypeOf(aQw)['call'](this)), aQx._2CL8fa5acbdd0c9d86d = 'https://webbouncer-live-v8-0.agario.miniclippt.com', aQx._2CL1dd59f574d5db0c8 = '/v4', aQx._2CLc4b8ab500089b24b = {
                     'clientVersion': 0x77ec,
                     'versionString': '3.7.0'
-                }, aQx._2CL5f88a0b9e93b6787 = {}, aQx._2CLf92a9c1bcd5d7960 = new Map(), aQx._2CL740f7cad07395769 = 0x8f5, aQx._2CL07693fe53557f010(), aQx._2CL2cb48686cf926172(), aQx._2CL1048848f0efe6ccf();
+                }, aQx._2CL5f88a0b9e93b6787 = {}, aQx._2CLf92a9c1bcd5d7960 = new Map(), aQx._2CL740f7cad07395769 = 0x8f5, aQx._2CL07693fe53557f010(), aQx.fetchLatestID(), aQx.fetchGameConfig();
                 return aQx;
             }
             _createClass(aQw, [{
@@ -830,8 +830,8 @@ const disappearedEntities = new Map();
                     }, aNw.send();
                 }
             }, {
-                'key': '_2CL1048848f0efe6ccf',
-                'value': function _2CL1048848f0efe6ccf() {
+                'key': 'fetchGameConfig',
+                'value': function fetchGameConfig() {
                     var aRE = this;
                     console.log('[Miniclip] Fetching game configuration');
                     var aNv = new XMLHttpRequest(),
@@ -846,8 +846,8 @@ const disappearedEntities = new Map();
                     }, aNv.send();
                 }
             }, {
-                'key': '_2CL2cb48686cf926172',
-                'value': function _2CL2cb48686cf926172() {
+                'key': 'fetchLatestID',
+                'value': function fetchLatestID() {
                     var aRI = this;
                     console.log('[Miniclip] Fetching latest ID');
                     var aNv = new XMLHttpRequest();
@@ -896,22 +896,22 @@ const disappearedEntities = new Map();
         }(aQ6))(),
         aQs = aNx(0x0),
         aQt = aNx.n(aQs),
-        aQu = aQt.a.Keygen;
+        aQu = aQt.a.Keygen; // Encryption key generator
     var aRV = new(function () {
         function aRW() {
             _classCallCheck(this, aRW);
-            this.decryptionKey_obj = [0x0, 0x0], this._2CL6df3461df2808a20 = [0x0, 0x0];
+            this.decryptionKey_obj = [0x0, 0x0], this.encryptionKey_obj = [0x0, 0x0];
         }
         _createClass(aRW, [{
             'key': '_2CL0a0dbaaacf7f9729',
             'value': function _2CL0a0dbaaacf7f9729(aNv) {
-                this.decryptionKey_obj[aNv] = 0x0, this._2CL6df3461df2808a20[aNv] = 0x0;
+                this.decryptionKey_obj[aNv] = 0x0, this.encryptionKey_obj[aNv] = 0x0;
             }
         }, {
             'key': '_2CLd1ab6ff0f5ac94d9',
             'value': function _2CLd1ab6ff0f5ac94d9(aNv, aNw) {
-                var aNx = this._2CL6df3461df2808a20[aNv];
-                this._2CLb4ed87a7352ad4fa(aNw, aNx);
+                var aNx = this.encryptionKey_obj[aNv];
+                this.xorBuffer_fn(aNw, aNx);
             }
         }, {
             'key': '_2CLbaf10d0df76c4140',
@@ -919,11 +919,11 @@ const disappearedEntities = new Map();
                 var aNx = this.decryptionKey_obj[aNv];
                 if (0x0 === aNx) return;
                 var aNy = aNx ^ aQr._2CLc4b8ab500089b24b.clientVersion;
-                this._2CLb4ed87a7352ad4fa(aNw, aNy);
+                this.xorBuffer_fn(aNw, aNy);
             }
         }, {
-            'key': '_2CLb4ed87a7352ad4fa',
-            'value': function _2CLb4ed87a7352ad4fa(aNv, aNw) {
+            'key': 'xorBuffer_fn',
+            'value': function xorBuffer_fn(aNv, aNw) {
                 var aNx = new Uint8Array(aNv);
                 var aNy = aNx.byteLength;
                 for (; aNy--;) {
@@ -931,13 +931,13 @@ const disappearedEntities = new Map();
                 }
             }
         }, {
-            'key': '_2CL25a976a46ebec4bc',
-            'value': function _2CL25a976a46ebec4bc(aNv) {
-                this._2CL6df3461df2808a20[aNv] = this.shiftKey_fn(this._2CL6df3461df2808a20[aNv]);
+            'key': 'shiftEncryptionKey',
+            'value': function shiftEncryptionKey(aNv) {
+                this.encryptionKey_obj[aNv] = this.shiftKey_fn(this.encryptionKey_obj[aNv]);
             }
         }, {
-            'key': '_2CLc00358764d795623',
-            'value': function _2CLc00358764d795623(aNv) {
+            'key': 'shiftDecryptionKey',
+            'value': function shiftDecryptionKey(aNv) {
                 this.decryptionKey_obj[aNv] = this.shiftKey_fn(this.decryptionKey_obj[aNv]);
             }
         }, {
@@ -950,9 +950,9 @@ const disappearedEntities = new Map();
             }
         }, {
             'key': 'serverToken_fn',
-            'value': function serverToken_fn(aNv, aNw, aNx) {
+            'value': function serverToken_fn(tabId, aNw, aNx) {
                 var aNy = aNw.match(/[\w\d\.-]+\.agar\.io/)[0x0];
-                this._2CL6df3461df2808a20[aNv] = aQu(aNy, aNx);
+                this.encryptionKey_obj[tabId] = aQu(aNy, aNx);
             }
         }]);
         return aRW;
@@ -1041,7 +1041,7 @@ const disappearedEntities = new Map();
         '_2CL9c15c849ca06e0f7': new aSg(0x5),
         'sendMovePacket': new aSg(0xd),
         '_2CLd35a39212fd75e83': new aSg(0x1),
-        '_2CL08365f3bc89507c7': new aSg(0x3)
+        'ping_ayoGG': new aSg(0x3)
     };
     var aT1 = new(function () {
         function aT2() {
@@ -1064,19 +1064,19 @@ const disappearedEntities = new Map();
                 b18._2CL785ba0dfc4e6d9fc[aNv] = !0x0, this._2CL2d2649677c494e95(aNv), this._2CLbd43b5b161db4d90(aNv);
             }
         }, {
-            'key': '_2CL9ce3af538899f896',
-            'value': function _2CL9ce3af538899f896(aNv, aNw) {
+            'key': 'sendPacket_fn',
+            'value': function sendPacket_fn(aNv, aNw) {
                 var aNx = aNw._2CLe035dc327c1676d8;
-                aRV._2CLd1ab6ff0f5ac94d9(aNv, aNx), b18._2CL0c324d8833f92c95(aNv, aNx), aRV._2CL25a976a46ebec4bc(aNv);
+                aRV._2CLd1ab6ff0f5ac94d9(aNv, aNx), b18.wsSend_fn(aNv, aNx), aRV.shiftEncryptionKey(aNv);
             }
         }, {
             'key': 'sendHandshake254',
             'value': function sendHandshake254(aNv) {
                 var aNw = aT0._2CL9c15c849ca06e0f7;
-                aNw._init_hatena(),
-                    aNw.writeUint8(0xfe), // handshake 254
-                    aNw.writeUint32(0x16), // protocol version
-                    b18._2CL0c324d8833f92c95(aNv, aNw._2CLe035dc327c1676d8);
+                aNw._init_hatena();
+                aNw.writeUint8(0xfe); // handshake 254
+                aNw.writeUint32(0x16); // protocol version
+                b18.wsSend_fn(aNv, aNw._2CLe035dc327c1676d8);
             }
         }, {
             'key': 'sendHandshake255',
@@ -1085,7 +1085,7 @@ const disappearedEntities = new Map();
                 aNw._init_hatena(),
                     aNw.writeUint8(0xff), // handshake 255
                     aNw.writeUint32(aQr._2CLc4b8ab500089b24b.clientVersion), // client version
-                    b18._2CL0c324d8833f92c95(aNv, aNw._2CLe035dc327c1676d8);
+                    b18.wsSend_fn(aNv, aNw._2CLe035dc327c1676d8);
             }
         }, {
             'key': 'sendSpawnPacket',
@@ -1102,7 +1102,7 @@ const disappearedEntities = new Map();
                         aNy.writeUint8(0x0), // spawn
                             aNy.writeStringUTF8(aNx),
                             aNy.writeStringUTF8(grecaptcha.getResponse()),
-                            dis._2CL9ce3af538899f896(aNv, aNy),
+                            dis.sendPacket_fn(aNv, aNy),
                             aSL._2CL4b362f28fd6ff0f8 = !0x1;
                         myTurn = false;
                         recaptchaExecuteLoop();
@@ -1131,7 +1131,7 @@ const disappearedEntities = new Map();
                         aNy = new aSg(aNx.length + 0x2);
                     aNy.writeUint8(0x0), // spawn
                         aNy.writeStringUTF8(aNx),
-                        this._2CL9ce3af538899f896(aNv, aNy),
+                        this.sendPacket_fn(aNv, aNy),
                         aSL._2CL4b362f28fd6ff0f8 = !0x1;
                 }
             }
@@ -1141,10 +1141,10 @@ const disappearedEntities = new Map();
                 //sendSpectatePacket
                 /* if(aNv < 2 && !b18._2CL785ba0dfc4e6d9fc[aNv]||aSL._2CL4b362f28fd6ff0f8||b3Y._2CL1d2b5efaee01be40(aNv))return; */
                 var aNw = aT0._2CLd35a39212fd75e83;
-                aNw._init_hatena(),
-                    aNw.writeUint8(0x1),
-                    this._2CL9ce3af538899f896(aNv, aNw),
-                    aSL._2CL4b362f28fd6ff0f8 = !0x0;
+                aNw._init_hatena();
+                aNw.writeUint8(0x1);
+                this.sendPacket_fn(aNv, aNw);
+                aSL._2CL4b362f28fd6ff0f8 = !0x0;
             }
         }, {
             'key': 'sendMovePacket',
@@ -1155,19 +1155,21 @@ const disappearedEntities = new Map();
                 var aNy = aRV.decryptionKey_obj[aNx],
                     aNz = b2u.posOffset_kamo[aNx],
                     aNA = aT0.sendMovePacket;
-                aNA._init_hatena(),
-                    aNA.writeUint8(0x10);
-                aNA.writeInt32(aNv + aNz.xPos_kamo),
-                    aNA.writeInt32(aNw + aNz.yPos_kamo),
-                    aNA.writeInt32(aNy),
-                    this._2CL9ce3af538899f896(aNx, aNA);
+                aNA._init_hatena();
+                aNA.writeUint8(0x10);
+                aNA.writeInt32(aNv + aNz.xPos_kamo);
+                aNA.writeInt32(aNw + aNz.yPos_kamo);
+                aNA.writeInt32(aNy);
+                this.sendPacket_fn(aNx, aNA);
             }
         }, {
             'key': '_2CLace8b3d8ee5db2c1',
             'value': function _2CLace8b3d8ee5db2c1(aNv) {
                 if (!b18._2CL785ba0dfc4e6d9fc[aNv]) return;
                 var aNw = aT0._2CLd35a39212fd75e83;
-                aNw._init_hatena(), aNw.writeUint8(0x11), this._2CL9ce3af538899f896(aNv, aNw);
+                aNw._init_hatena();
+                aNw.writeUint8(0x11);
+                this.sendPacket_fn(aNv, aNw);
             }
         }, {
             'key': 'switchSpectateMode',
@@ -1176,23 +1178,23 @@ const disappearedEntities = new Map();
                 /* if(!b18._2CL785ba0dfc4e6d9fc[aNv]||!aSL._2CL4b362f28fd6ff0f8)return; */
                 aSL.switchSpectateMode = !aSL.switchSpectateMode;
                 var aNw = aT0._2CLd35a39212fd75e83;
-                aNw._init_hatena(),
-                    aNw.writeUint8(0x12),
-                    this._2CL9ce3af538899f896(aNv, aNw);
+                aNw._init_hatena();
+                aNw.writeUint8(0x12);
+                this.sendPacket_fn(aNv, aNw);
             }
         }, {
             'key': '_2CL90e8863db5939803',
             'value': function _2CL90e8863db5939803(aNv) {
                 if (!b18._2CL785ba0dfc4e6d9fc[aNv]) return;
                 var aNw = aT0._2CLd35a39212fd75e83;
-                aNw._init_hatena(), aNw.writeUint8(0x15), this._2CL9ce3af538899f896(aNv, aNw);
+                aNw._init_hatena(), aNw.writeUint8(0x15), this.sendPacket_fn(aNv, aNw);
             }
         }, {
             'key': '_2CL7d56178cbe83ef34',
             'value': function _2CL7d56178cbe83ef34(aNv, aNw) {
                 if (!b18._2CL785ba0dfc4e6d9fc[aNv]) return;
                 var aNx = new aSg(aNw.length + 0x2);
-                aNx.writeUint8(0x56), aNx.writeStringUTF8(aNw), this._2CL9ce3af538899f896(aNv, aNx);
+                aNx.writeUint8(0x56), aNx.writeStringUTF8(aNw), this.sendPacket_fn(aNv, aNx);
             }
         }, {
             'key': '_2CL2d2649677c494e95',
@@ -1236,7 +1238,7 @@ const disappearedEntities = new Map();
                         }
                     }
                 }
-                this._2CL9ce3af538899f896(aNv, aNN), this._2CL9f2ef7144b608121[aNv] = !0x0;
+                this.sendPacket_fn(aNv, aNN), this._2CL9f2ef7144b608121[aNv] = !0x0;
             }
         }, {
             'key': '_2CLbd43b5b161db4d90',
@@ -1273,14 +1275,17 @@ const disappearedEntities = new Map();
                         }
                     }
                 }
-                this._2CL9ce3af538899f896(aNv, aNA);
+                this.sendPacket_fn(aNv, aNA);
             }
         }, {
-            'key': '_2CL08365f3bc89507c7',
-            'value': function _2CL08365f3bc89507c7(aNv, aNw) {
+            'key': 'ping_ayoGG',
+            'value': function ping_ayoGG(aNv, aNw) {
                 if (!b18._2CL785ba0dfc4e6d9fc[aNv]) return;
-                var aNx = aT0._2CL08365f3bc89507c7;
-                aNx._init_hatena(), aNx.writeUint8(0xe3), aNx.writeUint16(aNw), this._2CL9ce3af538899f896(aNv, aNx);
+                var aNx = aT0.ping_ayoGG;
+                aNx._init_hatena();
+                aNx.writeUint8(0xe3);
+                aNx.writeUint16(aNw);
+                this.sendPacket_fn(aNv, aNx);
             }
         }]);
         return aT2;
@@ -1291,15 +1296,23 @@ const disappearedEntities = new Map();
     var aUQ = new(function () {
         function aUR() {
             _classCallCheck(this, aUR);
-            this.v2sitekey = '6LfjUBcUAAAAAF6y2yIZHgHIOO5Y3cU5osS2gbMl', this._2CL6fe1f736b5887665 = !0x0, this._2CL37dd70bc6d6e339b = [-0x1, -0x1], this._2CL5609d8d9912749f1 = document.getElementById('recaptcha-screen'), this._2CL14276235b71fb7e1 = [document.getElementById('recaptcha-a'), document.getElementById('recaptcha-b')], this._2CLa6f1d546f5ae2d9d = 0x0;
+            this.v2sitekey = '6LfjUBcUAAAAAF6y2yIZHgHIOO5Y3cU5osS2gbMl';
+            this._2CL6fe1f736b5887665 = !0x0;
+            this.gr_renders = [-0x1, -0x1];
+            this.captchaScreen_elm = document.getElementById('recaptcha-screen');
+            this.captchaScreen_elms = [
+                document.getElementById('recaptcha-a'),
+                document.getElementById('recaptcha-b')
+            ];
+            this._2CLa6f1d546f5ae2d9d = 0x0;
         }
         _createClass(aUR, [{
             'key': 'handleRecaptchaRequest',
             'value': function handleRecaptchaRequest(aNv) {
                 var aUT = this;
-                if (aNv < 2) this._2CL14276235b71fb7e1[aNv]['style']['display'] = 'block',
+                if (aNv < 2) this.captchaScreen_elms[aNv]['style']['display'] = 'block',
                     this._2CLa6f1d546f5ae2d9d++, this._2CLa5f961f14f197d01();
-                var aNw = this._2CL37dd70bc6d6e339b[aNv];
+                var aNw = this.gr_renders[aNv];
                 if (aNw < 0x0) {
                     var aUV = {
                         'sitekey': this.v2sitekey,
@@ -1309,21 +1322,21 @@ const disappearedEntities = new Map();
                         'theme': 'dark',
                         'tabindex': -0x1
                     };
-                    this._2CL37dd70bc6d6e339b[aNv] = grecaptcha.render(this._2CL14276235b71fb7e1[aNv], aUV);
+                    this.gr_renders[aNv] = grecaptcha.render(this.captchaScreen_elms[aNv], aUV);
                 } else grecaptcha.reset(aNw);
             }
         }, {
             'key': '_2CL5d245f3c3f20196f',
             'value': function _2CL5d245f3c3f20196f(aNv, aNw) {
-                aT1._2CL7d56178cbe83ef34(aNv, aNw), this._2CL14276235b71fb7e1[aNv]['style']['display'] = 'none', this._2CLa6f1d546f5ae2d9d--, this._2CL87563560028c947f(), document.body.focus();
+                aT1._2CL7d56178cbe83ef34(aNv, aNw), this.captchaScreen_elms[aNv]['style']['display'] = 'none', this._2CLa6f1d546f5ae2d9d--, this._2CL87563560028c947f(), document.body.focus();
             }
         }, {
             'key': '_2CLa5f961f14f197d01',
             'value': function _2CLa5f961f14f197d01() {
                 var aUZ = this;
                 this._2CL6fe1f736b5887665 = !0x0, requestAnimationFrame(function () {
-                    aUZ._2CL6fe1f736b5887665 && (aUZ._2CL5609d8d9912749f1.style.display = 'flex'), requestAnimationFrame(function () {
-                        aUZ._2CL6fe1f736b5887665 && (aUZ._2CL5609d8d9912749f1.style.opacity = '1');
+                    aUZ._2CL6fe1f736b5887665 && (aUZ.captchaScreen_elm.style.display = 'flex'), requestAnimationFrame(function () {
+                        aUZ._2CL6fe1f736b5887665 && (aUZ.captchaScreen_elm.style.opacity = '1');
                     });
                 });
             }
@@ -1332,8 +1345,8 @@ const disappearedEntities = new Map();
             'value': function _2CL87563560028c947f() {
                 var aV0 = this;
                 this._2CLa6f1d546f5ae2d9d || (this._2CL6fe1f736b5887665 = !0x1, requestAnimationFrame(function () {
-                    aV0._2CL6fe1f736b5887665 || (aV0._2CL5609d8d9912749f1.style.opacity = '0'), setTimeout(function () {
-                        aV0._2CL6fe1f736b5887665 || (aV0._2CL5609d8d9912749f1.style.display = 'none');
+                    aV0._2CL6fe1f736b5887665 || (aV0.captchaScreen_elm.style.opacity = '0'), setTimeout(function () {
+                        aV0._2CL6fe1f736b5887665 || (aV0.captchaScreen_elm.style.display = 'none');
                     }, 0x1f4);
                 }));
             }
@@ -1343,7 +1356,10 @@ const disappearedEntities = new Map();
     var aV1 = function () {
         function aV1(aNv) {
             _classCallCheck(this, aV1);
-            this._2CL197c67a575c43817 = aNv, this._2CL40f1effde591032b = aNv.querySelector('.name'), this._2CLb227c42c3785f254 = aNv.querySelector('.position'), this._2CLb54037bcc957df7d = !0x1;
+            this._2CL197c67a575c43817 = aNv;
+            this._2CL40f1effde591032b = aNv.querySelector('.name');
+            this._2CLb227c42c3785f254 = aNv.querySelector('.position');
+            this._2CLb54037bcc957df7d = !0x1;
         }
         _createClass(aV1, [{
             'key': '_2CLa5f961f14f197d01',
@@ -1630,7 +1646,7 @@ const disappearedEntities = new Map();
             }, {
                 'key': 'handleWorldReset',
                 'value': function handleWorldReset(aNv) {
-                    aRV._2CLc00358764d795623(aNv), b2u._init_hatena(aNv);
+                    aRV.shiftDecryptionKey(aNv), b2u._init_hatena(aNv);
                 }
             }, {
                 'key': 'handleMessage32',
@@ -1848,7 +1864,7 @@ const disappearedEntities = new Map();
                 'key': 'handlePing',
                 'value': function handlePing(aNv, aNw) {
                     var aNx = aNw.getUint16();
-                    aT1._2CL08365f3bc89507c7(aNv, aNx);
+                    aT1.ping_ayoGG(aNv, aNx);
                 }
             }]);
             return aWg;
@@ -2498,8 +2514,8 @@ const disappearedEntities = new Map();
                 };
             }
         }, {
-            'key': '_2CL0c324d8833f92c95',
-            'value': function _2CL0c324d8833f92c95(aNv) {
+            'key': 'wsSend_fn',
+            'value': function wsSend_fn(aNv) {
                 this._ws_inst.send(aNv);
             }
         }, {
@@ -2547,7 +2563,7 @@ const disappearedEntities = new Map();
                 var aNv = b3Y._2CL42b7a092ff6d6463(0x0),
                     aNw = b3Y._2CL42b7a092ff6d6463(0x1),
                     aNx = new aSg(0x2 * (aNv.length + aNw.length + 0x2) + 0x1);
-                aNx.writeUint8(0x1), aNx._2CLfb96650702209fba(aNv), aNx._2CLfb96650702209fba(aNw), b0e._2CL0c324d8833f92c95(aNx._2CLe035dc327c1676d8);
+                aNx.writeUint8(0x1), aNx._2CLfb96650702209fba(aNv), aNx._2CLfb96650702209fba(aNw), b0e.wsSend_fn(aNx._2CLe035dc327c1676d8);
             }
         }, {
             'key': '_2CLac9df252d711bd1c',
@@ -2574,7 +2590,7 @@ const disappearedEntities = new Map();
                 }
                 var aNA = aNv._2CL7318a606a3118d46.length + aNw._2CL7318a606a3118d46.length + 0x5,
                     aNJ = new aSg(aNA);
-                aNJ.writeUint8(0x2), aNJ.writeUint8(aNv._2CL65dfacb39960c223), aNJ._2CL7b8cf5f8d2d0d80c(aNv._2CL7318a606a3118d46), aNJ.writeUint8(aNw._2CL65dfacb39960c223), aNJ._2CL7b8cf5f8d2d0d80c(aNw._2CL7318a606a3118d46), b0e._2CL0c324d8833f92c95(aNJ._2CLe035dc327c1676d8);
+                aNJ.writeUint8(0x2), aNJ.writeUint8(aNv._2CL65dfacb39960c223), aNJ._2CL7b8cf5f8d2d0d80c(aNv._2CL7318a606a3118d46), aNJ.writeUint8(aNw._2CL65dfacb39960c223), aNJ._2CL7b8cf5f8d2d0d80c(aNw._2CL7318a606a3118d46), b0e.wsSend_fn(aNJ._2CLe035dc327c1676d8);
             }
         }, {
             'key': '_2CL1849df6af84c6815',
@@ -2584,9 +2600,11 @@ const disappearedEntities = new Map();
                 aNv.writeUint8(0x3);
                 for (var b0A = 0x0; b0A < 0x2; b0A++) {
                     var b0B = b3Y._2CL09732bf8381cf6a7(b0A);
-                    aNv.writeUint8(b0B._2CLaa7bb4b05fbd27db), aNv.writeUint8(b0B._2CLf46271e5c04cf114), aNv.writeUint8(b0B._2CLda3e61414e50aee9);
+                    aNv.writeUint8(b0B._2CLaa7bb4b05fbd27db);
+                    aNv.writeUint8(b0B._2CLf46271e5c04cf114);
+                    aNv.writeUint8(b0B._2CLda3e61414e50aee9);
                 }
-                b0e._2CL0c324d8833f92c95(aNv._2CLe035dc327c1676d8);
+                b0e.wsSend_fn(aNv._2CLe035dc327c1676d8);
             }
         }, {
             'key': '_2CLa8da637215ed8fdd',
@@ -2595,7 +2613,10 @@ const disappearedEntities = new Map();
                 var aNv = new aSg(0x3),
                     aNw = b3Y._2CL1d2b5efaee01be40(0x0) ? 0x1 : 0x0,
                     aNx = b3Y._2CL1d2b5efaee01be40(0x1) ? 0x1 : 0x0;
-                aNv.writeUint8(0x4), aNv.writeUint8(aNw), aNv.writeUint8(aNx), b0e._2CL0c324d8833f92c95(aNv._2CLe035dc327c1676d8);
+                aNv.writeUint8(0x4);
+                aNv.writeUint8(aNw);
+                aNv.writeUint8(aNx);
+                b0e.wsSend_fn(aNv._2CLe035dc327c1676d8);
             }
         }, {
             'key': '_2CL244fe1e06ace6919',
@@ -2615,7 +2636,7 @@ const disappearedEntities = new Map();
                     var b0L = b3Y._2CL6d34b6d49ffda54c[0x1];
                     aNz.writeInt16(b0L.xPos_kamo), aNz.writeInt16(b0L.yPos_kamo), aNz.writeUint32(b3Y._2CL30c87194157e4b27[0x1]);
                 }
-                b0e._2CL0c324d8833f92c95(aNz._2CLe035dc327c1676d8);
+                b0e.wsSend_fn(aNz._2CLe035dc327c1676d8);
             }
         }, {
             'key': '_2CL7b047b1f72f109f9',
@@ -2623,28 +2644,36 @@ const disappearedEntities = new Map();
                 if (!b0e._2CL4949d7b4162ddae2) return;
                 var aNv = b3Y._2CL38c49d2ea0d01c9d(),
                     aNw = new aSg(0x4 + 0x2 * aNv.length);
-                aNw.writeUint8(0x6), aNw.writeUint8(0x1), aNw._2CLfb96650702209fba(aNv), b0e._2CL0c324d8833f92c95(aNw._2CLe035dc327c1676d8);
+                aNw.writeUint8(0x6);
+                aNw.writeUint8(0x1);
+                aNw._2CLfb96650702209fba(aNv);
+                b0e.wsSend_fn(aNw._2CLe035dc327c1676d8);
             }
         }, {
             'key': '_2CLada370f97d905f76',
             'value': function _2CLada370f97d905f76() {
                 if (!b0e._2CL4949d7b4162ddae2 || 'string' != typeof b18.gameServer_url) return;
                 var aNv = new aSg(0x2 + b18.gameServer_url.length);
-                aNv.writeUint8(0x7), aNv._2CL7b8cf5f8d2d0d80c(b18.gameServer_url), b0e._2CL0c324d8833f92c95(aNv._2CLe035dc327c1676d8);
+                aNv.writeUint8(0x7);
+                aNv._2CL7b8cf5f8d2d0d80c(b18.gameServer_url);
+                b0e.wsSend_fn(aNv._2CLe035dc327c1676d8);
             }
         }, {
             'key': '_2CLe50ece9570a295f9',
             'value': function _2CLe50ece9570a295f9(aNv, aNw) {
                 if (!b0e._2CL4949d7b4162ddae2) return;
                 var aNx = new aSg(0x5);
-                aNx.writeUint8(0x8), aNx.writeInt16(aNv), aNx.writeInt16(aNw), b0e._2CL0c324d8833f92c95(aNx._2CLe035dc327c1676d8);
+                aNx.writeUint8(0x8);
+                aNx.writeInt16(aNv);
+                aNx.writeInt16(aNw);
+                b0e.wsSend_fn(aNx._2CLe035dc327c1676d8);
             }
         }, {
             'key': '_2CL8ee793f3ce78ebf5',
             'value': function _2CL8ee793f3ce78ebf5(aNv, aNw, aNx) {
                 if (!b0e._2CL4949d7b4162ddae2) return;
                 var aNy = new aSg(0x5 + 0x2 * aNx.length);
-                aNy.writeUint8(0x9), aNy.writeUint8(aNv), aNy.writeUint8(aNw), aNy._2CLfb96650702209fba(aNx), b0e._2CL0c324d8833f92c95(aNy._2CLe035dc327c1676d8);
+                aNy.writeUint8(0x9), aNy.writeUint8(aNv), aNy.writeUint8(aNw), aNy._2CLfb96650702209fba(aNx), b0e.wsSend_fn(aNy._2CLe035dc327c1676d8);
             }
         }]);
         return b0m;
@@ -2749,8 +2778,8 @@ const disappearedEntities = new Map();
                 aNw && (aNw.onopen = null, aNw.onmessage = null, aNw.onclose = null, aNw.onerror = null, this._2CL4949d7b4162ddae2(aNv) && (aNw.close(), this._2CL5e5b449e09b6c73c(aNv))), this._ws_inst[aNv] = null, this._2CL785ba0dfc4e6d9fc[aNv] = !0x1;
             }
         }, {
-            'key': '_2CL0c324d8833f92c95',
-            'value': function _2CL0c324d8833f92c95(aNv, aNw) {
+            'key': 'wsSend_fn',
+            'value': function wsSend_fn(aNv, aNw) {
                 this._2CL4949d7b4162ddae2(aNv) && this._ws_inst[aNv]['send'](aNw);
             }
         }, {
@@ -5596,7 +5625,10 @@ const disappearedEntities = new Map();
         function bg8() {
             var bg9 = this;
             _classCallCheck(this, bg8);
-            this.canvas_kana = document.createElement('canvas'), this._2CL30a25e13cd0ba4fe = this.canvas_kana.getContext('2d'), this._2CL90b42a0a84ed04cf = new Image(), this._2CL90b42a0a84ed04cf.onload = function () {
+            this.canvas_kana = document.createElement('canvas');
+            this._2CL30a25e13cd0ba4fe = this.canvas_kana.getContext('2d');
+            this._2CL90b42a0a84ed04cf = new Image();
+            this._2CL90b42a0a84ed04cf.onload = function () {
                 bg9._2CLb7312dcb216ae550();
             }, this._2CL1849df6af84c6815 = '';
         }
@@ -5625,208 +5657,201 @@ const disappearedEntities = new Map();
         }]);
         return bg8;
     }())();
-    var bgd = new(function () {
-        function bge() {
-            _classCallCheck(this, bge);
-        }
-        _createClass(bge, [{
-            'key': 'draw_some',
-            'value': function draw_some(aNv) {
-                if (!aPB._2CLc6addc8e83ac89cc) return;
-                var aNw = b2u._2CL901757144a6dfbca._2CLf4308d8c11499f88,
-                    aNx = b2u._2CL901757144a6dfbca._2CL5fab68fb24c1a804,
-                    aNy = b2u._2CL901757144a6dfbca._2CL1d47c61d5ba7a6fd - b2u._2CL901757144a6dfbca._2CLf4308d8c11499f88,
-                    aNz = b2u._2CL901757144a6dfbca._2CL0a20f9de5d5d3f47 - b2u._2CL901757144a6dfbca._2CL5fab68fb24c1a804,
-                    aNA = aNy / 0x5,
-                    aNJ = aNz / 0x5;
-                switch (aNv.beginPath(), aNv.rect(aNw + aNA, aNx, aNA, aNz), aNv.rect(aNw + 0x3 * aNA, aNx, aNA, aNz), aNv.rect(aNw, aNx + aNJ, aNy, aNJ), aNv.rect(aNw, aNx + 0x3 * aNJ, aNy, aNJ), aNv.rect(aNw, aNx, aNy, aNz), aNv.closePath(), aNv.lineWidth = aPB._2CL71fd426c3b41aeea, aNv.strokeStyle = aPB._2CLb91b871befafb409, aNv.stroke(), aPB._2CLed3a332288178970) {
+    /**
+     * @description Draw sector class
+     */
+    var SectorDrawer = new class {
+        constructor() {}
+        draw_some(aNv) {
+            if (!aPB._2CLc6addc8e83ac89cc) return;
+            var aNw = b2u._2CL901757144a6dfbca._2CLf4308d8c11499f88,
+                aNx = b2u._2CL901757144a6dfbca._2CL5fab68fb24c1a804,
+                aNy = b2u._2CL901757144a6dfbca._2CL1d47c61d5ba7a6fd - b2u._2CL901757144a6dfbca._2CLf4308d8c11499f88,
+                aNz = b2u._2CL901757144a6dfbca._2CL0a20f9de5d5d3f47 - b2u._2CL901757144a6dfbca._2CL5fab68fb24c1a804,
+                aNA = aNy / 0x5,
+                aNJ = aNz / 0x5;
+            switch (
+                aNv.beginPath(),
+                aNv.rect(aNw + aNA, aNx, aNA, aNz),
+                aNv.rect(aNw + 0x3 * aNA, aNx, aNA, aNz),
+                aNv.rect(aNw, aNx + aNJ, aNy, aNJ),
+                aNv.rect(aNw, aNx + 0x3 * aNJ, aNy, aNJ),
+                aNv.rect(aNw, aNx, aNy, aNz),
+                aNv.closePath(),
+                aNv.lineWidth = aPB._2CL71fd426c3b41aeea,
+                aNv.strokeStyle = aPB._2CLb91b871befafb409,
+                aNv.stroke(),
+                aPB._2CLed3a332288178970
+            ) {
                 case 'sector-name':
-                    this._2CL62be78cc747aa25d(aNv, aNx, aNw, aNA, aNJ);
+                    this.drawSectorName(aNv, aNx, aNw, aNA, aNJ);
                     break;
                 case 'snowflakes':
-                    this._2CL43d82a865b2a7a7e(aNv, aNx, aNw, aNA, aNJ, String.fromCharCode(0x2744));
-                }
+                    this.drawSnowFlakes(aNv, aNx, aNw, aNA, aNJ, String.fromCharCode(0x2744));
             }
-        }, {
-            'key': '_2CL62be78cc747aa25d',
-            'value': function _2CL62be78cc747aa25d(aNv, aNw, aNx, aNy, aNz) {
-                var aNA = aNy / 0x2,
-                    aNJ = aNz / 0x2,
-                    aNK = 'ABCDE' ['split']('');
-                aNv.font = '' ['concat'](aPB._2CLc7d236944e7faf6f, ' ')['concat'](aPB._2CL190dd121204ee0e0 * aNy, 'px ')['concat'](aPB._2CLf188529622ede2b4), aNv.textAlign = 'center', aNv.textBaseline = 'middle', aNv.fillStyle = aPB._2CL0eb855e82e4fbbb9;
-                for (var bgu = 0x0; bgu < 0x5; bgu++) {
-                    var bgv = aNw + aNJ + bgu * aNz;
-                    for (var bgw = 0x0; bgw < 0x5; bgw++) {
-                        var bgx = aNx + aNA + bgw * aNy,
-                            bgy = aNK[bgu] + (bgw + 0x1);
-                        aNv.fillText(bgy, bgx, bgv);
-                    }
-                }
-            }
-        }, {
-            'key': '_2CL43d82a865b2a7a7e',
-            'value': function _2CL43d82a865b2a7a7e(aNv, aNw, aNx, aNy, aNz, aNA) {
-                var aNJ = aNy / 0x2,
-                    aNK = aNz / 0x2;
-                aNv.font = '500 ' ['concat'](aPB._2CL190dd121204ee0e0 * aNy, 'px Arial'), aNv.textAlign = 'center', aNv.textBaseline = 'middle', aNv.fillStyle = aPB._2CL0eb855e82e4fbbb9;
-                for (var bgH = 0x0; bgH < 0x5; bgH++) {
-                    var bgI = aNw + aNK + bgH * aNz;
-                    for (var bgJ = 0x0; bgJ < 0x5; bgJ++) {
-                        var bgK = aNx + aNJ + bgJ * aNy;
-                        aNv.fillText(aNA, bgK, bgI);
-                    }
-                }
-            }
-        }]);
-        return bge;
-    }())();
-    var bgL = new(function () {
-            function bgN() {
-                _classCallCheck(this, bgN);
-                this.canvas_kamo = document.createElement('canvas'), this.ctx_kamo = this.canvas_kamo.getContext('2d'), this._2CLc0aa012565645b3c = 0x800, this._2CLf6e5846f1b211fe6 = '', this._2CLed323e27559f94f6 = 0x0, this._2CL29139779efc59d37 = !0x1, this._2CLbc49113881c5b35f = 0x0, this.color_kamo = '', this.glowStrength = 0x0, this._2CL52e0d71a7fc74f7f = !0x1;
-            }
-            _createClass(bgN, [{
-                'key': '_2CL1ff235ee6a538d5a',
-                'value': function _2CL1ff235ee6a538d5a() {
-                    this._2CL1849df6af84c6815 = aPB._2CLb1e2e9f32fc11173, this._2CLe20ce5055b79a7ba = aPB._2CLb846d894676621a3, this._2CL47e32ba4a20e2fb2 = aPB._2CLb2498f5ee07ff5b3, this._2CLe6455616d604609d = aPB._2CL63a253787a089be6, this.setColor_fn = aPB._2CLec31e0e6b26c3739, this.setGlowStrength = aPB._2CL63dedfd6c8d34fd1, this._2CL52e0d71a7fc74f7f && this.drawByCtx_Hage();
-                }
-            }, {
-                'key': 'drawByCtx_Hage',
-                'value': function drawByCtx_Hage() {
-
-                    aQt.a.Hage.Tx_GB( // emsc
-                            this.ctx_kamo, // canvas ctx
-                            this._2CLc0aa012565645b3c, // 2048?
-                            this._2CLed323e27559f94f6, // border width
-                            this._2CLbc49113881c5b35f, // border glow distance
-                            this.color_kamo, // border color
-                            this.glowStrength // border glow strength
-                        ),
-                        this._2CL52e0d71a7fc74f7f = !0x1;
-                    if (Settings.Endy.enableRainbowBorder) makeRbbFrame();
-
-                }
-            }, {
-                'key': 'draw_some',
-                'value': function draw_some(aNv) {
-                    // draw border
-                    if (this._2CL1ff235ee6a538d5a(), this._2CL29139779efc59d37) {
-                        var bgP = 14142 + 2 * (this._2CLbc49113881c5b35f + this._2CLed323e27559f94f6),
-                            bgQ = bgP >> 0x1;
-                        if (!Settings.Endy.enableRainbowBorder) aNv.drawImage(this.canvas_kamo, -bgQ, -bgQ, bgP, bgP);
-                        // draw glow (this is a canvas not a image)
-                        else if (completeFrame) aNv.drawImage(rbbFrames[currentFrame], -bgQ, -bgQ, bgP, bgP);
-                    }
-
-                    aNv.strokeStyle = this._2CLf6e5846f1b211fe6,
-                        aNv.lineWidth = this._2CLed323e27559f94f6,
-                        aNv.strokeRect(-7071, -7071, 14142, 14142); // border line
-
-                    // update eat effects
-                    if (Settings.Endy.enableEatEffects)
-                        for (let p of consumes) {
-                            p.update(aNv);
-                            if (p.complete) consumes.delete(p);
-                        }
-                }
-            }, {
-                'key': '_2CL1849df6af84c6815',
-                'set': function set(aNv) {
-                    this._2CLf6e5846f1b211fe6 !== aNv && (this._2CLf6e5846f1b211fe6 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
-                }
-            }, {
-                'key': '_2CLe20ce5055b79a7ba',
-                'set': function set(aNv) {
-                    this._2CLed323e27559f94f6 !== aNv && (this._2CLed323e27559f94f6 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
-                }
-            }, {
-                'key': '_2CL47e32ba4a20e2fb2',
-                'set': function set(aNv) {
-                    this._2CL29139779efc59d37 !== aNv && (this._2CL29139779efc59d37 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
-                }
-            }, {
-                'key': '_2CLe6455616d604609d',
-                'set': function set(aNv) {
-                    this._2CLbc49113881c5b35f !== aNv && (this._2CLbc49113881c5b35f = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
-                }
-            }, {
-                'key': 'setColor_fn',
-                'set': function set(aNv) {
-                    // set border glow color
-                    this.color_kamo !== aNv && (this.color_kamo = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
-                }
-            }, {
-                'key': 'setGlowStrength',
-                'set': function set(aNv) {
-                    this.glowStrength !== aNv && (this.glowStrength = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
-                }
-            }]);
-            return bgN;
-        }())(),
-        bgM = new aQt.a.Mipmaps();
-    var bgX = new(function () {
-        function bgY() {
-            _classCallCheck(this, bgY);
-            this.canvas_kamo = document.createElement('canvas'), this.ctx_kamo = this.canvas_kamo.getContext('2d'), this._2CL25b7f362b415b3de = [], this._2CL49ebc19e096f1963 = 0x100, this.radius_var = 0x0, this._2CLf6e5846f1b211fe6 = '#000000', this._2CLbc49113881c5b35f = 0x0, this.color_kamo = '#000000', this.glowStrength = 0x0, this._2CL52e0d71a7fc74f7f = !0x1;
         }
-        _createClass(bgY, [{
-            'key': '_2CLcc32da8337a77c45',
-            'value': function _2CLcc32da8337a77c45() {
-                this.radius_kamo = 0xa + aPB._2CLe15deec8df50ac0c, this._2CL1849df6af84c6815 = aPB._2CL1db05798018ba778, this._2CLe6455616d604609d = aPB._2CLb5e4ccad6bc0974c, this.setColor_fn = aPB._2CLb18c002fd29a3fcb, this.setGlowStrength = aPB._2CLf7cf0ff97db7cf1b, this._2CL52e0d71a7fc74f7f && (this.drawByCtx_Hage(), this._2CL240bdaf7fba805e1());
-            }
-        }, {
-            'key': 'drawByCtx_Hage',
-            'value': function drawByCtx_Hage() {
-                aQt.a.Hage.Tx_GF(this.ctx_kamo, this._2CL49ebc19e096f1963, this.radius_var, this._2CLf6e5846f1b211fe6, this._2CLbc49113881c5b35f, this.color_kamo, this.glowStrength), this._2CL52e0d71a7fc74f7f = !0x1;
-            }
-        }, {
-            'key': '_2CL240bdaf7fba805e1',
-            'value': function _2CL240bdaf7fba805e1() {
-                this._2CL25b7f362b415b3de = bgM.create(this.canvas_kamo, 0x5);
-            }
-        }, {
-            'key': '_2CLf4ad84629c622f05',
-            'value': function _2CLf4ad84629c622f05(aNv) {
-                var aNw = this._2CL49ebc19e096f1963 >> 0x1,
-                    aNx = 0x0;
-                for (; aNw >= aNv && aNx < 0x4;) {
-                    aNx++, aNw >>= 0x1;
+        drawSectorName(aNv, aNw, aNx, aNy, aNz) {
+            var aNA = aNy / 0x2,
+                aNJ = aNz / 0x2,
+                aNK = 'ABCDE' ['split']('');
+            aNv.font = '' ['concat'](aPB._2CLc7d236944e7faf6f, ' ')['concat'](aPB._2CL190dd121204ee0e0 * aNy, 'px ')['concat'](aPB._2CLf188529622ede2b4), aNv.textAlign = 'center', aNv.textBaseline = 'middle', aNv.fillStyle = aPB._2CL0eb855e82e4fbbb9;
+            for (var bgu = 0x0; bgu < 0x5; bgu++) {
+                var bgv = aNw + aNJ + bgu * aNz;
+                for (var bgw = 0x0; bgw < 0x5; bgw++) {
+                    var bgx = aNx + aNA + bgw * aNy,
+                        bgy = aNK[bgu] + (bgw + 0x1);
+                    aNv.fillText(bgy, bgx, bgv);
                 }
-                return this._2CL25b7f362b415b3de[aNx];
             }
-        }, {
-            'key': 'radius_kamo',
-            'set': function set(aNv) {
-                this.radius_var !== aNv && (this.radius_var = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        drawSnowFlakes(aNv, aNw, aNx, aNy, aNz, aNA) {
+            var aNJ = aNy / 0x2,
+                aNK = aNz / 0x2;
+            aNv.font = '500 ' ['concat'](aPB._2CL190dd121204ee0e0 * aNy, 'px Arial');
+            aNv.textAlign = 'center';
+            aNv.textBaseline = 'middle';
+            aNv.fillStyle = aPB._2CL0eb855e82e4fbbb9;
+            for (var bgH = 0x0; bgH < 0x5; bgH++) {
+                var bgI = aNw + aNK + bgH * aNz;
+                for (var bgJ = 0x0; bgJ < 0x5; bgJ++) {
+                    var bgK = aNx + aNJ + bgJ * aNy;
+                    aNv.fillText(aNA, bgK, bgI);
+                }
             }
-        }, {
-            'key': '_2CL1849df6af84c6815',
-            'set': function set(aNv) {
-                this._2CLf6e5846f1b211fe6 !== aNv && (this._2CLf6e5846f1b211fe6 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+    }
+    var borderDrawer = new class {
+        constructor() {
+            this.canvas_kamo = document.createElement('canvas');
+            this.ctx_kamo = this.canvas_kamo.getContext('2d');
+            this._2CLc0aa012565645b3c = 0x800;
+            this._2CLf6e5846f1b211fe6 = '';
+            this.borderWidth = 0x0;
+            this._2CL29139779efc59d37 = !0x1;
+            this._2CLbc49113881c5b35f = 0x0;
+            this.color_kamo = '';
+            this.glowStrength = 0x0;
+            this._2CL52e0d71a7fc74f7f = !0x1;
+        }
+        _2CL1ff235ee6a538d5a() {
+            this._2CL1849df6af84c6815 = aPB._2CLb1e2e9f32fc11173;
+            this.setLineWidth_fn = aPB._2CLb846d894676621a3;
+            this._2CL47e32ba4a20e2fb2 = aPB._2CLb2498f5ee07ff5b3;
+            this._2CLe6455616d604609d = aPB._2CL63a253787a089be6;
+            this.setColor_fn = aPB._2CLec31e0e6b26c3739;
+            this.setGlowStrength = aPB._2CL63dedfd6c8d34fd1;
+            this._2CL52e0d71a7fc74f7f && this.drawByCtx_Hage();
+        }
+        drawByCtx_Hage() {
+    
+            aQt.a.Hage.Tx_GB( // emsc
+                    this.ctx_kamo, // canvas ctx
+                    this._2CLc0aa012565645b3c, // 2048?
+                    this.borderWidth, // border width
+                    this._2CLbc49113881c5b35f, // border glow distance
+                    this.color_kamo, // border color
+                    this.glowStrength // border glow strength
+                ),
+                this._2CL52e0d71a7fc74f7f = !0x1;
+            if (Settings.Endy.enableRainbowBorder) makeRbbFrame();
+    
+        }
+        draw_some(aNv) {
+            // draw border
+            if (this._2CL1ff235ee6a538d5a(), this._2CL29139779efc59d37) {
+                var bgP = 14142 + 2 * (this._2CLbc49113881c5b35f + this.borderWidth),
+                    bgQ = bgP >> 0x1;
+                if (!Settings.Endy.enableRainbowBorder) aNv.drawImage(this.canvas_kamo, -bgQ, -bgQ, bgP, bgP);
+                // draw glow (this is a canvas not a image)
+                else if (completeFrame) aNv.drawImage(rbbFrames[currentFrame], -bgQ, -bgQ, bgP, bgP);
             }
-        }, {
-            'key': '_2CLe6455616d604609d',
-            'set': function set(aNv) {
-                this._2CLbc49113881c5b35f !== aNv && (this._2CLbc49113881c5b35f = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+    
+            aNv.strokeStyle = this._2CLf6e5846f1b211fe6;
+            aNv.lineWidth = this.borderWidth;
+            aNv.strokeRect(-7071, -7071, 14142, 14142); // border line
+    
+            // update eat effects
+            if (Settings.Endy.enableEatEffects)
+                for (let p of consumes) {
+                    p.update(aNv);
+                    if (p.complete) consumes.delete(p);
+                }
+        }
+        set _2CL1849df6af84c6815(aNv) {
+            this._2CLf6e5846f1b211fe6 !== aNv && (this._2CLf6e5846f1b211fe6 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        set setLineWidth_fn(aNv) {
+            this.borderWidth !== aNv && (this.borderWidth = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        set _2CL47e32ba4a20e2fb2(aNv) {
+            this._2CL29139779efc59d37 !== aNv && (this._2CL29139779efc59d37 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        set _2CLe6455616d604609d(aNv) {
+            this._2CLbc49113881c5b35f !== aNv && (this._2CLbc49113881c5b35f = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        set setColor_fn(aNv) {
+            // set border glow color
+            this.color_kamo !== aNv && (this.color_kamo = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        set setGlowStrength(aNv) {
+            this.glowStrength !== aNv && (this.glowStrength = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+    }
+    var bgM = new aQt.a.Mipmaps();
+    var foodDrawer = new class {
+        constructor() {
+            this.canvas_kamo = document.createElement('canvas');
+            this.ctx_kamo = this.canvas_kamo.getContext('2d');
+            this._2CL25b7f362b415b3de = [];
+            this._2CL49ebc19e096f1963 = 0x100;
+            this.radius_var = 0x0;
+            this._2CLf6e5846f1b211fe6 = '#000000';
+            this._2CLbc49113881c5b35f = 0x0;
+            this.color_kamo = '#000000';
+            this.glowStrength = 0x0;
+            this._2CL52e0d71a7fc74f7f = !0x1;
+        }
+        _2CLcc32da8337a77c45() {
+            this.radius_kamo = 0xa + aPB._2CLe15deec8df50ac0c;
+            this._2CL1849df6af84c6815 = aPB._2CL1db05798018ba778;
+            this._2CLe6455616d604609d = aPB._2CLb5e4ccad6bc0974c;
+            this.setColor_fn = aPB._2CLb18c002fd29a3fcb;
+            this.setGlowStrength = aPB._2CLf7cf0ff97db7cf1b;
+            this._2CL52e0d71a7fc74f7f && (this.drawByCtx_Hage(), this._2CL240bdaf7fba805e1());
+        }
+        drawByCtx_Hage() {
+            aQt.a.Hage.Tx_GF(this.ctx_kamo, this._2CL49ebc19e096f1963, this.radius_var, this._2CLf6e5846f1b211fe6, this._2CLbc49113881c5b35f, this.color_kamo, this.glowStrength), this._2CL52e0d71a7fc74f7f = !0x1;
+        }
+        _2CL240bdaf7fba805e1() {
+            this._2CL25b7f362b415b3de = bgM.create(this.canvas_kamo, 0x5);
+        }
+        _2CLf4ad84629c622f05(aNv) {
+            var aNw = this._2CL49ebc19e096f1963 >> 0x1,
+                aNx = 0x0;
+            for (; aNw >= aNv && aNx < 0x4;) {
+                aNx++, aNw >>= 0x1;
             }
-        }, {
-            'key': 'setColor_fn',
-            'set': function set(aNv) {
-                this.color_kamo !== aNv && (this.color_kamo = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
-            }
-        }, {
-            'key': 'setGlowStrength',
-            'set': function set(aNv) {
-                this.glowStrength !== aNv && (this.glowStrength = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
-            }
-        }, {
-            'key': '_2CL12298acfaf2e57e9',
-            'get': function get() {
-                return this._2CL49ebc19e096f1963;
-            }
-        }]);
-        return bgY;
-    }())();
+            return this._2CL25b7f362b415b3de[aNx];
+        }
+        set radius_kamo(aNv) {
+            this.radius_var !== aNv && (this.radius_var = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        set _2CL1849df6af84c6815(aNv) {
+            this._2CLf6e5846f1b211fe6 !== aNv && (this._2CLf6e5846f1b211fe6 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        set _2CLe6455616d604609d(aNv) {
+            this._2CLbc49113881c5b35f !== aNv && (this._2CLbc49113881c5b35f = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        set setColor_fn(aNv) {
+            this.color_kamo !== aNv && (this.color_kamo = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        set setGlowStrength(aNv) {
+            this.glowStrength !== aNv && (this.glowStrength = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        }
+        get _2CL12298acfaf2e57e9() {
+            return this._2CL49ebc19e096f1963;
+        }
+    }
     var bh7 = new(function () {
         function bh8() {
             _classCallCheck(this, bh8);
@@ -5853,12 +5878,12 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL47e32ba4a20e2fb2',
             'value': function _2CL47e32ba4a20e2fb2(aNv) {
-                bgX._2CLcc32da8337a77c45();
+                foodDrawer._2CLcc32da8337a77c45();
 
                 let foodAmount = b2u._2CL986d79226a8f4718.length;
                 var aNw = Math.min(0x12c, foodAmount),
-                    aNx = bgX._2CL12298acfaf2e57e9,
-                    aNy = bgX._2CLf4ad84629c622f05(aNx * aSL._2CL7f272a4f358d5b70 | 0x0);
+                    aNx = foodDrawer._2CL12298acfaf2e57e9,
+                    aNy = foodDrawer._2CLf4ad84629c622f05(aNx * aSL._2CL7f272a4f358d5b70 | 0x0);
                 // draw foods (if food glow is enabled)
                 const fullMapMode = Settings.Endy.enableFullmap;
                 // console.lazy(b2u._2CL986d79226a8f4718) //_tabId_dayo
@@ -6072,7 +6097,17 @@ const disappearedEntities = new Map();
     var bi2 = function () {
         function bi2() {
             _classCallCheck(this, bi2);
-            this._2CLe6b6c3bc29ad1b26 = new Map(), this.canvas_kana = new Map(), this._2CL3156d96ac93bc96c = 0x0, this._2CL3f243e13444f693a = '', this._2CL62a1a9fbd8d92c7b = 'Ubuntu', this._2CL1a6649cca001327f = '700', this._2CL1849df6af84c6815 = '#000000', this._2CL63fc5d54ea5805a4 = !0x1, this._2CLf9b500b751c29cb8 = '#000000', this._2CL355ef3fa24dcc8bb = new bhX(), this._2CLae86f6ab97dd59e7();
+            this._2CLe6b6c3bc29ad1b26 = new Map();
+            this.canvas_kana = new Map();
+            this._2CL3156d96ac93bc96c = 0x0;
+            this._2CL3f243e13444f693a = '';
+            this.fontFamily_dane = 'Ubuntu';
+            this._2CL1a6649cca001327f = '700';
+            this._2CL1849df6af84c6815 = '#000000';
+            this._2CL63fc5d54ea5805a4 = !0x1;
+            this._2CLf9b500b751c29cb8 = '#000000';
+            this._2CL355ef3fa24dcc8bb = new bhX();
+            this._2CLae86f6ab97dd59e7();
         }
         _createClass(bi2, [{
             'key': '_2CLae86f6ab97dd59e7',
@@ -6091,7 +6126,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL9b9938a2691837ff',
             'value': function _2CL9b9938a2691837ff(aNv) {
-                this._2CL62a1a9fbd8d92c7b !== aNv && (this._2CL62a1a9fbd8d92c7b = aNv, this._2CL95c9188921ef0194());
+                this.fontFamily_dane !== aNv && (this.fontFamily_dane = aNv, this._2CL95c9188921ef0194());
             }
         }, {
             'key': '_2CL8acf4ffefa6278f6',
@@ -6133,9 +6168,9 @@ const disappearedEntities = new Map();
                     aNx = this._2CLe6b6c3bc29ad1b26.get(aNw),
                     aNy = aNx.getContext('2d'),
                     aNz = aNw / 0x80 * 0x10;
-                aNy.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](aNw, 'px ')['concat'](this._2CL62a1a9fbd8d92c7b);
+                aNy.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](aNw, 'px ')['concat'](this.fontFamily_dane);
                 var aNA = 0x0 | aNy.measureText(this._2CL3f243e13444f693a)['width'];
-                aNx.height = aNw + (aNz << 0x1), aNx.width = aNA + (aNz << 0x1), aNy.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](aNw, 'px ')['concat'](this._2CL62a1a9fbd8d92c7b), aNy.textAlign = 'center', aNy.textBaseline = 'middle', aNy.lineJoin = 'round', this._2CL63fc5d54ea5805a4 && (aNy.strokeStyle = this._2CLf9b500b751c29cb8, aNy.lineWidth = aNz, aNy.strokeText(this._2CL3f243e13444f693a, aNx.width >> 0x1, aNx.height >> 0x1)), aNy.fillStyle = this._2CL1849df6af84c6815, aNy.fillText(this._2CL3f243e13444f693a, aNx.width >> 0x1, aNx.height >> 0x1), this.canvas_kana.set(aNw, aNx), this._2CL3156d96ac93bc96c = aOr._2CL12f041c709cb5e6d, this._2CL355ef3fa24dcc8bb._2CL12298acfaf2e57e9 = aNw, this._2CL355ef3fa24dcc8bb.canvas_kana = aNx;
+                aNx.height = aNw + (aNz << 0x1), aNx.width = aNA + (aNz << 0x1), aNy.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](aNw, 'px ')['concat'](this.fontFamily_dane), aNy.textAlign = 'center', aNy.textBaseline = 'middle', aNy.lineJoin = 'round', this._2CL63fc5d54ea5805a4 && (aNy.strokeStyle = this._2CLf9b500b751c29cb8, aNy.lineWidth = aNz, aNy.strokeText(this._2CL3f243e13444f693a, aNx.width >> 0x1, aNx.height >> 0x1)), aNy.fillStyle = this._2CL1849df6af84c6815, aNy.fillText(this._2CL3f243e13444f693a, aNx.width >> 0x1, aNx.height >> 0x1), this.canvas_kana.set(aNw, aNx), this._2CL3156d96ac93bc96c = aOr._2CL12f041c709cb5e6d, this._2CL355ef3fa24dcc8bb._2CL12298acfaf2e57e9 = aNw, this._2CL355ef3fa24dcc8bb.canvas_kana = aNx;
             }
         }, {
             'key': '_2CL39fc080559d5136e',
@@ -6150,7 +6185,7 @@ const disappearedEntities = new Map();
     var bio = function () {
         function bio() {
             _classCallCheck(this, bio);
-            this._2CL3156d96ac93bc96c = 0x0, this._2CL63ea2cf13ee6a2d6 = 0x0, this.canvas_kana = document.createElement('canvas'), this._2CL30a25e13cd0ba4fe = this.canvas_kana.getContext('2d'), this._2CL12298acfaf2e57e9 = 0x2, this._2CL3f243e13444f693a = '', this._2CL62a1a9fbd8d92c7b = 'Ubuntu', this._2CL1a6649cca001327f = '700', this._2CL63fc5d54ea5805a4 = !0x1, this._2CL1849df6af84c6815 = '#000000', this._2CLf9b500b751c29cb8 = '#000000', this._2CLdebe179f239f004d = 0xc8, this._2CL5c26e812eabe6ba2 = !0x1, this._2CL355ef3fa24dcc8bb = new bhX(this.canvas_kana, this._2CL12298acfaf2e57e9);
+            this._2CL3156d96ac93bc96c = 0x0, this._2CL63ea2cf13ee6a2d6 = 0x0, this.canvas_kana = document.createElement('canvas'), this._2CL30a25e13cd0ba4fe = this.canvas_kana.getContext('2d'), this._2CL12298acfaf2e57e9 = 0x2, this._2CL3f243e13444f693a = '', this.fontFamily_dane = 'Ubuntu', this._2CL1a6649cca001327f = '700', this._2CL63fc5d54ea5805a4 = !0x1, this._2CL1849df6af84c6815 = '#000000', this._2CLf9b500b751c29cb8 = '#000000', this._2CLdebe179f239f004d = 0xc8, this._2CL5c26e812eabe6ba2 = !0x1, this._2CL355ef3fa24dcc8bb = new bhX(this.canvas_kana, this._2CL12298acfaf2e57e9);
         }
         _createClass(bio, [{
             'key': '_2CLbb3162f3d7cffd48',
@@ -6168,7 +6203,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL9b9938a2691837ff',
             'value': function _2CL9b9938a2691837ff(aNv) {
-                this._2CL62a1a9fbd8d92c7b !== aNv && (this._2CL62a1a9fbd8d92c7b = aNv, this._2CL5c26e812eabe6ba2 = !0x0);
+                this.fontFamily_dane !== aNv && (this.fontFamily_dane = aNv, this._2CL5c26e812eabe6ba2 = !0x0);
             }
         }, {
             'key': '_2CL8acf4ffefa6278f6',
@@ -6203,9 +6238,9 @@ const disappearedEntities = new Map();
                     aNx = this._2CL12298acfaf2e57e9 / 0x80 * 0x10,
                     aNy = this._2CL12298acfaf2e57e9,
                     aNz = Math.min(aNy, 0x20);
-                aNw.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](0x0 | aNz, 'px ')['concat'](this._2CL62a1a9fbd8d92c7b);
+                aNw.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](0x0 | aNz, 'px ')['concat'](this.fontFamily_dane);
                 var aNA = aNw.measureText(this._2CL3f243e13444f693a)['width'];
-                aNv.height = aNy + (aNx << 0x1), aNv.width = (aNA * (aNy / aNz) | 0x0) + (aNx << 0x1), aNw.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](0x0 | aNy, 'px ')['concat'](this._2CL62a1a9fbd8d92c7b), aNw.textAlign = 'center', aNw.textBaseline = 'middle', aNw.lineJoin = 'round', this._2CL63fc5d54ea5805a4 && (aNw.strokeStyle = this._2CLf9b500b751c29cb8, aNw.lineWidth = aNx, aNw.strokeText(this._2CL3f243e13444f693a, aNv.width >> 0x1, aNv.height >> 0x1)), aNw.fillStyle = this._2CL1849df6af84c6815, aNw.fillText(this._2CL3f243e13444f693a, aNv.width >> 0x1, aNv.height >> 0x1), this._2CL5c26e812eabe6ba2 = !0x1, this._2CL355ef3fa24dcc8bb._2CL12298acfaf2e57e9 = this._2CL12298acfaf2e57e9;
+                aNv.height = aNy + (aNx << 0x1), aNv.width = (aNA * (aNy / aNz) | 0x0) + (aNx << 0x1), aNw.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](0x0 | aNy, 'px ')['concat'](this.fontFamily_dane), aNw.textAlign = 'center', aNw.textBaseline = 'middle', aNw.lineJoin = 'round', this._2CL63fc5d54ea5805a4 && (aNw.strokeStyle = this._2CLf9b500b751c29cb8, aNw.lineWidth = aNx, aNw.strokeText(this._2CL3f243e13444f693a, aNv.width >> 0x1, aNv.height >> 0x1)), aNw.fillStyle = this._2CL1849df6af84c6815, aNw.fillText(this._2CL3f243e13444f693a, aNv.width >> 0x1, aNv.height >> 0x1), this._2CL5c26e812eabe6ba2 = !0x1, this._2CL355ef3fa24dcc8bb._2CL12298acfaf2e57e9 = this._2CL12298acfaf2e57e9;
             }
         }, {
             'key': '_2CL39fc080559d5136e',
@@ -6218,7 +6253,10 @@ const disappearedEntities = new Map();
     var biH = new(function () {
         function biI() {
             _classCallCheck(this, biI);
-            this._2CLcba6fd7a2e29aa59 = new Map(), this._2CL1fab15ae6c5ffb2e = new Map(), this._2CLae05b14dc2696520 = 0x7d0, this._2CLa8ee7d04dba9a424 = {
+            this._2CLcba6fd7a2e29aa59 = new Map();
+            this._2CL1fab15ae6c5ffb2e = new Map();
+            this._2CLae05b14dc2696520 = 0x7d0;
+            this._2CLa8ee7d04dba9a424 = {
                 '_2CL8ac401cc9f1e8785': {
                     '_2CL12f041c709cb5e6d': 0x0,
                     '_2CL111f1b5b84b5c819': 0x1
@@ -6863,7 +6901,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLcdaf3572ac44f7e5',
             'value': function _2CLcdaf3572ac44f7e5() {
-                this._2CL30526a395d9f8ccc(), this._2CLe832d3b37056ad45(), this._2CL30a25e13cd0ba4fe.imageSmoothingQuality = aPB._2CL5774f21642251c8c, bg7.draw_some(this._2CL30a25e13cd0ba4fe), bgd.draw_some(this._2CL30a25e13cd0ba4fe), bgL.draw_some(this._2CL30a25e13cd0ba4fe), bh7.draw_some(this._2CL30a25e13cd0ba4fe), bl3.draw_some(this._2CL30a25e13cd0ba4fe), bkP.draw_some(this._2CL30a25e13cd0ba4fe), bkI.draw_some(this._2CL30a25e13cd0ba4fe), this._2CLb1a403f1c67ac44f();
+                this._2CL30526a395d9f8ccc(), this._2CLe832d3b37056ad45(), this._2CL30a25e13cd0ba4fe.imageSmoothingQuality = aPB._2CL5774f21642251c8c, bg7.draw_some(this._2CL30a25e13cd0ba4fe), SectorDrawer.draw_some(this._2CL30a25e13cd0ba4fe), borderDrawer.draw_some(this._2CL30a25e13cd0ba4fe), bh7.draw_some(this._2CL30a25e13cd0ba4fe), bl3.draw_some(this._2CL30a25e13cd0ba4fe), bkP.draw_some(this._2CL30a25e13cd0ba4fe), bkI.draw_some(this._2CL30a25e13cd0ba4fe), this._2CLb1a403f1c67ac44f();
             }
         }, {
             'key': '_2CL30526a395d9f8ccc',
