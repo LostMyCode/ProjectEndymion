@@ -1523,65 +1523,46 @@ const disappearedEntities = new Map();
     }())();
 
     /* HSLO Toast aVR */
-    var aVR = Settings.Endy.Toast = new(function () {
-        function aVS() {
-            _classCallCheck(this, aVS);
+    var Toast = Settings.Endy.Toast = new class {
+        constructor() {
             this._2CLc1bfadcfb8498cd0 = document.getElementById('notifications'), this._2CLbaf021a7fd7734ae = {
                 '_2CL2c6daad6dc0e911b': 0xa,
                 '_2CL553987ac9eee434e': 0x1b58
             }, this._2CL0c2516bdbb4e19ba = [];
         }
-        _createClass(aVS, [{
-            'key': '_2CL6b490a3787fbcaf1',
-            'value': function _2CL6b490a3787fbcaf1(aNv, aNw, aNx) {
-                this._2CL372f5bcb71056a4d('normal', aNv, aNw, aNx);
+        _2CL6b490a3787fbcaf1(aNv, aNw, aNx) {
+            this._2CL372f5bcb71056a4d('normal', aNv, aNw, aNx);
+        }
+        showToast(aNv, aNw, aNx) {
+            this._2CL372f5bcb71056a4d('alert', aNv, aNw, aNx);
+        }
+        _2CLd2948436a49d2833(aNv, aNw, aNx) {
+            this._2CL372f5bcb71056a4d('system', aNv, aNw, aNx);
+        }
+        _2CL8ee793f3ce78ebf5(aNv, aNw) {
+            this._2CL372f5bcb71056a4d('normal', 'question_answer', aNv, aNw);
+        }
+        _2CLefc550a8476f0d48(aNv, aNw) {
+            this._2CL372f5bcb71056a4d('alert', 'info', aNv, aNw);
+        }
+        _2CL141566c09bc61f6f(aNv) {
+            this._2CL372f5bcb71056a4d('system', 'trip_origin', 'HSLO', aNv);
+        }
+        _2CL372f5bcb71056a4d(aNv, aNw, aNx, aNy) {
+            if ('popup' === aPB._2CL25fc81b383ec3bd4) {
+                var aWb = new aVu(aNv, aNw, aNx, aNy);
+                this._2CLe43c1387b0e5691a(aWb);
             }
-        }, {
-            'key': 'showToast',
-            'value': function showToast(aNv, aNw, aNx) {
-                this._2CL372f5bcb71056a4d('alert', aNv, aNw, aNx);
+            aVE._2CLe6a39bb1bb506a37(aNv, aNw, aNx, aNy);
+        }
+        _2CLe43c1387b0e5691a(aNv) {
+            if (this._2CL0c2516bdbb4e19ba.push(aNv), this._2CLc1bfadcfb8498cd0.appendChild(aNv._2CLeea645c0840743f7), aNv._2CLe3ccf39294a33320(), aNv._2CLf822adaa0b5213cc(this._2CLbaf021a7fd7734ae._2CL553987ac9eee434e), this._2CL0c2516bdbb4e19ba.length > this._2CLbaf021a7fd7734ae._2CL2c6daad6dc0e911b + 0x1) {
+                var aWd = this._2CL0c2516bdbb4e19ba.shift();
+                this._2CLc1bfadcfb8498cd0.removeChild(aWd._2CLeea645c0840743f7);
             }
-        }, {
-            'key': '_2CLd2948436a49d2833',
-            'value': function _2CLd2948436a49d2833(aNv, aNw, aNx) {
-                this._2CL372f5bcb71056a4d('system', aNv, aNw, aNx);
-            }
-        }, {
-            'key': '_2CL8ee793f3ce78ebf5',
-            'value': function _2CL8ee793f3ce78ebf5(aNv, aNw) {
-                this._2CL372f5bcb71056a4d('normal', 'question_answer', aNv, aNw);
-            }
-        }, {
-            'key': '_2CLefc550a8476f0d48',
-            'value': function _2CLefc550a8476f0d48(aNv, aNw) {
-                this._2CL372f5bcb71056a4d('alert', 'info', aNv, aNw);
-            }
-        }, {
-            'key': '_2CL141566c09bc61f6f',
-            'value': function _2CL141566c09bc61f6f(aNv) {
-                this._2CL372f5bcb71056a4d('system', 'trip_origin', 'HSLO', aNv);
-            }
-        }, {
-            'key': '_2CL372f5bcb71056a4d',
-            'value': function _2CL372f5bcb71056a4d(aNv, aNw, aNx, aNy) {
-                if ('popup' === aPB._2CL25fc81b383ec3bd4) {
-                    var aWb = new aVu(aNv, aNw, aNx, aNy);
-                    this._2CLe43c1387b0e5691a(aWb);
-                }
-                aVE._2CLe6a39bb1bb506a37(aNv, aNw, aNx, aNy);
-            }
-        }, {
-            'key': '_2CLe43c1387b0e5691a',
-            'value': function _2CLe43c1387b0e5691a(aNv) {
-                if (this._2CL0c2516bdbb4e19ba.push(aNv), this._2CLc1bfadcfb8498cd0.appendChild(aNv._2CLeea645c0840743f7), aNv._2CLe3ccf39294a33320(), aNv._2CLf822adaa0b5213cc(this._2CLbaf021a7fd7734ae._2CL553987ac9eee434e), this._2CL0c2516bdbb4e19ba.length > this._2CLbaf021a7fd7734ae._2CL2c6daad6dc0e911b + 0x1) {
-                    var aWd = this._2CL0c2516bdbb4e19ba.shift();
-                    this._2CLc1bfadcfb8498cd0.removeChild(aWd._2CLeea645c0840743f7);
-                }
-                this._2CL0c2516bdbb4e19ba.length > this._2CLbaf021a7fd7734ae._2CL2c6daad6dc0e911b && this._2CL0c2516bdbb4e19ba[this._2CL0c2516bdbb4e19ba.length - 0x1 - this._2CLbaf021a7fd7734ae._2CL2c6daad6dc0e911b]['_2CL87563560028c947f']();
-            }
-        }]);
-        return aVS;
-    }())();
+            this._2CL0c2516bdbb4e19ba.length > this._2CLbaf021a7fd7734ae._2CL2c6daad6dc0e911b && this._2CL0c2516bdbb4e19ba[this._2CL0c2516bdbb4e19ba.length - 0x1 - this._2CLbaf021a7fd7734ae._2CL2c6daad6dc0e911b]['_2CL87563560028c947f']();
+        }
+    }
     /* HSLO Toast END */
 
     var aWe = new(function () {
@@ -1619,7 +1600,7 @@ const disappearedEntities = new Map();
                         aUQ.handleRecaptchaRequest(aNv);
                         break;
                     case 0x72:
-                        aVR.showToast('info', 'Game server', 'Spectate mode slots are full.');
+                        Toast.showToast('info', 'Game server', 'Spectate mode slots are full.');
                         break; // 114
                     case 0xe2:
                         this.handlePing(aNv, aNx);
@@ -2010,7 +1991,7 @@ const disappearedEntities = new Map();
                 var aNv = document.getElementById('primary-account'),
                     aNw = aWf.get('misc', 'primary-account');
                 aNw && (aNv.value = aNw), this._2CL5954cb4625bfa43c = aNv.value, aNv.addEventListener('change', function () {
-                    aXK._2CL5954cb4625bfa43c = aNv.value, aWf.set('misc', 'primary-account', aXK._2CL5954cb4625bfa43c), (b18._2CL4949d7b4162ddae2(0x0) || b18._2CL4949d7b4162ddae2(0x1)) && aVR.showToast('info', 'HSLO', 'Please rejoin the lobby!');
+                    aXK._2CL5954cb4625bfa43c = aNv.value, aWf.set('misc', 'primary-account', aXK._2CL5954cb4625bfa43c), (b18._2CL4949d7b4162ddae2(0x0) || b18._2CL4949d7b4162ddae2(0x1)) && Toast.showToast('info', 'HSLO', 'Please rejoin the lobby!');
                 }, {
                     'passive': !0x0
                 }), this._2CL1fee7164919d6e90.addEventListener('click', function () {
@@ -2035,13 +2016,13 @@ const disappearedEntities = new Map();
             'key': '_2CLc4d0425fbc577b01',
             'value': function _2CLc4d0425fbc577b01(aNv) {
                 var aNw = this._2CL1fee7164919d6e90.querySelector('span');
-                aNv ? (aNw.innerText = 'Logout from Facebook', aVR._2CLd2948436a49d2833('person', 'Facebook', 'Logged in.')) : (aNw.innerText = 'Login with Facebook', aVR._2CLd2948436a49d2833('person', 'Facebook', 'Logged out.'));
+                aNv ? (aNw.innerText = 'Logout from Facebook', Toast._2CLd2948436a49d2833('person', 'Facebook', 'Logged in.')) : (aNw.innerText = 'Login with Facebook', Toast._2CLd2948436a49d2833('person', 'Facebook', 'Logged out.'));
             }
         }, {
             'key': '_2CL9805dff2db657b18',
             'value': function _2CL9805dff2db657b18(aNv) {
                 var aNw = this._2CL6a6e9614b2117aa6.querySelector('span');
-                aNv ? (aNw.innerText = 'Logout from Google+', aVR._2CLd2948436a49d2833('person', 'Google+', 'Logged in.')) : (aNw.innerText = 'Login with Google+', aVR._2CLd2948436a49d2833('person', 'Google+', 'Logged out.'));
+                aNv ? (aNw.innerText = 'Logout from Google+', Toast._2CLd2948436a49d2833('person', 'Google+', 'Logged in.')) : (aNw.innerText = 'Login with Google+', Toast._2CLd2948436a49d2833('person', 'Google+', 'Logged out.'));
             }
         }, {
             'key': '_2CLa5f961f14f197d01',
@@ -2102,9 +2083,9 @@ const disappearedEntities = new Map();
             'key': '_2CLf4b9553a318e4862',
             'value': function _2CLf4b9553a318e4862() {
                 var aY4 = this;
-                if (':party' !== b1F._2CL1b376b18827dbb14) return void aVR._2CLd2948436a49d2833('trip_origin', 'HSLO', 'Multibox mode is only supported in Party mode.');
+                if (':party' !== b1F._2CL1b376b18827dbb14) return void Toast._2CLd2948436a49d2833('trip_origin', 'HSLO', 'Multibox mode is only supported in Party mode.');
                 if (this._2CLe05c5ba9ef263da8) return;
-                this._2CLe05c5ba9ef263da8 = !0x0, aVR.showToast('info', 'Warning', 'You will be reconnected to any currently connected lobby. Click again to continue.');
+                this._2CLe05c5ba9ef263da8 = !0x0, Toast.showToast('info', 'Warning', 'You will be reconnected to any currently connected lobby. Click again to continue.');
                 var aNv = function aNv() {
                     aY4._2CLeb21482a8346145a = !aY4._2CLeb21482a8346145a, aY4._2CLe05c5ba9ef263da8 = !0x1;
                 };
@@ -2113,7 +2094,7 @@ const disappearedEntities = new Map();
                     'once': !0x0
                 }), setTimeout(function () {
                     aY4._2CL06ecdacc5326d193.removeEventListener('click', aNv), aY4._2CLe05c5ba9ef263da8 = !0x1;
-                }, aVR._2CLbaf021a7fd7734ae._2CL553987ac9eee434e);
+                }, Toast._2CLbaf021a7fd7734ae._2CL553987ac9eee434e);
             }
         }, {
             'key': '_2CL7985cc4be4e238f9',
@@ -2122,7 +2103,7 @@ const disappearedEntities = new Map();
                 for (var aY7 = 0x0; aY7 < aNv.length; aY7++) {
                     aNv[aY7]['setAttribute']('multibox', 'off');
                 }
-                aVR._2CLd2948436a49d2833('hdr_weak', 'HSLO', 'Multibox mode is off.');
+                Toast._2CLd2948436a49d2833('hdr_weak', 'HSLO', 'Multibox mode is off.');
             }
         }, {
             'key': '_2CL71ff08eabacd9a2c',
@@ -2131,7 +2112,7 @@ const disappearedEntities = new Map();
                 for (var aY9 = 0x0; aY9 < aNv.length; aY9++) {
                     aNv[aY9]['setAttribute']('multibox', 'on');
                 }
-                aVR._2CLd2948436a49d2833('hdr_weak', 'HSLO', 'Multibox mode is on.');
+                Toast._2CLd2948436a49d2833('hdr_weak', 'HSLO', 'Multibox mode is on.');
             }
         }, {
             'key': '_2CLeb21482a8346145a',
@@ -2297,10 +2278,10 @@ const disappearedEntities = new Map();
                 }
                 switch (aNx) {
                 case 0x1:
-                    aVR._2CL8ee793f3ce78ebf5(aNz, aNy), aYt._2CL9b17a7e001fc9274._2CLee6c3b3f6f747fd6();
+                    Toast._2CL8ee793f3ce78ebf5(aNz, aNy), aYt._2CL9b17a7e001fc9274._2CLee6c3b3f6f747fd6();
                     break;
                 case 0x2:
-                    aVR._2CLefc550a8476f0d48(aNz, aNy), aYt._2CLbe66e34185726a39._2CLee6c3b3f6f747fd6();
+                    Toast._2CLefc550a8476f0d48(aNz, aNy), aYt._2CLbe66e34185726a39._2CLee6c3b3f6f747fd6();
                 }
             }
         }]);
@@ -2521,7 +2502,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL57077a1603655896',
             'value': function _2CL57077a1603655896() {
-                this._2CL166d9df08441011f = 0x1f4, aYv._init_hatena(), b0l._2CL377d9e6cac8abf48(), aVR._2CLd2948436a49d2833('wifi', 'HSLO Network', 'Connected');
+                this._2CL166d9df08441011f = 0x1f4, aYv._init_hatena(), b0l._2CL377d9e6cac8abf48(), Toast._2CLd2948436a49d2833('wifi', 'HSLO Network', 'Connected');
             }
         }, {
             'key': '_2CL2b0839e6fb568e5a',
@@ -2534,7 +2515,7 @@ const disappearedEntities = new Map();
                 var b0k = this;
                 this._2CL166d9df08441011f *= 0x2, setTimeout(function () {
                     b0k._2CLe43e55a05f37528c();
-                }, this._2CL166d9df08441011f), aVR._2CLd2948436a49d2833('wifi_off', 'HSLO Network', 'Disconnected');
+                }, this._2CL166d9df08441011f), Toast._2CLd2948436a49d2833('wifi_off', 'HSLO Network', 'Disconnected');
             }
         }, {
             'key': '_2CLfee439a61a4f4e30',
@@ -2785,7 +2766,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL57077a1603655896',
             'value': function _2CL57077a1603655896(aNv) {
-                aT1._2CL5875a5af586e3482(aNv), b0W._2CLe345212b4d947278(aNv, !0x1), aY0._2CLeb21482a8346145a ? aVR._2CLd2948436a49d2833('trip_origin', 'Game server', 'Tab ' ['concat'](aNv + 0x1, ' connected.')) : aVR._2CLd2948436a49d2833('trip_origin', 'Game server', 'connected.');
+                aT1._2CL5875a5af586e3482(aNv), b0W._2CLe345212b4d947278(aNv, !0x1), aY0._2CLeb21482a8346145a ? Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'Tab ' ['concat'](aNv + 0x1, ' connected.')) : Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'connected.');
             }
         }, {
             'key': '_2CL2b0839e6fb568e5a',
@@ -2795,7 +2776,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL5e5b449e09b6c73c',
             'value': function _2CL5e5b449e09b6c73c(aNv) {
-                b2u._init_hatena(aNv), aV6._init_hatena(aNv), this._2CL4949d7b4162ddae2(0x0) || this._2CL4949d7b4162ddae2(0x1) || aSL._2CLc1076a31e6a64e81(), b0W._2CLe345212b4d947278(aNv, !0x0), aVR._2CLd2948436a49d2833('trip_origin', 'Game server', 'disconnected.');
+                b2u._init_hatena(aNv), aV6._init_hatena(aNv), this._2CL4949d7b4162ddae2(0x0) || this._2CL4949d7b4162ddae2(0x1) || aSL._2CLc1076a31e6a64e81(), b0W._2CLe345212b4d947278(aNv, !0x0), Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'disconnected.');
             }
         }, {
             'key': '_2CLfee439a61a4f4e30',
@@ -2910,22 +2891,22 @@ const disappearedEntities = new Map();
             'key': '_2CL5e5f8210783ea8a5',
             'value': function _2CL5e5f8210783ea8a5(aNv, aNw) {
                 if ('ok' === aNv.status || 'party_full' === aNv.status) {
-                    if (aNv.token && (aVR._2CLd2948436a49d2833('info', 'HSLO', 'Joining lobby ' ['concat'](b1q._2CLeb21482a8346145a ? '*****' : aNv.token)), this._2CLe58b4b753f473597 = aNv.token), ':party' === aNw) b18._2CLe43e55a05f37528c(aNv.endpoints.https, this._2CLe58b4b753f473597);
+                    if (aNv.token && (Toast._2CLd2948436a49d2833('info', 'HSLO', 'Joining lobby ' ['concat'](b1q._2CLeb21482a8346145a ? '*****' : aNv.token)), this._2CLe58b4b753f473597 = aNv.token), ':party' === aNw) b18._2CLe43e55a05f37528c(aNv.endpoints.https, this._2CLe58b4b753f473597);
                     else {
                         var b1T = aNw.replace(':', '') + ':' + this._2CL71128195627080f0(aNv.endpoints.https);
-                        aVR._2CLd2948436a49d2833('info', 'HSLO', 'Joining lobby ' ['concat'](b1q._2CLeb21482a8346145a ? '*****' : b1T)), this._2CLe58b4b753f473597 = b1T, b18._2CLe43e55a05f37528c(aNv.endpoints.https);
+                        Toast._2CLd2948436a49d2833('info', 'HSLO', 'Joining lobby ' ['concat'](b1q._2CLeb21482a8346145a ? '*****' : b1T)), this._2CLe58b4b753f473597 = b1T, b18._2CLe43e55a05f37528c(aNv.endpoints.https);
                     }
-                } else aVR._2CLd2948436a49d2833('info', 'Miniclip', 'Bouncer returned no room.');
+                } else Toast._2CLd2948436a49d2833('info', 'Miniclip', 'Bouncer returned no room.');
             }
         }, {
             'key': '_2CLfee439a61a4f4e30',
             'value': function _2CLfee439a61a4f4e30(aNv) {
-                aVR._2CLd2948436a49d2833('error', 'HSLO', aNv);
+                Toast._2CLd2948436a49d2833('error', 'HSLO', aNv);
             }
         }, {
             'key': '_2CL9635dd3e0754fe77',
             'value': function _2CL9635dd3e0754fe77() {
-                aVR._2CLd2948436a49d2833('info', 'HSLO', 'Searching for a new lobby...'), aQr._2CL526f2f3dcb51e5fd(this._2CL1b376b18827dbb14, this._2CL21181c13a833ee56);
+                Toast._2CLd2948436a49d2833('info', 'HSLO', 'Searching for a new lobby...'), aQr._2CL526f2f3dcb51e5fd(this._2CL1b376b18827dbb14, this._2CL21181c13a833ee56);
             }
         }, {
             'key': '_2CLeaf361c48a5efd14',
@@ -2937,20 +2918,20 @@ const disappearedEntities = new Map();
                 if (/^[A-Z0-9]{5,7}$/ ['test'](aNw)) {
                     this._2CLe58b4b753f473597 = aNw;
                     var b1Z = ':party';
-                    aVR._2CLd2948436a49d2833('info', 'HSLO', 'Joining lobby ' ['concat'](b1q._2CLeb21482a8346145a ? '******' : aNw)), aQr._2CL26bb1ea8a949c4c0(b1Z, this._2CL21181c13a833ee56, aNw), aNv.value = b1Z;
+                    Toast._2CLd2948436a49d2833('info', 'HSLO', 'Joining lobby ' ['concat'](b1q._2CLeb21482a8346145a ? '******' : aNw)), aQr._2CL26bb1ea8a949c4c0(b1Z, this._2CL21181c13a833ee56, aNw), aNv.value = b1Z;
                 } else if (aNx.test(aNw)) {
                     this._2CLe58b4b753f473597 = aNw;
                     var b20 = aNw.match(aNx),
                         b21 = ':' + b20[0x1],
                         b22 = 'live-arena-' ['concat'](b20[0x2], '.agar.io:')['concat'](b20[0x3]);
-                    aNv.value = b21, b18._2CLe43e55a05f37528c(b22), aVR._2CLd2948436a49d2833('info', 'HSLO', 'Joining lobby ' ['concat'](b1q._2CLeb21482a8346145a ? '******' : aNw));
+                    aNv.value = b21, b18._2CLe43e55a05f37528c(b22), Toast._2CLd2948436a49d2833('info', 'HSLO', 'Joining lobby ' ['concat'](b1q._2CLeb21482a8346145a ? '******' : aNw));
                 } else if (aNy.test(aNw)) {
                     this._2CLe58b4b753f473597 = aNw;
                     var b23 = aNw.match(aNy),
                         b24 = ':' + b23[0x1],
                         b25 = 'ip-' ['concat'](b23[0x2], '-')['concat'](b23[0x3], '-')['concat'](b23[0x4], '-')['concat'](b23[0x5], '.tech.agar.io:')['concat'](b23[0x6]);
-                    aNv.value = b24, b18._2CLe43e55a05f37528c(b25), aVR._2CLd2948436a49d2833('info', 'HSLO', 'Joining lobby ' ['concat'](b1q._2CLeb21482a8346145a ? '******' : aNw));
-                } else aVR._2CLd2948436a49d2833('info', 'HSLO', 'Invalid room code.');
+                    aNv.value = b24, b18._2CLe43e55a05f37528c(b25), Toast._2CLd2948436a49d2833('info', 'HSLO', 'Joining lobby ' ['concat'](b1q._2CLeb21482a8346145a ? '******' : aNw));
+                } else Toast._2CLd2948436a49d2833('info', 'HSLO', 'Invalid room code.');
             }
         }, {
             'key': '_2CL71128195627080f0',
@@ -3890,7 +3871,7 @@ const disappearedEntities = new Map();
                         aNy = URL.createObjectURL(aNx),
                         aNz = document.createElement('a');
                     aNz.href = aNy, aNz.download = 'user-data.hsf', document.body.appendChild(aNz), aNz.click(), setTimeout(function () {
-                        document.body.removeChild(aNz), URL.revokeObjectURL(aNy), aVR._2CLd2948436a49d2833('cloud_done', 'HSLO', 'User data was saved.');
+                        document.body.removeChild(aNz), URL.revokeObjectURL(aNy), Toast._2CLd2948436a49d2833('cloud_done', 'HSLO', 'User data was saved.');
                     }, 0x0);
                 }
             }, {
@@ -3898,7 +3879,7 @@ const disappearedEntities = new Map();
                 'value': function _2CL024f1e26624c70fc() {
                     var b6Z = this;
                     var aNv = this._2CL2f70cd41a2cf1237._2CL8d68a946a0377f8e;
-                    if (!aNv.files || !aNv.files[0x0]) return void aVR._2CLd2948436a49d2833('error', 'HSLO', 'Please select a user data file.');
+                    if (!aNv.files || !aNv.files[0x0]) return void Toast._2CLd2948436a49d2833('error', 'HSLO', 'Please select a user data file.');
                     var aNw = aNv.files[0x0],
                         aNx = new FileReader();
                     aNx.addEventListener('load', function (aNv) {
@@ -3907,9 +3888,9 @@ const disappearedEntities = new Map();
                         try {
                             aNx = JSON.parse(aNw);
                         } catch (b76) {
-                            aVR._2CLd2948436a49d2833('error', 'HSLO', 'Corrupt user data.');
+                            Toast._2CLd2948436a49d2833('error', 'HSLO', 'Corrupt user data.');
                         }
-                        aNx && (b6Z.settingsLoader(aNx), aVR._2CLd2948436a49d2833('cloud_done', 'HSLO', 'User data was loaded.'));
+                        aNx && (b6Z.settingsLoader(aNx), Toast._2CLd2948436a49d2833('cloud_done', 'HSLO', 'User data was loaded.'));
                     }), aNx.readAsBinaryString(aNw);
                 }
             }, {
@@ -3970,7 +3951,7 @@ const disappearedEntities = new Map();
                         for (var b7w = 0x1; b7w <= 0x9; b7w++) {
                             b5Z._2CL7c9b93058856d2b4(), b3Y.tag = '', document.getElementById('tag')['value'] = '';
                         }
-                    aVR._2CLd2948436a49d2833('cloud_done', 'HSLO', 'User data was reset.');
+                    Toast._2CLd2948436a49d2833('cloud_done', 'HSLO', 'User data was reset.');
                 }
             }, {
                 'key': 'settingsLoader',
@@ -4663,7 +4644,7 @@ const disappearedEntities = new Map();
                 if (this._2CL6fe1f736b5887665) {
                     if (this._2CL1120ff84dec848bf) {
                         var bcb = this._2CL6c6f2ffa347ef138.value.substring(0x0, 0x64);
-                        bcb.length ? aOr._2CL12f041c709cb5e6d - this._2CL56ac1ff5a49ceb77 < this._2CLe0f175c185ee19e3 ? aVR.showToast('error', 'HSLO', 'Message was not sent due to spam protection.') : (b0l._2CL8ee793f3ce78ebf5(b3Y._2CL158c6b3b1c965555, 0x1, bcb), this._2CL6c6f2ffa347ef138.value = '', this._2CL56ac1ff5a49ceb77 = aOr._2CL12f041c709cb5e6d) : (this._2CL6c6f2ffa347ef138.blur(), this._2CL87563560028c947f());
+                        bcb.length ? aOr._2CL12f041c709cb5e6d - this._2CL56ac1ff5a49ceb77 < this._2CLe0f175c185ee19e3 ? Toast.showToast('error', 'HSLO', 'Message was not sent due to spam protection.') : (b0l._2CL8ee793f3ce78ebf5(b3Y._2CL158c6b3b1c965555, 0x1, bcb), this._2CL6c6f2ffa347ef138.value = '', this._2CL56ac1ff5a49ceb77 = aOr._2CL12f041c709cb5e6d) : (this._2CL6c6f2ffa347ef138.blur(), this._2CL87563560028c947f());
                     } else this._2CL6c6f2ffa347ef138.focus();
                 } else this._2CLa5f961f14f197d01(), this._2CL6c6f2ffa347ef138.focus();
             }
@@ -5243,7 +5224,7 @@ const disappearedEntities = new Map();
                             if ('hotkey' === bev._2CL65dfacb39960c223 && bev._2CLf25e006a93c268fc === aNK && aPB[beu] === aNx) {
                                 aPB[beu] = 'EMPTY';
                                 var bew = 'Hotkey for \"' ['concat'](bev._2CL1e22c6e0e181ac56, '\" has been cleared because key \"')['concat'](aNx, '\" was previously bound to it.');
-                                aVR._2CL372f5bcb71056a4d('alert', 'keyboard', 'Controls', bew);
+                                Toast._2CL372f5bcb71056a4d('alert', 'keyboard', 'Controls', bew);
                             }
                         }
                         aNz.value = aNx, aPB[aNw] = aNx;
