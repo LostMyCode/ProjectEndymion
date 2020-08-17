@@ -26,13 +26,13 @@ yarn watch
 or you can run `npm run watch`  
 You need to open HSLO in Agar.io even in debug mode.
 
-###Local server
+### Local server
 Use visual studio code extension like [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 ![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/576748/012fb604-d69f-c048-44e7-aea616e4c387.png)
 
 Install `Live Server` extension then you can run local web server by one click.
 
-###Userscript for Development
+### Userscript for Development
 ```javascript
 // ==UserScript==
 // @name         HSLO Endymion (Debug)
