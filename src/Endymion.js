@@ -193,12 +193,12 @@ const disappearedEntities = new Map();
     var aOr = new(function () {
             function aOt() {
                 _classCallCheck(this, aOt);
-                this._2CL12f041c709cb5e6d = 0x0;
+                this.pf_now_kamo = 0x0;
             }
             _createClass(aOt, [{
-                'key': '_2CL4b01979e8a4823c8',
-                'value': function _2CL4b01979e8a4823c8() {
-                    this._2CL12f041c709cb5e6d = performance.now();
+                'key': 'pf_now_upd',
+                'value': function pf_now_upd() {
+                    this.pf_now_kamo = performance.now();
                 }
             }]);
             return aOt;
@@ -1061,7 +1061,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL0ace867fb8fdbdd5',
             'value': function _2CL0ace867fb8fdbdd5(aNv) {
-                b18._2CL785ba0dfc4e6d9fc[aNv] = !0x0, this._2CL2d2649677c494e95(aNv), this._2CLbd43b5b161db4d90(aNv);
+                b18._2CL785ba0dfc4e6d9fc[aNv] = !0x0, this._2CL2d2649677c494e95(aNv), this.getFreeCoin_fn(aNv);
             }
         }, {
             'key': 'sendPacket_fn',
@@ -1190,8 +1190,8 @@ const disappearedEntities = new Map();
                 aNw._init_hatena(), aNw.writeUint8(0x15), this.sendPacket_fn(aNv, aNw);
             }
         }, {
-            'key': '_2CL7d56178cbe83ef34',
-            'value': function _2CL7d56178cbe83ef34(aNv, aNw) {
+            'key': 'sendRecaptchaToken',
+            'value': function sendRecaptchaToken(aNv, aNw) {
                 if (!b18._2CL785ba0dfc4e6d9fc[aNv]) return;
                 var aNx = new aSg(aNw.length + 0x2);
                 aNx.writeUint8(0x56), aNx.writeStringUTF8(aNw), this.sendPacket_fn(aNv, aNx);
@@ -1241,8 +1241,8 @@ const disappearedEntities = new Map();
                 this.sendPacket_fn(aNv, aNN), this._2CL9f2ef7144b608121[aNv] = !0x0;
             }
         }, {
-            'key': '_2CLbd43b5b161db4d90',
-            'value': function _2CLbd43b5b161db4d90(aNv) {
+            'key': 'getFreeCoin_fn',
+            'value': function getFreeCoin_fn(aNv) {
                 if (!b18._2CL785ba0dfc4e6d9fc[aNv] || !this._2CL9f2ef7144b608121[aNv]) return;
                 var aNw = new aSh();
                 aNw.reset(), aNw.writeField(0x1, 0x2), aNw.writeVarInt('hourlyBonus' ['length']), aNw.writeString('hourlyBonus');
@@ -1328,7 +1328,10 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL5d245f3c3f20196f',
             'value': function _2CL5d245f3c3f20196f(aNv, aNw) {
-                aT1._2CL7d56178cbe83ef34(aNv, aNw), this.captchaScreen_elms[aNv]['style']['display'] = 'none', this._2CLa6f1d546f5ae2d9d--, this._2CL87563560028c947f(), document.body.focus();
+                aT1.sendRecaptchaToken(aNv, aNw);
+                this.captchaScreen_elms[aNv]['style']['display'] = 'none';
+                this._2CLa6f1d546f5ae2d9d--;
+                this._2CL87563560028c947f(), document.body.focus();
             }
         }, {
             'key': '_2CLa5f961f14f197d01',
@@ -1539,7 +1542,7 @@ const disappearedEntities = new Map();
         _2CLd2948436a49d2833(aNv, aNw, aNx) {
             this._2CL372f5bcb71056a4d('system', aNv, aNw, aNx);
         }
-        _2CL8ee793f3ce78ebf5(aNv, aNw) {
+        chat_fn(aNv, aNw) {
             this._2CL372f5bcb71056a4d('normal', 'question_answer', aNv, aNw);
         }
         _2CLefc550a8476f0d48(aNv, aNw) {
@@ -1639,7 +1642,7 @@ const disappearedEntities = new Map();
             }, {
                 'key': '_2CL6fc3aee44a638fd5',
                 'value': function _2CL6fc3aee44a638fd5(aNv, aNw) {
-                    if (0x1 === aNv && b18._2CL4949d7b4162ddae2(0x0)) return;
+                    if (0x1 === aNv && b18.getReadyState_fn(0x0)) return;
                     aV6._init_hatena();
                     var aNx = 0x0;
                     for (; !aNw.endOfBuffer;) {
@@ -1652,7 +1655,7 @@ const disappearedEntities = new Map();
             }, {
                 'key': '_2CL375c94e349920964',
                 'value': function _2CL375c94e349920964(aNv, aNw) {
-                    if (0x1 === aNv && b18._2CL4949d7b4162ddae2(0x0)) return;
+                    if (0x1 === aNv && b18.getReadyState_fn(0x0)) return;
                     aV6._init_hatena();
                     var aNx = 0x0;
                     for (aNw.getUint16(); !aNw.endOfBuffer && aNx < 0xa;) {
@@ -1720,7 +1723,7 @@ const disappearedEntities = new Map();
                 'value': function handleViewportData(aNv, aNw) {
                     // update viewport
 
-                    aOr._2CL4b01979e8a4823c8();
+                    aOr.pf_now_upd();
                     var aNx = aNw.getUint16();
                     for (var aWU = 0x0; aWU < aNx | 0; /* aWU++ */ aWU = (aWU + 1) | 0) {
                         var aWV = aNw.getUint32(),
@@ -1991,7 +1994,7 @@ const disappearedEntities = new Map();
                 var aNv = document.getElementById('primary-account'),
                     aNw = aWf.get('misc', 'primary-account');
                 aNw && (aNv.value = aNw), this._2CL5954cb4625bfa43c = aNv.value, aNv.addEventListener('change', function () {
-                    aXK._2CL5954cb4625bfa43c = aNv.value, aWf.set('misc', 'primary-account', aXK._2CL5954cb4625bfa43c), (b18._2CL4949d7b4162ddae2(0x0) || b18._2CL4949d7b4162ddae2(0x1)) && Toast.showToast('info', 'HSLO', 'Please rejoin the lobby!');
+                    aXK._2CL5954cb4625bfa43c = aNv.value, aWf.set('misc', 'primary-account', aXK._2CL5954cb4625bfa43c), (b18.getReadyState_fn(0x0) || b18.getReadyState_fn(0x1)) && Toast.showToast('info', 'HSLO', 'Please rejoin the lobby!');
                 }, {
                     'passive': !0x0
                 }), this._2CL1fee7164919d6e90.addEventListener('click', function () {
@@ -2149,12 +2152,12 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLcc32da8337a77c45',
             'value': function _2CLcc32da8337a77c45(aNv, aNw, aNx, aNy) {
-                this._2CLb732806230c52119(aNv), this._2CLba1475f59fd170cd[aNv] = this._2CLb004b0674dcd79f3[aNv], this._2CL714c70296f8e5724[aNv] = this._2CLda74a55e5331ea56[aNv], this._2CLb1c42d66c16f86da[aNv] = aNw, this._2CLd05d044fd22f995b[aNv] = aNx, this._2CL30c87194157e4b27[aNv] = aNy, this._2CLde1a13e8cb17e51d[aNv] = aOr._2CL12f041c709cb5e6d;
+                this._2CLb732806230c52119(aNv), this._2CLba1475f59fd170cd[aNv] = this._2CLb004b0674dcd79f3[aNv], this._2CL714c70296f8e5724[aNv] = this._2CLda74a55e5331ea56[aNv], this._2CLb1c42d66c16f86da[aNv] = aNw, this._2CLd05d044fd22f995b[aNv] = aNx, this._2CL30c87194157e4b27[aNv] = aNy, this._2CLde1a13e8cb17e51d[aNv] = aOr.pf_now_kamo;
             }
         }, {
             'key': '_2CLb732806230c52119',
             'value': function _2CLb732806230c52119(aNv) {
-                var aNw = (aOr._2CL12f041c709cb5e6d - this._2CLde1a13e8cb17e51d[aNv]) / 0x3e8;
+                var aNw = (aOr.pf_now_kamo - this._2CLde1a13e8cb17e51d[aNv]) / 0x3e8;
                 aNw = aNw > 0x1 ? 0x1 : aNw < 0x0 ? 0x0 : aNw, this._2CLb004b0674dcd79f3[aNv] = this._2CLba1475f59fd170cd[aNv] + (this._2CLb1c42d66c16f86da[aNv] - this._2CLba1475f59fd170cd[aNv]) * aNw, this._2CLda74a55e5331ea56[aNv] = this._2CL714c70296f8e5724[aNv] + (this._2CLd05d044fd22f995b[aNv] - this._2CL714c70296f8e5724[aNv]) * aNw;
             }
         }]);
@@ -2188,7 +2191,7 @@ const disappearedEntities = new Map();
     var aYv = new(function () {
         function aYw() {
             _classCallCheck(this, aYw);
-            this._2CL1627e8a692645e68 = new Map(), this._2CL59e76edc8173405f = new Map(), this._2CL444654fd23eb0730 = -0x1, this._2CL01cdc4c56f3c16bc = new aYb(-0x1, '');
+            this._2CL1627e8a692645e68 = new Map(), this._2CL59e76edc8173405f = new Map(), this.selfID_kamo = -0x1, this._2CL01cdc4c56f3c16bc = new aYb(-0x1, '');
         }
         _createClass(aYw, [{
             'key': '_2CL52a96de0605b8df2',
@@ -2200,12 +2203,12 @@ const disappearedEntities = new Map();
         }, {
             'key': '_init_hatena',
             'value': function _init_hatena() {
-                this._2CL1627e8a692645e68.clear(), this._2CL59e76edc8173405f.clear(), this._2CL444654fd23eb0730 = -0x1;
+                this._2CL1627e8a692645e68.clear(), this._2CL59e76edc8173405f.clear(), this.selfID_kamo = -0x1;
             }
         }, {
             'key': '_2CLa2401f3a6e826384',
             'value': function _2CLa2401f3a6e826384(aNv) {
-                if (aNv === this._2CL444654fd23eb0730)
+                if (aNv === this.selfID_kamo)
                     for (var aYy = 0x0; aYy < 0x2; aYy++) {
                         this._2CL01cdc4c56f3c16bc._2CLa8da637215ed8fdd[aYy] = !0x1;
                     } else this._2CL1627e8a692645e68.delete(aNv);
@@ -2213,13 +2216,13 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL771f42f2e56ba112',
             'value': function _2CL771f42f2e56ba112(aNv) {
-                return aNv === this._2CL444654fd23eb0730 ? this._2CL01cdc4c56f3c16bc : this._2CL1627e8a692645e68.get(aNv) || this._2CL590987bd6e227033(aNv);
+                return aNv === this.selfID_kamo ? this._2CL01cdc4c56f3c16bc : this._2CL1627e8a692645e68.get(aNv) || this._2CL590987bd6e227033(aNv);
             }
         }, {
             'key': '_2CL590987bd6e227033',
             'value': function _2CL590987bd6e227033(aNv, aNw) {
                 var aNx = this._2CL59e76edc8173405f.get(aNw);
-                if (aNv === this._2CL444654fd23eb0730) {
+                if (aNv === this.selfID_kamo) {
                     for (var aYD = 0x0; aYD < 0x2; aYD++) {
                         this._2CL01cdc4c56f3c16bc._2CLa8da637215ed8fdd[aYD] = !0x1;
                     }
@@ -2268,17 +2271,17 @@ const disappearedEntities = new Map();
                     }
             }
         }, {
-            'key': '_2CL8ee793f3ce78ebf5',
-            'value': function _2CL8ee793f3ce78ebf5(aNv, aNw, aNx, aNy) {
+            'key': 'chat_fn',
+            'value': function chat_fn(aNv, aNw, aNx, aNy) {
                 var aNz = 'Anonymous';
-                if (aNv === this._2CL444654fd23eb0730) aNz = b3Y._2CL42b7a092ff6d6463(aNw);
+                if (aNv === this.selfID_kamo) aNz = b3Y._2CL42b7a092ff6d6463(aNw);
                 else {
                     var aYX = this._2CL1627e8a692645e68.get(aNv);
                     void 0x0 !== aYX && (aNz = aYX._2CL8ac401cc9f1e8785[aNw]);
                 }
                 switch (aNx) {
                 case 0x1:
-                    Toast._2CL8ee793f3ce78ebf5(aNz, aNy), aYt._2CL9b17a7e001fc9274._2CLee6c3b3f6f747fd6();
+                    Toast.chat_fn(aNz, aNy), aYt._2CL9b17a7e001fc9274._2CLee6c3b3f6f747fd6();
                     break;
                 case 0x2:
                     Toast._2CLefc550a8476f0d48(aNz, aNy), aYt._2CLbe66e34185726a39._2CLee6c3b3f6f747fd6();
@@ -2295,12 +2298,12 @@ const disappearedEntities = new Map();
             var aNw = arguments.length > 0x1 && arguments[0x1] !== undefined ? arguments[0x1] : 0x0;
             var aNx = arguments.length > 0x2 && arguments[0x2] !== undefined ? arguments[0x2] : 0x5dc;
             _classCallCheck(this, aZ0);
-            this.xPos_kamo = aNv, this.yPos_kamo = aNw, this._2CL813d15064792496f = aNx, this._2CL1ef101f9a0c03f9d = aOr._2CL12f041c709cb5e6d, this._2CL12298acfaf2e57e9 = 0x0, this._2CL659907fefaeeb24a = 0x0, this._2CL81ce1eaddff677a7 = 0x0;
+            this.xPos_kamo = aNv, this.yPos_kamo = aNw, this._2CL813d15064792496f = aNx, this._2CL1ef101f9a0c03f9d = aOr.pf_now_kamo, this._2CL12298acfaf2e57e9 = 0x0, this._2CL659907fefaeeb24a = 0x0, this._2CL81ce1eaddff677a7 = 0x0;
         }
         _createClass(aZ0, [{
             'key': '_2CLb732806230c52119',
             'value': function _2CLb732806230c52119() {
-                var aNv = aOr._2CL12f041c709cb5e6d - this._2CL1ef101f9a0c03f9d;
+                var aNv = aOr.pf_now_kamo - this._2CL1ef101f9a0c03f9d;
                 this._2CL81ce1eaddff677a7 = aNv / aYY, this._2CL12298acfaf2e57e9 = this._2CL813d15064792496f * this._2CL81ce1eaddff677a7 | 0x0;
                 var aNw = this._2CL813d15064792496f * aYZ;
                 this._2CL12298acfaf2e57e9 < aNw ? this._2CL659907fefaeeb24a = 0x1 : this._2CL659907fefaeeb24a = 0x1 - (this._2CL12298acfaf2e57e9 - aNw) / (this._2CL813d15064792496f - aNw);
@@ -2313,7 +2316,7 @@ const disappearedEntities = new Map();
         }]);
         return aZ0;
     }();
-    var aZ7 = new(function () {
+    var aZ7 = new(function () { // hslo network onmessage
         function aZ8() {
             _classCallCheck(this, aZ8);
         }
@@ -2323,33 +2326,33 @@ const disappearedEntities = new Map();
                 var aNw = new aU8(aNv);
                 switch (aNw.getUint8()) {
                 case 0x1:
-                    this._2CL444654fd23eb0730(aNw);
+                    this.selfID_kamo(aNw);
                     break;
                 case 0x2:
-                    this._2CL0d82903b7d63ee39(aNw);
+                    this.roomJoin_kamo(aNw);
                     break;
                 case 0x3:
-                    this._2CL509f85f6f6256512(aNw);
+                    this.roomUpdate_kamo(aNw);
                     break;
                 case 0x4:
-                    this._2CLf80a4b9ccafcec5b(aNw);
+                    this.roomLeave_kamo(aNw);
                     break;
                 case 0x5:
-                    this._2CL8ee793f3ce78ebf5(aNw);
+                    this.chat_fn(aNw);
                     break;
                 case 0x6:
                     this._2CLe50ece9570a295f9(aNw);
                 }
             }
         }, {
-            'key': '_2CL444654fd23eb0730',
-            'value': function _2CL444654fd23eb0730(aNv) {
+            'key': 'selfID_kamo',
+            'value': function selfID_kamo(aNv) {
                 var aNw = aNv.getUint16();
-                aYv._init_hatena(), aYv._2CL444654fd23eb0730 = aNw;
+                aYv._init_hatena(), aYv.selfID_kamo = aNw;
             }
         }, {
-            'key': '_2CL0d82903b7d63ee39',
-            'value': function _2CL0d82903b7d63ee39(aNv) {
+            'key': 'roomJoin_kamo',
+            'value': function roomJoin_kamo(aNv) {
                 var aNw = aNv.getUint16(),
                     aNx = aNv._2CL9f86d97a7bdf1abb();
                 aYv._2CLd23b80a83838ebeb(aNw, aNx);
@@ -2376,8 +2379,8 @@ const disappearedEntities = new Map();
                 }
             }
         }, {
-            'key': '_2CL509f85f6f6256512',
-            'value': function _2CL509f85f6f6256512(aNv) {
+            'key': 'roomUpdate_kamo',
+            'value': function roomUpdate_kamo(aNv) {
                 var aNw = aNv.getUint16(),
                     aNx = aNv.getUint8();
                 for (var aZw = 0x0; aZw < aNx; aZw++) {
@@ -2439,14 +2442,14 @@ const disappearedEntities = new Map();
                 }
             }
         }, {
-            'key': '_2CLf80a4b9ccafcec5b',
-            'value': function _2CLf80a4b9ccafcec5b(aNv) {
+            'key': 'roomLeave_kamo',
+            'value': function roomLeave_kamo(aNv) {
                 var aNw = aNv.getUint16();
                 aYv._2CL747ad4c6110d5907(aNw);
             }
         }, {
-            'key': '_2CL8ee793f3ce78ebf5',
-            'value': function _2CL8ee793f3ce78ebf5(aNv) {
+            'key': 'chat_fn',
+            'value': function chat_fn(aNv) {
                 var playerId = aNv.getUint16(),
                     tabId = aNv.getUint8(),
                     msgType = aNv.getUint8(),
@@ -2462,7 +2465,7 @@ const disappearedEntities = new Map();
                     // return console.log("[test114514] Advertisement messsage from saigo blocked");
                     return;
                 }
-                aYv._2CL8ee793f3ce78ebf5(playerId, tabId, msgType, message);
+                aYv.chat_fn(playerId, tabId, msgType, message);
             }
         }, {
             'key': '_2CLe50ece9570a295f9',
@@ -2485,13 +2488,13 @@ const disappearedEntities = new Map();
             'value': function _2CLe43e55a05f37528c() {
                 var b0g = this;
                 this._ws_inst = new WebSocket(this._url_kamo, 'main'), this._ws_inst.binaryType = 'arraybuffer', this._ws_inst.onopen = function () {
-                    return b0g._2CL57077a1603655896();
+                    return b0g.onopen_fn();
                 }, this._ws_inst.onmessage = function (aNv) {
-                    return b0g._2CL2b0839e6fb568e5a(aNv);
+                    return b0g.onmessage_fn(aNv);
                 }, this._ws_inst.onclose = function () {
-                    return b0g._2CL5e5b449e09b6c73c();
+                    return b0g.onclose_fn();
                 }, this._ws_inst.onerror = function () {
-                    return b0g._2CLfee439a61a4f4e30();
+                    return b0g.onerror_fn();
                 };
             }
         }, {
@@ -2500,28 +2503,31 @@ const disappearedEntities = new Map();
                 this._ws_inst.send(aNv);
             }
         }, {
-            'key': '_2CL57077a1603655896',
-            'value': function _2CL57077a1603655896() {
-                this._2CL166d9df08441011f = 0x1f4, aYv._init_hatena(), b0l._2CL377d9e6cac8abf48(), Toast._2CLd2948436a49d2833('wifi', 'HSLO Network', 'Connected');
+            'key': 'onopen_fn',
+            'value': function onopen_fn() {
+                this._2CL166d9df08441011f = 0x1f4;
+                aYv._init_hatena();
+                b0l._2CL377d9e6cac8abf48();
+                Toast._2CLd2948436a49d2833('wifi', 'HSLO Network', 'Connected');
             }
         }, {
-            'key': '_2CL2b0839e6fb568e5a',
-            'value': function _2CL2b0839e6fb568e5a(aNv) {
+            'key': 'onmessage_fn',
+            'value': function onmessage_fn(aNv) {
                 aZ7._2CL0d88847754015168(aNv.data);
             }
         }, {
-            'key': '_2CL5e5b449e09b6c73c',
-            'value': function _2CL5e5b449e09b6c73c() {
+            'key': 'onclose_fn',
+            'value': function onclose_fn() {
                 var b0k = this;
                 this._2CL166d9df08441011f *= 0x2, setTimeout(function () {
                     b0k._2CLe43e55a05f37528c();
                 }, this._2CL166d9df08441011f), Toast._2CLd2948436a49d2833('wifi_off', 'HSLO Network', 'Disconnected');
             }
         }, {
-            'key': '_2CLfee439a61a4f4e30',
-            'value': function _2CLfee439a61a4f4e30() {}
+            'key': 'onerror_fn',
+            'value': function onerror_fn() {}
         }, {
-            'key': '_2CL4949d7b4162ddae2',
+            'key': 'getReadyState_fn',
             'get': function get() {
                 return this._ws_inst && this._ws_inst.readyState === this._ws_inst.OPEN;
             }
@@ -2540,7 +2546,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL8ac401cc9f1e8785',
             'value': function _2CL8ac401cc9f1e8785() {
-                if (!b0e._2CL4949d7b4162ddae2) return;
+                if (!b0e.getReadyState_fn) return;
                 var aNv = b3Y._2CL42b7a092ff6d6463(0x0),
                     aNw = b3Y._2CL42b7a092ff6d6463(0x1),
                     aNx = new aSg(0x2 * (aNv.length + aNw.length + 0x2) + 0x1);
@@ -2549,7 +2555,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLac9df252d711bd1c',
             'value': function _2CLac9df252d711bd1c() {
-                if (!b0e._2CL4949d7b4162ddae2) return;
+                if (!b0e.getReadyState_fn) return;
                 var aNv = {
                         '_2CL65dfacb39960c223': 0x0,
                         '_2CL7318a606a3118d46': ''
@@ -2576,7 +2582,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL1849df6af84c6815',
             'value': function _2CL1849df6af84c6815() {
-                if (!b0e._2CL4949d7b4162ddae2) return;
+                if (!b0e.getReadyState_fn) return;
                 var aNv = new aSg(0x7);
                 aNv.writeUint8(0x3);
                 for (var b0A = 0x0; b0A < 0x2; b0A++) {
@@ -2590,7 +2596,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLa8da637215ed8fdd',
             'value': function _2CLa8da637215ed8fdd() {
-                if (!b0e._2CL4949d7b4162ddae2) return;
+                if (!b0e.getReadyState_fn) return;
                 var aNv = new aSg(0x3),
                     aNw = b3Y._2CL1d2b5efaee01be40(0x0) ? 0x1 : 0x0,
                     aNx = b3Y._2CL1d2b5efaee01be40(0x1) ? 0x1 : 0x0;
@@ -2602,7 +2608,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL244fe1e06ace6919',
             'value': function _2CL244fe1e06ace6919() {
-                if (!b0e._2CL4949d7b4162ddae2 || !b3Y._2CL32137922dbdb3ee5()) return;
+                if (!b0e.getReadyState_fn || !b3Y._2CL32137922dbdb3ee5()) return;
                 var aNv = b3Y._2CL1d2b5efaee01be40(0x0),
                     aNw = b3Y._2CL1d2b5efaee01be40(0x1);
                 var aNx = 0x0,
@@ -2622,7 +2628,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL7b047b1f72f109f9',
             'value': function _2CL7b047b1f72f109f9() {
-                if (!b0e._2CL4949d7b4162ddae2) return;
+                if (!b0e.getReadyState_fn) return;
                 var aNv = b3Y._2CL38c49d2ea0d01c9d(),
                     aNw = new aSg(0x4 + 0x2 * aNv.length);
                 aNw.writeUint8(0x6);
@@ -2633,7 +2639,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLada370f97d905f76',
             'value': function _2CLada370f97d905f76() {
-                if (!b0e._2CL4949d7b4162ddae2 || 'string' != typeof b18.gameServer_url) return;
+                if (!b0e.getReadyState_fn || 'string' != typeof b18.gameServer_url) return;
                 var aNv = new aSg(0x2 + b18.gameServer_url.length);
                 aNv.writeUint8(0x7);
                 aNv._2CL7b8cf5f8d2d0d80c(b18.gameServer_url);
@@ -2642,7 +2648,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLe50ece9570a295f9',
             'value': function _2CLe50ece9570a295f9(aNv, aNw) {
-                if (!b0e._2CL4949d7b4162ddae2) return;
+                if (!b0e.getReadyState_fn) return;
                 var aNx = new aSg(0x5);
                 aNx.writeUint8(0x8);
                 aNx.writeInt16(aNv);
@@ -2650,9 +2656,9 @@ const disappearedEntities = new Map();
                 b0e.wsSend_fn(aNx._2CLe035dc327c1676d8);
             }
         }, {
-            'key': '_2CL8ee793f3ce78ebf5',
-            'value': function _2CL8ee793f3ce78ebf5(aNv, aNw, aNx) {
-                if (!b0e._2CL4949d7b4162ddae2) return;
+            'key': 'chat_fn',
+            'value': function chat_fn(aNv, aNw, aNx) {
+                if (!b0e.getReadyState_fn) return;
                 var aNy = new aSg(0x5 + 0x2 * aNx.length);
                 aNy.writeUint8(0x9), aNy.writeUint8(aNv), aNy.writeUint8(aNw), aNy._2CLfb96650702209fba(aNx), b0e.wsSend_fn(aNy._2CLe035dc327c1676d8);
             }
@@ -2727,7 +2733,7 @@ const disappearedEntities = new Map();
             'key': '_2CL91cf1e039f1b751e',
             'value': function _2CL91cf1e039f1b751e(aNv) {
                 var b1d = this;
-                if (this._2CLe84ab877dd8d6d4e(aNv), aRV._2CL0a0dbaaacf7f9729(aNv), !aY0._2CLeb21482a8346145a && aNv !== aXI._2CL46e2b32c63641c78()) return;
+                if (this.wsReset_fn(aNv), aRV._2CL0a0dbaaacf7f9729(aNv), !aY0._2CLeb21482a8346145a && aNv !== aXI._2CL46e2b32c63641c78()) return;
                 window.encKey = 0;
                 if (Settings.Endy.specAssistType != "fullmap" && aNv > 2) return;
                 if (Settings.Endy.specAssistType == "none" && aNv == 2) return;
@@ -2743,47 +2749,47 @@ const disappearedEntities = new Map();
                 }
                 var aNw = new WebSocket(window.target = 'wss://' ['concat'](this.gameServer_url, '/')['concat'](this._2CL5d8e95289bf25691 ? '?party_id=' ['concat'](this._2CL5d8e95289bf25691) : ''));
                 aNw.binaryType = 'arraybuffer', aNw.onopen = function () {
-                    b1d._2CL57077a1603655896(aNv);
+                    b1d.onopen_fn(aNv);
                 }, aNw.onmessage = function (aNw) {
-                    b1d._2CL2b0839e6fb568e5a(aNv, aNw);
+                    b1d.onmessage_fn(aNv, aNw);
                 }, aNw.onclose = function () {
-                    b1d._2CL5e5b449e09b6c73c(aNv);
+                    b1d.onclose_fn(aNv);
                 }, aNw.onerror = function () {
-                    b1d._2CLfee439a61a4f4e30(aNv);
+                    b1d.onerror_fn(aNv);
                 }, this._ws_inst[aNv] = aNw;
             }
         }, {
-            'key': '_2CLe84ab877dd8d6d4e',
-            'value': function _2CLe84ab877dd8d6d4e(aNv) {
+            'key': 'wsReset_fn',
+            'value': function wsReset_fn(aNv) {
                 var aNw = this._ws_inst[aNv];
-                aNw && (aNw.onopen = null, aNw.onmessage = null, aNw.onclose = null, aNw.onerror = null, this._2CL4949d7b4162ddae2(aNv) && (aNw.close(), this._2CL5e5b449e09b6c73c(aNv))), this._ws_inst[aNv] = null, this._2CL785ba0dfc4e6d9fc[aNv] = !0x1;
+                aNw && (aNw.onopen = null, aNw.onmessage = null, aNw.onclose = null, aNw.onerror = null, this.getReadyState_fn(aNv) && (aNw.close(), this.onclose_fn(aNv))), this._ws_inst[aNv] = null, this._2CL785ba0dfc4e6d9fc[aNv] = !0x1;
             }
         }, {
             'key': 'wsSend_fn',
             'value': function wsSend_fn(aNv, aNw) {
-                this._2CL4949d7b4162ddae2(aNv) && this._ws_inst[aNv]['send'](aNw);
+                this.getReadyState_fn(aNv) && this._ws_inst[aNv]['send'](aNw);
             }
         }, {
-            'key': '_2CL57077a1603655896',
-            'value': function _2CL57077a1603655896(aNv) {
+            'key': 'onopen_fn',
+            'value': function onopen_fn(aNv) {
                 aT1._2CL5875a5af586e3482(aNv), b0W._2CLe345212b4d947278(aNv, !0x1), aY0._2CLeb21482a8346145a ? Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'Tab ' ['concat'](aNv + 0x1, ' connected.')) : Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'connected.');
             }
         }, {
-            'key': '_2CL2b0839e6fb568e5a',
-            'value': function _2CL2b0839e6fb568e5a(aNv, aNw) {
+            'key': 'onmessage_fn',
+            'value': function onmessage_fn(aNv, aNw) {
                 aWe._2CL062a4846d759f87d(aNv, aNw.data);
             }
         }, {
-            'key': '_2CL5e5b449e09b6c73c',
-            'value': function _2CL5e5b449e09b6c73c(aNv) {
-                b2u._init_hatena(aNv), aV6._init_hatena(aNv), this._2CL4949d7b4162ddae2(0x0) || this._2CL4949d7b4162ddae2(0x1) || aSL._2CLc1076a31e6a64e81(), b0W._2CLe345212b4d947278(aNv, !0x0), Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'disconnected.');
+            'key': 'onclose_fn',
+            'value': function onclose_fn(aNv) {
+                b2u._init_hatena(aNv), aV6._init_hatena(aNv), this.getReadyState_fn(0x0) || this.getReadyState_fn(0x1) || aSL._2CLc1076a31e6a64e81(), b0W._2CLe345212b4d947278(aNv, !0x0), Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'disconnected.');
             }
         }, {
-            'key': '_2CLfee439a61a4f4e30',
-            'value': function _2CLfee439a61a4f4e30() {}
+            'key': 'onerror_fn',
+            'value': function onerror_fn() {}
         }, {
-            'key': '_2CL4949d7b4162ddae2',
-            'value': function _2CL4949d7b4162ddae2(aNv) {
+            'key': 'getReadyState_fn',
+            'value': function getReadyState_fn(aNv) {
                 var aNw = this._ws_inst[aNv];
                 return aNw && aNw.readyState === aNw.OPEN;
             }
@@ -2793,7 +2799,13 @@ const disappearedEntities = new Map();
     var b1q = new(function () {
         function b1r() {
             _classCallCheck(this, b1r);
-            this._2CL06ecdacc5326d193 = document.getElementById('toggle-streammode'), this._2CLa2b5325b25fe36f2 = this._2CL06ecdacc5326d193.querySelector('i'), this._2CLceefebf769973bc1 = [document.getElementById('tag'), document.getElementById('room-id')], this._2CL864d71640da06934 = !0x1;
+            this._2CL06ecdacc5326d193 = document.getElementById('toggle-streammode');
+            this._2CLa2b5325b25fe36f2 = this._2CL06ecdacc5326d193.querySelector('i');
+            this._2CLceefebf769973bc1 = [
+                document.getElementById('tag'),
+                document.getElementById('room-id')
+            ];
+            this._2CL864d71640da06934 = !0x1;
         }
         _createClass(b1r, [{
             'key': '_2CL52a96de0605b8df2',
@@ -2848,7 +2860,7 @@ const disappearedEntities = new Map();
     var b1F = new(function () {
         function b1G() {
             _classCallCheck(this, b1G);
-            this._2CL1b376b18827dbb14 = '', this._2CL21181c13a833ee56 = '', this._2CLe5793c31abd35f5e = document.getElementById('room-id'), this._2CL0ad31caf5e3d7f73 = !0x0;
+            this._2CL1b376b18827dbb14 = '', this._2CL21181c13a833ee56 = '', this.roomId_elm = document.getElementById('room-id'), this._2CL0ad31caf5e3d7f73 = !0x0;
         }
         _createClass(b1G, [{
             'key': '_2CL52a96de0605b8df2',
@@ -2859,7 +2871,7 @@ const disappearedEntities = new Map();
                 }), aQr._2CL385f5d49967fe353('new-server', function (aNv, aNw) {
                     b1H._2CL5e5f8210783ea8a5(aNv, aNw);
                 }), aQr._2CL385f5d49967fe353('error', function (aNv) {
-                    b1H._2CLfee439a61a4f4e30(aNv);
+                    b1H.onerror_fn(aNv);
                 });
                 var aNv = document.getElementById('gamemode'),
                     aNw = aWf.get('misc', 'gamemode');
@@ -2899,8 +2911,8 @@ const disappearedEntities = new Map();
                 } else Toast._2CLd2948436a49d2833('info', 'Miniclip', 'Bouncer returned no room.');
             }
         }, {
-            'key': '_2CLfee439a61a4f4e30',
-            'value': function _2CLfee439a61a4f4e30(aNv) {
+            'key': 'onerror_fn',
+            'value': function onerror_fn(aNv) {
                 Toast._2CLd2948436a49d2833('error', 'HSLO', aNv);
             }
         }, {
@@ -2966,10 +2978,10 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLe58b4b753f473597',
             'get': function get() {
-                return this._2CLe5793c31abd35f5e.value;
+                return this.roomId_elm.value;
             },
             'set': function set(aNv) {
-                this._2CLe5793c31abd35f5e.value = aNv;
+                this.roomId_elm.value = aNv;
             }
         }]);
         return b1G;
@@ -2977,18 +2989,18 @@ const disappearedEntities = new Map();
     var b2h = function () {
         function b2h(aNv, aNw, aNx, aNy, aNz, aNA) {
             _classCallCheck(this, b2h);
-            this._tabId_dayo = aNv, this.cellId_kamo = aNw, this._2CL21d2ff6532680118 = aNA, this._2CL3a92ba109ae14af4 = aNx, this._2CLfbca5b2c63d57894 = aNy, this._2CL9d81fdf50372ed13 = aNz, this._2CLb004b0674dcd79f3 = aNx, this._2CLda74a55e5331ea56 = aNy, this._2CL22a713a5c998ef44 = aNz, this._2CL056f487a0c65dc87 = aNx, this._2CLf61adf68aaf72d1c = aNy, this._2CL3a4f6c580285f9d1 = aNz, this._2CL8ac401cc9f1e8785 = '', this._2CL1849df6af84c6815 = new aPC.Color_c(), this.vanillaSkinName = '', this._2CLca1d851200c68582 = 0x0, this.isFood = !0x1, this.isEjected = !0x1, this._2CL22c774a2efca930d = !0x1, this.isMe = !0x1, this.isFriend = !0x1, this._2CL5b4f938bcb93ee23 = !0x1, this._2CL1ef101f9a0c03f9d = aOr._2CL12f041c709cb5e6d, this._2CLde1a13e8cb17e51d = 0x0, this._2CLcbf95c93fd1f39b2 = 0x0, this._2CLecfd700cc3b53c04 = 0x0;
+            this._tabId_dayo = aNv, this.cellId_kamo = aNw, this._2CL21d2ff6532680118 = aNA, this._2CL3a92ba109ae14af4 = aNx, this._2CLfbca5b2c63d57894 = aNy, this._2CL9d81fdf50372ed13 = aNz, this._2CLb004b0674dcd79f3 = aNx, this._2CLda74a55e5331ea56 = aNy, this._2CL22a713a5c998ef44 = aNz, this._2CL056f487a0c65dc87 = aNx, this._2CLf61adf68aaf72d1c = aNy, this._2CL3a4f6c580285f9d1 = aNz, this._2CL8ac401cc9f1e8785 = '', this._2CL1849df6af84c6815 = new aPC.Color_c(), this.vanillaSkinName = '', this._2CLca1d851200c68582 = 0x0, this.isFood = !0x1, this.isEjected = !0x1, this._2CL22c774a2efca930d = !0x1, this.isMe = !0x1, this.isFriend = !0x1, this._2CL5b4f938bcb93ee23 = !0x1, this._2CL1ef101f9a0c03f9d = aOr.pf_now_kamo, this._2CLde1a13e8cb17e51d = 0x0, this._2CLcbf95c93fd1f39b2 = 0x0, this._2CLecfd700cc3b53c04 = 0x0;
         }
         _createClass(b2h, [{
             'key': '_2CLcc32da8337a77c45',
             'value': function _2CLcc32da8337a77c45(aNv, aNw, aNx) {
-                this._2CLb732806230c52119(), this._2CL056f487a0c65dc87 = this._2CLb004b0674dcd79f3, this._2CLf61adf68aaf72d1c = this._2CLda74a55e5331ea56, this._2CL3a4f6c580285f9d1 = this._2CL22a713a5c998ef44, this._2CL3a92ba109ae14af4 = aNv, this._2CLfbca5b2c63d57894 = aNw, this._2CL9d81fdf50372ed13 = aNx, this._2CLde1a13e8cb17e51d = aOr._2CL12f041c709cb5e6d;
+                this._2CLb732806230c52119(), this._2CL056f487a0c65dc87 = this._2CLb004b0674dcd79f3, this._2CLf61adf68aaf72d1c = this._2CLda74a55e5331ea56, this._2CL3a4f6c580285f9d1 = this._2CL22a713a5c998ef44, this._2CL3a92ba109ae14af4 = aNv, this._2CLfbca5b2c63d57894 = aNw, this._2CL9d81fdf50372ed13 = aNx, this._2CLde1a13e8cb17e51d = aOr.pf_now_kamo;
             }
         }, {
             'key': '_2CLb732806230c52119',
             'value': function _2CLb732806230c52119() {
                 var aNv = 0x104 - 0xa * aPB._2CL7831870038520f30;
-                var aNw = (aOr._2CL12f041c709cb5e6d - this._2CLde1a13e8cb17e51d) / aNv;
+                var aNw = (aOr.pf_now_kamo - this._2CLde1a13e8cb17e51d) / aNv;
                 aNw = aNw > 0x1 ? 0x1 : aNw < 0x0 ? 0x0 : aNw, this._2CLb004b0674dcd79f3 = this._2CL056f487a0c65dc87 + (this._2CL3a92ba109ae14af4 - this._2CL056f487a0c65dc87) * aNw, this._2CLda74a55e5331ea56 = this._2CLf61adf68aaf72d1c + (this._2CLfbca5b2c63d57894 - this._2CLf61adf68aaf72d1c) * aNw, this._2CL22a713a5c998ef44 = this._2CL3a4f6c580285f9d1 + (this._2CL9d81fdf50372ed13 - this._2CL3a4f6c580285f9d1) * aNw, this._2CLecfd700cc3b53c04 = aNw;
             }
         }, {
@@ -3212,7 +3224,7 @@ const disappearedEntities = new Map();
                     ));
                 }
 
-                aNA && aNJ && (aNA._2CLcc32da8337a77c45(aNJ._2CLb004b0674dcd79f3, aNJ._2CLda74a55e5331ea56, aNA._2CL22a713a5c998ef44), aNA._2CL5b4f938bcb93ee23 = !0x0, aNA._2CLcbf95c93fd1f39b2 = aOr._2CL12f041c709cb5e6d, aNA.isMe && aNz.delete(aNx), aNy.delete(aNx), aPB._2CL551774a986394bd9 && aNy.set('' ['concat'](aNx, ':removed'), aNA));
+                aNA && aNJ && (aNA._2CLcc32da8337a77c45(aNJ._2CLb004b0674dcd79f3, aNJ._2CLda74a55e5331ea56, aNA._2CL22a713a5c998ef44), aNA._2CL5b4f938bcb93ee23 = !0x0, aNA._2CLcbf95c93fd1f39b2 = aOr.pf_now_kamo, aNA.isMe && aNz.delete(aNx), aNy.delete(aNx), aPB._2CL551774a986394bd9 && aNy.set('' ['concat'](aNx, ':removed'), aNA));
             }
         }, {
             'key': 'removeDisappearedEntity',
@@ -3221,7 +3233,7 @@ const disappearedEntities = new Map();
                     aNy = this._2CL9661498b4088206f[aNv],
                     aNz = aNx.get(aNw);
                 aNz && (aNz._2CL5b4f938bcb93ee23 = !0x0,
-                    aNz._2CLcbf95c93fd1f39b2 = aOr._2CL12f041c709cb5e6d,
+                    aNz._2CLcbf95c93fd1f39b2 = aOr.pf_now_kamo,
                     aNz.isMe && aNy.delete(aNw),
                     aNx.delete(aNw),
                     aNx.set('' ['concat'](aNw, ':removed'), aNz));
@@ -3448,13 +3460,13 @@ const disappearedEntities = new Map();
         _createClass(b4B, [{
             'key': '_2CLcc32da8337a77c45',
             'value': function _2CLcc32da8337a77c45(aNv, aNw, aNx) {
-                this.xPos_kamo = aNv, this.yPos_kamo = aNw, this._2CL30c87194157e4b27 = aNx, this.radius_kamo = Math.sqrt(0x64 * aNx), this._2CLde1a13e8cb17e51d = aOr._2CL12f041c709cb5e6d;
+                this.xPos_kamo = aNv, this.yPos_kamo = aNw, this._2CL30c87194157e4b27 = aNx, this.radius_kamo = Math.sqrt(0x64 * aNx), this._2CLde1a13e8cb17e51d = aOr.pf_now_kamo;
             }
         }, {
             'key': '_2CLc4ec52a346e0cbd2',
             'get': function get() {
                 var aNv = b3Y._2CL30c87194157e4b27[0x0] + b3Y._2CL30c87194157e4b27[0x1];
-                return aOr._2CL12f041c709cb5e6d - this._2CLde1a13e8cb17e51d < 0x3e8 && aNv < this._2CL30c87194157e4b27;
+                return aOr.pf_now_kamo - this._2CLde1a13e8cb17e51d < 0x3e8 && aNv < this._2CL30c87194157e4b27;
             }
         }]);
         return b4B;
@@ -4595,7 +4607,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLefc550a8476f0d48',
             'value': function _2CLefc550a8476f0d48(aNv) {
-                aNv = (aNv = aNv.substring(0x0, 0x64))['replace'](':sector:', aSL._2CL9c84c7f925c14a54()), b0l._2CL8ee793f3ce78ebf5(b3Y._2CL158c6b3b1c965555, 0x2, aNv);
+                aNv = (aNv = aNv.substring(0x0, 0x64))['replace'](':sector:', aSL._2CL9c84c7f925c14a54()), b0l.chat_fn(b3Y._2CL158c6b3b1c965555, 0x2, aNv);
             }
         }, {
             'key': '_2CLb8791ef749374f9f',
@@ -4644,7 +4656,7 @@ const disappearedEntities = new Map();
                 if (this._2CL6fe1f736b5887665) {
                     if (this._2CL1120ff84dec848bf) {
                         var bcb = this._2CL6c6f2ffa347ef138.value.substring(0x0, 0x64);
-                        bcb.length ? aOr._2CL12f041c709cb5e6d - this._2CL56ac1ff5a49ceb77 < this._2CLe0f175c185ee19e3 ? Toast.showToast('error', 'HSLO', 'Message was not sent due to spam protection.') : (b0l._2CL8ee793f3ce78ebf5(b3Y._2CL158c6b3b1c965555, 0x1, bcb), this._2CL6c6f2ffa347ef138.value = '', this._2CL56ac1ff5a49ceb77 = aOr._2CL12f041c709cb5e6d) : (this._2CL6c6f2ffa347ef138.blur(), this._2CL87563560028c947f());
+                        bcb.length ? aOr.pf_now_kamo - this._2CL56ac1ff5a49ceb77 < this._2CLe0f175c185ee19e3 ? Toast.showToast('error', 'HSLO', 'Message was not sent due to spam protection.') : (b0l.chat_fn(b3Y._2CL158c6b3b1c965555, 0x1, bcb), this._2CL6c6f2ffa347ef138.value = '', this._2CL56ac1ff5a49ceb77 = aOr.pf_now_kamo) : (this._2CL6c6f2ffa347ef138.blur(), this._2CL87563560028c947f());
                     } else this._2CL6c6f2ffa347ef138.focus();
                 } else this._2CLa5f961f14f197d01(), this._2CL6c6f2ffa347ef138.focus();
             }
@@ -5585,7 +5597,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLcc32da8337a77c45',
             'value': function _2CLcc32da8337a77c45() {
-                aPB._2CL44cd027169234270 && (aPB._2CLc07a66d08504b3f2 && b4H._2CLcc32da8337a77c45(), aPB._2CL37d09b74427e481c && bfP._2CL5cea690f6fea0a54(), aOr._2CL12f041c709cb5e6d - this._2CL9f54635827a87453 < this._2CLdebe179f239f004d || (aPB._2CL63cd5d8147aff3e2 && aV6._2CLcc32da8337a77c45(), aPB._2CL836644ddfa62ab91 && bff._2CLcc32da8337a77c45(), aPB._2CL37d09b74427e481c && bfP._2CLcc32da8337a77c45(), bfU._2CLcc32da8337a77c45(), this._2CL9f54635827a87453 = aOr._2CL12f041c709cb5e6d));
+                aPB._2CL44cd027169234270 && (aPB._2CLc07a66d08504b3f2 && b4H._2CLcc32da8337a77c45(), aPB._2CL37d09b74427e481c && bfP._2CL5cea690f6fea0a54(), aOr.pf_now_kamo - this._2CL9f54635827a87453 < this._2CLdebe179f239f004d || (aPB._2CL63cd5d8147aff3e2 && aV6._2CLcc32da8337a77c45(), aPB._2CL836644ddfa62ab91 && bff._2CLcc32da8337a77c45(), aPB._2CL37d09b74427e481c && bfP._2CLcc32da8337a77c45(), bfU._2CLcc32da8337a77c45(), this._2CL9f54635827a87453 = aOr.pf_now_kamo));
             }
         }]);
         return bg4;
@@ -5705,42 +5717,42 @@ const disappearedEntities = new Map();
         constructor() {
             this.canvas_kamo = document.createElement('canvas');
             this.ctx_kamo = this.canvas_kamo.getContext('2d');
-            this._2CLc0aa012565645b3c = 0x800;
+            this.canvasSize_ = 0x800;
             this._2CLf6e5846f1b211fe6 = '';
             this.borderWidth = 0x0;
             this._2CL29139779efc59d37 = !0x1;
-            this._2CLbc49113881c5b35f = 0x0;
+            this.glowDistance = 0x0;
             this.color_kamo = '';
             this.glowStrength = 0x0;
-            this._2CL52e0d71a7fc74f7f = !0x1;
+            this.needReDraw_bool = !0x1;
         }
         _2CL1ff235ee6a538d5a() {
             this._2CL1849df6af84c6815 = aPB._2CLb1e2e9f32fc11173;
             this.setLineWidth_fn = aPB._2CLb846d894676621a3;
             this._2CL47e32ba4a20e2fb2 = aPB._2CLb2498f5ee07ff5b3;
-            this._2CLe6455616d604609d = aPB._2CL63a253787a089be6;
+            this.glowDistance_setter = aPB._2CL63a253787a089be6;
             this.setColor_fn = aPB._2CLec31e0e6b26c3739;
             this.setGlowStrength = aPB._2CL63dedfd6c8d34fd1;
-            this._2CL52e0d71a7fc74f7f && this.drawByCtx_Hage();
+            this.needReDraw_bool && this.drawByCtx_Hage();
         }
         drawByCtx_Hage() {
     
             aQt.a.Hage.Tx_GB( // emsc
-                    this.ctx_kamo, // canvas ctx
-                    this._2CLc0aa012565645b3c, // 2048?
-                    this.borderWidth, // border width
-                    this._2CLbc49113881c5b35f, // border glow distance
-                    this.color_kamo, // border color
-                    this.glowStrength // border glow strength
-                ),
-                this._2CL52e0d71a7fc74f7f = !0x1;
+                this.ctx_kamo, // canvas ctx
+                this.canvasSize_, // 2048?
+                this.borderWidth, // border width
+                this.glowDistance, // border glow distance
+                this.color_kamo, // border color
+                this.glowStrength // border glow strength
+            );
+            this.needReDraw_bool = !0x1;
             if (Settings.Endy.enableRainbowBorder) makeRbbFrame();
     
         }
         draw_some(aNv) {
             // draw border
             if (this._2CL1ff235ee6a538d5a(), this._2CL29139779efc59d37) {
-                var bgP = 14142 + 2 * (this._2CLbc49113881c5b35f + this.borderWidth),
+                var bgP = 14142 + 2 * (this.glowDistance + this.borderWidth),
                     bgQ = bgP >> 0x1;
                 if (!Settings.Endy.enableRainbowBorder) aNv.drawImage(this.canvas_kamo, -bgQ, -bgQ, bgP, bgP);
                 // draw glow (this is a canvas not a image)
@@ -5759,23 +5771,23 @@ const disappearedEntities = new Map();
                 }
         }
         set _2CL1849df6af84c6815(aNv) {
-            this._2CLf6e5846f1b211fe6 !== aNv && (this._2CLf6e5846f1b211fe6 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+            this._2CLf6e5846f1b211fe6 !== aNv && (this._2CLf6e5846f1b211fe6 = aNv, this.needReDraw_bool = !0x0);
         }
         set setLineWidth_fn(aNv) {
-            this.borderWidth !== aNv && (this.borderWidth = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+            this.borderWidth !== aNv && (this.borderWidth = aNv, this.needReDraw_bool = !0x0);
         }
         set _2CL47e32ba4a20e2fb2(aNv) {
-            this._2CL29139779efc59d37 !== aNv && (this._2CL29139779efc59d37 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+            this._2CL29139779efc59d37 !== aNv && (this._2CL29139779efc59d37 = aNv, this.needReDraw_bool = !0x0);
         }
-        set _2CLe6455616d604609d(aNv) {
-            this._2CLbc49113881c5b35f !== aNv && (this._2CLbc49113881c5b35f = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        set glowDistance_setter(aNv) {
+            this.glowDistance !== aNv && (this.glowDistance = aNv, this.needReDraw_bool = !0x0);
         }
         set setColor_fn(aNv) {
             // set border glow color
-            this.color_kamo !== aNv && (this.color_kamo = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+            this.color_kamo !== aNv && (this.color_kamo = aNv, this.needReDraw_bool = !0x0);
         }
         set setGlowStrength(aNv) {
-            this.glowStrength !== aNv && (this.glowStrength = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+            this.glowStrength !== aNv && (this.glowStrength = aNv, this.needReDraw_bool = !0x0);
         }
     }
     var bgM = new aQt.a.Mipmaps();
@@ -5787,21 +5799,21 @@ const disappearedEntities = new Map();
             this._2CL49ebc19e096f1963 = 0x100;
             this.radius_var = 0x0;
             this._2CLf6e5846f1b211fe6 = '#000000';
-            this._2CLbc49113881c5b35f = 0x0;
+            this.glowDistance = 0x0;
             this.color_kamo = '#000000';
             this.glowStrength = 0x0;
-            this._2CL52e0d71a7fc74f7f = !0x1;
+            this.needReDraw_bool = !0x1;
         }
         _2CLcc32da8337a77c45() {
             this.radius_kamo = 0xa + aPB._2CLe15deec8df50ac0c;
             this._2CL1849df6af84c6815 = aPB._2CL1db05798018ba778;
-            this._2CLe6455616d604609d = aPB._2CLb5e4ccad6bc0974c;
+            this.glowDistance_setter = aPB._2CLb5e4ccad6bc0974c;
             this.setColor_fn = aPB._2CLb18c002fd29a3fcb;
             this.setGlowStrength = aPB._2CLf7cf0ff97db7cf1b;
-            this._2CL52e0d71a7fc74f7f && (this.drawByCtx_Hage(), this._2CL240bdaf7fba805e1());
+            this.needReDraw_bool && (this.drawByCtx_Hage(), this._2CL240bdaf7fba805e1());
         }
         drawByCtx_Hage() {
-            aQt.a.Hage.Tx_GF(this.ctx_kamo, this._2CL49ebc19e096f1963, this.radius_var, this._2CLf6e5846f1b211fe6, this._2CLbc49113881c5b35f, this.color_kamo, this.glowStrength), this._2CL52e0d71a7fc74f7f = !0x1;
+            aQt.a.Hage.Tx_GF(this.ctx_kamo, this._2CL49ebc19e096f1963, this.radius_var, this._2CLf6e5846f1b211fe6, this.glowDistance, this.color_kamo, this.glowStrength), this.needReDraw_bool = !0x1;
         }
         _2CL240bdaf7fba805e1() {
             this._2CL25b7f362b415b3de = bgM.create(this.canvas_kamo, 0x5);
@@ -5815,19 +5827,19 @@ const disappearedEntities = new Map();
             return this._2CL25b7f362b415b3de[aNx];
         }
         set radius_kamo(aNv) {
-            this.radius_var !== aNv && (this.radius_var = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+            this.radius_var !== aNv && (this.radius_var = aNv, this.needReDraw_bool = !0x0);
         }
         set _2CL1849df6af84c6815(aNv) {
-            this._2CLf6e5846f1b211fe6 !== aNv && (this._2CLf6e5846f1b211fe6 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+            this._2CLf6e5846f1b211fe6 !== aNv && (this._2CLf6e5846f1b211fe6 = aNv, this.needReDraw_bool = !0x0);
         }
-        set _2CLe6455616d604609d(aNv) {
-            this._2CLbc49113881c5b35f !== aNv && (this._2CLbc49113881c5b35f = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+        set glowDistance_setter(aNv) {
+            this.glowDistance !== aNv && (this.glowDistance = aNv, this.needReDraw_bool = !0x0);
         }
         set setColor_fn(aNv) {
-            this.color_kamo !== aNv && (this.color_kamo = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+            this.color_kamo !== aNv && (this.color_kamo = aNv, this.needReDraw_bool = !0x0);
         }
         set setGlowStrength(aNv) {
-            this.glowStrength !== aNv && (this.glowStrength = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+            this.glowStrength !== aNv && (this.glowStrength = aNv, this.needReDraw_bool = !0x0);
         }
         get _2CL12298acfaf2e57e9() {
             return this._2CL49ebc19e096f1963;
@@ -5975,17 +5987,17 @@ const disappearedEntities = new Map();
             }, this._2CL25b7f362b415b3de = {
                 '_2CLbe8ebfe02639534f': [],
                 '_2CL34ee8e842198b01d': []
-            }, this._2CL49ebc19e096f1963 = 0x200, this._2CL3c6acd4e76f4cfc8 = '#000000', this._2CLddf714a85f5abb72 = '#000000', this._2CLa153a523493c031c = 0x0, this._2CL29139779efc59d37 = !0x1, this._2CLbc49113881c5b35f = 0x0, this.color_kamo = '#000000', this.glowStrength = 0x0, this._2CL52e0d71a7fc74f7f = !0x1;
+            }, this._2CL49ebc19e096f1963 = 0x200, this._2CL3c6acd4e76f4cfc8 = '#000000', this._2CLddf714a85f5abb72 = '#000000', this._2CLa153a523493c031c = 0x0, this._2CL29139779efc59d37 = !0x1, this.glowDistance = 0x0, this.color_kamo = '#000000', this.glowStrength = 0x0, this.needReDraw_bool = !0x1;
         }
         _createClass(bhy, [{
             'key': '_2CLcc32da8337a77c45',
             'value': function _2CLcc32da8337a77c45() {
-                this._2CL89c5aedc6bea1203 = aPB._2CLd15f7a92ef5ed747, this._2CL58756dcbfd9ac4ae = aPB._2CLde6cdb3439aa4ece, this._2CLb846d894676621a3 = aPB._2CL71e2f181f0bdaf07, this._2CL47e32ba4a20e2fb2 = aPB._2CL3e090f2a1e71b624, this._2CLe6455616d604609d = aPB._2CLc60751a2977e3cd2, this.setColor_fn = aPB._2CLc0e438def894cb25, this.setGlowStrength = aPB._2CL9e637dde815f68ad, this._2CL52e0d71a7fc74f7f && (this.drawByCtx_Hage(), this._2CL240bdaf7fba805e1());
+                this._2CL89c5aedc6bea1203 = aPB._2CLd15f7a92ef5ed747, this._2CL58756dcbfd9ac4ae = aPB._2CLde6cdb3439aa4ece, this._2CLb846d894676621a3 = aPB._2CL71e2f181f0bdaf07, this._2CL47e32ba4a20e2fb2 = aPB._2CL3e090f2a1e71b624, this.glowDistance_setter = aPB._2CLc60751a2977e3cd2, this.setColor_fn = aPB._2CLc0e438def894cb25, this.setGlowStrength = aPB._2CL9e637dde815f68ad, this.needReDraw_bool && (this.drawByCtx_Hage(), this._2CL240bdaf7fba805e1());
             }
         }, {
             'key': 'drawByCtx_Hage',
             'value': function drawByCtx_Hage() {
-                aQt.a.Hage.Tx_GVB(this.ctx_kamo._2CLbe8ebfe02639534f, this._2CL49ebc19e096f1963, this._2CL3c6acd4e76f4cfc8, this._2CLddf714a85f5abb72, this._2CLa153a523493c031c, this._2CL29139779efc59d37, this._2CLbc49113881c5b35f, this.color_kamo, this.glowStrength), aQt.a.Hage.Tx_GVF(this.ctx_kamo._2CL34ee8e842198b01d, this._2CL49ebc19e096f1963, this._2CLddf714a85f5abb72, this._2CL29139779efc59d37, this._2CLbc49113881c5b35f, this.color_kamo, this.glowStrength), this._2CL52e0d71a7fc74f7f = !0x1;
+                aQt.a.Hage.Tx_GVB(this.ctx_kamo._2CLbe8ebfe02639534f, this._2CL49ebc19e096f1963, this._2CL3c6acd4e76f4cfc8, this._2CLddf714a85f5abb72, this._2CLa153a523493c031c, this._2CL29139779efc59d37, this.glowDistance, this.color_kamo, this.glowStrength), aQt.a.Hage.Tx_GVF(this.ctx_kamo._2CL34ee8e842198b01d, this._2CL49ebc19e096f1963, this._2CLddf714a85f5abb72, this._2CL29139779efc59d37, this.glowDistance, this.color_kamo, this.glowStrength), this.needReDraw_bool = !0x1;
             }
         }, {
             'key': '_2CL240bdaf7fba805e1',
@@ -6032,37 +6044,37 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL89c5aedc6bea1203',
             'set': function set(aNv) {
-                this._2CL3c6acd4e76f4cfc8 !== aNv && (this._2CL3c6acd4e76f4cfc8 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+                this._2CL3c6acd4e76f4cfc8 !== aNv && (this._2CL3c6acd4e76f4cfc8 = aNv, this.needReDraw_bool = !0x0);
             }
         }, {
             'key': '_2CL58756dcbfd9ac4ae',
             'set': function set(aNv) {
-                this._2CLddf714a85f5abb72 !== aNv && (this._2CLddf714a85f5abb72 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+                this._2CLddf714a85f5abb72 !== aNv && (this._2CLddf714a85f5abb72 = aNv, this.needReDraw_bool = !0x0);
             }
         }, {
             'key': '_2CLb846d894676621a3',
             'set': function set(aNv) {
-                this._2CLa153a523493c031c !== aNv && (this._2CLa153a523493c031c = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+                this._2CLa153a523493c031c !== aNv && (this._2CLa153a523493c031c = aNv, this.needReDraw_bool = !0x0);
             }
         }, {
             'key': '_2CL47e32ba4a20e2fb2',
             'set': function set(aNv) {
-                this._2CL29139779efc59d37 !== aNv && (this._2CL29139779efc59d37 = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+                this._2CL29139779efc59d37 !== aNv && (this._2CL29139779efc59d37 = aNv, this.needReDraw_bool = !0x0);
             }
         }, {
-            'key': '_2CLe6455616d604609d',
+            'key': 'glowDistance_setter',
             'set': function set(aNv) {
-                this._2CLbc49113881c5b35f !== aNv && (this._2CLbc49113881c5b35f = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+                this.glowDistance !== aNv && (this.glowDistance = aNv, this.needReDraw_bool = !0x0);
             }
         }, {
             'key': 'setColor_fn',
             'set': function set(aNv) {
-                this.color_kamo !== aNv && (this.color_kamo = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+                this.color_kamo !== aNv && (this.color_kamo = aNv, this.needReDraw_bool = !0x0);
             }
         }, {
             'key': 'setGlowStrength',
             'set': function set(aNv) {
-                this.glowStrength !== aNv && (this.glowStrength = aNv, this._2CL52e0d71a7fc74f7f = !0x0);
+                this.glowStrength !== aNv && (this.glowStrength = aNv, this.needReDraw_bool = !0x0);
             }
         }]);
         return bhy;
@@ -6137,7 +6149,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL3c4a2f5684b108cf',
             'value': function _2CL3c4a2f5684b108cf(aNv) {
-                this._2CL3156d96ac93bc96c = aOr._2CL12f041c709cb5e6d;
+                this._2CL3156d96ac93bc96c = aOr.pf_now_kamo;
                 var aNw = this._2CL39fc080559d5136e(aNv),
                     aNx = this._2CL355ef3fa24dcc8bb;
                 return aNx._2CL12298acfaf2e57e9 = aNw, aNx.canvas_kana = this.canvas_kana.get(aNw), aNx;
@@ -6151,7 +6163,7 @@ const disappearedEntities = new Map();
                     aNz = aNw / 0x80 * 0x10;
                 aNy.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](aNw, 'px ')['concat'](this.fontFamily_dane);
                 var aNA = 0x0 | aNy.measureText(this._2CL3f243e13444f693a)['width'];
-                aNx.height = aNw + (aNz << 0x1), aNx.width = aNA + (aNz << 0x1), aNy.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](aNw, 'px ')['concat'](this.fontFamily_dane), aNy.textAlign = 'center', aNy.textBaseline = 'middle', aNy.lineJoin = 'round', this._2CL63fc5d54ea5805a4 && (aNy.strokeStyle = this._2CLf9b500b751c29cb8, aNy.lineWidth = aNz, aNy.strokeText(this._2CL3f243e13444f693a, aNx.width >> 0x1, aNx.height >> 0x1)), aNy.fillStyle = this._2CL1849df6af84c6815, aNy.fillText(this._2CL3f243e13444f693a, aNx.width >> 0x1, aNx.height >> 0x1), this.canvas_kana.set(aNw, aNx), this._2CL3156d96ac93bc96c = aOr._2CL12f041c709cb5e6d, this._2CL355ef3fa24dcc8bb._2CL12298acfaf2e57e9 = aNw, this._2CL355ef3fa24dcc8bb.canvas_kana = aNx;
+                aNx.height = aNw + (aNz << 0x1), aNx.width = aNA + (aNz << 0x1), aNy.font = '' ['concat'](this._2CL1a6649cca001327f, ' ')['concat'](aNw, 'px ')['concat'](this.fontFamily_dane), aNy.textAlign = 'center', aNy.textBaseline = 'middle', aNy.lineJoin = 'round', this._2CL63fc5d54ea5805a4 && (aNy.strokeStyle = this._2CLf9b500b751c29cb8, aNy.lineWidth = aNz, aNy.strokeText(this._2CL3f243e13444f693a, aNx.width >> 0x1, aNx.height >> 0x1)), aNy.fillStyle = this._2CL1849df6af84c6815, aNy.fillText(this._2CL3f243e13444f693a, aNx.width >> 0x1, aNx.height >> 0x1), this.canvas_kana.set(aNw, aNx), this._2CL3156d96ac93bc96c = aOr.pf_now_kamo, this._2CL355ef3fa24dcc8bb._2CL12298acfaf2e57e9 = aNw, this._2CL355ef3fa24dcc8bb.canvas_kana = aNx;
             }
         }, {
             'key': '_2CL39fc080559d5136e',
@@ -6177,7 +6189,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL416caeac8fd11070',
             'value': function _2CL416caeac8fd11070(aNv) {
-                var aNw = aOr._2CL12f041c709cb5e6d,
+                var aNw = aOr.pf_now_kamo,
                     aNx = aNw - this._2CL63ea2cf13ee6a2d6 > this._2CLdebe179f239f004d;
                 (this._2CL3f243e13444f693a !== aNv && aNx || this._2CL5c26e812eabe6ba2) && (this._2CL3f243e13444f693a = aNv, this._2CL63ea2cf13ee6a2d6 = aNw, this._2CL5c26e812eabe6ba2 = !0x0);
             }
@@ -6209,7 +6221,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLd3ec6ab5a7866660',
             'value': function _2CLd3ec6ab5a7866660() {
-                return this._2CL3156d96ac93bc96c = aOr._2CL12f041c709cb5e6d, this._2CL355ef3fa24dcc8bb;
+                return this._2CL3156d96ac93bc96c = aOr.pf_now_kamo, this._2CL355ef3fa24dcc8bb;
             }
         }, {
             'key': 'draw_some',
@@ -6239,11 +6251,11 @@ const disappearedEntities = new Map();
             this._2CLae05b14dc2696520 = 0x7d0;
             this._2CLa8ee7d04dba9a424 = {
                 '_2CL8ac401cc9f1e8785': {
-                    '_2CL12f041c709cb5e6d': 0x0,
+                    'pf_now_kamo': 0x0,
                     '_2CL111f1b5b84b5c819': 0x1
                 },
                 '_2CL30c87194157e4b27': {
-                    '_2CL12f041c709cb5e6d': 0x0,
+                    'pf_now_kamo': 0x0,
                     '_2CL111f1b5b84b5c819': 0x4
                 }
             }, this._2CL0266bb79353fcf1b = [], this._2CL5faefba63380ed03 = [];
@@ -6258,7 +6270,7 @@ const disappearedEntities = new Map();
                 aNx._2CL9b9938a2691837ff(aPB._2CL809c5f5d430daaf7), aNx._2CL8acf4ffefa6278f6(aPB._2CLc218af2d960f8976), aNx._2CL4dfc699b0e124758(aPB._2CLa313e28e36c779d9), aNx._2CLfc3d140d5b43aa2d(aPB._2CL6ffd216ace16bc18), aNx._2CLfdc1c1ce4450484a(aPB._2CL036449ab30a42cfa), aNx._2CL416caeac8fd11070(aNv);
                 var aNy = aNx._2CL3c4a2f5684b108cf(aNw),
                     aNz = this._2CLa8ee7d04dba9a424._2CL8ac401cc9f1e8785;
-                return !aNy.canvas_kana && aNz._2CL12f041c709cb5e6d < aNz._2CL111f1b5b84b5c819 && (aNz._2CL12f041c709cb5e6d++, aNx.draw_some(aNw)), aNy;
+                return !aNy.canvas_kana && aNz.pf_now_kamo < aNz._2CL111f1b5b84b5c819 && (aNz.pf_now_kamo++, aNx.draw_some(aNw)), aNy;
             }
         }, {
             'key': '_2CL3d440f962d064a41',
@@ -6275,7 +6287,7 @@ const disappearedEntities = new Map();
                 aNy._2CL9b9938a2691837ff(aPB._2CL0d63bbbae2f1dd0c), aNy._2CL8acf4ffefa6278f6(aPB._2CL3e0ca3daad1c7c38), aNy._2CL4dfc699b0e124758(aPB._2CL78439528ae7f402d), aNy._2CLfc3d140d5b43aa2d(aPB._2CL552e1524f47f939f), aNy._2CLfdc1c1ce4450484a(aPB._2CLa68a8aa19cafb2c7), aNy._2CLbb3162f3d7cffd48(aNx), aNy._2CL416caeac8fd11070(aNw), aNy._2CLdebe179f239f004d = aPB._2CL4413da4b308c248c;
                 var aNz = aNy._2CLd3ec6ab5a7866660(),
                     aNA = this._2CLa8ee7d04dba9a424._2CL30c87194157e4b27;
-                return aNy._2CL5c26e812eabe6ba2 && aNA._2CL12f041c709cb5e6d < aNA._2CL111f1b5b84b5c819 && (aNA._2CL12f041c709cb5e6d++, aNy.draw_some()), aNz;
+                return aNy._2CL5c26e812eabe6ba2 && aNA.pf_now_kamo < aNA._2CL111f1b5b84b5c819 && (aNA.pf_now_kamo++, aNy.draw_some()), aNz;
             }
         }, {
             'key': '_2CL643c0a9e2696dc9b',
@@ -6286,7 +6298,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLf17986767ee19043',
             'value': function _2CLf17986767ee19043() {
-                var aNv = aOr._2CL12f041c709cb5e6d;
+                var aNv = aOr.pf_now_kamo;
                 var biZ = !![];
                 var bj0 = ![];
                 var bj1 = undefined;
@@ -6335,7 +6347,8 @@ const disappearedEntities = new Map();
                         }
                     }
                 }
-                this._2CLa8ee7d04dba9a424._2CL8ac401cc9f1e8785._2CL12f041c709cb5e6d = 0x0, this._2CLa8ee7d04dba9a424._2CL30c87194157e4b27._2CL12f041c709cb5e6d = 0x0;
+                this._2CLa8ee7d04dba9a424._2CL8ac401cc9f1e8785.pf_now_kamo = 0x0;
+                this._2CLa8ee7d04dba9a424._2CL30c87194157e4b27.pf_now_kamo = 0x0;
             }
         }, {
             'key': '_2CLe0cf21aa524e9946',
@@ -6431,7 +6444,7 @@ const disappearedEntities = new Map();
     var bjO = ShieldImage;
     var bjP = function bjP(aNv) {
         _classCallCheck(this, bjP);
-        this.canvas_kana = aQt.a.Hage.Tx_SH(aNv, aO5._2CL8775a4880612c227.get(bjO)), this._2CL3d4fbdd4bfa84346 = aOr._2CL12f041c709cb5e6d;
+        this.canvas_kana = aQt.a.Hage.Tx_SH(aNv, aO5._2CL8775a4880612c227.get(bjO)), this._2CL3d4fbdd4bfa84346 = aOr.pf_now_kamo;
     };
     var bjR = new(function () {
         function bjS() {
@@ -6449,7 +6462,7 @@ const disappearedEntities = new Map();
                         var bjY = _slicedToArray(bjX.value, 0x2),
                             bjZ = bjY[0x0],
                             bk0 = bjY[0x1];
-                        aOr._2CL12f041c709cb5e6d - bk0._2CL3d4fbdd4bfa84346 < 0x7d0 || this._2CLe2d75a6464d53e00.delete(bjZ);
+                        aOr.pf_now_kamo - bk0._2CL3d4fbdd4bfa84346 < 0x7d0 || this._2CLe2d75a6464d53e00.delete(bjZ);
                     }
                 } catch (bk1) {
                     bjU = !![];
@@ -6470,7 +6483,7 @@ const disappearedEntities = new Map();
             'key': '_2CL933feeac6ed968aa',
             'value': function _2CL933feeac6ed968aa(aNv) {
                 var aNw = this._2CLe2d75a6464d53e00.get(aNv) || this._2CLb429000ef120f1ce(aNv);
-                return aNw._2CL3d4fbdd4bfa84346 = aOr._2CL12f041c709cb5e6d, aNw.canvas_kana;
+                return aNw._2CL3d4fbdd4bfa84346 = aOr.pf_now_kamo, aNw.canvas_kana;
             }
         }, {
             'key': '_2CLb429000ef120f1ce',
@@ -6922,7 +6935,7 @@ const disappearedEntities = new Map();
             'key': '_2CLcdaf3572ac44f7e5',
             'value': function _2CLcdaf3572ac44f7e5() {
                 var blr = this;
-                aOr._2CL4b01979e8a4823c8(), aSL._2CLcc32da8337a77c45(), b2u._2CLcc32da8337a77c45(), b3Y._2CLcc32da8337a77c45(), blj._2CLcdaf3572ac44f7e5(), bg3._2CLcc32da8337a77c45(), window.requestAnimationFrame(function () {
+                aOr.pf_now_upd(), aSL._2CLcc32da8337a77c45(), b2u._2CLcc32da8337a77c45(), b3Y._2CLcc32da8337a77c45(), blj._2CLcdaf3572ac44f7e5(), bg3._2CLcc32da8337a77c45(), window.requestAnimationFrame(function () {
                     blr._2CLcdaf3572ac44f7e5();
                 });
             }
