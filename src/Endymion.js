@@ -73,7 +73,6 @@ const disappearedEntities = new Map();
 !Start([EmscHardCoded, , , , , , , , , , , , , , , , function (aNv, aNw, aNx) {
     'use strict';
     aNx.r(aNw);
-    var aNN = Loader;
     var aO4 = [{
         '_2CL65dfacb39960c223': 'script',
         '_url_kamo': 'https://www.google.com/recaptcha/api.js?render=explicit&onload=recaptchaAsyncInit'
@@ -96,7 +95,7 @@ const disappearedEntities = new Map();
             'key': '_2CLbe4c4d037e939226',
             'value': function _2CLbe4c4d037e939226(aNv) {
                 var aO8 = this;
-                this._2CLbf864ee5d05c5820 = aNv, aNN._2CL5875a5af586e3482(), window.addEventListener('load', function () {
+                this._2CLbf864ee5d05c5820 = aNv, Loader._2CL5875a5af586e3482(), window.addEventListener('load', function () {
                     aO8._2CL840ca8aba8c06f34('window load');
                 }), window.fbAsyncInit = function () {
                     aO8._2CL840ca8aba8c06f34('fb sdk load');
@@ -151,7 +150,7 @@ const disappearedEntities = new Map();
                 aNw.onload = function () {
                     aOh._2CLd5faa2c887fcf1ad(aNw, aNv);
                 }, aNw.onerror = function () {
-                    aNN._2CLb5adde8d7d741225();
+                    Loader._2CLb5adde8d7d741225();
                 }, aNw.src = aNv;
             }
         }, {
@@ -162,7 +161,7 @@ const disappearedEntities = new Map();
                 aNw.onload = function () {
                     aOk._2CLd5faa2c887fcf1ad(aNw, aNv);
                 }, aNw.onerror = function () {
-                    aNN._2CLb5adde8d7d741225();
+                    Loader._2CLb5adde8d7d741225();
                 }, aNw.src = aNv, document.head.appendChild(aNw);
             }
         }, {
@@ -180,12 +179,12 @@ const disappearedEntities = new Map();
             'value': function _2CLa914bfdfbd8352ad() {
                 var aNv = this._2CL45c797b0c319416c,
                     aNw = (aNv - (this._2CL0b4f1a0e1c928495.size + (this._2CL362661de726a1fb0.length - this._2CL8775a4880612c227.size))) / aNv * 0x64;
-                aNN._2CLafb101ba78a096e7(aNw), 0x64 === aNw && this._2CLbf864ee5d05c5820();
+                Loader._2CLafb101ba78a096e7(aNw), 0x64 === aNw && this._2CLbf864ee5d05c5820();
             }
         }, {
             'key': '_2CL7f3f0cc940c31119',
             'value': function _2CL7f3f0cc940c31119() {
-                aNN._2CLa2401f3a6e826384();
+                Loader._2CLa2401f3a6e826384();
             }
         }]);
         return aO6;
@@ -2069,7 +2068,7 @@ const disappearedEntities = new Map();
     var aY0 = new(function () {
         function aY1() {
             _classCallCheck(this, aY1);
-            this._2CL06ecdacc5326d193 = document.getElementById('toggle-multibox'), this._2CL864d71640da06934 = !0x1, this._2CLe05c5ba9ef263da8 = !0x1;
+            this._2CL06ecdacc5326d193 = document.getElementById('toggle-multibox'), this.multibox_bool = !0x1, this._2CLe05c5ba9ef263da8 = !0x1;
         }
         _createClass(aY1, [{
             'key': '_2CL52a96de0605b8df2',
@@ -2120,10 +2119,10 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLeb21482a8346145a',
             'set': function set(aNv) {
-                this._2CL864d71640da06934 = aNv, aWf.set('misc', 'multibox', aNv), aNv ? this._2CL71ff08eabacd9a2c() : this._2CL7985cc4be4e238f9(), b18.gameServer_url && b18._2CLe43e55a05f37528c(b18.gameServer_url);
+                this.multibox_bool = aNv, aWf.set('misc', 'multibox', aNv), aNv ? this._2CL71ff08eabacd9a2c() : this._2CL7985cc4be4e238f9(), b18.gameServer_url && b18._2CLe43e55a05f37528c(b18.gameServer_url);
             },
             'get': function get() {
-                return this._2CL864d71640da06934;
+                return this.multibox_bool;
             }
         }]);
         return aY1;
@@ -2805,7 +2804,7 @@ const disappearedEntities = new Map();
                 document.getElementById('tag'),
                 document.getElementById('room-id')
             ];
-            this._2CL864d71640da06934 = !0x1;
+            this.multibox_bool = !0x1;
         }
         _createClass(b1r, [{
             'key': '_2CL52a96de0605b8df2',
@@ -2826,10 +2825,10 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLeb21482a8346145a',
             'get': function get() {
-                return this._2CL864d71640da06934;
+                return this.multibox_bool;
             },
             'set': function set(aNv) {
-                this._2CL864d71640da06934 = aNv, this._2CLa2b5325b25fe36f2.innerText = aNv ? 'visibility_off' : 'visibility';
+                this.multibox_bool = aNv, this._2CLa2b5325b25fe36f2.innerText = aNv ? 'visibility_off' : 'visibility';
                 var b1y = !![];
                 var b1z = ![];
                 var b1A = undefined;
@@ -5886,7 +5885,7 @@ const disappearedEntities = new Map();
                 for (var bhf = 0; bhf < aNw | 0; bhf = (bhf + 1) | 0) {
                     var bhg = b2u._2CL986d79226a8f4718[bhf];
 
-                    if (fullMapMode && bhg._tabId_dayo < 2) continue;
+                    if (aY0.multibox_bool && fullMapMode && bhg._tabId_dayo < 2) continue;
 
                     let foodX = bhg.xPos_kamo - (aNx >> 0x1),
                         foodY = bhg.yPos_kamo - (aNx >> 0x1);
