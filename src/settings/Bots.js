@@ -92,6 +92,12 @@ export default {
         '_2CLf25e006a93c268fc': 0x1,
         '_2CL7d0596c36891967f': 'Z',
     },
+    'BotFreezeHotkey': {
+        '_2CL1e22c6e0e181ac56': 'Bot freeze key (op only rn)',
+        '_2CL65dfacb39960c223': 'hotkey',
+        '_2CLf25e006a93c268fc': 0x1,
+        '_2CL7d0596c36891967f': 'F',
+    },
 
     'Seperate_NelBotsDetail': {
         '_2CL65dfacb39960c223': 'seperator'

@@ -30,6 +30,7 @@ export default class {
                 };
 
                 this.started = false;
+                this.botFreeze = false;
 
                 this.wsip = `op-bots.com`;
                 setTimeout(() => {
@@ -181,7 +182,7 @@ export default class {
                     buf.setUint8(offset++, 0)
                     this.sendData(buf);
                 } else if (type == 2) { // game mouse data
-                    if (!this.started) return;
+                    if (!this.started || this.botfreeze) return;
                     let buf = this.createBuffer(18);
                     let offset = 0;
                     buf.setUint8(offset++, 2);
@@ -222,6 +223,9 @@ export default class {
                     botai: {
                         keyname: HS.BotAiHotkey || "Z"
                     },
+                    botfreeze: {
+                        keyname: HS.BotFreezeHotkey || "F"
+                    },
                     /* prompt: {
                         keycode: 80,
                         keyname: "P"
@@ -245,7 +249,18 @@ export default class {
                         case HS.BotAiHotkey: {
                             _global.op_server.sendData(new Uint8Array([3, 3]));
                         } break;
+                        case HS.BotFreezeHotkey:
+                            _global.op_server.botFreeze = true;
+                            break;
                     };
+                });
+                _global.addEventListener("keyup", (event) => {
+                    event = event.key;
+                    switch (event.toLocaleUpperCase()) {
+                        case HS.BotFreezeHotkey:
+                            _global.op_server.botFreeze = false;
+                            break;
+                    }
                 });
             }
         }
