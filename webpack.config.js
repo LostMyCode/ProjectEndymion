@@ -17,7 +17,7 @@ module.exports = (env, options) => {
             filename: 'Endymion.pack.js?[hash]',
             publicPath: masterURL
         },
-    
+
         module: {
             rules: [
                 {
@@ -49,10 +49,17 @@ module.exports = (env, options) => {
                             name: "assets/[name].[ext]?[hash]"
                         }
                     }
+                },
+                {
+                    test: /\.(glsl|vs|fs|vert|frag)$/,
+                    exclude: /node_modules/,
+                    use: [
+                        'raw-loader',
+                    ]
                 }
             ]
         },
-    
+
         plugins: [
             new MiniCssExtractPlugin({
                 filename: "assets/endymion.css?[hash]",
@@ -62,7 +69,7 @@ module.exports = (env, options) => {
                 filename: "index.html",
             })
         ],
-    
+
         resolve: {
             extensions: [".js"]
         }
