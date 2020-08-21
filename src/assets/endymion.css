@@ -2201,3 +2201,34 @@ button.startBotsToggle {
 button.startBotsToggle:hover {
     background-color: #149af3;
 }
+
+.top-bar#ryuten {
+    display: fixed;
+    top: 30px;
+}
+
+.top-bar#ryuten a {
+    text-decoration: none;
+}
+
+.top-bar #ryuten-pr {
+    border: none;
+    outline: none;
+    background-color: #222222;
+    color: #888888;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 14px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    padding: 0px 5px;
+    border-radius: 1px
+}
+
+.top-bar #ryuten-pr i {
+    font-size: 16px;
+    line-height: 20px;
+    pointer-events: none;
+    margin-right: 2px
+}
