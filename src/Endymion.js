@@ -22,6 +22,8 @@ import particles from "./components/Particles";
 import MaouCircle from "./components/MaouCircle";
 import Commander from "./components/Commander";
 // import "./components/LottieCanvas";
+import Turbulence from "./components/Turbulence";
+import RainbowV2 from "./components/RainbowBorderV2";
 
 // analytics
 import "./components/Analytics";
@@ -5755,7 +5757,7 @@ const disappearedEntities = new Map();
                     bgQ = bgP >> 0x1;
                 if (!Settings.Endy.enableRainbowBorder) aNv.drawImage(this.canvas_kamo, -bgQ, -bgQ, bgP, bgP);
                 // draw glow (this is a canvas not a image)
-                else if (completeFrame) aNv.drawImage(rbbFrames[currentFrame], -bgQ, -bgQ, bgP, bgP);
+                else if (completeFrame) aNv.drawImage(RainbowV2, -bgQ, -bgQ, bgP, bgP);
             }
     
             aNv.strokeStyle = this._2CLf6e5846f1b211fe6;
@@ -6604,6 +6606,20 @@ const disappearedEntities = new Map();
                     let ff = 1.5;
                     if (Settings.Endy.enableParticles && s > 300) aNv.drawImage(particles.canvas, x - s * ff, y - s * ff, s * 2 * ff, s * 2 * ff);
 
+                    if (s > 300) {
+                        let circleSize = 2;
+                        aNv.save();
+                        aNv.globalCompositeOperation = "lighter";
+                        aNv.drawImage(
+                            Turbulence, //MaouCircle.canvas
+                            x - s * circleSize,
+                            y - s * circleSize,
+                            s * circleSize * 2,
+                            s * circleSize * 2
+                        );
+                        aNv.restore();
+                    }
+
                     switch (
                         aNv.beginPath(),
                         // draw cell arc
@@ -6681,10 +6697,12 @@ const disappearedEntities = new Map();
 
                     // draw magic(maou) circle
                     if (drawMaou) {
-                        const circleSize = 1.1;
+                        // const circleSize = 1.1;
+                        let circleSize = 2;
                         //aNv.beginPath();
+                        circleSize = 1.1;
                         aNv.drawImage(
-                            MaouCircle.canvas,
+                            MaouCircle.canvas, //MaouCircle.canvas
                             x - s * circleSize,
                             y - s * circleSize,
                             s * circleSize * 2,

@@ -14,6 +14,7 @@ iziToast.settings({
 });
 
 setTimeout(() => {
+    return;
     iziToast.info({
         close: false,
         zindex: 999,
