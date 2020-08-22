@@ -1662,12 +1662,15 @@ const disappearedEntities = new Map();
                     if (0x1 === aNv && b18.getReadyState_fn(0x0)) return;
                     aV6._init_hatena();
                     var aNx = 0x0;
+                    let total = 0;
                     for (; !aNw.endOfBuffer;) {
+                        total++;
                         var aWw = aNw.getUint8();
                         aNx = 0x1 & aWw ? aNw.getUint16() : aNx + 0x1;
                         var aWx = 'unnamed cell';
                         0x2 & aWw && (aWx = aNw.readUTF8string(), aWx = aU8._2CLcf339f95dc981425(aWx)), 0x4 & aWw && aNw.getUint32(), 0x8 & aWw && (aWx = b3Y._2CL42b7a092ff6d6463(aNv)), aV6._2CLe43c1387b0e5691a(aWx);
                     }
+                    playerCounter.count = total;
                 }
             }, {
                 'key': 'getLeaderboard',
