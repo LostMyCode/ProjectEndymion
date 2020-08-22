@@ -2232,3 +2232,21 @@ button.startBotsToggle:hover {
     pointer-events: none;
     margin-right: 2px
 }
+
+#player-count-hud {
+    position: fixed;
+    right: 10px;
+    top: 240px;
+    color: #ffffff;
+    background-color: rgba(10, 10, 10, 0.8);
+    font-size: 12px;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 4px 8px;
+    border-radius: 2px;
+    white-space: pre;
+    display: none;
+    align-items: center;
+    transform-origin: top right;
+    user-select: none;
+    opacity: 1;
+}

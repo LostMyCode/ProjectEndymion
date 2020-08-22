@@ -1358,7 +1358,7 @@ const disappearedEntities = new Map();
     var aV1 = function () {
         function aV1(aNv) {
             _classCallCheck(this, aV1);
-            this._2CL197c67a575c43817 = aNv;
+            this.some_elment = aNv;
             this._2CL40f1effde591032b = aNv.querySelector('.name');
             this._2CLb227c42c3785f254 = aNv.querySelector('.position');
             this._2CLb54037bcc957df7d = !0x1;
@@ -1366,12 +1366,12 @@ const disappearedEntities = new Map();
         _createClass(aV1, [{
             'key': '_2CLa5f961f14f197d01',
             'value': function _2CLa5f961f14f197d01() {
-                this._2CLb54037bcc957df7d || (this._2CL197c67a575c43817.style.display = 'flex', this._2CLb54037bcc957df7d = !0x0);
+                this._2CLb54037bcc957df7d || (this.some_elment.style.display = 'flex', this._2CLb54037bcc957df7d = !0x0);
             }
         }, {
             'key': '_2CL87563560028c947f',
             'value': function _2CL87563560028c947f() {
-                this._2CLb54037bcc957df7d && (this._2CL197c67a575c43817.style.display = 'none', this._2CLb54037bcc957df7d = !0x1);
+                this._2CLb54037bcc957df7d && (this.some_elment.style.display = 'none', this._2CLb54037bcc957df7d = !0x1);
             }
         }, {
             'key': '_2CL9b395079675c6a66',
@@ -1392,15 +1392,33 @@ const disappearedEntities = new Map();
         }]);
         return aV1;
     }();
+    const playerCounter = new class {
+        constructor() {
+            this.playerCount = 0;
+            this.element = document.getElementById("player-count");
+            this.hud = document.getElementById("player-count-hud");
+        }
+        set count(c) {
+            if (c < 10) {
+                this.hud.style.opacity = 0;
+            } else {
+                this.hud.style.opacity = 1;
+            }
+            this.playerCount = c;
+            this.element.innerText = c;
+        }
+    }
     var aV6 = new(function () {
         function aV7() {
             _classCallCheck(this, aV7);
-            this._2CL197c67a575c43817 = document.getElementById('leaderboard'), this._2CL7792df4672c48c6b = [], this._2CL534bdaddf4709161 = [];
+            this.some_elment = document.getElementById('leaderboard');
+            this._2CL7792df4672c48c6b = [];
+            this._2CL534bdaddf4709161 = [];
         }
         _createClass(aV7, [{
             'key': '_2CL52a96de0605b8df2',
             'value': function _2CL52a96de0605b8df2() {
-                var aNv = this._2CL197c67a575c43817.children;
+                var aNv = this.some_elment.children;
                 var aV9 = !![];
                 var aVa = ![];
                 var aVb = undefined;
@@ -1593,10 +1611,10 @@ const disappearedEntities = new Map();
                         this.handleMessage32(aNv, aNx);
                         break;
                     case 0x35:
-                        this._2CL6fc3aee44a638fd5(aNv, aNx);
+                        this.getLeaderboardFFA(aNv, aNx);
                         break;
                     case 0x36:
-                        this._2CL375c94e349920964(aNv, aNx);
+                        this.getLeaderboard(aNv, aNx);
                         break;
                     case 0x55:
                         aUQ.handleRecaptchaRequest(aNv);
@@ -1639,8 +1657,8 @@ const disappearedEntities = new Map();
                     b2u._2CL73b849d5e2ea1020[aNv]['add'](aNx);
                 }
             }, {
-                'key': '_2CL6fc3aee44a638fd5',
-                'value': function _2CL6fc3aee44a638fd5(aNv, aNw) {
+                'key': 'getLeaderboardFFA',
+                'value': function getLeaderboardFFA(aNv, aNw) {
                     if (0x1 === aNv && b18.getReadyState_fn(0x0)) return;
                     aV6._init_hatena();
                     var aNx = 0x0;
@@ -1652,17 +1670,20 @@ const disappearedEntities = new Map();
                     }
                 }
             }, {
-                'key': '_2CL375c94e349920964',
-                'value': function _2CL375c94e349920964(aNv, aNw) {
+                'key': 'getLeaderboard',
+                'value': function getLeaderboard(aNv, aNw) {
                     if (0x1 === aNv && b18.getReadyState_fn(0x0)) return;
                     aV6._init_hatena();
                     var aNx = 0x0;
-                    for (aNw.getUint16(); !aNw.endOfBuffer && aNx < 0xa;) {
+                    let total = 0;
+                    for (aNw.getUint16(); !aNw.endOfBuffer/*  && aNx < 0xa */;) {
+                        total++;
                         var aWB = aNw.getUint8();
                         aNx = 0x1 & aWB ? aNw.getUint16() : aNx + 0x1;
                         var aWC = 'unnamed cell';
                         0x2 & aWB && (aWC = aNw.readUTF8string(), aWC = aU8._2CLcf339f95dc981425(aWC)), 0x4 & aWB && aNw.getUint32(), 0x8 & aWB && (aWC = b3Y._2CL42b7a092ff6d6463(aNv)), aV6._2CLe43c1387b0e5691a(aWC);
                     }
+                    playerCounter.count = total;
                 }
             }, {
                 'key': 'handleKeySeed',
@@ -1970,7 +1991,7 @@ const disappearedEntities = new Map();
     var aXI = new(function () {
         function aXJ() {
             _classCallCheck(this, aXJ);
-            this._2CL197c67a575c43817 = document.getElementById('accounts-menu'), this._2CL1fee7164919d6e90 = document.getElementById('login-facebook'), this._2CL6a6e9614b2117aa6 = document.getElementById('login-google-plus'), this._2CL6fe1f736b5887665 = !0x1, this._2CL2540eafa0eaa62cf = '';
+            this.some_elment = document.getElementById('accounts-menu'), this._2CL1fee7164919d6e90 = document.getElementById('login-facebook'), this._2CL6a6e9614b2117aa6 = document.getElementById('login-google-plus'), this._2CL6fe1f736b5887665 = !0x1, this._2CL2540eafa0eaa62cf = '';
         }
         _createClass(aXJ, [{
             'key': '_2CL52a96de0605b8df2',
@@ -2031,8 +2052,8 @@ const disappearedEntities = new Map();
             'value': function _2CLa5f961f14f197d01() {
                 var aXV = this;
                 this._2CL6fe1f736b5887665 = !0x0, requestAnimationFrame(function () {
-                    aXV._2CL6fe1f736b5887665 && (aXV._2CL197c67a575c43817.style.display = 'flex'), requestAnimationFrame(function () {
-                        aXV._2CL6fe1f736b5887665 && (aXV._2CL197c67a575c43817.style.opacity = '1');
+                    aXV._2CL6fe1f736b5887665 && (aXV.some_elment.style.display = 'flex'), requestAnimationFrame(function () {
+                        aXV._2CL6fe1f736b5887665 && (aXV.some_elment.style.opacity = '1');
                     });
                 });
             }
@@ -2041,8 +2062,8 @@ const disappearedEntities = new Map();
             'value': function _2CL87563560028c947f() {
                 var aXW = this;
                 this._2CL6fe1f736b5887665 = !0x1, requestAnimationFrame(function () {
-                    aXW._2CL6fe1f736b5887665 || (aXW._2CL197c67a575c43817.style.opacity = '0'), setTimeout(function () {
-                        aXW._2CL6fe1f736b5887665 || (aXW._2CL197c67a575c43817.style.display = 'none');
+                    aXW._2CL6fe1f736b5887665 || (aXW.some_elment.style.opacity = '0'), setTimeout(function () {
+                        aXW._2CL6fe1f736b5887665 || (aXW.some_elment.style.display = 'none');
                     }, 0x1f4);
                 });
             }
@@ -2771,7 +2792,11 @@ const disappearedEntities = new Map();
         }, {
             'key': 'onopen_fn',
             'value': function onopen_fn(aNv) {
-                aT1._2CL5875a5af586e3482(aNv), b0W._2CLe345212b4d947278(aNv, !0x1), aY0._2CLeb21482a8346145a ? Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'Tab ' ['concat'](aNv + 0x1, ' connected.')) : Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'connected.');
+                aT1._2CL5875a5af586e3482(aNv);
+                b0W._2CLe345212b4d947278(aNv, !0x1);
+                aY0._2CLeb21482a8346145a ? Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'Tab ' ['concat'](aNv + 0x1, ' connected.')) : Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'connected.');
+
+                document.getElementById("player-count-hud").style.display = "flex";
             }
         }, {
             'key': 'onmessage_fn',
@@ -2781,7 +2806,11 @@ const disappearedEntities = new Map();
         }, {
             'key': 'onclose_fn',
             'value': function onclose_fn(aNv) {
-                b2u._init_hatena(aNv), aV6._init_hatena(aNv), this.getReadyState_fn(0x0) || this.getReadyState_fn(0x1) || aSL._2CLc1076a31e6a64e81(), b0W._2CLe345212b4d947278(aNv, !0x0), Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'disconnected.');
+                b2u._init_hatena(aNv), 
+                aV6._init_hatena(aNv), 
+                this.getReadyState_fn(0x0) || this.getReadyState_fn(0x1) || aSL._2CLc1076a31e6a64e81(), b0W._2CLe345212b4d947278(aNv, !0x0), Toast._2CLd2948436a49d2833('trip_origin', 'Game server', 'disconnected.');
+
+                document.getElementById("player-count-hud").style.display = "none";
             }
         }, {
             'key': 'onerror_fn',
@@ -3659,7 +3688,7 @@ const disappearedEntities = new Map();
     var b5Z = new(function () {
         function b60() {
             _classCallCheck(this, b60);
-            this._2CL197c67a575c43817 = document.getElementById('profiles-catalogue'), this._2CL6fe1f736b5887665 = !0x1, this._2CL362661de726a1fb0 = {}, this._2CL00be0de3052127f3 = 'profiles', this._2CLd0493f13735d1f17 = 0x0;
+            this.some_elment = document.getElementById('profiles-catalogue'), this._2CL6fe1f736b5887665 = !0x1, this._2CL362661de726a1fb0 = {}, this._2CL00be0de3052127f3 = 'profiles', this._2CLd0493f13735d1f17 = 0x0;
         }
         _createClass(b60, [{
             'key': '_2CL52a96de0605b8df2',
@@ -3725,8 +3754,8 @@ const disappearedEntities = new Map();
             'value': function _2CLa5f961f14f197d01() {
                 var b6c = this;
                 this._2CL6fe1f736b5887665 = !0x0, requestAnimationFrame(function () {
-                    b6c._2CL6fe1f736b5887665 && (b6c._2CL197c67a575c43817.style.display = 'flex'), requestAnimationFrame(function () {
-                        b6c._2CL6fe1f736b5887665 && (b6c._2CL197c67a575c43817.style.opacity = '1');
+                    b6c._2CL6fe1f736b5887665 && (b6c.some_elment.style.display = 'flex'), requestAnimationFrame(function () {
+                        b6c._2CL6fe1f736b5887665 && (b6c.some_elment.style.opacity = '1');
                     });
                 });
             }
@@ -3735,8 +3764,8 @@ const disappearedEntities = new Map();
             'value': function _2CL87563560028c947f() {
                 var b6d = this;
                 this._2CL6fe1f736b5887665 = !0x1, requestAnimationFrame(function () {
-                    b6d._2CL6fe1f736b5887665 || (b6d._2CL197c67a575c43817.style.opacity = '0'), setTimeout(function () {
-                        b6d._2CL6fe1f736b5887665 || (b6d._2CL197c67a575c43817.style.display = 'none');
+                    b6d._2CL6fe1f736b5887665 || (b6d.some_elment.style.opacity = '0'), setTimeout(function () {
+                        b6d._2CL6fe1f736b5887665 || (b6d.some_elment.style.display = 'none');
                     }, 0x1f4);
                 });
             }
@@ -4355,15 +4384,15 @@ const disappearedEntities = new Map();
     var bbd = function () {
         function bbd(aNv, aNw) {
             _classCallCheck(this, bbd);
-            this._2CL197c67a575c43817 = aNv, this._2CL453d2cbee6892954 = aNw, this._2CL45b2deead93296e4 = this._2CL1e3b398ba373e444(), this._2CLfc3474a3fc5358bb();
+            this.some_elment = aNv, this._2CL453d2cbee6892954 = aNw, this._2CL45b2deead93296e4 = this._2CL1e3b398ba373e444(), this._2CLfc3474a3fc5358bb();
         }
         _createClass(bbd, [{
             'key': '_2CLfc3474a3fc5358bb',
             'value': function _2CLfc3474a3fc5358bb() {
                 var bbh = this;
-                this._2CL197c67a575c43817.addEventListener('keydown', function (aNv) {
+                this.some_elment.addEventListener('keydown', function (aNv) {
                     bbh._2CL296255777f507eaf('keydown', aNv);
-                }), this._2CL197c67a575c43817.addEventListener('keyup', function (aNv) {
+                }), this.some_elment.addEventListener('keyup', function (aNv) {
                     bbh._2CL296255777f507eaf('keyup', aNv);
                 });
             }
@@ -4398,21 +4427,21 @@ const disappearedEntities = new Map();
     var bbs = function () {
         function bbs(aNv, aNw) {
             _classCallCheck(this, bbs);
-            this._2CL197c67a575c43817 = aNv, this._2CL453d2cbee6892954 = aNw, this._2CLfc3474a3fc5358bb(), this.xPos_kamo = 0x0, this.yPos_kamo = 0x0;
+            this.some_elment = aNv, this._2CL453d2cbee6892954 = aNw, this._2CLfc3474a3fc5358bb(), this.xPos_kamo = 0x0, this.yPos_kamo = 0x0;
         }
         _createClass(bbs, [{
             'key': '_2CLfc3474a3fc5358bb',
             'value': function _2CLfc3474a3fc5358bb() {
                 var bbw = this;
-                this._2CL197c67a575c43817.addEventListener('mousedown', function (aNv) {
+                this.some_elment.addEventListener('mousedown', function (aNv) {
                     bbw._2CL296255777f507eaf('mousedown', aNv);
-                }), this._2CL197c67a575c43817.addEventListener('mouseup', function (aNv) {
+                }), this.some_elment.addEventListener('mouseup', function (aNv) {
                     bbw._2CL296255777f507eaf('mouseup', aNv);
-                }), this._2CL197c67a575c43817.addEventListener('contextmenu', function (aNv) {
+                }), this.some_elment.addEventListener('contextmenu', function (aNv) {
                     aNv.preventDefault();
-                }), this._2CL197c67a575c43817.addEventListener('mousemove', function (aNv) {
+                }), this.some_elment.addEventListener('mousemove', function (aNv) {
                     bbw._2CL842b953e8181e574(aNv);
-                }), this._2CL197c67a575c43817.addEventListener('wheel', function (aNv) {
+                }), this.some_elment.addEventListener('wheel', function (aNv) {
                     bbw._2CL6e70ecb150d41822(aNv);
                 });
             }
@@ -4881,7 +4910,7 @@ const disappearedEntities = new Map();
     var bcz = new(function () {
         function bcA() {
             _classCallCheck(this, bcA);
-            this._2CL197c67a575c43817 = document.getElementById('settings-menu'), this._2CL79c28ee191e1170e = document.querySelector('#settings-menu .options-list'), this._2CL6fe1f736b5887665 = !0x1, this._2CL1c41154810a2b457 = !0x1, this._2CL96bf919706e37412 = null;
+            this.some_elment = document.getElementById('settings-menu'), this._2CL79c28ee191e1170e = document.querySelector('#settings-menu .options-list'), this._2CL6fe1f736b5887665 = !0x1, this._2CL1c41154810a2b457 = !0x1, this._2CL96bf919706e37412 = null;
         }
         _createClass(bcA, [{
             'key': '_2CL52a96de0605b8df2',
@@ -4995,8 +5024,8 @@ const disappearedEntities = new Map();
             'value': function _2CLa5f961f14f197d01() {
                 var bd4 = this;
                 this._2CL6fe1f736b5887665 = !0x0, requestAnimationFrame(function () {
-                    bd4._2CL6fe1f736b5887665 && (bd4._2CL197c67a575c43817.style.display = 'flex'), requestAnimationFrame(function () {
-                        bd4._2CL6fe1f736b5887665 && (bd4._2CL197c67a575c43817.style.opacity = '1');
+                    bd4._2CL6fe1f736b5887665 && (bd4.some_elment.style.display = 'flex'), requestAnimationFrame(function () {
+                        bd4._2CL6fe1f736b5887665 && (bd4.some_elment.style.opacity = '1');
                     });
                 });
             }
@@ -5005,8 +5034,8 @@ const disappearedEntities = new Map();
             'value': function _2CL87563560028c947f() {
                 var bd5 = this;
                 this._2CL6fe1f736b5887665 = !0x1, requestAnimationFrame(function () {
-                    bd5._2CL6fe1f736b5887665 || (bd5._2CL197c67a575c43817.style.opacity = '0'), setTimeout(function () {
-                        bd5._2CL6fe1f736b5887665 || (bd5._2CL197c67a575c43817.style.display = 'none');
+                    bd5._2CL6fe1f736b5887665 || (bd5.some_elment.style.opacity = '0'), setTimeout(function () {
+                        bd5._2CL6fe1f736b5887665 || (bd5.some_elment.style.display = 'none');
                     }, 0x1f4);
                 });
             }
@@ -5355,7 +5384,7 @@ const disappearedEntities = new Map();
     var bf1 = new(function () {
         function bf2() {
             _classCallCheck(this, bf2);
-            this._2CL197c67a575c43817 = document.getElementById('menu'), this._2CL6fe1f736b5887665 = !0x0;
+            this.some_elment = document.getElementById('menu'), this._2CL6fe1f736b5887665 = !0x0;
         }
         _createClass(bf2, [{
             'key': '_2CL52a96de0605b8df2',
@@ -5372,8 +5401,8 @@ const disappearedEntities = new Map();
             'value': function _2CLa5f961f14f197d01() {
                 var bf4 = this;
                 this._2CL6fe1f736b5887665 = !0x0, requestAnimationFrame(function () {
-                    bf4._2CL6fe1f736b5887665 && (bf4._2CL197c67a575c43817.style.display = 'block'), requestAnimationFrame(function () {
-                        bf4._2CL6fe1f736b5887665 && (bf4._2CL197c67a575c43817.style.opacity = '1');
+                    bf4._2CL6fe1f736b5887665 && (bf4.some_elment.style.display = 'block'), requestAnimationFrame(function () {
+                        bf4._2CL6fe1f736b5887665 && (bf4.some_elment.style.opacity = '1');
                     });
                 });
             }
@@ -5382,8 +5411,8 @@ const disappearedEntities = new Map();
             'value': function _2CL87563560028c947f() {
                 var bf5 = this;
                 this._2CL6fe1f736b5887665 = !0x1, requestAnimationFrame(function () {
-                    bf5._2CL6fe1f736b5887665 || (bf5._2CL197c67a575c43817.style.opacity = '0'), setTimeout(function () {
-                        bf5._2CL6fe1f736b5887665 || (bf5._2CL197c67a575c43817.style.display = 'none');
+                    bf5._2CL6fe1f736b5887665 || (bf5.some_elment.style.opacity = '0'), setTimeout(function () {
+                        bf5._2CL6fe1f736b5887665 || (bf5.some_elment.style.display = 'none');
                     }, 0x1f4);
                 });
             }
@@ -5408,17 +5437,17 @@ const disappearedEntities = new Map();
     var bf6 = function () {
         function bf6(aNv) {
             _classCallCheck(this, bf6);
-            this._2CL197c67a575c43817 = aNv, this._2CL9738c64fdc01850b = aNv.querySelector('.mass'), this._2CL40f1effde591032b = aNv.querySelector('.name'), this._2CLb54037bcc957df7d = !0x1;
+            this.some_elment = aNv, this._2CL9738c64fdc01850b = aNv.querySelector('.mass'), this._2CL40f1effde591032b = aNv.querySelector('.name'), this._2CLb54037bcc957df7d = !0x1;
         }
         _createClass(bf6, [{
             'key': '_2CLa5f961f14f197d01',
             'value': function _2CLa5f961f14f197d01() {
-                this._2CLb54037bcc957df7d || (this._2CL197c67a575c43817.style.display = 'flex', this._2CLb54037bcc957df7d = !0x0);
+                this._2CLb54037bcc957df7d || (this.some_elment.style.display = 'flex', this._2CLb54037bcc957df7d = !0x0);
             }
         }, {
             'key': '_2CL87563560028c947f',
             'value': function _2CL87563560028c947f() {
-                this._2CLb54037bcc957df7d && (this._2CL197c67a575c43817.style.display = 'none', this._2CLb54037bcc957df7d = !0x1);
+                this._2CLb54037bcc957df7d && (this.some_elment.style.display = 'none', this._2CLb54037bcc957df7d = !0x1);
             }
         }, {
             'key': '_2CL30c87194157e4b27',
@@ -5446,7 +5475,7 @@ const disappearedEntities = new Map();
     var bff = new(function () {
         function bfg() {
             _classCallCheck(this, bfg);
-            this._2CL197c67a575c43817 = document.querySelector('#teamlist-hud > .list'), this._2CL6702d8941410c104 = {
+            this.some_elment = document.querySelector('#teamlist-hud > .list'), this._2CL6702d8941410c104 = {
                 '_2CL4c09d125ca00b5fc': document.getElementById('team-data-playing'),
                 '_2CL3123ed3cbfab55ad': document.getElementById('team-data-idle'),
                 '_2CL30c87194157e4b27': document.getElementById('team-data-mass')
@@ -5455,7 +5484,7 @@ const disappearedEntities = new Map();
         _createClass(bfg, [{
             'key': '_2CL52a96de0605b8df2',
             'value': function _2CL52a96de0605b8df2() {
-                var aNv = this._2CL197c67a575c43817.children;
+                var aNv = this.some_elment.children;
                 var bfi = !![];
                 var bfj = ![];
                 var bfk = undefined;
@@ -5542,7 +5571,7 @@ const disappearedEntities = new Map();
     var bfP = new(function () {
         function bfQ() {
             _classCallCheck(this, bfQ);
-            this._2CL197c67a575c43817 = document.getElementById('stats'), this._2CL0fb75a9e3fa73434 = 0x0;
+            this.some_elment = document.getElementById('stats'), this._2CL0fb75a9e3fa73434 = 0x0;
         }
         _createClass(bfQ, [{
             'key': '_2CL5cea690f6fea0a54',
@@ -5558,7 +5587,7 @@ const disappearedEntities = new Map();
                 window.playerCells = b2u._2CL9661498b4088206f;
                 aNw && (aNv.push('Mass: ' ['concat'](b3Y._2CL30c87194157e4b27[0x0] + b3Y._2CL30c87194157e4b27[0x1])), aNv.push('' ['concat'](b2u._2CL9661498b4088206f[0x0]['size'] + b2u._2CL9661498b4088206f[0x1]['size'], '/')['concat'](0x10 * aNw))), b3Y._2CL3067dea24cc298e4 && aNv.push('<i class=\"material-icons\">pause_circle_filled</i> Paused');
                 var aNx = aNv.join('   ');
-                this._2CL197c67a575c43817.innerHTML = aNx, this._2CL0fb75a9e3fa73434 = 0x0;
+                this.some_elment.innerHTML = aNx, this._2CL0fb75a9e3fa73434 = 0x0;
             }
         }]);
         return bfQ;
@@ -5566,7 +5595,7 @@ const disappearedEntities = new Map();
     var bfU = new(function () {
         function bfV() {
             _classCallCheck(this, bfV);
-            this._2CL197c67a575c43817 = document.getElementById('time-hud'), this._2CLe89448b970140527 = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec' ['split'](' ');
+            this.some_elment = document.getElementById('time-hud'), this._2CLe89448b970140527 = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec' ['split'](' ');
         }
         _createClass(bfV, [{
             'key': '_2CLcc32da8337a77c45',
@@ -5578,7 +5607,7 @@ const disappearedEntities = new Map();
                     aNz = '0' ['concat'](aNv.getHours())['slice'](-0x2),
                     aNA = '0' ['concat'](aNv.getMinutes())['slice'](-0x2),
                     aNJ = '0' ['concat'](aNv.getSeconds())['slice'](-0x2);
-                this._2CL197c67a575c43817.innerText = '' ['concat'](aNw, ' ')['concat'](aNx, ' ')['concat'](aNy, ' ')['concat'](aNz, ':')['concat'](aNA, ':')['concat'](aNJ);
+                this.some_elment.innerText = '' ['concat'](aNw, ' ')['concat'](aNx, ' ')['concat'](aNy, ' ')['concat'](aNz, ':')['concat'](aNA, ':')['concat'](aNJ);
             }
         }]);
         return bfV;

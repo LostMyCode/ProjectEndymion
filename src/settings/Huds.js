@@ -17,6 +17,9 @@ export default {
         '_2CL850f236ecda2e139': function _2CL850f236ecda2e139(aNv) {
             var aNw = document['getElementById']('leaderboard');
             aNw['style']['display'] = aNv ? 'flex' : 'none';
+
+            let counter = document.getElementById("player-count-hud");
+            counter.style.top = aNv ? "240px" : "10px";
         }
     },
     '_2CLd0e50c26336e212f': {
@@ -27,7 +30,21 @@ export default {
         '_2CLe3712e4c0c1f2dfe': 0.05,
         '_2CL7d0596c36891967f': 0x1,
         '_2CL850f236ecda2e139': function _2CL850f236ecda2e139(aNv) {
-            document['getElementById']('leaderboard')['style']['transform'] = 'scale(' ['concat'](aNv, ')');
+            document.getElementById('leaderboard').style.transform = 'scale(' ['concat'](aNv, ')');
+
+            let isShown = document.getElementById('leaderboard').style.display != "none";
+            if (isShown) document.getElementById("player-count-hud").style.top = '' ['concat'](40 + (200 * aNv) | 0x0, 'px');
+        }
+    },
+    'ShowPlayerCounterToggle': {
+        '_2CL1e22c6e0e181ac56': 'Show player counter',
+        '_2CL65dfacb39960c223': 'toggle',
+        '_2CL7d0596c36891967f': false,
+        '_2CL850f236ecda2e139': function _2CL850f236ecda2e139(aNv) {
+            if (window.target) {
+                var aNw = document.getElementById('player-count-hud');
+                aNw['style']['display'] = aNv ? 'flex' : 'none';
+            }
         }
     },
     '_2CL836644ddfa62ab91': {
@@ -70,7 +87,9 @@ export default {
         '_2CL850f236ecda2e139': function _2CL850f236ecda2e139(aNv) {
             var aNw = document['getElementById']('minimap'),
                 aNx = 'none' === aNw['style']['display'];
-            aNw['style']['transform'] = 'scale(' ['concat'](aNv, ')'), Endy.minimapClass['_2CLbb3162f3d7cffd48'](0xb4 * aNv | 0x0), document['getElementById']('time-hud')['style']['bottom'] = '' ['concat'](0x14 + (aNx ? -0xa : 0xb4 * aNv) | 0x0, 'px');
+            aNw['style']['transform'] = 'scale(' ['concat'](aNv, ')'), 
+            Endy.minimapClass['_2CLbb3162f3d7cffd48'](0xb4 * aNv | 0x0), 
+            document['getElementById']('time-hud')['style']['bottom'] = '' ['concat'](0x14 + (aNx ? -0xa : 0xb4 * aNv) | 0x0, 'px');
         }
     },
     '_2CL37d09b74427e481c': {
