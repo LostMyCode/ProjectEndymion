@@ -152,6 +152,12 @@ export default class {
                         this.sendSpawn();
                     }
                 };
+                document.getElementById("op_reconnect").onclick = () => {
+                    const s = _global.op_server;
+                    if (s.ws) {
+                        _global.op_server.ws.close();
+                    }
+                };
             }
             sendBytesDebug(text) {
                 let buf = this.createBuffer(2 + text.length);
