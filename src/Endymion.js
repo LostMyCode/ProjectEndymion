@@ -24,6 +24,7 @@ import Commander from "./components/Commander";
 // import "./components/LottieCanvas";
 import Turbulence from "./components/Turbulence";
 // import RainbowV2 from "./components/RainbowBorderV2";
+import CellShadow from "./components/CellShadow";
 
 // analytics
 import "./components/Analytics";
@@ -6524,6 +6525,9 @@ const disappearedEntities = new Map();
                     switch (mode) {
                     case "begin":
                         ctx.save()
+                        // ctx.globalCompositeOperation = "darken";
+                        // ctx.globalCompositeOperation = "xor"
+                        ctx.globalCompositeOperation = ""
                         ctx.shadowColor = "black";
                         ctx.shadowBlur = 15;
                         break;
@@ -6574,8 +6578,7 @@ const disappearedEntities = new Map();
                         /* Settings.Endy.enableFullmap &&  */
                         currentAssistMode == "fullmap" &&
                         // tabId < 2 && !isMe // dont use tab0,1 view
-                        tabId > 1 && 
-                        inMyArea
+                        tabId > 1 && inMyArea
                     ) {
                         return;
                     }
@@ -6617,15 +6620,12 @@ const disappearedEntities = new Map();
                     const s = 0 | aNw.radius_kamo;
                     aNv.drawImage(vuiCanvas, x - s * 4, y - s * 2, s * 4 * 2, s * 2 * 2); */
 
-                    // draw shadow
-                    !Settings.Endy.enableMaouCircle && Settings.Endy.enableCellShadow && this.cellShadow("begin", aNv, s);
-
                     // draw particle
                     let ff = 1.5;
                     if (Settings.Endy.enableParticles && s > 300) aNv.drawImage(particles.canvas, x - s * ff, y - s * ff, s * 2 * ff, s * 2 * ff);
 
                     if (tabId == 1 && (s > 300 || isMe )) {
-                        let circleSize = 2;
+                        let circleSize = 2.3; // was 2
                         aNv.save();
                         aNv.globalCompositeOperation = "lighter";
                         aNv.drawImage(
@@ -6637,6 +6637,9 @@ const disappearedEntities = new Map();
                         );
                         aNv.restore();
                     }
+
+                    // draw shadow
+                    !Settings.Endy.enableMaouCircle && Settings.Endy.enableCellShadow && this.cellShadow("begin", aNv, s);
 
                     switch (
                         aNv.beginPath(),

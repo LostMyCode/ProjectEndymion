@@ -38,7 +38,7 @@ float simplex_noise(vec3 p)
 
 void main()
 {
-    vec2 uv = (gl_FragCoord.xy-iResolution.xy*0.5)/iResolution.y * 1.5;
+    vec2 uv = (gl_FragCoord.xy-iResolution.xy*0.5)/iResolution.y * 1.7; // was 1.5
         
     float a = sin(atan(uv.y, uv.x));
     float am = abs(a-.5)/4.;
