@@ -23,7 +23,7 @@ import MaouCircle from "./components/MaouCircle";
 import Commander from "./components/Commander";
 // import "./components/LottieCanvas";
 import Turbulence from "./components/Turbulence";
-import RainbowV2 from "./components/RainbowBorderV2";
+// import RainbowV2 from "./components/RainbowBorderV2";
 
 // analytics
 import "./components/Analytics";
@@ -1731,7 +1731,7 @@ const disappearedEntities = new Map();
                             aWW = aNw.getUint32();
                         b2u._2CL6b81dcda3856c9e4(aNv, aWV, aWW);
 
-                        if (Settings.Endy.enableFullmap && aNv < 2) {
+                        if (/* Settings.Endy.enableFullmap &&  */aNv < 2) {
                             let index = boxSize[aNv].ids.indexOf(aWW);
                             if (index !== -1) {
                                 boxSize[aNv].ids.splice(index, 1);
@@ -1752,7 +1752,7 @@ const disappearedEntities = new Map();
                             disappearedEntities.delete(aWX);
 
                         let doit = false;
-                        if (Settings.Endy.enableFullmap) {
+                        if (/* Settings.Endy.enableFullmap */true) {
                             if (aNv < 2) {
                                 let hasId = boxSize[aNv].ids.indexOf(aWX);
                                 if (hasId !== -1) {
@@ -1813,7 +1813,7 @@ const disappearedEntities = new Map();
                             b2u.removeDisappearedEntity(aNv, aX9);
                         }
 
-                        if (Settings.Endy.enableFullmap && aNv < 2) {
+                        if (/* Settings.Endy.enableFullmap &&  */aNv < 2) {
                             let index = boxSize[aNv].ids.indexOf(aX9);
                             if (index !== -1) {
                                 boxSize[aNv].ids.splice(index, 1);
@@ -1823,7 +1823,7 @@ const disappearedEntities = new Map();
                         }
                     }
 
-                    if (Settings.Endy.enableFullmap && aNv < 2 && boxSize[aNv].xPosArray.length > 0) {
+                    if (/* Settings.Endy.enableFullmap &&  */aNv < 2 && boxSize[aNv].xPosArray.length > 0) {
                         let offset = b2u.posOffset_kamo[aNv];
                         boxSize[aNv].maxX = boxSize[aNv].xPosArray.reduce(arrayMax) - offset.xPos_kamo;
                         boxSize[aNv].maxY = boxSize[aNv].yPosArray.reduce(arrayMax) - offset.yPos_kamo;
@@ -5753,11 +5753,13 @@ const disappearedEntities = new Map();
         draw_some(aNv) {
             // draw border
             if (this._2CL1ff235ee6a538d5a(), this._2CL29139779efc59d37) {
+                const ww = window;
                 var bgP = 14142 + 2 * (this.glowDistance + this.borderWidth),
                     bgQ = bgP >> 0x1;
                 if (!Settings.Endy.enableRainbowBorder) aNv.drawImage(this.canvas_kamo, -bgQ, -bgQ, bgP, bgP);
                 // draw glow (this is a canvas not a image)
-                else if (completeFrame) aNv.drawImage(RainbowV2, -bgQ, -bgQ, bgP, bgP);
+                // else if (completeFrame) aNv.drawImage(RainbowV2, -bgQ, -bgQ, bgP, bgP);
+                else if (completeFrame) aNv.drawImage(ww.rbbFrames[ww.currentFrame], -bgQ, -bgQ, bgP, bgP);
             }
     
             aNv.strokeStyle = this._2CLf6e5846f1b211fe6;
@@ -6554,6 +6556,7 @@ const disappearedEntities = new Map();
 
                     const isMe = aNw.isMe;
                     const faded = Settings.Endy.enableDisappearFade && disappearedEntities.has(id);
+                    const inMyArea = tabId > 1 && inurArea(tabId, x, y);
 
                     if (faded) {
                         let entity = disappearedEntities.get(id);
@@ -6572,14 +6575,29 @@ const disappearedEntities = new Map();
                         currentAssistMode == "fullmap" &&
                         // tabId < 2 && !isMe // dont use tab0,1 view
                         tabId > 1 && 
-                        inurArea(
-                            tabId,
-                            x,
-                            y
-                        )
+                        inMyArea
                     ) {
                         return;
                     }
+
+                    // avoid draw deplicate 
+                    /* if (this.preCache) {
+                        if (
+                            tabId > 1 && 
+                            tabId != this.preCache.tab &&
+                            aNw._2CL8ac401cc9f1e8785 == this.preCache.name && Math.abs(this.preCache.s - s) < 10
+                        ) {
+                            this.preCache.name = aNw._2CL8ac401cc9f1e8785;
+                            this.preCache.s = s;
+                            this.preCache.tab = tabId;
+                            return;
+                        }
+                    } else {
+                        this.preCache = {};
+                    }
+                    this.preCache.name = aNw._2CL8ac401cc9f1e8785;
+                    this.preCache.s = s;
+                    this.preCache.tab = tabId; */
 
                     let drawMaou = Settings.Endy.enableMaouCircle && (!Settings.Endy.HSLOCircleForOnlyMe || Settings.Endy.HSLOCircleForOnlyMe && isMe);
                     let fixedSize = drawMaou ? 0x0 | (s * 0.9) : s;
@@ -6606,7 +6624,7 @@ const disappearedEntities = new Map();
                     let ff = 1.5;
                     if (Settings.Endy.enableParticles && s > 300) aNv.drawImage(particles.canvas, x - s * ff, y - s * ff, s * 2 * ff, s * 2 * ff);
 
-                    if (s > 300) {
+                    if (tabId == 1 && (s > 300 || isMe )) {
                         let circleSize = 2;
                         aNv.save();
                         aNv.globalCompositeOperation = "lighter";
