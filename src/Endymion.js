@@ -25,6 +25,7 @@ import Commander from "./components/Commander";
 import Turbulence from "./components/Turbulence";
 // import RainbowV2 from "./components/RainbowBorderV2";
 import CellShadow from "./components/CellShadow";
+import RingEffects from "./components/RingEffects";
 
 // analytics
 import "./components/Analytics";
@@ -6526,8 +6527,8 @@ const disappearedEntities = new Map();
                     case "begin":
                         ctx.save()
                         // ctx.globalCompositeOperation = "darken";
-                        // ctx.globalCompositeOperation = "xor"
-                        ctx.globalCompositeOperation = ""
+                        ctx.globalCompositeOperation = "xor"
+                        // ctx.globalCompositeOperation = ""
                         ctx.shadowColor = "black";
                         ctx.shadowBlur = 15;
                         break;
@@ -6624,12 +6625,20 @@ const disappearedEntities = new Map();
                     let ff = 1.5;
                     if (Settings.Endy.enableParticles && s > 300) aNv.drawImage(particles.canvas, x - s * ff, y - s * ff, s * 2 * ff, s * 2 * ff);
 
-                    if (tabId == 1 && (s > 300 || isMe )) {
+                    if (tabId == 1/*  && (s > 300 || isMe ) */) {
                         let circleSize = 2.3; // was 2
                         aNv.save();
                         aNv.globalCompositeOperation = "lighter";
-                        aNv.drawImage(
+                        /* aNv.drawImage(
                             Turbulence, //MaouCircle.canvas
+                            x - s * circleSize,
+                            y - s * circleSize,
+                            s * circleSize * 2,
+                            s * circleSize * 2
+                        ); */
+                        circleSize = 2;
+                        aNv.drawImage(
+                            RingEffects,
                             x - s * circleSize,
                             y - s * circleSize,
                             s * circleSize * 2,
