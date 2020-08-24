@@ -38,6 +38,12 @@ import "./components/Information.js";
 
 'use strict';
 
+/** 
+ * @preserve HSLO Endymion
+ * (c) 2019-2020, test114514.
+ * https://github.com/LostMyCode/ProjectEndymion
+ */
+
 var myTurn = false;
 
 const consumes = new Set();
@@ -61,6 +67,13 @@ const arrayMax = function (a, b) {
 const arrayMin = function (a, b) {
     return Math.min(a, b);
 }
+
+/**
+ * @param {Number} t - TAB ID
+ * @param {Number} x - Cell X Position
+ * @param {Number} y - Cell Y Position
+ * @return {boolean} isYourArea
+ */
 const inurArea = function (t, x, y) {
     if (!boxSize[0].minX || !boxSize[1].minX) return false;
     const tab1area = x > boxSize[0].minX && x < boxSize[0].maxX && y > boxSize[0].minY && y < boxSize[0].maxY;
@@ -427,6 +440,10 @@ const disappearedEntities = new Map();
     })();
 
     /* spectator assist mode cache */
+    /** 
+     * @type string
+     * @description Use this to avoid changing mode before user reconnects
+    */
     let currentAssistMode = "none";
 
     var aPw = Settings.Game;
@@ -1747,13 +1764,15 @@ const disappearedEntities = new Map();
                     // update viewport
 
                     aOr.pf_now_upd();
+                    const HSE = Settings.Endy;
+                    const USE_SPEC_ASSIST = currentAssistMode != "none";
                     var aNx = aNw.getUint16();
                     for (var aWU = 0x0; aWU < aNx | 0; /* aWU++ */ aWU = (aWU + 1) | 0) {
                         var aWV = aNw.getUint32(),
                             aWW = aNw.getUint32();
                         b2u._2CL6b81dcda3856c9e4(aNv, aWV, aWW);
 
-                        if (Settings.Endy.enableFullmap && aNv < 2) {
+                        if (USE_SPEC_ASSIST && aNv < 2) {
                             let index = boxSize[aNv].ids.indexOf(aWW);
                             if (index !== -1) {
                                 boxSize[aNv].ids.splice(index, 1);
@@ -1770,11 +1789,10 @@ const disappearedEntities = new Map();
                             aWZ = aNw.getInt32(), // y pos
                             aX0 = aNw.getUint16(); // size
 
-                        if (Settings.Endy.enableDisappearFade && disappearedEntities.has(aWX))
+                        if (HSE.enableDisappearFade && disappearedEntities.has(aWX))
                             disappearedEntities.delete(aWX);
 
-                        let doit = false;
-                        if (Settings.Endy.enableFullmap) {
+                        if (USE_SPEC_ASSIST) {
                             if (aNv < 2) {
                                 let hasId = boxSize[aNv].ids.indexOf(aWX);
                                 if (hasId !== -1) {
@@ -1786,12 +1804,6 @@ const disappearedEntities = new Map();
                                     boxSize[aNv].ids.push(aWX);
                                 }
                             }
-                            /*  else {
-                                            let offset = b2u.posOffset_kamo[aNv];
-                                            if (inurArea(aNv, aWY - offset.xPos_kamo, aWZ - offset.yPos_kamo)) {
-                                                doit = true;
-                                            }
-                                        } */
                         }
 
                         var aX1 = b2u.getNode_fn(aNv, aWX) || b2u._2CL6381b1091a381875(aNv, aWX, aWY, aWZ, aX0);
@@ -1815,7 +1827,7 @@ const disappearedEntities = new Map();
                     for (var aX8 = 0x0; aX8 < aNy | 0; /* aX8++ */ aX8 = (aX8 + 1) | 0) { // disapper records
                         var aX9 = aNw.getUint32();
 
-                        if (Settings.Endy.enableDisappearFade) {
+                        if (HSE.enableDisappearFade) {
                             const entityInfo = b2u.getNode_fn(aNv, aX9);
                             if (
                                 entityInfo &&
@@ -1835,7 +1847,7 @@ const disappearedEntities = new Map();
                             b2u.removeDisappearedEntity(aNv, aX9);
                         }
 
-                        if (Settings.Endy.enableFullmap && aNv < 2) {
+                        if (USE_SPEC_ASSIST && aNv < 2) {
                             let index = boxSize[aNv].ids.indexOf(aX9);
                             if (index !== -1) {
                                 boxSize[aNv].ids.splice(index, 1);
@@ -1845,7 +1857,7 @@ const disappearedEntities = new Map();
                         }
                     }
 
-                    if (Settings.Endy.enableFullmap && aNv < 2 && boxSize[aNv].xPosArray.length > 0) {
+                    if (USE_SPEC_ASSIST && aNv < 2 && boxSize[aNv].xPosArray.length > 0) {
                         let offset = b2u.posOffset_kamo[aNv];
                         boxSize[aNv].maxX = boxSize[aNv].xPosArray.reduce(arrayMax) - offset.xPos_kamo;
                         boxSize[aNv].maxY = boxSize[aNv].yPosArray.reduce(arrayMax) - offset.yPos_kamo;
@@ -6583,7 +6595,9 @@ const disappearedEntities = new Map();
                     const tabId = aNw["_tabId_dayo"];
 
                     const isMe = aNw.isMe;
-                    const faded = Settings.Endy.enableDisappearFade && disappearedEntities.has(id);
+                    const HSE = Settings.Endy;
+                    const faded = HSE.enableDisappearFade && disappearedEntities.has(id);
+                    const USE_SPEC_ASSIST = currentAssistMode != "none";
 
                     if (faded) {
                         let entity = disappearedEntities.get(id);
@@ -6597,21 +6611,18 @@ const disappearedEntities = new Map();
                         }
                     }
 
+                    // avoid draw duplicate
                     if (
-                        /* Settings.Endy.enableFullmap &&  */
-                        currentAssistMode == "fullmap" &&
+                        // currentAssistMode == "fullmap" &&
+                        USE_SPEC_ASSIST &&
                         // tabId < 2 && !isMe // dont use tab0,1 view
                         tabId > 1 && 
-                        inurArea(
-                            tabId,
-                            x,
-                            y
-                        )
+                        inurArea(tabId, x, y)
                     ) {
                         return;
                     }
 
-                    let drawMaou = Settings.Endy.enableMaouCircle && (!Settings.Endy.HSLOCircleForOnlyMe || Settings.Endy.HSLOCircleForOnlyMe && isMe);
+                    let drawMaou = HSE.enableMaouCircle && (!HSE.HSLOCircleForOnlyMe || HSE.HSLOCircleForOnlyMe && isMe);
                     let fixedSize = drawMaou ? 0x0 | (s * 0.9) : s;
 
                     // draw viewport area
@@ -6630,11 +6641,11 @@ const disappearedEntities = new Map();
                     aNv.drawImage(vuiCanvas, x - s * 4, y - s * 2, s * 4 * 2, s * 2 * 2); */
 
                     // draw shadow
-                    !Settings.Endy.enableMaouCircle && Settings.Endy.enableCellShadow && this.cellShadow("begin", aNv, s);
+                    !HSE.enableMaouCircle && HSE.enableCellShadow && this.cellShadow("begin", aNv, s);
 
                     // draw particle
                     let ff = 1.5;
-                    if (Settings.Endy.enableParticles && s > 300) aNv.drawImage(particles.canvas, x - s * ff, y - s * ff, s * 2 * ff, s * 2 * ff);
+                    if (HSE.enableParticles && s > 300) aNv.drawImage(particles.canvas, x - s * ff, y - s * ff, s * 2 * ff, s * 2 * ff);
 
                     switch (
                         aNv.beginPath(),
@@ -6665,7 +6676,7 @@ const disappearedEntities = new Map();
                         /* aNv.fillStyle = "#000" */
                         aNv.fill();
 
-                    !Settings.Endy.enableMaouCircle && Settings.Endy.enableCellShadow && this.cellShadow("close", aNv);
+                    !HSE.enableMaouCircle && HSE.enableCellShadow && this.cellShadow("close", aNv);
 
                     var aNy = aPB._2CL72cbdb098f5c0db6 && aNx;
                     if (aNy) {
