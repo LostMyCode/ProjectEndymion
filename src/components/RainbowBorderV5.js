@@ -37,9 +37,7 @@ const RBv5 = new class {
         s.width = 2136;
         s.height = 2136;
         s.alpha = 1;
-        for (let t = 0; t < /* oe.borderGlowStrength */1; t++) {
-            e.addChild(s);
-        }
+        e.addChild(s);
     }
 }
 
