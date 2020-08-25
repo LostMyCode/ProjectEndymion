@@ -1,5 +1,5 @@
 import Endy from "./Endy";
-import makeRbbFrame from "./../components/RainbowBorder";
+// import makeRbbFrame from "./../components/RainbowBorder";
 import Commander from "./../components/Commander";
 
 export default {
@@ -274,7 +274,7 @@ export default {
         '_2CL65dfacb39960c223': 'toggle',
         '_2CL850f236ecda2e139': function (isEnabled) {
             Endy.enableRainbowBorder = isEnabled;
-            if (isEnabled && !completeFrame) makeRbbFrame(), nyna('HSLO', 'RenderRainbowBorder', Date.now(), 1);
+            // if (isEnabled && !completeFrame) makeRbbFrame(), nyna('HSLO', 'RenderRainbowBorder', Date.now(), 1);
         }
     },
     '_2CL63a253787a089be6': {

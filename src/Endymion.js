@@ -17,13 +17,14 @@ import ChangeLog from "./components/ChangeLog";
 import Loader from "./components/Loader";
 
 // deco
-import makeRbbFrame from "./components/RainbowBorder";
+// import makeRbbFrame from "./components/RainbowBorder";
 import particles from "./components/Particles";
 import MaouCircle from "./components/MaouCircle";
 import Commander from "./components/Commander";
 // import "./components/LottieCanvas";
 import Turbulence from "./components/Turbulence";
 // import RainbowV2 from "./components/RainbowBorderV2";
+import RainbowV5 from "./components/RainbowBorderV5";
 import CellShadow from "./components/CellShadow";
 import RingEffects from "./components/RingEffects";
 
@@ -5749,7 +5750,7 @@ const disappearedEntities = new Map();
                 this.glowStrength // border glow strength
             );
             this.needReDraw_bool = !0x1;
-            if (Settings.Endy.enableRainbowBorder) makeRbbFrame();
+            // if (Settings.Endy.enableRainbowBorder) makeRbbFrame();
     
         }
         draw_some(aNv) {
@@ -5760,8 +5761,8 @@ const disappearedEntities = new Map();
                     bgQ = bgP >> 0x1;
                 if (!Settings.Endy.enableRainbowBorder) aNv.drawImage(this.canvas_kamo, -bgQ, -bgQ, bgP, bgP);
                 // draw glow (this is a canvas not a image)
-                // else if (completeFrame) aNv.drawImage(RainbowV2, -bgQ, -bgQ, bgP, bgP);
-                else if (completeFrame) aNv.drawImage(ww.rbbFrames[ww.currentFrame], -bgQ, -bgQ, bgP, bgP);
+                else aNv.drawImage(RainbowV5, -bgQ - 90, -bgQ - 90, bgP + 170, bgP + 170);
+                // else if (completeFrame) aNv.drawImage(ww.rbbFrames[ww.currentFrame], -bgQ, -bgQ, bgP, bgP);
             }
     
             aNv.strokeStyle = this._2CLf6e5846f1b211fe6;
