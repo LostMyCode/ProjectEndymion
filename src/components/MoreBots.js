@@ -1,1 +1,400 @@
-const _0xc9c1=['yM9VDa==','yM9VDgvK','CgXHEwvY','BM93','vhjHBNnTAxr0zxi=','y29UBMvJDa==','D3nZoI8Vz2fTzxnYDI5Hz2fYyM90lM92AdO4ndqZ','B25VCgvU','B25TzxnZywDL','CMvHza==','B25LCNjVCG==','Bg9N','w01puKvct1rtxsbfCNjVCIb3AgLSzsbJB25Uzwn0Aw5Niq==','B25JBg9Zzq==','w01puKvct1rtxsbbDxrOzw50AwnHDgLUzYb0BYb0AguGC2vYDMvYiq==','AgfUzhnOywTL','tw9YzwjVDhnFsfnmtZi=','z2v0rwXLBwvUDej5swq=','q29UBMvJDgvK','w01puKvct1rtxsbdBg9ZzwqGDgHLignVBM5LC3nPB25Liq==','ywjFC2vYDMvYu3rHDhvZ','Aw5UzxjuzxH0','rgLZy29UBMvJDgvK','C2vUza==','C3rYAw5NAwz5','CMvZzxq=','y2XVC2u=','C29JA2v0','yM9KEq==','zgL2CW==','y3jLyxrLrwXLBwvUDa==','zgL2','CM93','Aw5WDxrZ','Aw5WDxq=','Aw5PDgLHBgL6zwq=','CM93C2LUAxq=','Aw5PDgLHBgL6zq==','DxbKyxrLuM93CW==','DxbKyxrLqMfY','C3rHDhvZ','yM90CW==','D2LKDgG=','C3r5Bgu=','DMLZAwjPBgL0Eq==','AgLKzgvU','zgvJB2rLza==','y3vYCMvUDejVDhm=','Bwf4qM90CW==','y2fSy3vSyxrLvgLTzq==','zxHWAxjL','zMXVB3i=','AhjZoG==','BwLUCZO=','z2v0qM90tw9Kzq==','yM90Bw9Kzq==','tM9YBwfS','rMfYBwvY','z2v0DLnOAwvSze1Vzgu=','tM90ignVBM5Ly3rLzce=','rgLZywjSzwq=','qwn0AxzLza==','B25dAgfUz2u=','ywjFDLnOAwvSza==','DxbKyxrL','ywjFyM90C0fTB3vUDa==','ywjFyM90C1rPBwu=','ywn0Aw9U','DMvY','C3rHCNq=','Bw92zuLUDgvYDMfS','C2vUzfbVC2L0Aw9U','ywn0AxzLugXHEwvY','ywn0AxzLq2XPzw50','BgvHzgvYqM9HCMq=','C2vUzfnWyxDU','BMLJAZe=','DMfSDwu=','DgfYz2v0','zw5Js2v5','y2XPzw50BMfTzq==','DgfYz2v0sxa=','DgfYz2v0uM9VBq==','r1vj','C2vUzevQzwn0','C2vUDcbLAMvJDce=','C2vUDcbZCgXPDce=','Cg9ZAxrPB25y','CgXHEwvYug9Z','C2vUzezgqxbVCW==','C2v0qM90tw9Kzq==','C2v0qM90tw9KzunVzgu=','C2vUDcbIB3qGBw9Kzse=','DLnOAwvSza==','C2v0DLnOAwvSzenVzgu=','DNnOAwvSza==','zgf0yq==','AxnqCMvTAxvT','uhjLBwL1Bvr5Cgu=','uhvYzuzLzwrLCG==','CgfYC2u=','ywn0AxzL','BwfJCM8=','A2v5zg93BG==','A2v5Dxa=','u2v0DgLUz3ntDg9Yzq==','ywrKrxzLBNrmAxn0zw5LCG==','A2v5','Dg9mB2nHBgvvChbLCKnHC2u=','y3rYBeTLEq==','ywX0s2v5','qM90rMvLzeHVDgTLEq==','Axnby3rPDMu=','ywrK','qM90u3bSAxriB3rRzxK=','C2vUzfnWBgL0','qM90qwLiB3rRzxK=','CgXHEq==','y2XPy2S=','y3jLyxrLlxjVB20=','y2HHBMDL','AM9PBI1YB29T','C2HPzNrlzxK=','zgvSzxrL','C2v0u3rVCMfNzq==','C3rVCMfNzwTLEq==','C2v0sxrLBq==','A2v5CW==','Dg9vChbLCKnHC2u=','AgfZ','z2v0s2v5','y2HHCKnVzgvbDa=='];const _0x4db0=function(_0xc9c14e,_0x4db064){_0xc9c14e=_0xc9c14e-0x0;let _0x570036=_0xc9c1[_0xc9c14e];if(_0x4db0['lBjWBs']===undefined){var _0x116104=function(_0x10ac79){const _0x2e06f1='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=',_0x2131b5=String(_0x10ac79)['replace'](/=+$/,'');let _0x206325='';for(let _0x82bd1f=0x0,_0x353e2a,_0x38e5cb,_0x6cf722=0x0;_0x38e5cb=_0x2131b5['charAt'](_0x6cf722++);~_0x38e5cb&&(_0x353e2a=_0x82bd1f%0x4?_0x353e2a*0x40+_0x38e5cb:_0x38e5cb,_0x82bd1f++%0x4)?_0x206325+=String['fromCharCode'](0xff&_0x353e2a>>(-0x2*_0x82bd1f&0x6)):0x0){_0x38e5cb=_0x2e06f1['indexOf'](_0x38e5cb);}return _0x206325;};_0x4db0['RIDCVD']=function(_0x5f5033){const _0x59d07f=_0x116104(_0x5f5033);let _0x41b68b=[];for(let _0x5a3188=0x0,_0x30addc=_0x59d07f['length'];_0x5a3188<_0x30addc;_0x5a3188++){_0x41b68b+='%'+('00'+_0x59d07f['charCodeAt'](_0x5a3188)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x41b68b);},_0x4db0['ORwUcq']={},_0x4db0['lBjWBs']=!![];}const _0x2158c3=_0x4db0['ORwUcq'][_0xc9c14e];return _0x2158c3===undefined?(_0x570036=_0x4db0['RIDCVD'](_0x570036),_0x4db0['ORwUcq'][_0xc9c14e]=_0x570036):_0x570036=_0x2158c3,_0x570036;};export default class{static[_0x4db0('0x0')](){if(this[_0x4db0('0x1')])return;this[_0x4db0('0x1')]=!![],new class _0x243383{constructor(_0x24b3e3){this['ip']='',this['ws']=null,this[_0x4db0('0x2')]={'isPremium':![],'PremiumType':0x0,'PureFeeder':![],'startTime':Date[_0x4db0('0x3')](),'decoded':{},'initialized':![]},this['GUI']=new GUI(this),this['Reader']=new Reader(this),this[_0x4db0('0x4')]=new Transmitter(this),this['Hotkeys']=new MoreBotsHotkeys(this),this[_0x4db0('0x5')](_0x24b3e3);}['connect'](_0x1ba4dd){_0x1ba4dd=_0x4db0('0x6'),this['ip']=_0x1ba4dd,this['ws']=new WebSocket(this['ip']),this['ws'][_0x4db0('0x7')]=()=>this[_0x4db0('0x7')](),this['ws'][_0x4db0('0x8')]=_0x598152=>this['Reader'][_0x4db0('0x9')](_0x598152),this['ws'][_0x4db0('0xa')]=()=>console[_0x4db0('0xb')](_0x4db0('0xc')),this['ws'][_0x4db0('0xd')]=()=>this[_0x4db0('0xd')]();}[_0x4db0('0x7')](){console[_0x4db0('0xb')](_0x4db0('0xe')),this[_0x4db0('0x4')][_0x4db0('0xf')]('220720',_0x4db0('0x10')),document[_0x4db0('0x11')]('ab_serverStatus')['innerText']=_0x4db0('0x12');}[_0x4db0('0xd')](){console['log'](_0x4db0('0x13')),document[_0x4db0('0x11')](_0x4db0('0x14'))[_0x4db0('0x15')]=_0x4db0('0x16');}[_0x4db0('0x17')](_0x45c3e0){if(!this['ws']||!this['ip']||this['ws']['readyState']!==0x1)return;this['ws'][_0x4db0('0x17')](JSON[_0x4db0('0x18')](_0x45c3e0));}[_0x4db0('0x19')](){this[_0x4db0('0x2')]={'isPremium':![],'PremiumType':0x0,'PureFeeder':![],'startTime':Date[_0x4db0('0x3')](),'decoded':{'currentBots':0x0},'initialized':![]},this[_0x4db0('0x4')]['status']={'initialized':![],'vshield':0x0,'botmode':0x0};}['change'](){this['ws'][_0x4db0('0x1a')](),this[_0x4db0('0x19')](),this[_0x4db0('0x5')]();}}();}}class GUI{constructor(_0x377c4e){this[_0x4db0('0x1b')]=_0x377c4e,this[_0x4db0('0x2')]=this['socket']['player'],this['body']=document['getElementsByTagName'](_0x4db0('0x1c'))[0x0],this[_0x4db0('0x1d')]={'maindiv':document[_0x4db0('0x1e')](_0x4db0('0x1f')),'img':document['createElement']('div'),'data':document[_0x4db0('0x1e')](_0x4db0('0x1f')),'rows':{'bots':document[_0x4db0('0x1e')](_0x4db0('0x20')),'eject':document[_0x4db0('0x1e')](_0x4db0('0x20')),'split':document[_0x4db0('0x1e')](_0x4db0('0x20')),'botgamemode':document[_0x4db0('0x1e')](_0x4db0('0x20')),'vshield':document[_0x4db0('0x1e')](_0x4db0('0x20')),'endtime':document[_0x4db0('0x1e')](_0x4db0('0x20'))}},this[_0x4db0('0x21')]={'eject':document[_0x4db0('0x1e')](_0x4db0('0x22')),'split':document['createElement'](_0x4db0('0x22')),'botgamemode':document[_0x4db0('0x1e')](_0x4db0('0x22')),'vShield':document[_0x4db0('0x1e')](_0x4db0('0x22'))},this[_0x4db0('0x23')]=![],this[_0x4db0('0x24')]=![],this[_0x4db0('0x25')]();}[_0x4db0('0x25')](){try{this['initialized']=!![],setTimeout(()=>{this[_0x4db0('0x26')]();},0x3e8);}catch(_0x592dcb){throw new Error(_0x592dcb);}}[_0x4db0('0x27')](){const _0x21be17=this[_0x4db0('0x1b')][_0x4db0('0x4')][_0x4db0('0x28')][_0x4db0('0x23')];if(!_0x21be17)document[_0x4db0('0x11')](_0x4db0('0x29'))['style'][_0x4db0('0x2a')]='0%',document[_0x4db0('0x11')](_0x4db0('0x29'))[_0x4db0('0x2b')][_0x4db0('0x2c')]=_0x4db0('0x2d');else{const _0x39ec4e=this[_0x4db0('0x2')][_0x4db0('0x2e')][_0x4db0('0x2f')]/this['player']['decoded'][_0x4db0('0x30')]*0x64-0x1;document[_0x4db0('0x11')](_0x4db0('0x29'))[_0x4db0('0x2b')][_0x4db0('0x2a')]=_0x39ec4e+'%',document['getElementById'](_0x4db0('0x29'))[_0x4db0('0x2b')][_0x4db0('0x2c')]='visible';}}[_0x4db0('0x31')](){const _0x52068e=new Date(),_0x407fdc=new Date(this[_0x4db0('0x2')][_0x4db0('0x2e')][_0x4db0('0x32')]);var _0x15f304=_0x407fdc-_0x52068e,_0x12def7=Math[_0x4db0('0x33')](_0x15f304%(0x3e8*0x3c*0x3c*0x18)/(0x3e8*0x3c*0x3c)),_0x30bb87=Math[_0x4db0('0x33')](_0x15f304%(0x3e8*0x3c*0x3c)/(0x3e8*0x3c)),_0x22ba71=Math[_0x4db0('0x33')](_0x15f304%(0x3e8*0x3c)/0x3e8),_0x1038cb;if(_0x15f304<0x0)_0x1038cb='Expired/No\x20Plan!';else _0x1038cb=_0x12def7+_0x4db0('0x34')+_0x30bb87+_0x4db0('0x35')+_0x22ba71+'secs';return _0x1038cb;}[_0x4db0('0x36')](){const _0x76030a=this[_0x4db0('0x1b')][_0x4db0('0x4')][_0x4db0('0x28')][_0x4db0('0x23')],_0x1c1bab=this[_0x4db0('0x1b')][_0x4db0('0x4')][_0x4db0('0x28')][_0x4db0('0x37')];if(!_0x76030a)return'Not\x20connected!';if(_0x1c1bab===0x0)return _0x4db0('0x38');if(_0x1c1bab===0x1)return _0x4db0('0x39');if(_0x1c1bab===0x2)return'Normal';if(_0x1c1bab===0xa)return _0x4db0('0x39');}[_0x4db0('0x3a')](){const _0x50416b=this[_0x4db0('0x1b')][_0x4db0('0x4')]['status'][_0x4db0('0x23')],_0x429053=this[_0x4db0('0x1b')][_0x4db0('0x4')][_0x4db0('0x28')]['vshield'];if(!_0x50416b)return _0x4db0('0x3b');if(!_0x429053)return _0x4db0('0x3c');return _0x4db0('0x3d');}[_0x4db0('0x3e')](_0x138b65){}[_0x4db0('0x26')](){!this[_0x4db0('0x24')]?this['rowsinit']=!![]:(document['getElementById']('ab_mode')[_0x4db0('0x15')]=this['getBotMode'](),document[_0x4db0('0x11')](_0x4db0('0x3f'))[_0x4db0('0x15')]=this[_0x4db0('0x3a')]());}[_0x4db0('0x40')](){if(!this[_0x4db0('0x23')])return;document[_0x4db0('0x11')](_0x4db0('0x41'))['innerHTML']=this[_0x4db0('0x2')]['decoded'][_0x4db0('0x2f')]+'/'+(this[_0x4db0('0x2')][_0x4db0('0x2e')][_0x4db0('0x30')]===0x1f4?0x0:this['player']['decoded'][_0x4db0('0x30')]),document[_0x4db0('0x11')](_0x4db0('0x42'))['innerHTML']=''+this[_0x4db0('0x31')]();}}class Transmitter{constructor(_0x32e284){this['socket']=_0x32e284,this['status']={'initialized':![],'vshield':0x0,'botmode':0x0};}[_0x4db0('0xf')](_0x5b0eff,_0x461a3a){let _0x5dfee7={};_0x5dfee7[_0x4db0('0x43')]=0x11,_0x5dfee7[_0x4db0('0x44')]=_0x5b0eff,_0x5dfee7['vext']=_0x461a3a,this['socket'][_0x4db0('0x17')](_0x5dfee7),this[_0x4db0('0x45')](),_0x5dfee7={},_0x5dfee7[_0x4db0('0x43')]=0x14,this[_0x4db0('0x1b')][_0x4db0('0x17')](_0x5dfee7);}[_0x4db0('0x45')](){this[_0x4db0('0x46')]=setInterval(()=>{this[_0x4db0('0x47')]();},0x32);}[_0x4db0('0x48')](){setTimeout(()=>{let _0x5e7edb={};_0x5e7edb[_0x4db0('0x43')]=0x14,this[_0x4db0('0x1b')][_0x4db0('0x17')](_0x5e7edb);},0x7d0);}[_0x4db0('0x49')](){let _0x2f7ccf={};_0x2f7ccf['action']=0x4,_0x2f7ccf[_0x4db0('0x4a')]={},this['socket']['send'](_0x2f7ccf);}[_0x4db0('0x4b')](_0x1b75ab,_0x427798,_0x116ef5){_0x1b75ab=document[_0x4db0('0x11')](_0x4db0('0x4c'))[_0x4db0('0x4d')],_0x427798=window[_0x4db0('0x4e')],_0x116ef5=window[_0x4db0('0x4f')];let _0x3aec54={};_0x3aec54['action']=0x1,_0x3aec54[_0x4db0('0x50')]=_0x1b75ab,_0x3aec54[_0x4db0('0x51')]=''+_0x427798,_0x3aec54['ao']=_0x116ef5,_0x3aec54[_0x4db0('0x52')]='#8LAWM8',this[_0x4db0('0x1b')][_0x4db0('0x17')](_0x3aec54),_0x3aec54={},_0x3aec54[_0x4db0('0x43')]=0x3,this['socket'][_0x4db0('0x17')](_0x3aec54),this[_0x4db0('0x28')][_0x4db0('0x23')]=!![],this[_0x4db0('0x1b')][_0x4db0('0x53')][_0x4db0('0x23')]=!![],this[_0x4db0('0x1b')]['GUI']['updateRows']();}[_0x4db0('0x54')](){let _0x3f4cfd={};_0x3f4cfd[_0x4db0('0x43')]=0xf,console['log'](_0x4db0('0x55')),this[_0x4db0('0x1b')][_0x4db0('0x17')](_0x3f4cfd);}['sendSplit'](){let _0x7a3711={};_0x7a3711['action']=0x10,console[_0x4db0('0xb')](_0x4db0('0x56')),this[_0x4db0('0x1b')][_0x4db0('0x17')](_0x7a3711);}[_0x4db0('0x47')](){if(!window['playerPos'])return;let _0x4921a7={};_0x4921a7[_0x4db0('0x43')]=0x2,_0x4921a7[_0x4db0('0x57')]=window[_0x4db0('0x58')]['x'],_0x4921a7['positionY']=window[_0x4db0('0x58')]['y'],this[_0x4db0('0x1b')][_0x4db0('0x17')](_0x4921a7);}[_0x4db0('0x59')](_0x5a05b0,_0x7c2f38){if(!(_0x5a05b0,_0x7c2f38))return;let _0x397843={};_0x397843['action']=0xe,_0x397843['a']=_0x5a05b0,_0x397843['b']=_0x7c2f38,this[_0x4db0('0x1b')]['send'](_0x397843);}[_0x4db0('0x5a')](){let _0x4f0438={};_0x4f0438[_0x4db0('0x43')]=0x12,_0x4f0438['botmode']=this[_0x4db0('0x5b')](),console[_0x4db0('0xb')](_0x4db0('0x5c')),this[_0x4db0('0x1b')][_0x4db0('0x17')](_0x4f0438);}[_0x4db0('0x5d')](){let _0x4c87d9={};_0x4c87d9['action']=0x13,_0x4c87d9['botmode2']=this[_0x4db0('0x5e')](),console[_0x4db0('0xb')]('sent\x20vshield!'),this[_0x4db0('0x1b')]['send'](_0x4c87d9);}[_0x4db0('0x5e')](){if(this['status']['vshield']===0x0)this[_0x4db0('0x28')][_0x4db0('0x5f')]=0x1;else this['status'][_0x4db0('0x5f')]===0x1&&(this[_0x4db0('0x28')][_0x4db0('0x5f')]=0x0);return this[_0x4db0('0x28')][_0x4db0('0x5f')];}['setBotModeCode'](){if(this[_0x4db0('0x28')][_0x4db0('0x37')]===0x0)this[_0x4db0('0x28')][_0x4db0('0x37')]=0x1;else{if(this['status'][_0x4db0('0x37')]===0x1)this[_0x4db0('0x28')][_0x4db0('0x37')]=0x2;else{if(this['status'][_0x4db0('0x37')]===0x2)this[_0x4db0('0x28')][_0x4db0('0x37')]=0xa;else this['status']['botmode']===0xa&&(this[_0x4db0('0x28')][_0x4db0('0x37')]=0x0);}}return this['status']['botmode'];}}class Reader{constructor(_0x1e365a){this['socket']=_0x1e365a,this[_0x4db0('0x2')]=_0x1e365a[_0x4db0('0x2')];}[_0x4db0('0x9')](_0xdde481){const _0x46c9cf=_0xdde481[_0x4db0('0x60')];if(_0x46c9cf===0x53b)this[_0x4db0('0x2')][_0x4db0('0x61')]=!![],this[_0x4db0('0x2')]['PremiumType']=0x2;if(_0x46c9cf===0x53a)this['player']['isPremium']=!![],this[_0x4db0('0x2')][_0x4db0('0x62')]=0x1;if(_0x46c9cf===0x539)this['player'][_0x4db0('0x63')]=!![];if(_0x46c9cf===0x15){if(!this[_0x4db0('0x2')][_0x4db0('0x23')])this[_0x4db0('0x2')][_0x4db0('0x23')]=!![];if(this[_0x4db0('0x2')]['initialized'])this[_0x4db0('0x1b')][_0x4db0('0x4')]['activePlayer']();}else this[_0x4db0('0x2')][_0x4db0('0x2e')]=JSON[_0x4db0('0x64')](_0x46c9cf),this[_0x4db0('0x1b')]['Transmitter'][_0x4db0('0x49')](),this[_0x4db0('0x1b')]['GUI'][_0x4db0('0x40')]();}}class MoreBotsHotkeys{constructor(_0x385e14){this[_0x4db0('0x1b')]=_0x385e14,this['Transmitter']=_0x385e14[_0x4db0('0x4')],this[_0x4db0('0x65')]=new Set(),this[_0x4db0('0x66')]=null,this[_0x4db0('0x67')](),this[_0x4db0('0x68')]();}[_0x4db0('0x67')](){const _0x19fae8=window[_0x4db0('0x69')];document[_0x4db0('0x1c')][_0x4db0('0x6a')](_0x4db0('0x67'),_0x2776e0=>{const _0x59752d=_0x2776e0[_0x4db0('0x6b')][_0x4db0('0x6c')]();if(!(_0x59752d===0x8||_0x2776e0[_0x4db0('0x6d')]||_0x2776e0['shiftKey']||_0x2776e0[_0x4db0('0x6e')])){if(_0x59752d===_0x19fae8[_0x4db0('0x6f')]){if(this[_0x4db0('0x70')](_0x19fae8[_0x4db0('0x6f')]))return;this['active'][_0x4db0('0x71')](_0x19fae8[_0x4db0('0x6f')]),this[_0x4db0('0x66')]=setInterval(()=>{this[_0x4db0('0x1b')][_0x4db0('0x4')][_0x4db0('0x54')]();},0x4b);}if(_0x59752d===_0x19fae8[_0x4db0('0x72')]){if(this[_0x4db0('0x70')](_0x19fae8[_0x4db0('0x72')]))return;this[_0x4db0('0x65')][_0x4db0('0x71')](_0x19fae8['BotSplitHotkey']),this[_0x4db0('0x1b')][_0x4db0('0x4')][_0x4db0('0x73')]();}if(_0x59752d===_0x19fae8[_0x4db0('0x74')]){if(this[_0x4db0('0x70')](_0x19fae8[_0x4db0('0x74')]))return;this[_0x4db0('0x65')]['add'](_0x19fae8[_0x4db0('0x74')]),this[_0x4db0('0x1b')]['Transmitter'][_0x4db0('0x5a')]();}}}),document['getElementById'](_0x4db0('0x75'))[_0x4db0('0x6a')](_0x4db0('0x76'),()=>this[_0x4db0('0x4')]['sendSpawn']()),document['getElementById'](_0x4db0('0x77'))[_0x4db0('0x6a')](_0x4db0('0x76'),()=>this[_0x4db0('0x1b')][_0x4db0('0x78')]()),document[_0x4db0('0x11')](_0x4db0('0x79'))[_0x4db0('0x6a')](_0x4db0('0x76'),()=>this[_0x4db0('0x1b')]['change']());}['keyup'](){const _0x2dc1b5=window['SettingsStore'];document['body'][_0x4db0('0x6a')](_0x4db0('0x68'),_0x3b1ba5=>{const _0x3011f7=_0x3b1ba5[_0x4db0('0x6b')]['toLocaleUpperCase']();if(!(_0x3011f7===0x8||_0x3b1ba5[_0x4db0('0x6d')]||_0x3b1ba5[_0x4db0('0x7a')]||_0x3b1ba5['altKey'])){if(_0x3011f7===_0x2dc1b5[_0x4db0('0x6f')])this[_0x4db0('0x65')][_0x4db0('0x7b')](_0x2dc1b5[_0x4db0('0x6f')]),clearInterval(this[_0x4db0('0x66')]);if(_0x3011f7===_0x2dc1b5[_0x4db0('0x72')])this[_0x4db0('0x65')][_0x4db0('0x7b')](_0x2dc1b5[_0x4db0('0x72')]);if(_0x3011f7===_0x2dc1b5[_0x4db0('0x74')])this[_0x4db0('0x65')][_0x4db0('0x7b')](_0x2dc1b5['BotAiHotkey']);this[_0x4db0('0x1b')][_0x4db0('0x53')][_0x4db0('0x26')]();}});}[_0x4db0('0x7c')](_0x3e0ec9,_0x3d88a0){const _0x5a127b=JSON[_0x4db0('0x64')](localStorage['getItem'](this[_0x4db0('0x7d')]));_0x5a127b[_0x3e0ec9]=_0x3d88a0,localStorage[_0x4db0('0x7e')](this[_0x4db0('0x7d')],JSON[_0x4db0('0x18')](_0x5a127b)),this[_0x4db0('0x7f')][_0x3e0ec9]=_0x3d88a0[_0x4db0('0x80')](),this[_0x4db0('0x1b')][_0x4db0('0x53')][_0x4db0('0x26')]();}[_0x4db0('0x70')](_0x5e873a){return this[_0x4db0('0x65')][_0x4db0('0x81')](_0x5e873a);}[_0x4db0('0x82')](_0x3d676d){return _0x3d676d['toUpperCase']()[_0x4db0('0x83')]();}}
+export default class {
+    static boot() {
+        if (this.booted) return;
+        this.booted = true;
+
+        new class MoreBots {
+            constructor(ip) {
+                this.ip = '';
+                this.ws = null;
+                this.player = {
+                    isPremium: false,
+                    PremiumType: 0,
+                    PureFeeder: false,
+                    startTime: Date.now(),
+                    decoded: {},
+                    initialized: false
+                }
+                this.GUI = new GUI(this);
+                this.Reader = new Reader(this);
+                this.Transmitter = new Transmitter(this);
+                this.Hotkeys = new MoreBotsHotkeys(this);
+                this.connect(ip);
+            }
+            connect(ip) {
+                ip = 'wss://gamesrv.agarbot.ovh:8443';
+                this.ip = ip;
+                this.ws = new WebSocket(this.ip);
+                this.ws.onopen = () => this.onopen();
+                this.ws.onmessage = obj => this.Reader.read(obj);
+                this.ws.onerror = () => console.log('[MOREBOTS] Error while connecting!');
+                this.ws.onclose = () => this.onclose();
+            }
+            onopen() {
+                console.log('[MOREBOTS] Authenticating to the server!');
+                const label = document.getElementById("ab_label").innerHTML;
+                const key = label == "AgarBot.OVH" ? "Agarbot_HSLO" : 'Morebots_HSLO2';
+                this.Transmitter.handshake('220720', key);
+                document.getElementById("ab_serverStatus").innerText = "Connected";
+                document.getElementById('ab_controlStart').innerText = "START BOTS";
+                document.getElementById('ab_controlStart').disabled = false;
+            }
+            onclose() {
+                console.log('[MOREBOTS] Closed the connessione!');
+                document.getElementById("ab_serverStatus").innerText = "Disconnected";
+            }
+            send(data) {
+                if(!this.ws || !this.ip || this.ws.readyState !== 1) return;
+                this.ws.send(JSON.stringify(data));
+            }
+            reset() {
+                this.player = {
+                    isPremium: false,
+                    PremiumType: 0,
+                    PureFeeder: false,
+                    startTime: Date.now(),
+                    decoded: {
+                        currentBots: 0
+                    },
+                    initialized: false
+                }
+                this.Transmitter.status = {
+                    initialized: false,
+                    vshield: 0,
+                    botmode: 0
+                }
+            }
+            change() {
+                this.ws.close();
+                this.reset();
+                this.connect();
+            }
+        }
+    }
+}
+
+class GUI {
+    constructor(socket) {
+        this.socket = socket;
+        this.player = this.socket.player;
+        this.body = document.getElementsByTagName('body')[0];
+        this.divs = {
+            maindiv: document.createElement('div'),
+            img: document.createElement('div'),
+            data: document.createElement('div'),
+            rows: {
+                bots: document.createElement('row'),
+                eject: document.createElement('row'),
+                split: document.createElement('row'),
+                botgamemode: document.createElement('row'),
+                vshield: document.createElement('row'),
+                endtime: document.createElement('row'),
+            }
+        }
+        this.inputs = {
+            eject: document.createElement('input'),
+            split: document.createElement('input'),
+            botgamemode: document.createElement('input'),
+            vShield: document.createElement('input')
+        }
+
+        this.initialized = false;
+        this.rowsinit = false;
+        this.initialize();
+    }
+    initialize() {
+        try {
+            this.initialized = true;
+            setTimeout(() => {
+                this.updateRows();
+            }, 1000);
+        } catch(err) {
+            throw new Error(err);
+        }
+    }
+    updateBar() {
+        const initialized = this.socket.Transmitter.status.initialized;
+        if(!initialized) {
+            document.getElementById('bots').style.width = `0%`;
+            document.getElementById('bots').style.visibility = 'hidden';
+        } else {
+            const Percentage = ((this.player.decoded.currentBots/this.player.decoded.maxBots) * 100) - 1;
+            document.getElementById('bots').style.width = `${Percentage}%`;
+            document.getElementById('bots').style.visibility = 'visible';
+        }
+    }
+    calculateTime() {
+        const ActualTime = new Date();
+        const EndTime = new Date(this.player.decoded.expire);
+        var distance = EndTime - ActualTime;
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        var msg;
+        if(distance < 0) msg = 'Expired/No Plan!';
+        else msg = `${hours}hrs:${minutes}mins:${seconds}secs`;
+
+        return msg;
+    }
+    getBotMode() {
+        const initialized = this.socket.Transmitter.status.initialized;
+        const type = this.socket.Transmitter.status.botmode;
+        if(!initialized) return "Not connected!";
+        if(type === 0) return "Normal";
+        if(type === 1) return "Farmer";
+        if(type === 2) return "Normal";
+        if(type === 10) return "Farmer";
+    }
+    getvShieldMode() {
+        const initialized = this.socket.Transmitter.status.initialized;
+        const type = this.socket.Transmitter.status.vshield;
+        if(!initialized) return "Not connected!";
+        if(!type) return "Disabled";
+        return "Actived";
+    }
+    onChange(evt) {}
+    updateRows() {
+        if(!this.rowsinit) {
+            this.rowsinit = true;
+        } else {
+            document.getElementById('ab_mode').innerText = this.getBotMode();
+            document.getElementById('ab_vShield').innerText = this.getvShieldMode();
+        }
+    }
+    update() {
+        if(!this.initialized) return;
+        // this.updateBar();
+        document.getElementById("ab_botsAmount").innerHTML = `${this.player.decoded.currentBots}/${this.player.decoded.maxBots === 500 ? 0 : this.player.decoded.maxBots}`;
+        document.getElementById("ab_botsTime").innerHTML = `${this.calculateTime()}`;
+    }
+}
+
+class Transmitter {
+    constructor(socket) {
+        this.socket = socket;
+        this.status = {
+            initialized: false,
+            vshield: 0,
+            botmode: 0
+        }
+        this.started = false;
+    }
+    handshake(ver, vext) {
+        let buffer = {};
+        buffer.action = 17;
+        buffer.ver = ver;
+        buffer.vext = vext;
+        this.socket.send(buffer);
+        this.start();
+        buffer = {};
+        buffer.action = 20;
+        this.socket.send(buffer);
+    }
+    start() {
+        this.moveInterval = setInterval(() => {
+            this.sendPosition();
+        }, 50);
+    }
+    activePlayer() {
+        setTimeout(() => {
+            let buffer = {};
+            buffer.action = 20;
+            this.socket.send(buffer);
+        }, 2E3);
+    }
+    activeClient() {
+        let buffer = {};
+        buffer.action = 4;
+        buffer.leaderBoard = {};
+        this.socket.send(buffer);
+    }
+    sendSpawn(nick, ip, clientKey) {
+        nick = document.getElementById('nick1').value;
+        ip = window.target;
+        clientKey = window.encKey;
+        let buffer = {};
+        buffer.action = 1;
+        buffer.clientname = nick;
+        buffer.targetIp = `${ip}`;
+        buffer.ao = clientKey;
+        buffer.targetRoom = "#8LAWM8";
+        this.socket.send(buffer);
+        buffer = {};
+        buffer.action = 3;
+        this.socket.send(buffer);
+        this.status.initialized = true;
+        this.socket.GUI.initialized = true;
+        this.socket.GUI.updateRows();
+    }
+    sendEject() {
+        let buffer = {};
+        buffer.action = 15;
+        console.log('sent eject!');
+        this.socket.send(buffer);
+    }
+    sendSplit() {
+        let buffer = {};
+        buffer.action = 16;
+        console.log('sent split!');
+        this.socket.send(buffer);
+    }
+    sendPosition() {
+        if (!window.playerPos) return;
+        let buffer = {};
+        buffer.action = 2;
+        buffer.positionX = window.playerPos.x;
+        buffer.positionY = window.playerPos.y;
+        this.socket.send(buffer);
+    }
+    sendFFApos(x, y) {
+        if(!(x, y)) return;
+        let buffer = {};
+        buffer.action = 14;
+        buffer.a = x;
+        buffer.b = y;
+        this.socket.send(buffer);
+    }
+    setBotMode() {
+        let buffer = {};
+        buffer.action = 18;
+        buffer.botmode = this.setBotModeCode();
+        console.log('sent bot mode!');
+        this.socket.send(buffer);
+    }
+    vShield() {
+        let buffer = {};
+        buffer.action = 19;
+        buffer.botmode2 = this.setvShieldCode();
+        console.log('sent vshield!');
+        this.socket.send(buffer);
+    }
+    setvShieldCode() {
+        if(this.status.vshield === 0) {
+            this.status.vshield = 1;
+        } else if(this.status.vshield === 1) {
+            this.status.vshield = 0;
+        }
+        return this.status.vshield;
+    }
+    setBotModeCode() {
+        if(this.status.botmode === 0) {
+            this.status.botmode = 1;
+        } else if(this.status.botmode === 1) {
+            this.status.botmode = 2;
+        } else if(this.status.botmode === 2) {
+            this.status.botmode = 10;
+        } else if(this.status.botmode === 10) {
+            this.status.botmode = 0;
+        }
+        return this.status.botmode;
+    }
+}
+
+class Reader {
+    constructor(socket) {
+        this.socket = socket;
+        this.player = socket.player;
+    }
+    read(buffer) {
+        const opcode = buffer.data;
+        if(opcode === 1339) (this.player.isPremium = true,this.player.PremiumType = 2);
+        if(opcode === 1338) (this.player.isPremium = true, this.player.PremiumType = 1);
+        if(opcode === 1337) this.player.PureFeeder = true;
+        if(opcode === 21) {
+            if(!this.player.initialized) this.player.initialized = true;
+            if(this.player.initialized) this.socket.Transmitter.activePlayer();
+        } else {
+            this.player.decoded = JSON.parse(opcode);
+            this.socket.Transmitter.activeClient();
+            this.socket.GUI.update();
+        }
+    }
+}
+
+class MoreBotsHotkeys {
+    constructor(socket) {
+        this.socket = socket;
+        this.Transmitter = socket.Transmitter;
+        this.active = new Set();
+        this.macro = null;
+        this.keydown();
+        this.keyup();
+    }
+    keydown() {
+        const HS = window.SettingsStore;
+        document.body.addEventListener('keydown', evt => {
+            // const key = evt.keyCode;
+            const key = evt.key.toLocaleUpperCase();
+            if(!(key === 8 || evt.ctrlKey || evt.shiftKey || evt.altKey)) {
+                if(key === HS.BotFeedHotkey) {
+                    if(this.isActive(HS.BotFeedHotkey)) return;
+                    this.active.add(HS.BotFeedHotkey);
+                    this.macro = setInterval(() => {
+                        this.socket.Transmitter.sendEject();
+                    }, 75);
+                }
+                if(key === HS.BotSplitHotkey) {
+                    if(this.isActive(HS.BotSplitHotkey)) return;
+                    this.active.add(HS.BotSplitHotkey);
+                    this.socket.Transmitter.sendSplit();
+                }
+                if(key === HS.BotAiHotkey) {
+                    if(this.isActive(HS.BotAiHotkey)) return;
+                    this.active.add(HS.BotAiHotkey);
+                    this.socket.Transmitter.setBotMode();
+                }
+                /* if(key === this.getKey(this.keys.vShield)) {
+                    if(this.isActive(this.keys.vShield)) return;
+                    this.active.add(this.keys.vShield);
+                    this.socket.Transmitter.vShield();
+                }    */
+            }
+        });
+
+        // document.getElementById('play').addEventListener('click', () => this.Transmitter.sendSpawn());
+        let btn = document.getElementById('ab_controlStart');
+        btn.addEventListener('click', () => {
+            if (this.Transmitter.started) {
+                this.socket.change();
+                this.Transmitter.started = false;
+                btn.disabled = true;
+                btn.innerHTML = "Stopping...";
+            } else {
+                this.Transmitter.sendSpawn();
+                this.Transmitter.started = true;
+                btn.innerHTML = "STOP BOTS";
+            }
+        });
+
+        document.getElementById('create-room').addEventListener('click', () => this.socket.change());
+        document.getElementById('join-room').addEventListener('click', () => this.socket.change());
+    }
+    keyup() {
+        const HS = window.SettingsStore;
+        document.body.addEventListener('keyup', evt => {
+            // const key = evt.keyCode;
+            const key = evt.key.toLocaleUpperCase();
+            if(!(key === 8 || evt.ctrlKey || evt.shiftKey || evt.altKey)) {
+                if(key === HS.BotFeedHotkey) (this.active.delete(HS.BotFeedHotkey), clearInterval(this.macro));
+                if(key === HS.BotSplitHotkey) this.active.delete(HS.BotSplitHotkey);
+                if(key === HS.BotAiHotkey) this.active.delete(HS.BotAiHotkey);
+                // if(key === this.getKey(this.keys.vShield)) this.active.delete(this.keys.vShield);
+                this.socket.GUI.updateRows();
+            }
+        })
+    }
+    setStorage(type, key) {
+        const storage = JSON.parse(localStorage.getItem(this.storagekey));
+        storage[type] = key;
+        localStorage.setItem(this.storagekey, JSON.stringify(storage));
+        this.keys[type] = key.toUpperCase();
+        this.socket.GUI.updateRows();
+    }
+    isActive(key) {
+        return this.active.has(key);
+    }
+    getKey(key) {
+        return key.toUpperCase().charCodeAt();
+    }
+}
