@@ -1,1 +1,400 @@
-const _0x2dda=['yM9VDa==','yM9VDgvK','CgXHEwvY','BM93','r1vj','uMvHzgvY','vhjHBNnTAxr0zxi=','sg90A2v5CW==','y29UBMvJDa==','B25VCgvU','B25TzxnZywDL','CMvHza==','Bg9N','w01puKvct1rtxsbfCNjVCIb3AgLSzsbJB25Uzwn0Aw5Niq==','B25JBg9Zzq==','w01puKvct1rtxsbbDxrOzw50AwnHDgLUzYb0BYb0AguGC2vYDMvYiq==','AgfUzhnOywTL','mJiWnZiW','tw9YzwjVDhnFsfnmtZi=','ywjFC2vYDMvYu3rHDhvZ','Aw5UzxjuzxH0','q29UBMvJDgvK','ywjFy29UDhjVBfn0yxj0','u1rbuLqGqK9uuW==','z2v0rwXLBwvUDej5swq=','rgLZy29UBMvJDgvK','C2vUza==','C3rYAw5NAwz5','CMvZzxq=','C3rHDhvZ','y2HHBMDL','y2XVC2u=','C29JA2v0','z2v0rwXLBwvUDhncEvrHz05HBwu=','yM9KEq==','zgL2CW==','zgL2','y3jLyxrLrwXLBwvUDa==','CM93','Aw5WDxrZ','Aw5WDxq=','Aw5PDgLHBgL6zwq=','CM93C2LUAxq=','Aw5PDgLHBgL6zq==','DxbKyxrLuM93CW==','DxbKyxrLqMfY','yM90CW==','C3r5Bgu=','D2LKDgG=','DMLZAwjPBgL0Eq==','AgLKzgvU','zgvJB2rLza==','Bwf4qM90CW==','DMLZAwjSzq==','y2fSy3vSyxrLvgLTzq==','zxHWAxjL','zMXVB3i=','AhjZoG==','C2vJCW==','z2v0qM90tw9Kzq==','yM90Bw9Kzq==','tM90ignVBM5Ly3rLzce=','tM9YBwfS','rMfYBwvY','z2v0DLnOAwvSze1Vzgu=','DNnOAwvSza==','qwn0AxzLza==','B25dAgfUz2u=','ywjFBw9Kzq==','DxbKyxrL','ywjFyM90C0fTB3vUDa==','Aw5Uzxjive1m','y3vYCMvUDejVDhm=','ywjFyM90C1rPBwu=','C3rHCNrLza==','ywn0Aw9U','DMvY','DMv4Da==','C3rHCNq=','Bw92zuLUDgvYDMfS','C2vUzfbVC2L0Aw9U','ywn0AxzLugXHEwvY','ywn0AxzLq2XPzw50','BgvHzgvYqM9HCMq=','C2vUzfnWyxDU','DMfSDwu=','y2XPzw50BMfTzq==','DgfYz2v0sxa=','DgfYz2v0uM9VBq==','iZHmqvDnoa==','C2vUzevQzwn0','C2vUzfnWBgL0','C2vUDcbZCgXPDce=','CgXHEwvYug9Z','Cg9ZAxrPB25z','C2v0qM90tw9KzunVzgu=','C2vUDcbIB3qGBw9Kzse=','DLnOAwvSza==','yM90Bw9Kzti=','C2v0DLnOAwvSzenVzgu=','C2vUDcb2C2HPzwXKiq==','AxnqCMvTAxvT','uhvYzuzLzwrLCG==','BwfJCM8=','A2v5zg93BG==','A2v5Dxa=','u2v0DgLUz3ntDg9Yzq==','A2v5','C2HPzNrlzxK=','ywX0s2v5','qM90rMvLzeHVDgTLEq==','Axnby3rPDMu=','ywn0AxzL','ywrK','qM90u3bSAxriB3rRzxK=','qM90qwLiB3rRzxK=','ywrKrxzLBNrmAxn0zw5LCG==','zgLZywjSzwq=','u1rpucbct1rt','y3jLyxrLlxjVB20=','Dg9mB2nHBgvvChbLCKnHC2u=','y3rYBeTLEq==','zgvSzxrL','C2v0u3rVCMfNzq==','CgfYC2u=','z2v0sxrLBq==','C3rVCMfNzwTLEq==','C2v0sxrLBq==','A2v5CW==','Dg9vChbLCKnHC2u=','AgfZ','z2v0s2v5','y2HHCKnVzgvbDa=='];const _0x5bcf=function(_0x2dda02,_0x5bcf12){_0x2dda02=_0x2dda02-0x0;let _0x2e37cb=_0x2dda[_0x2dda02];if(_0x5bcf['zpRnyp']===undefined){var _0x14769d=function(_0x352a61){const _0x9af3eb='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=',_0x2033b5=String(_0x352a61)['replace'](/=+$/,'');let _0x2fa5ec='';for(let _0x45b1e8=0x0,_0x112aba,_0x438122,_0x3300fe=0x0;_0x438122=_0x2033b5['charAt'](_0x3300fe++);~_0x438122&&(_0x112aba=_0x45b1e8%0x4?_0x112aba*0x40+_0x438122:_0x438122,_0x45b1e8++%0x4)?_0x2fa5ec+=String['fromCharCode'](0xff&_0x112aba>>(-0x2*_0x45b1e8&0x6)):0x0){_0x438122=_0x9af3eb['indexOf'](_0x438122);}return _0x2fa5ec;};_0x5bcf['cHIHCY']=function(_0x1c7d21){const _0x42edd5=_0x14769d(_0x1c7d21);let _0x267506=[];for(let _0x175bb7=0x0,_0x558111=_0x42edd5['length'];_0x175bb7<_0x558111;_0x175bb7++){_0x267506+='%'+('00'+_0x42edd5['charCodeAt'](_0x175bb7)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x267506);},_0x5bcf['uDxWUH']={},_0x5bcf['zpRnyp']=!![];}const _0x5e5814=_0x5bcf['uDxWUH'][_0x2dda02];return _0x5e5814===undefined?(_0x2e37cb=_0x5bcf['cHIHCY'](_0x2e37cb),_0x5bcf['uDxWUH'][_0x2dda02]=_0x2e37cb):_0x2e37cb=_0x5e5814,_0x2e37cb;};export default class{static[_0x5bcf('0x0')](){if(this[_0x5bcf('0x1')])return;this[_0x5bcf('0x1')]=!![],new class _0x54b629{constructor(_0x4d553b){this['ip']='',this['ws']=null,this[_0x5bcf('0x2')]={'isPremium':![],'PremiumType':0x0,'PureFeeder':![],'startTime':Date[_0x5bcf('0x3')](),'decoded':{},'initialized':![]},this[_0x5bcf('0x4')]=new GUI(this),this[_0x5bcf('0x5')]=new Reader(this),this[_0x5bcf('0x6')]=new Transmitter(this),this[_0x5bcf('0x7')]=new MoreBotsHotkeys(this),this['connect'](_0x4d553b);}[_0x5bcf('0x8')](_0xd124ae){_0xd124ae='wss://gamesrv.agarbot.ovh:8443',this['ip']=_0xd124ae,this['ws']=new WebSocket(this['ip']),this['ws'][_0x5bcf('0x9')]=()=>this[_0x5bcf('0x9')](),this['ws'][_0x5bcf('0xa')]=_0x2dfdec=>this['Reader'][_0x5bcf('0xb')](_0x2dfdec),this['ws']['onerror']=()=>console[_0x5bcf('0xc')](_0x5bcf('0xd')),this['ws'][_0x5bcf('0xe')]=()=>this[_0x5bcf('0xe')]();}[_0x5bcf('0x9')](){console[_0x5bcf('0xc')](_0x5bcf('0xf')),this[_0x5bcf('0x6')][_0x5bcf('0x10')](_0x5bcf('0x11'),_0x5bcf('0x12')),document['getElementById'](_0x5bcf('0x13'))[_0x5bcf('0x14')]=_0x5bcf('0x15'),document['getElementById'](_0x5bcf('0x16'))[_0x5bcf('0x14')]=_0x5bcf('0x17'),document[_0x5bcf('0x18')]('ab_controlStart')['disabled']=![];}[_0x5bcf('0xe')](){console[_0x5bcf('0xc')]('[MOREBOTS]\x20Closed\x20the\x20connessione!'),document[_0x5bcf('0x18')](_0x5bcf('0x13'))[_0x5bcf('0x14')]=_0x5bcf('0x19');}['send'](_0x512636){if(!this['ws']||!this['ip']||this['ws']['readyState']!==0x1)return;this['ws'][_0x5bcf('0x1a')](JSON[_0x5bcf('0x1b')](_0x512636));}[_0x5bcf('0x1c')](){this[_0x5bcf('0x2')]={'isPremium':![],'PremiumType':0x0,'PureFeeder':![],'startTime':Date['now'](),'decoded':{'currentBots':0x0},'initialized':![]},this[_0x5bcf('0x6')][_0x5bcf('0x1d')]={'initialized':![],'vshield':0x0,'botmode':0x0};}[_0x5bcf('0x1e')](){this['ws'][_0x5bcf('0x1f')](),this[_0x5bcf('0x1c')](),this[_0x5bcf('0x8')]();}}();}}class GUI{constructor(_0x5e50af){this[_0x5bcf('0x20')]=_0x5e50af,this[_0x5bcf('0x2')]=this[_0x5bcf('0x20')]['player'],this['body']=document[_0x5bcf('0x21')](_0x5bcf('0x22'))[0x0],this[_0x5bcf('0x23')]={'maindiv':document['createElement'](_0x5bcf('0x24')),'img':document[_0x5bcf('0x25')](_0x5bcf('0x24')),'data':document[_0x5bcf('0x25')](_0x5bcf('0x24')),'rows':{'bots':document[_0x5bcf('0x25')](_0x5bcf('0x26')),'eject':document[_0x5bcf('0x25')]('row'),'split':document[_0x5bcf('0x25')](_0x5bcf('0x26')),'botgamemode':document[_0x5bcf('0x25')](_0x5bcf('0x26')),'vshield':document['createElement'](_0x5bcf('0x26')),'endtime':document[_0x5bcf('0x25')]('row')}},this[_0x5bcf('0x27')]={'eject':document['createElement'](_0x5bcf('0x28')),'split':document[_0x5bcf('0x25')](_0x5bcf('0x28')),'botgamemode':document['createElement'](_0x5bcf('0x28')),'vShield':document[_0x5bcf('0x25')]('input')},this[_0x5bcf('0x29')]=![],this[_0x5bcf('0x2a')]=![],this[_0x5bcf('0x2b')]();}[_0x5bcf('0x2b')](){try{this[_0x5bcf('0x29')]=!![],setTimeout(()=>{this[_0x5bcf('0x2c')]();},0x3e8);}catch(_0x1ca66c){throw new Error(_0x1ca66c);}}[_0x5bcf('0x2d')](){const _0x10413f=this[_0x5bcf('0x20')]['Transmitter'][_0x5bcf('0x1d')][_0x5bcf('0x29')];if(!_0x10413f)document['getElementById'](_0x5bcf('0x2e'))[_0x5bcf('0x2f')][_0x5bcf('0x30')]='0%',document[_0x5bcf('0x18')]('bots')[_0x5bcf('0x2f')][_0x5bcf('0x31')]=_0x5bcf('0x32');else{const _0x4ec619=this[_0x5bcf('0x2')][_0x5bcf('0x33')]['currentBots']/this[_0x5bcf('0x2')][_0x5bcf('0x33')][_0x5bcf('0x34')]*0x64-0x1;document[_0x5bcf('0x18')](_0x5bcf('0x2e'))['style']['width']=_0x4ec619+'%',document[_0x5bcf('0x18')](_0x5bcf('0x2e'))[_0x5bcf('0x2f')][_0x5bcf('0x31')]=_0x5bcf('0x35');}}[_0x5bcf('0x36')](){const _0x5ab8d1=new Date(),_0x573b5b=new Date(this[_0x5bcf('0x2')]['decoded'][_0x5bcf('0x37')]);var _0x22594e=_0x573b5b-_0x5ab8d1,_0x683d1=Math[_0x5bcf('0x38')](_0x22594e%(0x3e8*0x3c*0x3c*0x18)/(0x3e8*0x3c*0x3c)),_0x3d2ac1=Math[_0x5bcf('0x38')](_0x22594e%(0x3e8*0x3c*0x3c)/(0x3e8*0x3c)),_0x20fd3d=Math[_0x5bcf('0x38')](_0x22594e%(0x3e8*0x3c)/0x3e8),_0x123bc0;if(_0x22594e<0x0)_0x123bc0='Expired/No\x20Plan!';else _0x123bc0=_0x683d1+_0x5bcf('0x39')+_0x3d2ac1+'mins:'+_0x20fd3d+_0x5bcf('0x3a');return _0x123bc0;}[_0x5bcf('0x3b')](){const _0x5afeb0=this[_0x5bcf('0x20')][_0x5bcf('0x6')][_0x5bcf('0x1d')]['initialized'],_0x30b0fa=this['socket']['Transmitter'][_0x5bcf('0x1d')][_0x5bcf('0x3c')];if(!_0x5afeb0)return _0x5bcf('0x3d');if(_0x30b0fa===0x0)return _0x5bcf('0x3e');if(_0x30b0fa===0x1)return _0x5bcf('0x3f');if(_0x30b0fa===0x2)return _0x5bcf('0x3e');if(_0x30b0fa===0xa)return _0x5bcf('0x3f');}[_0x5bcf('0x40')](){const _0x5c999e=this[_0x5bcf('0x20')]['Transmitter']['status'][_0x5bcf('0x29')],_0x923070=this[_0x5bcf('0x20')][_0x5bcf('0x6')][_0x5bcf('0x1d')][_0x5bcf('0x41')];if(!_0x5c999e)return'Not\x20connected!';if(!_0x923070)return'Disabled';return _0x5bcf('0x42');}[_0x5bcf('0x43')](_0x59effb){}[_0x5bcf('0x2c')](){!this[_0x5bcf('0x2a')]?this[_0x5bcf('0x2a')]=!![]:(document[_0x5bcf('0x18')](_0x5bcf('0x44'))[_0x5bcf('0x14')]=this[_0x5bcf('0x3b')](),document[_0x5bcf('0x18')]('ab_vShield')[_0x5bcf('0x14')]=this[_0x5bcf('0x40')]());}[_0x5bcf('0x45')](){if(!this[_0x5bcf('0x29')])return;document['getElementById'](_0x5bcf('0x46'))[_0x5bcf('0x47')]=this[_0x5bcf('0x2')][_0x5bcf('0x33')][_0x5bcf('0x48')]+'/'+(this['player'][_0x5bcf('0x33')][_0x5bcf('0x34')]===0x1f4?0x0:this[_0x5bcf('0x2')][_0x5bcf('0x33')][_0x5bcf('0x34')]),document[_0x5bcf('0x18')](_0x5bcf('0x49'))[_0x5bcf('0x47')]=''+this['calculateTime']();}}class Transmitter{constructor(_0x4dc465){this[_0x5bcf('0x20')]=_0x4dc465,this['status']={'initialized':![],'vshield':0x0,'botmode':0x0},this[_0x5bcf('0x4a')]=![];}[_0x5bcf('0x10')](_0x328528,_0x5df899){let _0x5660fd={};_0x5660fd[_0x5bcf('0x4b')]=0x11,_0x5660fd[_0x5bcf('0x4c')]=_0x328528,_0x5660fd[_0x5bcf('0x4d')]=_0x5df899,this['socket']['send'](_0x5660fd),this[_0x5bcf('0x4e')](),_0x5660fd={},_0x5660fd['action']=0x14,this[_0x5bcf('0x20')]['send'](_0x5660fd);}[_0x5bcf('0x4e')](){this[_0x5bcf('0x4f')]=setInterval(()=>{this[_0x5bcf('0x50')]();},0x32);}[_0x5bcf('0x51')](){setTimeout(()=>{let _0x2afc87={};_0x2afc87['action']=0x14,this['socket'][_0x5bcf('0x1a')](_0x2afc87);},0x7d0);}[_0x5bcf('0x52')](){let _0x3eb21d={};_0x3eb21d[_0x5bcf('0x4b')]=0x4,_0x3eb21d[_0x5bcf('0x53')]={},this[_0x5bcf('0x20')][_0x5bcf('0x1a')](_0x3eb21d);}[_0x5bcf('0x54')](_0x39e2b9,_0x2e54bf,_0x4bd029){_0x39e2b9=document[_0x5bcf('0x18')]('nick1')[_0x5bcf('0x55')],_0x2e54bf=window['target'],_0x4bd029=window['encKey'];let _0x3b5fef={};_0x3b5fef[_0x5bcf('0x4b')]=0x1,_0x3b5fef[_0x5bcf('0x56')]=_0x39e2b9,_0x3b5fef[_0x5bcf('0x57')]=''+_0x2e54bf,_0x3b5fef['ao']=_0x4bd029,_0x3b5fef[_0x5bcf('0x58')]=_0x5bcf('0x59'),this[_0x5bcf('0x20')][_0x5bcf('0x1a')](_0x3b5fef),_0x3b5fef={},_0x3b5fef['action']=0x3,this[_0x5bcf('0x20')][_0x5bcf('0x1a')](_0x3b5fef),this[_0x5bcf('0x1d')]['initialized']=!![],this[_0x5bcf('0x20')][_0x5bcf('0x4')][_0x5bcf('0x29')]=!![],this[_0x5bcf('0x20')][_0x5bcf('0x4')][_0x5bcf('0x2c')]();}[_0x5bcf('0x5a')](){let _0x1c24ef={};_0x1c24ef[_0x5bcf('0x4b')]=0xf,console[_0x5bcf('0xc')]('sent\x20eject!'),this[_0x5bcf('0x20')][_0x5bcf('0x1a')](_0x1c24ef);}[_0x5bcf('0x5b')](){let _0x489acc={};_0x489acc[_0x5bcf('0x4b')]=0x10,console[_0x5bcf('0xc')](_0x5bcf('0x5c')),this[_0x5bcf('0x20')][_0x5bcf('0x1a')](_0x489acc);}[_0x5bcf('0x50')](){if(!window['playerPos'])return;let _0x3adfa0={};_0x3adfa0['action']=0x2,_0x3adfa0['positionX']=window[_0x5bcf('0x5d')]['x'],_0x3adfa0[_0x5bcf('0x5e')]=window[_0x5bcf('0x5d')]['y'],this['socket'][_0x5bcf('0x1a')](_0x3adfa0);}['sendFFApos'](_0x598a40,_0x2b10ca){if(!(_0x598a40,_0x2b10ca))return;let _0x3fde08={};_0x3fde08['action']=0xe,_0x3fde08['a']=_0x598a40,_0x3fde08['b']=_0x2b10ca,this['socket']['send'](_0x3fde08);}['setBotMode'](){let _0x368e83={};_0x368e83[_0x5bcf('0x4b')]=0x12,_0x368e83[_0x5bcf('0x3c')]=this[_0x5bcf('0x5f')](),console['log'](_0x5bcf('0x60')),this[_0x5bcf('0x20')][_0x5bcf('0x1a')](_0x368e83);}[_0x5bcf('0x61')](){let _0x20eecb={};_0x20eecb[_0x5bcf('0x4b')]=0x13,_0x20eecb[_0x5bcf('0x62')]=this[_0x5bcf('0x63')](),console[_0x5bcf('0xc')](_0x5bcf('0x64')),this[_0x5bcf('0x20')][_0x5bcf('0x1a')](_0x20eecb);}[_0x5bcf('0x63')](){if(this[_0x5bcf('0x1d')][_0x5bcf('0x41')]===0x0)this[_0x5bcf('0x1d')][_0x5bcf('0x41')]=0x1;else this[_0x5bcf('0x1d')][_0x5bcf('0x41')]===0x1&&(this[_0x5bcf('0x1d')]['vshield']=0x0);return this[_0x5bcf('0x1d')][_0x5bcf('0x41')];}[_0x5bcf('0x5f')](){if(this[_0x5bcf('0x1d')][_0x5bcf('0x3c')]===0x0)this['status'][_0x5bcf('0x3c')]=0x1;else{if(this[_0x5bcf('0x1d')][_0x5bcf('0x3c')]===0x1)this[_0x5bcf('0x1d')][_0x5bcf('0x3c')]=0x2;else{if(this[_0x5bcf('0x1d')][_0x5bcf('0x3c')]===0x2)this[_0x5bcf('0x1d')]['botmode']=0xa;else this[_0x5bcf('0x1d')]['botmode']===0xa&&(this[_0x5bcf('0x1d')][_0x5bcf('0x3c')]=0x0);}}return this[_0x5bcf('0x1d')][_0x5bcf('0x3c')];}}class Reader{constructor(_0x24cea4){this[_0x5bcf('0x20')]=_0x24cea4,this[_0x5bcf('0x2')]=_0x24cea4[_0x5bcf('0x2')];}[_0x5bcf('0xb')](_0x4c8ec3){const _0x2a827b=_0x4c8ec3['data'];if(_0x2a827b===0x53b)this[_0x5bcf('0x2')][_0x5bcf('0x65')]=!![],this[_0x5bcf('0x2')]['PremiumType']=0x2;if(_0x2a827b===0x53a)this['player'][_0x5bcf('0x65')]=!![],this[_0x5bcf('0x2')]['PremiumType']=0x1;if(_0x2a827b===0x539)this[_0x5bcf('0x2')][_0x5bcf('0x66')]=!![];if(_0x2a827b===0x15){if(!this[_0x5bcf('0x2')][_0x5bcf('0x29')])this['player'][_0x5bcf('0x29')]=!![];if(this[_0x5bcf('0x2')][_0x5bcf('0x29')])this['socket'][_0x5bcf('0x6')][_0x5bcf('0x51')]();}else this[_0x5bcf('0x2')][_0x5bcf('0x33')]=JSON['parse'](_0x2a827b),this[_0x5bcf('0x20')][_0x5bcf('0x6')][_0x5bcf('0x52')](),this['socket']['GUI']['update']();}}class MoreBotsHotkeys{constructor(_0x47315e){this['socket']=_0x47315e,this[_0x5bcf('0x6')]=_0x47315e['Transmitter'],this['active']=new Set(),this[_0x5bcf('0x67')]=null,this[_0x5bcf('0x68')](),this[_0x5bcf('0x69')]();}[_0x5bcf('0x68')](){const _0x3f1a01=window[_0x5bcf('0x6a')];document[_0x5bcf('0x22')]['addEventListener'](_0x5bcf('0x68'),_0x558c69=>{const _0x5b46ff=_0x558c69[_0x5bcf('0x6b')]['toLocaleUpperCase']();if(!(_0x5b46ff===0x8||_0x558c69['ctrlKey']||_0x558c69[_0x5bcf('0x6c')]||_0x558c69[_0x5bcf('0x6d')])){if(_0x5b46ff===_0x3f1a01[_0x5bcf('0x6e')]){if(this[_0x5bcf('0x6f')](_0x3f1a01[_0x5bcf('0x6e')]))return;this[_0x5bcf('0x70')][_0x5bcf('0x71')](_0x3f1a01['BotFeedHotkey']),this['macro']=setInterval(()=>{this[_0x5bcf('0x20')][_0x5bcf('0x6')][_0x5bcf('0x5a')]();},0x4b);}if(_0x5b46ff===_0x3f1a01[_0x5bcf('0x72')]){if(this[_0x5bcf('0x6f')](_0x3f1a01[_0x5bcf('0x72')]))return;this[_0x5bcf('0x70')][_0x5bcf('0x71')](_0x3f1a01[_0x5bcf('0x72')]),this[_0x5bcf('0x20')][_0x5bcf('0x6')]['sendSplit']();}if(_0x5b46ff===_0x3f1a01['BotAiHotkey']){if(this['isActive'](_0x3f1a01[_0x5bcf('0x73')]))return;this[_0x5bcf('0x70')][_0x5bcf('0x71')](_0x3f1a01[_0x5bcf('0x73')]),this[_0x5bcf('0x20')][_0x5bcf('0x6')]['setBotMode']();}}});let _0x46db73=document[_0x5bcf('0x18')](_0x5bcf('0x16'));_0x46db73[_0x5bcf('0x74')]('click',()=>{this[_0x5bcf('0x6')][_0x5bcf('0x4a')]?(this[_0x5bcf('0x20')][_0x5bcf('0x1e')](),this[_0x5bcf('0x6')][_0x5bcf('0x4a')]=![],_0x46db73[_0x5bcf('0x75')]=!![],_0x46db73[_0x5bcf('0x47')]='Stopping...'):(this[_0x5bcf('0x6')][_0x5bcf('0x54')](),this[_0x5bcf('0x6')][_0x5bcf('0x4a')]=!![],_0x46db73['innerHTML']=_0x5bcf('0x76'));}),document[_0x5bcf('0x18')](_0x5bcf('0x77'))[_0x5bcf('0x74')]('click',()=>this[_0x5bcf('0x20')][_0x5bcf('0x1e')]()),document[_0x5bcf('0x18')]('join-room')[_0x5bcf('0x74')]('click',()=>this[_0x5bcf('0x20')]['change']());}['keyup'](){const _0x1ed199=window['SettingsStore'];document[_0x5bcf('0x22')][_0x5bcf('0x74')](_0x5bcf('0x69'),_0x4bec93=>{const _0x5b515b=_0x4bec93[_0x5bcf('0x6b')][_0x5bcf('0x78')]();if(!(_0x5b515b===0x8||_0x4bec93[_0x5bcf('0x79')]||_0x4bec93[_0x5bcf('0x6c')]||_0x4bec93[_0x5bcf('0x6d')])){if(_0x5b515b===_0x1ed199[_0x5bcf('0x6e')])this[_0x5bcf('0x70')][_0x5bcf('0x7a')](_0x1ed199[_0x5bcf('0x6e')]),clearInterval(this[_0x5bcf('0x67')]);if(_0x5b515b===_0x1ed199['BotSplitHotkey'])this[_0x5bcf('0x70')][_0x5bcf('0x7a')](_0x1ed199[_0x5bcf('0x72')]);if(_0x5b515b===_0x1ed199[_0x5bcf('0x73')])this['active'][_0x5bcf('0x7a')](_0x1ed199[_0x5bcf('0x73')]);this[_0x5bcf('0x20')][_0x5bcf('0x4')]['updateRows']();}});}[_0x5bcf('0x7b')](_0x366186,_0x40f0c4){const _0x4ba1e1=JSON[_0x5bcf('0x7c')](localStorage[_0x5bcf('0x7d')](this[_0x5bcf('0x7e')]));_0x4ba1e1[_0x366186]=_0x40f0c4,localStorage[_0x5bcf('0x7f')](this[_0x5bcf('0x7e')],JSON['stringify'](_0x4ba1e1)),this[_0x5bcf('0x80')][_0x366186]=_0x40f0c4[_0x5bcf('0x81')](),this[_0x5bcf('0x20')]['GUI'][_0x5bcf('0x2c')]();}['isActive'](_0x1ad307){return this['active'][_0x5bcf('0x82')](_0x1ad307);}[_0x5bcf('0x83')](_0x1b9b90){return _0x1b9b90[_0x5bcf('0x81')]()[_0x5bcf('0x84')]();}}
+export default class {
+    static boot() {
+        if (this.booted) return;
+        this.booted = true;
+
+        new class MoreBots {
+            constructor(ip) {
+                this.ip = '';
+                this.ws = null;
+                this.player = {
+                    isPremium: false,
+                    PremiumType: 0,
+                    PureFeeder: false,
+                    startTime: Date.now(),
+                    decoded: {},
+                    initialized: false
+                }
+                this.GUI = new GUI(this);
+                this.Reader = new Reader(this);
+                this.Transmitter = new Transmitter(this);
+                this.Hotkeys = new MoreBotsHotkeys(this);
+                this.connect(ip);
+            }
+            connect(ip) {
+                ip = 'wss://gamesrv.agarbot.ovh:8443';
+                this.ip = ip;
+                this.ws = new WebSocket(this.ip);
+                this.ws.onopen = () => this.onopen();
+                this.ws.onmessage = obj => this.Reader.read(obj);
+                this.ws.onerror = () => console.log('[MOREBOTS] Error while connecting!');
+                this.ws.onclose = () => this.onclose();
+            }
+            onopen() {
+                console.log('[MOREBOTS] Authenticating to the server!');
+                const label = document.getElementById("ab_label").innerHTML || "AgarBot.OVH";
+                const key = label == "AgarBot.OVH" ? "Agarbot_HSLO" : 'Morebots_HSLO2';
+                this.Transmitter.handshake('220720', key);
+                document.getElementById("ab_serverStatus").innerText = "Connected";
+                document.getElementById('ab_controlStart').innerText = "START BOTS";
+                document.getElementById('ab_controlStart').disabled = false;
+            }
+            onclose() {
+                console.log('[MOREBOTS] Closed the connessione!');
+                document.getElementById("ab_serverStatus").innerText = "Disconnected";
+            }
+            send(data) {
+                if(!this.ws || !this.ip || this.ws.readyState !== 1) return;
+                this.ws.send(JSON.stringify(data));
+            }
+            reset() {
+                this.player = {
+                    isPremium: false,
+                    PremiumType: 0,
+                    PureFeeder: false,
+                    startTime: Date.now(),
+                    decoded: {
+                        currentBots: 0
+                    },
+                    initialized: false
+                }
+                this.Transmitter.status = {
+                    initialized: false,
+                    vshield: 0,
+                    botmode: 0
+                }
+            }
+            change() {
+                this.ws.close();
+                this.reset();
+                this.connect();
+            }
+        }
+    }
+}
+
+class GUI {
+    constructor(socket) {
+        this.socket = socket;
+        this.player = this.socket.player;
+        this.body = document.getElementsByTagName('body')[0];
+        this.divs = {
+            maindiv: document.createElement('div'),
+            img: document.createElement('div'),
+            data: document.createElement('div'),
+            rows: {
+                bots: document.createElement('row'),
+                eject: document.createElement('row'),
+                split: document.createElement('row'),
+                botgamemode: document.createElement('row'),
+                vshield: document.createElement('row'),
+                endtime: document.createElement('row'),
+            }
+        }
+        this.inputs = {
+            eject: document.createElement('input'),
+            split: document.createElement('input'),
+            botgamemode: document.createElement('input'),
+            vShield: document.createElement('input')
+        }
+
+        this.initialized = false;
+        this.rowsinit = false;
+        this.initialize();
+    }
+    initialize() {
+        try {
+            this.initialized = true;
+            setTimeout(() => {
+                this.updateRows();
+            }, 1000);
+        } catch(err) {
+            throw new Error(err);
+        }
+    }
+    updateBar() {
+        const initialized = this.socket.Transmitter.status.initialized;
+        if(!initialized) {
+            document.getElementById('bots').style.width = `0%`;
+            document.getElementById('bots').style.visibility = 'hidden';
+        } else {
+            const Percentage = ((this.player.decoded.currentBots/this.player.decoded.maxBots) * 100) - 1;
+            document.getElementById('bots').style.width = `${Percentage}%`;
+            document.getElementById('bots').style.visibility = 'visible';
+        }
+    }
+    calculateTime() {
+        const ActualTime = new Date();
+        const EndTime = new Date(this.player.decoded.expire);
+        var distance = EndTime - ActualTime;
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        var msg;
+        if(distance < 0) msg = 'Expired/No Plan!';
+        else msg = `${hours}hrs:${minutes}mins:${seconds}secs`;
+
+        return msg;
+    }
+    getBotMode() {
+        const initialized = this.socket.Transmitter.status.initialized;
+        const type = this.socket.Transmitter.status.botmode;
+        if(!initialized) return "Not connected!";
+        if(type === 0) return "Normal";
+        if(type === 1) return "Farmer";
+        if(type === 2) return "Normal";
+        if(type === 10) return "Farmer";
+    }
+    getvShieldMode() {
+        const initialized = this.socket.Transmitter.status.initialized;
+        const type = this.socket.Transmitter.status.vshield;
+        if(!initialized) return "Not connected!";
+        if(!type) return "Disabled";
+        return "Actived";
+    }
+    onChange(evt) {}
+    updateRows() {
+        if(!this.rowsinit) {
+            this.rowsinit = true;
+        } else {
+            document.getElementById('ab_mode').innerText = this.getBotMode();
+            document.getElementById('ab_vShield').innerText = this.getvShieldMode();
+        }
+    }
+    update() {
+        if(!this.initialized) return;
+        // this.updateBar();
+        document.getElementById("ab_botsAmount").innerHTML = `${this.player.decoded.currentBots}/${this.player.decoded.maxBots === 500 ? 0 : this.player.decoded.maxBots}`;
+        document.getElementById("ab_botsTime").innerHTML = `${this.calculateTime()}`;
+    }
+}
+
+class Transmitter {
+    constructor(socket) {
+        this.socket = socket;
+        this.status = {
+            initialized: false,
+            vshield: 0,
+            botmode: 0
+        }
+        this.started = false;
+    }
+    handshake(ver, vext) {
+        let buffer = {};
+        buffer.action = 17;
+        buffer.ver = ver;
+        buffer.vext = vext;
+        this.socket.send(buffer);
+        this.start();
+        buffer = {};
+        buffer.action = 20;
+        this.socket.send(buffer);
+    }
+    start() {
+        this.moveInterval = setInterval(() => {
+            this.sendPosition();
+        }, 50);
+    }
+    activePlayer() {
+        setTimeout(() => {
+            let buffer = {};
+            buffer.action = 20;
+            this.socket.send(buffer);
+        }, 2E3);
+    }
+    activeClient() {
+        let buffer = {};
+        buffer.action = 4;
+        buffer.leaderBoard = {};
+        this.socket.send(buffer);
+    }
+    sendSpawn(nick, ip, clientKey) {
+        nick = document.getElementById('nick1').value;
+        ip = window.target;
+        clientKey = window.encKey;
+        let buffer = {};
+        buffer.action = 1;
+        buffer.clientname = nick;
+        buffer.targetIp = `${ip}`;
+        buffer.ao = clientKey;
+        buffer.targetRoom = "#8LAWM8";
+        this.socket.send(buffer);
+        buffer = {};
+        buffer.action = 3;
+        this.socket.send(buffer);
+        this.status.initialized = true;
+        this.socket.GUI.initialized = true;
+        this.socket.GUI.updateRows();
+    }
+    sendEject() {
+        let buffer = {};
+        buffer.action = 15;
+        console.log('sent eject!');
+        this.socket.send(buffer);
+    }
+    sendSplit() {
+        let buffer = {};
+        buffer.action = 16;
+        console.log('sent split!');
+        this.socket.send(buffer);
+    }
+    sendPosition() {
+        if (!window.playerPos) return;
+        let buffer = {};
+        buffer.action = 2;
+        buffer.positionX = window.playerPos.x;
+        buffer.positionY = window.playerPos.y;
+        this.socket.send(buffer);
+    }
+    sendFFApos(x, y) {
+        if(!(x, y)) return;
+        let buffer = {};
+        buffer.action = 14;
+        buffer.a = x;
+        buffer.b = y;
+        this.socket.send(buffer);
+    }
+    setBotMode() {
+        let buffer = {};
+        buffer.action = 18;
+        buffer.botmode = this.setBotModeCode();
+        console.log('sent bot mode!');
+        this.socket.send(buffer);
+    }
+    vShield() {
+        let buffer = {};
+        buffer.action = 19;
+        buffer.botmode2 = this.setvShieldCode();
+        console.log('sent vshield!');
+        this.socket.send(buffer);
+    }
+    setvShieldCode() {
+        if(this.status.vshield === 0) {
+            this.status.vshield = 1;
+        } else if(this.status.vshield === 1) {
+            this.status.vshield = 0;
+        }
+        return this.status.vshield;
+    }
+    setBotModeCode() {
+        if(this.status.botmode === 0) {
+            this.status.botmode = 1;
+        } else if(this.status.botmode === 1) {
+            this.status.botmode = 2;
+        } else if(this.status.botmode === 2) {
+            this.status.botmode = 10;
+        } else if(this.status.botmode === 10) {
+            this.status.botmode = 0;
+        }
+        return this.status.botmode;
+    }
+}
+
+class Reader {
+    constructor(socket) {
+        this.socket = socket;
+        this.player = socket.player;
+    }
+    read(buffer) {
+        const opcode = buffer.data;
+        if(opcode === 1339) (this.player.isPremium = true,this.player.PremiumType = 2);
+        if(opcode === 1338) (this.player.isPremium = true, this.player.PremiumType = 1);
+        if(opcode === 1337) this.player.PureFeeder = true;
+        if(opcode === 21) {
+            if(!this.player.initialized) this.player.initialized = true;
+            if(this.player.initialized) this.socket.Transmitter.activePlayer();
+        } else {
+            this.player.decoded = JSON.parse(opcode);
+            this.socket.Transmitter.activeClient();
+            this.socket.GUI.update();
+        }
+    }
+}
+
+class MoreBotsHotkeys {
+    constructor(socket) {
+        this.socket = socket;
+        this.Transmitter = socket.Transmitter;
+        this.active = new Set();
+        this.macro = null;
+        this.keydown();
+        this.keyup();
+    }
+    keydown() {
+        const HS = window.SettingsStore;
+        document.body.addEventListener('keydown', evt => {
+            // const key = evt.keyCode;
+            const key = evt.key.toLocaleUpperCase();
+            if(!(key === 8 || evt.ctrlKey || evt.shiftKey || evt.altKey)) {
+                if(key === HS.BotFeedHotkey) {
+                    if(this.isActive(HS.BotFeedHotkey)) return;
+                    this.active.add(HS.BotFeedHotkey);
+                    this.macro = setInterval(() => {
+                        this.socket.Transmitter.sendEject();
+                    }, 75);
+                }
+                if(key === HS.BotSplitHotkey) {
+                    if(this.isActive(HS.BotSplitHotkey)) return;
+                    this.active.add(HS.BotSplitHotkey);
+                    this.socket.Transmitter.sendSplit();
+                }
+                if(key === HS.BotAiHotkey) {
+                    if(this.isActive(HS.BotAiHotkey)) return;
+                    this.active.add(HS.BotAiHotkey);
+                    this.socket.Transmitter.setBotMode();
+                }
+                /* if(key === this.getKey(this.keys.vShield)) {
+                    if(this.isActive(this.keys.vShield)) return;
+                    this.active.add(this.keys.vShield);
+                    this.socket.Transmitter.vShield();
+                }    */
+            }
+        });
+
+        // document.getElementById('play').addEventListener('click', () => this.Transmitter.sendSpawn());
+        let btn = document.getElementById('ab_controlStart');
+        btn.addEventListener('click', () => {
+            if (this.Transmitter.started) {
+                this.socket.change();
+                this.Transmitter.started = false;
+                btn.disabled = true;
+                btn.innerHTML = "Stopping...";
+            } else {
+                this.Transmitter.sendSpawn();
+                this.Transmitter.started = true;
+                btn.innerHTML = "STOP BOTS";
+            }
+        });
+
+        document.getElementById('create-room').addEventListener('click', () => this.socket.change());
+        document.getElementById('join-room').addEventListener('click', () => this.socket.change());
+    }
+    keyup() {
+        const HS = window.SettingsStore;
+        document.body.addEventListener('keyup', evt => {
+            // const key = evt.keyCode;
+            const key = evt.key.toLocaleUpperCase();
+            if(!(key === 8 || evt.ctrlKey || evt.shiftKey || evt.altKey)) {
+                if(key === HS.BotFeedHotkey) (this.active.delete(HS.BotFeedHotkey), clearInterval(this.macro));
+                if(key === HS.BotSplitHotkey) this.active.delete(HS.BotSplitHotkey);
+                if(key === HS.BotAiHotkey) this.active.delete(HS.BotAiHotkey);
+                // if(key === this.getKey(this.keys.vShield)) this.active.delete(this.keys.vShield);
+                this.socket.GUI.updateRows();
+            }
+        })
+    }
+    setStorage(type, key) {
+        const storage = JSON.parse(localStorage.getItem(this.storagekey));
+        storage[type] = key;
+        localStorage.setItem(this.storagekey, JSON.stringify(storage));
+        this.keys[type] = key.toUpperCase();
+        this.socket.GUI.updateRows();
+    }
+    isActive(key) {
+        return this.active.has(key);
+    }
+    getKey(key) {
+        return key.toUpperCase().charCodeAt();
+    }
+}
