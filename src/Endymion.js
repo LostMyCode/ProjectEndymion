@@ -6626,11 +6626,11 @@ const disappearedEntities = new Map();
                     let fixedSize = drawMaou ? 0x0 | (s * 0.9) : s;
 
                     // draw viewport area
-                    /* if (aNw["_tabId_dayo"] < 2) aNv.rect(
-                        boxSize[aNw["_tabId_dayo"]].minX,
-                        boxSize[aNw["_tabId_dayo"]].minY,
-                        boxSize[aNw["_tabId_dayo"]].maxX - boxSize[aNw["_tabId_dayo"]].minX,
-                        boxSize[aNw["_tabId_dayo"]].maxY - boxSize[aNw["_tabId_dayo"]].minY
+                    /* if (tabId < 2) aNv.rect(
+                        boxSize[tabId].minX,
+                        boxSize[tabId].minY,
+                        boxSize[tabId].maxX - boxSize[tabId].minX,
+                        boxSize[tabId].maxY - boxSize[tabId].minY
                     );
                     aNv.stroke(); */
 
