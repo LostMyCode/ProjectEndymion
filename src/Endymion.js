@@ -2190,12 +2190,16 @@ const disappearedEntities = new Map();
     var aYv = new(function () {
         function aYw() {
             _classCallCheck(this, aYw);
-            this._2CL1627e8a692645e68 = new Map(), this._2CL59e76edc8173405f = new Map(), this.selfID_kamo = -0x1, this._2CL01cdc4c56f3c16bc = new aYb(-0x1, '');
+            this._2CL1627e8a692645e68 = new Map()
+            this._2CL59e76edc8173405f = new Map()
+            this.selfID_kamo = -0x1
+            this._2CL01cdc4c56f3c16bc = new aYb(-0x1, '');
         }
         _createClass(aYw, [{
             'key': '_2CL52a96de0605b8df2',
             'value': function _2CL52a96de0605b8df2() {
-                b0e._2CLe43e55a05f37528c(), setInterval(function () {
+                b0e._2CLe43e55a05f37528c()
+                setInterval(function () {
                     b0l._2CL244fe1e06ace6919();
                 }, 0x3e8);
             }
@@ -2315,15 +2319,215 @@ const disappearedEntities = new Map();
         }]);
         return aZ0;
     }();
-    var aZ7 = new(function () { // hslo network onmessage
-        function aZ8() {
-            _classCallCheck(this, aZ8);
+
+    const OgarioSender = new class {
+        init() {
+            this.tag()
+            this.partyToken()
+            this.serverToken()
+            this.nick()
+            this.nick2()
+            this.skin()
+            this.skin2()
+            this.join(1)
+            this.join(2)
         }
-        _createClass(aZ8, [{
-            'key': '_2CL0d88847754015168',
-            'value': function _2CL0d88847754015168(aNv) {
-                var aNw = new aU8(aNv);
-                switch (aNw.getUint8()) {
+        sendString(e, t, s) {
+            if (Ogario.isConnected(s || 1)) {
+                const i = new X;
+                i.writeUint8(e)
+                i.writeUTF16StringNonZero(t);
+                try {
+                    Ogario.send(i.buffer, s || 1)
+                } catch (e) {}
+                console.log(e, t)
+            }
+        }
+        sendInteger(e, t) {
+            if (Ogario.isConnected(t || 1)) {
+                const s = new X;
+                s.writeUint8(e);
+                try {
+                    Ogario.send(s.buffer, t || 1)
+                } catch (e) {}
+            }
+        }
+        nick() {
+            A.nick && this.sendString(10, A.nick, 1)
+        }
+        nick2() {
+            A.nick2 && this.sendString(10, A.nick2, 2)
+        }
+        tag() {
+            this.sendString(11, A._tag, 1),
+                this.sendString(11, A._tag, 2)
+        }
+        skin() {
+            A.skin && this.sendString(12, "https://i.imgur.com/" + A.skin + ".png", 1)
+        }
+        skin2() {
+            A.skin2 && this.sendString(12, "https://i.imgur.com/" + A.skin2 + ".png", 2)
+        }
+        partyToken() {
+            const e = jQuery("#party-token").val();
+            e && this.sendString(15, e, 1),
+                e && this.sendString(15, e, 2)
+        }
+        serverToken() {
+            const e = !!q.address && q.address.match(/live-arena-([\w\d]+)\.agar\.io:\d+/);
+            e && e[1] && this.sendString(16, e[1], 1),
+                e && e[1] && this.sendString(16, e[1], 2)
+        }
+        region() {
+            const e = jQuery("#regions").val().split("-");
+            e && e[0] && this.sendString(17, e[0], 1),
+                e && e[0] && this.sendString(17, e[0], 2)
+        }
+        gameMode() {
+            this.sendString(18, "PTY", 1),
+            this.sendString(18, "PTY", 2)
+        }
+        spawn(e) {
+            this.sendInteger(1, e)
+        }
+        death(e) {
+            this.sendInteger(2, e)
+        }
+        join(e) {
+            this.sendInteger(3, e)
+        }
+        positionMass(e) {
+            if (Ogario.isConnected(e || 1)) {
+                const t = new X;
+                t.writeUint8(30),
+                    t.writeUint32(e && 2 === e ? se.playerID2 : se.playerID),
+                    t.writeInt32((e && 2 === e ? A.x2 : A.x1) - G.offset.x),
+                    t.writeInt32((e && 2 === e ? A.y2 : A.y1) - G.offset.y),
+                    t.writeUint32(e && 2 === e ? A.mass2 : A.mass1);
+                try {
+                    Ogario.send(t.buffer, e)
+                } catch (e) {}
+            }
+        }
+        playerData(e) {
+            if (Ogario.isConnected(e || 1) && A.isAlive && (e && 2 === e ? se.playerID2 : se.playerID)) {
+                const t = new X;
+                t.writeUint8(20)
+                t.writeUint32(e && 2 === e ? se.playerID2 : se.playerID)
+                t.writeUTF16String(e && 2 === e ? A.nick2 : A.nick)
+                t.writeUTF16String(e && 2 === e ? N.code2url(A.skin2) : N.code2url(A.skin))
+                t.writeUTF16String("#555555")
+                t.writeUTF16String(e && 2 === e ? A.colorHexTab2 : A.colorHexTab1)
+                // console.log("Sending OGARio Buffer " + e);
+                try {
+                    Ogario.send(t.buffer, e)
+                } catch (e) {}
+            }
+        }
+        message(e, t, s) {
+            if (Ogario.isConnected(s || 1) && (s && 2 === s ? se.playerID2 : se.playerID)) {
+                const i = new X;
+                i.writeUint8(100)
+                i.writeUint8(e)
+                i.writeUint32(s && 2 === s ? se.playerID2 : se.playerID)
+                i.writeUint32(0)
+                i.writeUTF16StringNonZero((s && 2 === s ? A.nick2 : A.nick || "unnamed") + ": " + t);
+                try {
+                    Ogario.send(i.buffer, s)
+                } catch (e) {}
+            }
+        }
+    }
+
+    /**
+     * @description Ogario network connection
+     */
+    const Ogario = new class {
+        constructor() {
+            this.address = "snez.org:8080/ws";
+            this.ogarWS1 = null;
+        }
+        init() {
+            this.ogarWS1 = new WebSocket("wss://" + this.address);
+            this.ogarWS1.binaryType = "arraybuffer";
+            this.ogarWS1.onopen = (() => e.onOpen(1));
+            this.ogarWS1.onmessage = (t => e.onMessage(t, 1));
+            this.ogarWS1.onclose = (() => e.onClose(1));
+            this.ogarWS1.onerror = (() => e.onError(1));
+            console.log("Connecting to Ogario Networks.")
+        }
+        reconnect(tab) {
+            this.ogarWS1.close()
+            this.ogarWS1 = null
+            this.ogarWS1 = new WebSocket("wss://" + this.address)
+            this.ogarWS1.binaryType = "arraybuffer"
+            this.ogarWS1.onopen = (() => e.onOpen(1))
+            this.ogarWS1.onmessage = (t => e.onMessage(t, 1))
+            this.ogarWS1.onclose = (() => e.onClose(1))
+            this.ogarWS1.onerror = (() => e.onError(1))
+        }
+        send(e, t) {
+            this.ogarWS1.send(e)
+        }
+        onOpen(e) {
+            console.log(`Connected to Ogario Networks. (${e})`);
+    
+            // handshake
+            let w = new Writer(5);
+            w.writeUint8(0);
+            w.writeUint32(401);
+            this.send(w.dataView, 1);
+    
+            // tag
+            
+        }
+        onMessage(e, t) {
+            // t = tab
+            OgarioMessage.parse(e, t)
+        }
+        onClose(e) {
+            console.log(`Disconnected from Ogario server. (${e})`)
+        }
+        onError(e) {
+            console.log(`Connection to Ogario server errored out! (${e})`)
+        }
+        isConnected(e) {
+            return this.ogarWS1 && this.ogarWS1.readyState === this.ogarWS1.OPEN
+        }
+    }
+
+    /**
+     * @description Ogario network message handler
+     */
+    const OgarioMessage = new class {
+        parse(data, tab) {
+            data = new BufferReader(data.data);
+            switch (data.getUint8()) {
+                case 0:
+                    this.selfID(data);
+                    break;
+                case 1:
+                    this.requestPlayerUpdate();
+                    break;
+                case 20:
+                    this.updateTeamPlayer(t, tab);
+                    break;
+                case 30:
+                    this.updateTeamPlayerPosition(t, tab);
+                    break;
+                case 100:
+                    this.chat(t, tab)
+            }
+        }
+    }
+
+    /**
+     * @description HSLO Network message handler
+     */
+    var aZ7 = new class {
+        _2CL0d88847754015168(aNv) {
+            var aNw = new aU8(aNv);
+            switch (aNw.getUint8()) {
                 case 0x1:
                     this.selfID_kamo(aNw);
                     break;
@@ -2341,198 +2545,184 @@ const disappearedEntities = new Map();
                     break;
                 case 0x6:
                     this._2CLe50ece9570a295f9(aNw);
-                }
             }
-        }, {
-            'key': 'selfID_kamo',
-            'value': function selfID_kamo(aNv) {
-                var aNw = aNv.getUint16();
-                aYv._init_hatena(), aYv.selfID_kamo = aNw;
-            }
-        }, {
-            'key': 'roomJoin_kamo',
-            'value': function roomJoin_kamo(aNv) {
-                var aNw = aNv.getUint16(),
-                    aNx = aNv._2CL9f86d97a7bdf1abb();
-                aYv._2CLd23b80a83838ebeb(aNw, aNx);
-                var aNy = aNv.getUint8();
-                for (var aZh = 0x0; aZh < aNy; aZh++) {
-                    var aZi = aNv.getUint16(),
-                        aZj = aYv._2CL590987bd6e227033(aZi, aNw);
-                    aZj._2CL8ac401cc9f1e8785[0x0] = aNv._2CL9f86d97a7bdf1abb(), aZj._2CL8ac401cc9f1e8785[0x1] = aNv._2CL9f86d97a7bdf1abb();
-                    for (var aZk = 0x0; aZk < 0x2; aZk++) {
-                        var aZl = aNv.getUint8(),
-                            aZm = aNv._2CL74a03352fa125990();
-                        aZj._2CLba02dd97aca1c8d3(aZk, aZl, aZm);
-                    }
-                    for (var aZn = 0x0; aZn < 0x2; aZn++) {
-                        var aZo = aNv.getUint8(),
-                            aZp = aNv.getUint8(),
-                            aZq = aNv.getUint8();
-                        aZj._2CL1849df6af84c6815[aZn]['_2CLcc32da8337a77c45'](aZo, aZp, aZq);
-                    }
-                    for (var aZr = 0x0; aZr < 0x2; aZr++) {
-                        var aZs = aNv.getUint8();
-                        aZj._2CLa8da637215ed8fdd[aZr] = !!aZs;
-                    }
-                }
-            }
-        }, {
-            'key': 'roomUpdate_kamo',
-            'value': function roomUpdate_kamo(aNv) {
-                var aNw = aNv.getUint16(),
-                    aNx = aNv.getUint8();
-                for (var aZw = 0x0; aZw < aNx; aZw++) {
-                    var aZx = aNv.getUint16(),
-                        aZy = aYv._2CL590987bd6e227033(aZx, aNw);
-                    aZy._2CL8ac401cc9f1e8785[0x0] = aNv._2CL9f86d97a7bdf1abb(), aZy._2CL8ac401cc9f1e8785[0x1] = aNv._2CL9f86d97a7bdf1abb();
-                    for (var aZz = 0x0; aZz < 0x2; aZz++) {
-                        var aZA = aNv.getUint8(),
-                            aZB = aNv._2CL74a03352fa125990();
-                        aZy._2CLba02dd97aca1c8d3(aZz, aZA, aZB);
-                    }
-                    for (var aZC = 0x0; aZC < 0x2; aZC++) {
-                        var aZD = aNv.getUint8(),
-                            aZE = aNv.getUint8(),
-                            aZF = aNv.getUint8();
-                        aZy._2CL1849df6af84c6815[aZC]['_2CLcc32da8337a77c45'](aZD, aZE, aZF);
-                    }
-                    for (var aZG = 0x0; aZG < 0x2; aZG++) {
-                        var aZH = aNv.getUint8();
-                        aZy._2CLa8da637215ed8fdd[aZG] = !!aZH;
-                    }
-                }
-                var aNy = aNv.getUint8();
-                for (var aZJ = 0x0; aZJ < aNy; aZJ++) {
-                    var aZK = aNv.getUint16(),
-                        aZL = aYv._2CL771f42f2e56ba112(aZK),
-                        aZM = aNv.getUint8();
-                    if (0x1 & aZM && (aZL._2CL8ac401cc9f1e8785[0x0] = aNv._2CL9f86d97a7bdf1abb(), aZL._2CL8ac401cc9f1e8785[0x1] = aNv._2CL9f86d97a7bdf1abb()), 0x2 & aZM)
-                        for (var aZN = 0x0; aZN < 0x2; aZN++) {
-                            var aZO = aNv.getUint8(),
-                                aZP = aNv._2CL74a03352fa125990();
-                            aZL._2CLba02dd97aca1c8d3(aZN, aZO, aZP);
-                        }
-                    if (0x4 & aZM)
-                        for (var aZQ = 0x0; aZQ < 0x2; aZQ++) {
-                            var aZR = aNv.getUint8(),
-                                aZS = aNv.getUint8(),
-                                aZT = aNv.getUint8();
-                            aZL._2CL1849df6af84c6815[aZQ]['_2CLcc32da8337a77c45'](aZR, aZS, aZT);
-                        }
-                    if (0x8 & aZM)
-                        for (var aZU = 0x0; aZU < 0x2; aZU++) {
-                            var aZV = 0x0 !== aNv.getUint8();
-                            aZL._2CLa8da637215ed8fdd[aZU] = aZV;
-                        }
-                    for (var aZW = 0x0; aZW < 0x2; aZW++) {
-                        if (aZL._2CLa8da637215ed8fdd[aZW]) {
-                            var aZX = aNv.getInt16(),
-                                aZY = aNv.getInt16(),
-                                aZZ = aNv.getUint32();
-                            aZL._2CLcc32da8337a77c45(aZW, aZX, aZY, aZZ);
-                        }
-                    }
-                }
-                var aNz = aNv.getUint8();
-                for (var b01 = 0x0; b01 < aNz; b01++) {
-                    var b02 = aNv.getUint16();
-                    aYv._2CLa2401f3a6e826384(b02);
-                }
-            }
-        }, {
-            'key': 'roomLeave_kamo',
-            'value': function roomLeave_kamo(aNv) {
-                var aNw = aNv.getUint16();
-                aYv._2CL747ad4c6110d5907(aNw);
-            }
-        }, {
-            'key': 'chat_fn',
-            'value': function chat_fn(aNv) {
-                var playerId = aNv.getUint16(),
-                    tabId = aNv.getUint8(),
-                    msgType = aNv.getUint8(),
-                    message = aNv._2CL9f86d97a7bdf1abb();
-
-                let splited = message.split("");
-                let fixed = "";
-                for (let i = 0; i < splited.length; i++) {
-                    if (splited[i].charCodeAt() > 255) continue;
-                    fixed += splited[i];
-                }
-                if (fixed.includes("ryuten.io")) {
-                    // return console.log("[test114514] Advertisement messsage from saigo blocked");
-                    return;
-                }
-                aYv.chat_fn(playerId, tabId, msgType, message);
-            }
-        }, {
-            'key': '_2CLe50ece9570a295f9',
-            'value': function _2CLe50ece9570a295f9(aNv) {
-                var aNw = aNv.getInt16(),
-                    aNx = aNv.getInt16(),
-                    aNy = new aZ0(aNw, aNx);
-                b2u._2CLedf2cf1e1c8c3141.add(aNy);
-            }
-        }]);
-        return aZ8;
-    }())();
-    var b0e = new(function () {
-        function b0f() {
-            _classCallCheck(this, b0f);
-            this._url_kamo = 'wss://ddraig.hslo.io', this._ws_inst = null, this._2CL166d9df08441011f = 0x1f4;
         }
-        _createClass(b0f, [{
-            'key': '_2CLe43e55a05f37528c',
-            'value': function _2CLe43e55a05f37528c() {
-                var b0g = this;
-                this._ws_inst = new WebSocket(this._url_kamo, 'main'), this._ws_inst.binaryType = 'arraybuffer', this._ws_inst.onopen = function () {
-                    return b0g.onopen_fn();
-                }, this._ws_inst.onmessage = function (aNv) {
-                    return b0g.onmessage_fn(aNv);
-                }, this._ws_inst.onclose = function () {
-                    return b0g.onclose_fn();
-                }, this._ws_inst.onerror = function () {
-                    return b0g.onerror_fn();
-                };
+        selfID_kamo(aNv) {
+            var aNw = aNv.getUint16();
+            aYv._init_hatena()
+            aYv.selfID_kamo = aNw;
+        }
+        roomJoin_kamo(aNv) {
+            var aNw = aNv.getUint16(),
+                aNx = aNv._2CL9f86d97a7bdf1abb();
+            aYv._2CLd23b80a83838ebeb(aNw, aNx);
+            var aNy = aNv.getUint8();
+            for (var aZh = 0x0; aZh < aNy; aZh++) {
+                var aZi = aNv.getUint16(),
+                    aZj = aYv._2CL590987bd6e227033(aZi, aNw);
+                aZj._2CL8ac401cc9f1e8785[0x0] = aNv._2CL9f86d97a7bdf1abb(), aZj._2CL8ac401cc9f1e8785[0x1] = aNv._2CL9f86d97a7bdf1abb();
+                for (var aZk = 0x0; aZk < 0x2; aZk++) {
+                    var aZl = aNv.getUint8(),
+                        aZm = aNv._2CL74a03352fa125990();
+                    aZj._2CLba02dd97aca1c8d3(aZk, aZl, aZm);
+                }
+                for (var aZn = 0x0; aZn < 0x2; aZn++) {
+                    var aZo = aNv.getUint8(),
+                        aZp = aNv.getUint8(),
+                        aZq = aNv.getUint8();
+                    aZj._2CL1849df6af84c6815[aZn]['_2CLcc32da8337a77c45'](aZo, aZp, aZq);
+                }
+                for (var aZr = 0x0; aZr < 0x2; aZr++) {
+                    var aZs = aNv.getUint8();
+                    aZj._2CLa8da637215ed8fdd[aZr] = !!aZs;
+                }
             }
-        }, {
-            'key': 'wsSend_fn',
-            'value': function wsSend_fn(aNv) {
-                this._ws_inst.send(aNv);
+        }
+        roomUpdate_kamo(aNv) {
+            var aNw = aNv.getUint16(),
+                aNx = aNv.getUint8();
+            for (var aZw = 0x0; aZw < aNx; aZw++) {
+                var aZx = aNv.getUint16(),
+                    aZy = aYv._2CL590987bd6e227033(aZx, aNw);
+                aZy._2CL8ac401cc9f1e8785[0x0] = aNv._2CL9f86d97a7bdf1abb(), aZy._2CL8ac401cc9f1e8785[0x1] = aNv._2CL9f86d97a7bdf1abb();
+                for (var aZz = 0x0; aZz < 0x2; aZz++) {
+                    var aZA = aNv.getUint8(),
+                        aZB = aNv._2CL74a03352fa125990();
+                    aZy._2CLba02dd97aca1c8d3(aZz, aZA, aZB);
+                }
+                for (var aZC = 0x0; aZC < 0x2; aZC++) {
+                    var aZD = aNv.getUint8(),
+                        aZE = aNv.getUint8(),
+                        aZF = aNv.getUint8();
+                    aZy._2CL1849df6af84c6815[aZC]['_2CLcc32da8337a77c45'](aZD, aZE, aZF);
+                }
+                for (var aZG = 0x0; aZG < 0x2; aZG++) {
+                    var aZH = aNv.getUint8();
+                    aZy._2CLa8da637215ed8fdd[aZG] = !!aZH;
+                }
             }
-        }, {
-            'key': 'onopen_fn',
-            'value': function onopen_fn() {
-                this._2CL166d9df08441011f = 0x1f4;
-                aYv._init_hatena();
-                b0l._2CL377d9e6cac8abf48();
-                Toast._2CLd2948436a49d2833('wifi', 'HSLO Network', 'Connected');
+            var aNy = aNv.getUint8();
+            for (var aZJ = 0x0; aZJ < aNy; aZJ++) {
+                var aZK = aNv.getUint16(),
+                    aZL = aYv._2CL771f42f2e56ba112(aZK),
+                    aZM = aNv.getUint8();
+                if (0x1 & aZM && (aZL._2CL8ac401cc9f1e8785[0x0] = aNv._2CL9f86d97a7bdf1abb(), aZL._2CL8ac401cc9f1e8785[0x1] = aNv._2CL9f86d97a7bdf1abb()), 0x2 & aZM)
+                    for (var aZN = 0x0; aZN < 0x2; aZN++) {
+                        var aZO = aNv.getUint8(),
+                            aZP = aNv._2CL74a03352fa125990();
+                        aZL._2CLba02dd97aca1c8d3(aZN, aZO, aZP);
+                    }
+                if (0x4 & aZM)
+                    for (var aZQ = 0x0; aZQ < 0x2; aZQ++) {
+                        var aZR = aNv.getUint8(),
+                            aZS = aNv.getUint8(),
+                            aZT = aNv.getUint8();
+                        aZL._2CL1849df6af84c6815[aZQ]['_2CLcc32da8337a77c45'](aZR, aZS, aZT);
+                    }
+                if (0x8 & aZM)
+                    for (var aZU = 0x0; aZU < 0x2; aZU++) {
+                        var aZV = 0x0 !== aNv.getUint8();
+                        aZL._2CLa8da637215ed8fdd[aZU] = aZV;
+                    }
+                for (var aZW = 0x0; aZW < 0x2; aZW++) {
+                    if (aZL._2CLa8da637215ed8fdd[aZW]) {
+                        var aZX = aNv.getInt16(),
+                            aZY = aNv.getInt16(),
+                            aZZ = aNv.getUint32();
+                        aZL._2CLcc32da8337a77c45(aZW, aZX, aZY, aZZ);
+                    }
+                }
             }
-        }, {
-            'key': 'onmessage_fn',
-            'value': function onmessage_fn(aNv) {
-                aZ7._2CL0d88847754015168(aNv.data);
+            var aNz = aNv.getUint8();
+            for (var b01 = 0x0; b01 < aNz; b01++) {
+                var b02 = aNv.getUint16();
+                aYv._2CLa2401f3a6e826384(b02);
             }
-        }, {
-            'key': 'onclose_fn',
-            'value': function onclose_fn() {
-                var b0k = this;
-                this._2CL166d9df08441011f *= 0x2, setTimeout(function () {
-                    b0k._2CLe43e55a05f37528c();
-                }, this._2CL166d9df08441011f), Toast._2CLd2948436a49d2833('wifi_off', 'HSLO Network', 'Disconnected');
+        }
+        roomLeave_kamo(aNv) {
+            var aNw = aNv.getUint16();
+            aYv._2CL747ad4c6110d5907(aNw);
+        }
+        chat_fn(aNv) {
+            var playerId = aNv.getUint16(),
+                tabId = aNv.getUint8(),
+                msgType = aNv.getUint8(),
+                message = aNv._2CL9f86d97a7bdf1abb();
+    
+            let splited = message.split("");
+            let fixed = "";
+            for (let i = 0; i < splited.length; i++) {
+                if (splited[i].charCodeAt() > 255) continue;
+                fixed += splited[i];
             }
-        }, {
-            'key': 'onerror_fn',
-            'value': function onerror_fn() {}
-        }, {
-            'key': 'getReadyState_fn',
-            'get': function get() {
-                return this._ws_inst && this._ws_inst.readyState === this._ws_inst.OPEN;
+            if (fixed.includes("ryuten.io")) {
+                // return console.log("[test114514] Advertisement messsage from saigo blocked");
+                return;
             }
-        }]);
-        return b0f;
-    }())();
+            aYv.chat_fn(playerId, tabId, msgType, message);
+        }
+        _2CLe50ece9570a295f9(aNv) {
+            var aNw = aNv.getInt16(),
+                aNx = aNv.getInt16(),
+                aNy = new aZ0(aNw, aNx);
+            b2u._2CLedf2cf1e1c8c3141.add(aNy);
+        }
+    };
+    /**
+     * @description HSLO network connection
+     */
+    var b0e = new class {
+        constructor() {
+            this._url_kamo = 'wss://ddraig.hslo.io'
+            this._ws_inst = null
+            this._2CL166d9df08441011f = 0x1f4;
+            this.ogarioInitialized = false;
+        }
+        _2CLe43e55a05f37528c() {
+            var b0g = this;
+            this._ws_inst = new WebSocket(this._url_kamo, 'main') 
+            this._ws_inst.binaryType = 'arraybuffer' 
+            this._ws_inst.onopen = function() {
+                return b0g.onopen_fn();
+            } 
+            this._ws_inst.onmessage = function(aNv) {
+                return b0g.onmessage_fn(aNv);
+            } 
+            this._ws_inst.onclose = function() {
+                return b0g.onclose_fn();
+            } 
+            this._ws_inst.onerror = function() {
+                return b0g.onerror_fn();
+            };
+            if (!this.ogarioInitialized) {
+                Ogario.init();
+            }
+        }
+        wsSend_fn(aNv) {
+            this._ws_inst.send(aNv);
+        }
+        onopen_fn() {
+            this._2CL166d9df08441011f = 0x1f4;
+            aYv._init_hatena();
+            b0l._2CL377d9e6cac8abf48();
+            Toast._2CLd2948436a49d2833('wifi', 'HSLO Network', 'Connected');
+        }
+        onmessage_fn(aNv) {
+            aZ7._2CL0d88847754015168(aNv.data);
+        }
+        onclose_fn() {
+            var b0k = this;
+            this._2CL166d9df08441011f *= 0x2
+            setTimeout(function() {
+                b0k._2CLe43e55a05f37528c();
+            }, this._2CL166d9df08441011f)
+            Toast._2CLd2948436a49d2833('wifi_off', 'HSLO Network', 'Disconnected');
+        }
+        onerror_fn() {}
+        get getReadyState_fn() {
+            return this._ws_inst && this._ws_inst.readyState === this._ws_inst.OPEN;
+        }
+    };
     var b0l = new(function () {
         function b0m() {
             _classCallCheck(this, b0m);
@@ -2540,20 +2730,31 @@ const disappearedEntities = new Map();
         _createClass(b0m, [{
             'key': '_2CL377d9e6cac8abf48',
             'value': function _2CL377d9e6cac8abf48() {
-                this._2CL8ac401cc9f1e8785(), this._2CLac9df252d711bd1c(), this._2CL1849df6af84c6815(), this._2CLa8da637215ed8fdd(), this._2CL7b047b1f72f109f9(), this._2CLada370f97d905f76();
+                this._2CL8ac401cc9f1e8785()
+                this._2CLac9df252d711bd1c()
+                this._2CL1849df6af84c6815()
+                this._2CLa8da637215ed8fdd()
+                this._2CL7b047b1f72f109f9()
+                this._2CLada370f97d905f76();
             }
         }, {
             'key': '_2CL8ac401cc9f1e8785',
             'value': function _2CL8ac401cc9f1e8785() {
+                //nick
+                OgarioSender.nick();
                 if (!b0e.getReadyState_fn) return;
                 var aNv = b3Y._2CL42b7a092ff6d6463(0x0),
                     aNw = b3Y._2CL42b7a092ff6d6463(0x1),
                     aNx = new aSg(0x2 * (aNv.length + aNw.length + 0x2) + 0x1);
-                aNx.writeUint8(0x1), aNx._2CLfb96650702209fba(aNv), aNx._2CLfb96650702209fba(aNw), b0e.wsSend_fn(aNx._2CLe035dc327c1676d8);
+                aNx.writeUint8(0x1)
+                aNx._2CLfb96650702209fba(aNv)
+                aNx._2CLfb96650702209fba(aNw)
+                b0e.wsSend_fn(aNx._2CLe035dc327c1676d8);
             }
         }, {
             'key': '_2CLac9df252d711bd1c',
             'value': function _2CLac9df252d711bd1c() {
+                //skin
                 if (!b0e.getReadyState_fn) return;
                 var aNv = {
                         '_2CL65dfacb39960c223': 0x0,
@@ -2576,11 +2777,17 @@ const disappearedEntities = new Map();
                 }
                 var aNA = aNv._2CL7318a606a3118d46.length + aNw._2CL7318a606a3118d46.length + 0x5,
                     aNJ = new aSg(aNA);
-                aNJ.writeUint8(0x2), aNJ.writeUint8(aNv._2CL65dfacb39960c223), aNJ._2CL7b8cf5f8d2d0d80c(aNv._2CL7318a606a3118d46), aNJ.writeUint8(aNw._2CL65dfacb39960c223), aNJ._2CL7b8cf5f8d2d0d80c(aNw._2CL7318a606a3118d46), b0e.wsSend_fn(aNJ._2CLe035dc327c1676d8);
+                aNJ.writeUint8(0x2)
+                aNJ.writeUint8(aNv._2CL65dfacb39960c223)
+                aNJ._2CL7b8cf5f8d2d0d80c(aNv._2CL7318a606a3118d46)
+                aNJ.writeUint8(aNw._2CL65dfacb39960c223)
+                aNJ._2CL7b8cf5f8d2d0d80c(aNw._2CL7318a606a3118d46)
+                b0e.wsSend_fn(aNJ._2CLe035dc327c1676d8);
             }
         }, {
             'key': '_2CL1849df6af84c6815',
             'value': function _2CL1849df6af84c6815() {
+                //color
                 if (!b0e.getReadyState_fn) return;
                 var aNv = new aSg(0x7);
                 aNv.writeUint8(0x3);
@@ -2595,6 +2802,8 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLa8da637215ed8fdd',
             'value': function _2CLa8da637215ed8fdd() {
+                //alive or death
+                OgarioSender.spawn()
                 if (!b0e.getReadyState_fn) return;
                 var aNv = new aSg(0x3),
                     aNw = b3Y._2CL1d2b5efaee01be40(0x0) ? 0x1 : 0x0,
@@ -2607,6 +2816,8 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL244fe1e06ace6919',
             'value': function _2CL244fe1e06ace6919() {
+                //positionMass
+                OgarioSender.positionMass();
                 if (!b0e.getReadyState_fn || !b3Y._2CL32137922dbdb3ee5()) return;
                 var aNv = b3Y._2CL1d2b5efaee01be40(0x0),
                     aNw = b3Y._2CL1d2b5efaee01be40(0x1);
@@ -2627,6 +2838,8 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CL7b047b1f72f109f9',
             'value': function _2CL7b047b1f72f109f9() {
+                //tag
+                OgarioSender.tag();
                 if (!b0e.getReadyState_fn) return;
                 var aNv = b3Y._2CL38c49d2ea0d01c9d(),
                     aNw = new aSg(0x4 + 0x2 * aNv.length);
@@ -2638,6 +2851,8 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLada370f97d905f76',
             'value': function _2CLada370f97d905f76() {
+                //host
+                OgarioSender.serverToken();
                 if (!b0e.getReadyState_fn || 'string' != typeof b18.gameServer_url) return;
                 var aNv = new aSg(0x2 + b18.gameServer_url.length);
                 aNv.writeUint8(0x7);
@@ -2647,6 +2862,7 @@ const disappearedEntities = new Map();
         }, {
             'key': '_2CLe50ece9570a295f9',
             'value': function _2CLe50ece9570a295f9(aNv, aNw) {
+                //commander
                 if (!b0e.getReadyState_fn) return;
                 var aNx = new aSg(0x5);
                 aNx.writeUint8(0x8);
@@ -2657,9 +2873,15 @@ const disappearedEntities = new Map();
         }, {
             'key': 'chat_fn',
             'value': function chat_fn(aNv, aNw, aNx) {
+                //chat
+                OgarioSender.message(aNx);
                 if (!b0e.getReadyState_fn) return;
                 var aNy = new aSg(0x5 + 0x2 * aNx.length);
-                aNy.writeUint8(0x9), aNy.writeUint8(aNv), aNy.writeUint8(aNw), aNy._2CLfb96650702209fba(aNx), b0e.wsSend_fn(aNy._2CLe035dc327c1676d8);
+                aNy.writeUint8(0x9)
+                aNy.writeUint8(aNv)
+                aNy.writeUint8(aNw)
+                aNy._2CLfb96650702209fba(aNx)
+                b0e.wsSend_fn(aNy._2CLe035dc327c1676d8);
             }
         }]);
         return b0m;
