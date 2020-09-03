@@ -35,6 +35,8 @@ import ShieldImage from "./assets/shield.png";
 
 // additional
 import "./components/Information.js";
+import WriterV5 from "./components/WriterV5";
+import ReaderV5 from "./components/ReaderV5";
 
 'use strict';
 
@@ -2334,33 +2336,31 @@ const disappearedEntities = new Map();
         }
         sendString(e, t, s) {
             if (Ogario.isConnected(s || 1)) {
-                const i = new X;
+                const i = new WriterV5;
                 i.writeUint8(e)
                 i.writeUTF16StringNonZero(t);
-                try {
-                    Ogario.send(i.buffer, s || 1)
-                } catch (e) {}
+                Ogario.send(i.buffer, s || 1)
                 console.log(e, t)
             }
         }
         sendInteger(e, t) {
             if (Ogario.isConnected(t || 1)) {
-                const s = new X;
+                const s = new WriterV5;
                 s.writeUint8(e);
-                try {
-                    Ogario.send(s.buffer, t || 1)
-                } catch (e) {}
+                Ogario.send(s.buffer, t || 1)
             }
         }
         nick() {
-            A.nick && this.sendString(10, A.nick, 1)
+            const nick = b3Y._2CL42b7a092ff6d6463(0x1);
+            nick && this.sendString(10, nick, 1)
         }
         nick2() {
             A.nick2 && this.sendString(10, A.nick2, 2)
         }
         tag() {
-            this.sendString(11, A._tag, 1),
-                this.sendString(11, A._tag, 2)
+            const _tag = b3Y._2CL38c49d2ea0d01c9d();
+            this.sendString(11, _tag, 1)
+            this.sendString(11, _tag, 2)
         }
         skin() {
             A.skin && this.sendString(12, "https://i.imgur.com/" + A.skin + ".png", 1)
@@ -2374,9 +2374,11 @@ const disappearedEntities = new Map();
                 e && this.sendString(15, e, 2)
         }
         serverToken() {
-            const e = !!q.address && q.address.match(/live-arena-([\w\d]+)\.agar\.io:\d+/);
-            e && e[1] && this.sendString(16, e[1], 1),
-                e && e[1] && this.sendString(16, e[1], 2)
+            const q = b18.gameServer_url;
+            const e = !!q && q.match(/live-arena-([\w\d]+)\.agar\.io:\d+/);
+            e && e[1] && this.sendString(16, e[1], 1)
+            e && e[1] && this.sendString(16, e[1], 2)
+            console.log(q, e)
         }
         region() {
             const e = jQuery("#regions").val().split("-");
@@ -2397,21 +2399,23 @@ const disappearedEntities = new Map();
             this.sendInteger(3, e)
         }
         positionMass(e) {
-            if (Ogario.isConnected(e || 1)) {
-                const t = new X;
-                t.writeUint8(30),
-                    t.writeUint32(e && 2 === e ? se.playerID2 : se.playerID),
-                    t.writeInt32((e && 2 === e ? A.x2 : A.x1) - G.offset.x),
-                    t.writeInt32((e && 2 === e ? A.y2 : A.y1) - G.offset.y),
-                    t.writeUint32(e && 2 === e ? A.mass2 : A.mass1);
-                try {
+            if (Ogario.isConnected(e || 1) && b3Y._2CL32137922dbdb3ee5()) {
+                var hasPos = b3Y._2CL1d2b5efaee01be40(1)
+                if (hasPos) {
+                    const cell = b3Y._2CL6d34b6d49ffda54c[1];
+                    const t = new WriterV5;
+                    t.writeUint8(30)
+                    t.writeUint32(e && 2 === e ? OgarioUserData.id : OgarioUserData.id) //ogarcellid
+                    t.writeInt32(cell.xPos_kamo) // xpos
+                    t.writeInt32(cell.yPos_kamo) // ypos
+                    t.writeUint32(b3Y._2CL30c87194157e4b27[1]) // mass
                     Ogario.send(t.buffer, e)
-                } catch (e) {}
+                }
             }
         }
         playerData(e) {
             if (Ogario.isConnected(e || 1) && A.isAlive && (e && 2 === e ? se.playerID2 : se.playerID)) {
-                const t = new X;
+                const t = new WriterV5;
                 t.writeUint8(20)
                 t.writeUint32(e && 2 === e ? se.playerID2 : se.playerID)
                 t.writeUTF16String(e && 2 === e ? A.nick2 : A.nick)
@@ -2450,10 +2454,10 @@ const disappearedEntities = new Map();
         init() {
             this.ogarWS1 = new WebSocket("wss://" + this.address);
             this.ogarWS1.binaryType = "arraybuffer";
-            this.ogarWS1.onopen = (() => e.onOpen(1));
-            this.ogarWS1.onmessage = (t => e.onMessage(t, 1));
-            this.ogarWS1.onclose = (() => e.onClose(1));
-            this.ogarWS1.onerror = (() => e.onError(1));
+            this.ogarWS1.onopen = (() => this.onOpen(1));
+            this.ogarWS1.onmessage = (t => this.onMessage(t, 1));
+            this.ogarWS1.onclose = (() => this.onClose(1));
+            this.ogarWS1.onerror = (() => this.onError(1));
             console.log("Connecting to Ogario Networks.")
         }
         reconnect(tab) {
@@ -2473,13 +2477,10 @@ const disappearedEntities = new Map();
             console.log(`Connected to Ogario Networks. (${e})`);
     
             // handshake
-            let w = new Writer(5);
+            let w = new BufferWriter(5);
             w.writeUint8(0);
             w.writeUint32(401);
             this.send(w.dataView, 1);
-    
-            // tag
-            
         }
         onMessage(e, t) {
             // t = tab
@@ -2496,13 +2497,17 @@ const disappearedEntities = new Map();
         }
     }
 
+    const OgarioUserData = {
+        id: null,
+    }
+
     /**
      * @description Ogario network message handler
      */
     const OgarioMessage = new class {
         parse(data, tab) {
-            data = new BufferReader(data.data);
-            switch (data.getUint8()) {
+            data = new ReaderV5(new DataView(data.data));
+            switch (data.readUInt8()) {
                 case 0:
                     this.selfID(data);
                     break;
@@ -2510,14 +2515,56 @@ const disappearedEntities = new Map();
                     this.requestPlayerUpdate();
                     break;
                 case 20:
-                    this.updateTeamPlayer(t, tab);
+                    this.updateTeamPlayer(data, tab);
                     break;
                 case 30:
-                    this.updateTeamPlayerPosition(t, tab);
+                    this.updateTeamPlayerPosition(data, tab);
                     break;
                 case 100:
-                    this.chat(t, tab)
+                    this.chat(data, tab)
             }
+        }
+
+        selfID(view) {
+            const id = view.readUInt32();
+            OgarioUserData.id = id;
+        }
+
+        requestPlayerUpdate() {
+            console.log("requ pla upd")
+        }
+
+        updateTeamPlayer(reader, tab) {
+            const s = reader.readUInt32()
+            // i = se.getPlayer(s, t);
+            const i = {}
+            i.nick = reader.readUTF16string()
+            i.skin = reader.readUTF16string()
+            reader.readUTF16string()
+            i.colorHex = reader.readUTF16string()
+
+            //{nick: "〖ℱฬ〗⇝𐌕𐍅𐍂𐍉𐌽𐌄 鿅", skin: "", colorHex: "#061ae5"}
+            console.log(i);
+        }
+
+        updateTeamPlayerPosition(view, tab) {
+            console.log("update team")
+        }
+
+        chat(e) {
+            const s = e.readUInt8()
+            const i = (
+                e.readUInt32(),
+                e.readUInt32(),
+                e.readUTF16string().split(": ")
+            )
+            const prefix = i[0]
+            const message = i[1]
+            // aYv.chat_fn(playerId, tabId, msgType, message);
+            console.log(prefix + message)
+            // aYv.chat_fn(0, 0, 0, prefix + message);
+            Toast.chat_fn(prefix, message)
+            aYt._2CL9b17a7e001fc9274._2CLee6c3b3f6f747fd6()
         }
     }
 
@@ -2723,169 +2770,157 @@ const disappearedEntities = new Map();
             return this._ws_inst && this._ws_inst.readyState === this._ws_inst.OPEN;
         }
     };
-    var b0l = new(function () {
-        function b0m() {
-            _classCallCheck(this, b0m);
+    /**
+     * @description HSLO Network sender
+     */
+    var b0l = new class {
+        _2CL377d9e6cac8abf48() {
+            this._2CL8ac401cc9f1e8785()
+            this._2CLac9df252d711bd1c()
+            this._2CL1849df6af84c6815()
+            this._2CLa8da637215ed8fdd()
+            this._2CL7b047b1f72f109f9()
+            this._2CLada370f97d905f76();
         }
-        _createClass(b0m, [{
-            'key': '_2CL377d9e6cac8abf48',
-            'value': function _2CL377d9e6cac8abf48() {
-                this._2CL8ac401cc9f1e8785()
-                this._2CLac9df252d711bd1c()
-                this._2CL1849df6af84c6815()
-                this._2CLa8da637215ed8fdd()
-                this._2CL7b047b1f72f109f9()
-                this._2CLada370f97d905f76();
+        /**
+         * @description Send nick tab1 & tab2
+         */
+        _2CL8ac401cc9f1e8785() {
+            //nick
+            OgarioSender.nick();
+            if (!b0e.getReadyState_fn) return;
+            var aNv = b3Y._2CL42b7a092ff6d6463(0x0),
+                aNw = b3Y._2CL42b7a092ff6d6463(0x1),
+                aNx = new aSg(0x2 * (aNv.length + aNw.length + 0x2) + 0x1);
+            aNx.writeUint8(0x1)
+            aNx._2CLfb96650702209fba(aNv)
+            aNx._2CLfb96650702209fba(aNw)
+            b0e.wsSend_fn(aNx._2CLe035dc327c1676d8);
+        }
+        _2CLac9df252d711bd1c() {
+            //skin
+            if (!b0e.getReadyState_fn) return;
+            var aNv = {
+                    '_2CL65dfacb39960c223': 0x0,
+                    '_2CL7318a606a3118d46': ''
+                },
+                aNw = {
+                    '_2CL65dfacb39960c223': 0x0,
+                    '_2CL7318a606a3118d46': ''
+                };
+            var aNx = b3Y._2CL1062e50bcd80df39(0x0),
+                aNy = b3Y._2CL1062e50bcd80df39(0x1),
+                aNz = /https?:\/\/i\.imgur\.com\/([\w0-9]{7})\.(png|jpg|gif)/i;
+            if (aNz.test(aNx)) {
+                var b0v = aNx.match(aNz);
+                aNv._2CL65dfacb39960c223 = 0x1, aNv._2CL7318a606a3118d46 = b0v[0x1];
             }
-        }, {
-            'key': '_2CL8ac401cc9f1e8785',
-            'value': function _2CL8ac401cc9f1e8785() {
-                //nick
-                OgarioSender.nick();
-                if (!b0e.getReadyState_fn) return;
-                var aNv = b3Y._2CL42b7a092ff6d6463(0x0),
-                    aNw = b3Y._2CL42b7a092ff6d6463(0x1),
-                    aNx = new aSg(0x2 * (aNv.length + aNw.length + 0x2) + 0x1);
-                aNx.writeUint8(0x1)
-                aNx._2CLfb96650702209fba(aNv)
-                aNx._2CLfb96650702209fba(aNw)
-                b0e.wsSend_fn(aNx._2CLe035dc327c1676d8);
+            if (aNz.test(aNy)) {
+                var b0w = aNy.match(aNz);
+                aNw._2CL65dfacb39960c223 = 0x1, aNw._2CL7318a606a3118d46 = b0w[0x1];
             }
-        }, {
-            'key': '_2CLac9df252d711bd1c',
-            'value': function _2CLac9df252d711bd1c() {
-                //skin
-                if (!b0e.getReadyState_fn) return;
-                var aNv = {
-                        '_2CL65dfacb39960c223': 0x0,
-                        '_2CL7318a606a3118d46': ''
-                    },
-                    aNw = {
-                        '_2CL65dfacb39960c223': 0x0,
-                        '_2CL7318a606a3118d46': ''
-                    };
-                var aNx = b3Y._2CL1062e50bcd80df39(0x0),
-                    aNy = b3Y._2CL1062e50bcd80df39(0x1),
-                    aNz = /https?:\/\/i\.imgur\.com\/([\w0-9]{7})\.(png|jpg|gif)/i;
-                if (aNz.test(aNx)) {
-                    var b0v = aNx.match(aNz);
-                    aNv._2CL65dfacb39960c223 = 0x1, aNv._2CL7318a606a3118d46 = b0v[0x1];
-                }
-                if (aNz.test(aNy)) {
-                    var b0w = aNy.match(aNz);
-                    aNw._2CL65dfacb39960c223 = 0x1, aNw._2CL7318a606a3118d46 = b0w[0x1];
-                }
-                var aNA = aNv._2CL7318a606a3118d46.length + aNw._2CL7318a606a3118d46.length + 0x5,
-                    aNJ = new aSg(aNA);
-                aNJ.writeUint8(0x2)
-                aNJ.writeUint8(aNv._2CL65dfacb39960c223)
-                aNJ._2CL7b8cf5f8d2d0d80c(aNv._2CL7318a606a3118d46)
-                aNJ.writeUint8(aNw._2CL65dfacb39960c223)
-                aNJ._2CL7b8cf5f8d2d0d80c(aNw._2CL7318a606a3118d46)
-                b0e.wsSend_fn(aNJ._2CLe035dc327c1676d8);
+            var aNA = aNv._2CL7318a606a3118d46.length + aNw._2CL7318a606a3118d46.length + 0x5,
+                aNJ = new aSg(aNA);
+            aNJ.writeUint8(0x2)
+            aNJ.writeUint8(aNv._2CL65dfacb39960c223)
+            aNJ._2CL7b8cf5f8d2d0d80c(aNv._2CL7318a606a3118d46)
+            aNJ.writeUint8(aNw._2CL65dfacb39960c223)
+            aNJ._2CL7b8cf5f8d2d0d80c(aNw._2CL7318a606a3118d46)
+            b0e.wsSend_fn(aNJ._2CLe035dc327c1676d8);
+        }
+        /**
+         * @description Send cell color (RGB)
+         */
+        _2CL1849df6af84c6815() {
+            //color
+            if (!b0e.getReadyState_fn) return;
+            var aNv = new aSg(0x7);
+            aNv.writeUint8(0x3);
+            for (var b0A = 0x0; b0A < 0x2; b0A++) {
+                var b0B = b3Y._2CL09732bf8381cf6a7(b0A);
+                aNv.writeUint8(b0B._2CLaa7bb4b05fbd27db);
+                aNv.writeUint8(b0B._2CLf46271e5c04cf114);
+                aNv.writeUint8(b0B._2CLda3e61414e50aee9);
             }
-        }, {
-            'key': '_2CL1849df6af84c6815',
-            'value': function _2CL1849df6af84c6815() {
-                //color
-                if (!b0e.getReadyState_fn) return;
-                var aNv = new aSg(0x7);
-                aNv.writeUint8(0x3);
-                for (var b0A = 0x0; b0A < 0x2; b0A++) {
-                    var b0B = b3Y._2CL09732bf8381cf6a7(b0A);
-                    aNv.writeUint8(b0B._2CLaa7bb4b05fbd27db);
-                    aNv.writeUint8(b0B._2CLf46271e5c04cf114);
-                    aNv.writeUint8(b0B._2CLda3e61414e50aee9);
-                }
-                b0e.wsSend_fn(aNv._2CLe035dc327c1676d8);
+            b0e.wsSend_fn(aNv._2CLe035dc327c1676d8);
+        }
+        _2CLa8da637215ed8fdd() {
+            //alive or death
+            OgarioSender.spawn()
+            if (!b0e.getReadyState_fn) return;
+            var aNv = new aSg(0x3),
+                aNw = b3Y._2CL1d2b5efaee01be40(0x0) ? 0x1 : 0x0,
+                aNx = b3Y._2CL1d2b5efaee01be40(0x1) ? 0x1 : 0x0;
+            aNv.writeUint8(0x4);
+            aNv.writeUint8(aNw);
+            aNv.writeUint8(aNx);
+            b0e.wsSend_fn(aNv._2CLe035dc327c1676d8);
+        }
+        _2CL244fe1e06ace6919() {
+            //positionMass
+            OgarioSender.positionMass();
+            if (!b0e.getReadyState_fn || !b3Y._2CL32137922dbdb3ee5()) return;
+            var aNv = b3Y._2CL1d2b5efaee01be40(0x0),
+                aNw = b3Y._2CL1d2b5efaee01be40(0x1);
+            var aNx = 0x0,
+                aNy = 0x2;
+            aNv && (aNx |= 0x1, aNy += 0x8), aNw && (aNx |= 0x2, aNy += 0x8);
+            var aNz = new aSg(aNy);
+            if (aNz.writeUint8(0x5), aNz.writeUint8(aNx), aNv) {
+                var b0K = b3Y._2CL6d34b6d49ffda54c[0x0];
+                aNz.writeInt16(b0K.xPos_kamo)
+                aNz.writeInt16(b0K.yPos_kamo)
+                aNz.writeUint32(b3Y._2CL30c87194157e4b27[0x0]);
             }
-        }, {
-            'key': '_2CLa8da637215ed8fdd',
-            'value': function _2CLa8da637215ed8fdd() {
-                //alive or death
-                OgarioSender.spawn()
-                if (!b0e.getReadyState_fn) return;
-                var aNv = new aSg(0x3),
-                    aNw = b3Y._2CL1d2b5efaee01be40(0x0) ? 0x1 : 0x0,
-                    aNx = b3Y._2CL1d2b5efaee01be40(0x1) ? 0x1 : 0x0;
-                aNv.writeUint8(0x4);
-                aNv.writeUint8(aNw);
-                aNv.writeUint8(aNx);
-                b0e.wsSend_fn(aNv._2CLe035dc327c1676d8);
+            if (aNw) {
+                var b0L = b3Y._2CL6d34b6d49ffda54c[0x1];
+                aNz.writeInt16(b0L.xPos_kamo)
+                aNz.writeInt16(b0L.yPos_kamo)
+                aNz.writeUint32(b3Y._2CL30c87194157e4b27[0x1]);
             }
-        }, {
-            'key': '_2CL244fe1e06ace6919',
-            'value': function _2CL244fe1e06ace6919() {
-                //positionMass
-                OgarioSender.positionMass();
-                if (!b0e.getReadyState_fn || !b3Y._2CL32137922dbdb3ee5()) return;
-                var aNv = b3Y._2CL1d2b5efaee01be40(0x0),
-                    aNw = b3Y._2CL1d2b5efaee01be40(0x1);
-                var aNx = 0x0,
-                    aNy = 0x2;
-                aNv && (aNx |= 0x1, aNy += 0x8), aNw && (aNx |= 0x2, aNy += 0x8);
-                var aNz = new aSg(aNy);
-                if (aNz.writeUint8(0x5), aNz.writeUint8(aNx), aNv) {
-                    var b0K = b3Y._2CL6d34b6d49ffda54c[0x0];
-                    aNz.writeInt16(b0K.xPos_kamo), aNz.writeInt16(b0K.yPos_kamo), aNz.writeUint32(b3Y._2CL30c87194157e4b27[0x0]);
-                }
-                if (aNw) {
-                    var b0L = b3Y._2CL6d34b6d49ffda54c[0x1];
-                    aNz.writeInt16(b0L.xPos_kamo), aNz.writeInt16(b0L.yPos_kamo), aNz.writeUint32(b3Y._2CL30c87194157e4b27[0x1]);
-                }
-                b0e.wsSend_fn(aNz._2CLe035dc327c1676d8);
-            }
-        }, {
-            'key': '_2CL7b047b1f72f109f9',
-            'value': function _2CL7b047b1f72f109f9() {
-                //tag
-                OgarioSender.tag();
-                if (!b0e.getReadyState_fn) return;
-                var aNv = b3Y._2CL38c49d2ea0d01c9d(),
-                    aNw = new aSg(0x4 + 0x2 * aNv.length);
-                aNw.writeUint8(0x6);
-                aNw.writeUint8(0x1);
-                aNw._2CLfb96650702209fba(aNv);
-                b0e.wsSend_fn(aNw._2CLe035dc327c1676d8);
-            }
-        }, {
-            'key': '_2CLada370f97d905f76',
-            'value': function _2CLada370f97d905f76() {
-                //host
-                OgarioSender.serverToken();
-                if (!b0e.getReadyState_fn || 'string' != typeof b18.gameServer_url) return;
-                var aNv = new aSg(0x2 + b18.gameServer_url.length);
-                aNv.writeUint8(0x7);
-                aNv._2CL7b8cf5f8d2d0d80c(b18.gameServer_url);
-                b0e.wsSend_fn(aNv._2CLe035dc327c1676d8);
-            }
-        }, {
-            'key': '_2CLe50ece9570a295f9',
-            'value': function _2CLe50ece9570a295f9(aNv, aNw) {
-                //commander
-                if (!b0e.getReadyState_fn) return;
-                var aNx = new aSg(0x5);
-                aNx.writeUint8(0x8);
-                aNx.writeInt16(aNv);
-                aNx.writeInt16(aNw);
-                b0e.wsSend_fn(aNx._2CLe035dc327c1676d8);
-            }
-        }, {
-            'key': 'chat_fn',
-            'value': function chat_fn(aNv, aNw, aNx) {
-                //chat
-                OgarioSender.message(aNx);
-                if (!b0e.getReadyState_fn) return;
-                var aNy = new aSg(0x5 + 0x2 * aNx.length);
-                aNy.writeUint8(0x9)
-                aNy.writeUint8(aNv)
-                aNy.writeUint8(aNw)
-                aNy._2CLfb96650702209fba(aNx)
-                b0e.wsSend_fn(aNy._2CLe035dc327c1676d8);
-            }
-        }]);
-        return b0m;
-    }())();
+            b0e.wsSend_fn(aNz._2CLe035dc327c1676d8);
+        }
+        _2CL7b047b1f72f109f9() {
+            //tag
+            OgarioSender.tag();
+            if (!b0e.getReadyState_fn) return;
+            var aNv = b3Y._2CL38c49d2ea0d01c9d(),
+                aNw = new aSg(0x4 + 0x2 * aNv.length);
+            aNw.writeUint8(0x6);
+            aNw.writeUint8(0x1);
+            aNw._2CLfb96650702209fba(aNv);
+            b0e.wsSend_fn(aNw._2CLe035dc327c1676d8);
+        }
+        _2CLada370f97d905f76() {
+            //host
+            OgarioSender.serverToken();
+            if (!b0e.getReadyState_fn || 'string' != typeof b18.gameServer_url) return;
+            var aNv = new aSg(0x2 + b18.gameServer_url.length);
+            aNv.writeUint8(0x7);
+            aNv._2CL7b8cf5f8d2d0d80c(b18.gameServer_url);
+            b0e.wsSend_fn(aNv._2CLe035dc327c1676d8);
+        }
+        _2CLe50ece9570a295f9(aNv, aNw) {
+            //commander
+            if (!b0e.getReadyState_fn) return;
+            var aNx = new aSg(0x5);
+            aNx.writeUint8(0x8);
+            aNx.writeInt16(aNv);
+            aNx.writeInt16(aNw);
+            b0e.wsSend_fn(aNx._2CLe035dc327c1676d8);
+        }
+        chat_fn(aNv, aNw, aNx) {
+            //chat
+            OgarioSender.message(aNx);
+            if (!b0e.getReadyState_fn) return;
+            var aNy = new aSg(0x5 + 0x2 * aNx.length);
+            aNy.writeUint8(0x9)
+            aNy.writeUint8(aNv)
+            aNy.writeUint8(aNw)
+            aNy._2CLfb96650702209fba(aNx)
+            b0e.wsSend_fn(aNy._2CLe035dc327c1676d8);
+        }
+    };
     var b0W = new(function () {
         function b0X() {
             _classCallCheck(this, b0X);
