@@ -32,8 +32,9 @@ export default class {
             }
             onopen() {
                 console.log('[MOREBOTS] Authenticating to the server!');
-                const label = document.getElementById("ab_label").innerHTML || "AgarBot.OVH";
-                const key = label == "AgarBot.OVH" ? "Agarbot_HSLO" : 'Morebots_HSLO2';
+                const HS = window.SettingsStore;
+                const label = HS.BotTypeSelector;
+                const key = label == "agarbot" ? "Agarbot_HSLO" : 'Morebots_HSLO2';
                 this.Transmitter.handshake('220720', key);
                 document.getElementById("ab_serverStatus").innerText = "Connected";
                 document.getElementById('ab_controlStart').innerText = "START BOTS";
