@@ -1962,20 +1962,20 @@ const disappearedEntities = new Map();
         _createClass(aXx, [{
             'key': '_2CL52a96de0605b8df2',
             'value': function _2CL52a96de0605b8df2() {
-                var aXz = this;
+                var _this = this;
                 gapi.load('auth2', function () {
-                    aXz._2CLe6ffb660924e12cd();
+                    _this._2CLe6ffb660924e12cd();
                 });
             }
         }, {
             'key': '_2CLe6ffb660924e12cd',
             'value': function _2CLe6ffb660924e12cd() {
-                var aXA = this;
+                var _this = this;
                 var aNv = gapi.auth2.init(this._2CLf13bbd1f51712f3e);
                 aNv.isSignedIn.listen(function (aNv) {
-                    aXA._2CLb806bfbd077a34ea(aNv);
+                    _this._2CLb806bfbd077a34ea(aNv);
                 }), aNv.currentUser.listen(function (aNv) {
-                    aXA._2CLc8cdab7c9be060ba(aNv);
+                    _this._2CLc8cdab7c9be060ba(aNv);
                 }), aNv.isSignedIn.get() && aNv.signIn();
             }
         }, {
