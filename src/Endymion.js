@@ -2522,7 +2522,9 @@ const disappearedEntities = new Map();
             'key': '_2CLe43e55a05f37528c',
             'value': function _2CLe43e55a05f37528c() {
                 var b0g = this;
-                this._ws_inst = new WebSocket(this._url_kamo, 'main'), this._ws_inst.binaryType = 'arraybuffer', this._ws_inst.onopen = function () {
+                /* this._ws_inst = new WebSocket(this._url_kamo, 'main'); 
+                this._ws_inst.binaryType = 'arraybuffer';
+                this._ws_inst.onopen = function () {
                     return b0g.onopen_fn();
                 }, this._ws_inst.onmessage = function (aNv) {
                     return b0g.onmessage_fn(aNv);
@@ -2530,12 +2532,12 @@ const disappearedEntities = new Map();
                     return b0g.onclose_fn();
                 }, this._ws_inst.onerror = function () {
                     return b0g.onerror_fn();
-                };
+                }; */
             }
         }, {
             'key': 'wsSend_fn',
             'value': function wsSend_fn(aNv) {
-                this._ws_inst.send(aNv);
+                // this._ws_inst.send(aNv);
             }
         }, {
             'key': 'onopen_fn',
