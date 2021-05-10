@@ -1091,7 +1091,7 @@ const disappearedEntities = new Map();
                 var aNw = aT0._2CL9c15c849ca06e0f7;
                 aNw._init_hatena();
                 aNw.writeUint8(0xfe); // handshake 254
-                aNw.writeUint32(0x16); // protocol version
+                aNw.writeUint32(23); // protocol version
                 b18.wsSend_fn(aNv, aNw._2CLe035dc327c1676d8);
             }
         }, {
