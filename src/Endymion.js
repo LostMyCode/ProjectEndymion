@@ -1109,38 +1109,18 @@ const disappearedEntities = new Map();
                 if (!b18._2CL785ba0dfc4e6d9fc[aNv] || b3Y._2CL1d2b5efaee01be40(aNv)) return;
                 if (true) {
                     /* spawn with sending recaptcha token */
-                    myTurn = true;
                     var dis = this;
-                    var sendSpawn = function () {
-                        var aNw = b3Y._2CL42b7a092ff6d6463(aNv),
-                            aNx = aSg._2CL14c717e1dbbe1d03(aNw),
-                            aNy = new aSg(aNx.length + 0x2 + 1 + grecaptcha.getResponse().length);
-                        aNy.writeUint8(0x0), // spawn
-                            aNy.writeStringUTF8(aNx),
-                            aNy.writeStringUTF8(grecaptcha.getResponse()),
-                            dis.sendPacket_fn(aNv, aNy),
-                            aSL._2CL4b362f28fd6ff0f8 = !0x1;
-                        myTurn = false;
-                        recaptchaExecuteLoop();
-                        nyna('HSLO', 'spawn', document.getElementById("nick2").value, 1);
-                    }
-                    if (!grecaptcha.onceLoad || grecaptcha.v2mode) {
-                        requestCaptchaV3();
-                        grecaptcha.onceLoad = true;
-                        grecaptcha.reset();
-                        grecaptcha.execute(0, {
-                            'action': 'play'
-                        }).then(function () {
-                            sendSpawn();
-                        });
-                    } else {
-                        grecaptcha.reset();
-                        grecaptcha.execute(0, {
-                            'action': 'play'
-                        }).then(function () {
-                            sendSpawn();
-                        });
-                    }
+
+                    var aNw = b3Y._2CL42b7a092ff6d6463(aNv),
+                        playerName = aSg._2CL14c717e1dbbe1d03(aNw),
+                        aNy = new aSg(playerName.length + 0x2/*  + 1 + grecaptcha.getResponse().length */);
+                    aNy.writeUint8(0x0), // spawn
+                        aNy.writeStringUTF8(playerName), // name
+                        // aNy.writeStringUTF8(grecaptcha.getResponse()),
+                        dis.sendPacket_fn(aNv, aNy),
+                        aSL._2CL4b362f28fd6ff0f8 = !0x1;
+                    nyna('HSLO', 'spawn', document.getElementById("nick2").value, 1);
+
                 } else {
                     var aNw = b3Y._2CL42b7a092ff6d6463(aNv),
                         aNx = aSg._2CL14c717e1dbbe1d03(aNw),
@@ -1636,6 +1616,9 @@ const disappearedEntities = new Map();
                     case 0x55:
                         aUQ.handleRecaptchaRequest(aNv);
                         break;
+                    case 87:
+                        this.handleV3TokenRequest(aNv);
+                        break;
                     case 0x72:
                         Toast.showToast('info', 'Game server', 'Spectate mode slots are full.');
                         break; // 114
@@ -1651,6 +1634,36 @@ const disappearedEntities = new Map();
                     case 0x45:
                         this.handleMinimapData(aNv, aNx);
                     }
+                }
+            },
+            {
+                'key': 'handleV3TokenRequest',
+                'value': function handleV3TokenRequest(tabid) {
+                    if (tabid >= 2) return;
+                    
+                    myTurn = true;
+
+                    let sendToken = () => {
+                        let aNy = new aSg(2 + grecaptcha.getResponse().length);
+                        aNy.writeUint8(88), // 88
+                        aNy.writeStringUTF8(grecaptcha.getResponse()),
+                        aT1.sendPacket_fn(tabid, aNy);
+                        myTurn = false;
+                        console.log(aNy, "sent");
+                        window.recaptchaExecuteLoop();
+                    }
+
+                    if (!grecaptcha.onceLoad || grecaptcha.v2mode) {
+                        window.requestCaptchaV3();
+                        grecaptcha.onceLoad = true;
+                    }
+
+                    grecaptcha.reset();
+                    grecaptcha.execute(0, {
+                        'action': 'play'
+                    }).then(function () {
+                        sendToken();
+                    });
                 }
             }, {
                 'key': 'handleMessage17',
