@@ -37,59 +37,29 @@ Install `Live Server` extension then you can run local web server by one click.
 // ==UserScript==
 // @name         HSLO Endymion (Debug)
 // @description  HSLO Endymion The Ultimate Multiboxing Experience
-// @version      1.0
-// @author       test114514
 // @match        *://agar.io/*
-// @require      https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js
+// @author       test114514
 // @run-at       document-start
-// @grant        none
+// @grant        GM_xmlhttpRequest
+// @version      1.0.2
+// @connect      localhost
 // ==/UserScript==
 
-if (location.host === 'agar.io' && location.href !== 'https://agar.io/hslodev') {
-  location.href = 'https://agar.io/hslodev';
-  return;
+if (location.host === "agar.io" && location.pathname === "/") {
+    window.stop();
+    location.href = "https://agar.io/hslodev" + location.hash;
+    return;
 }
 
-const HSLO = new class {
-  constructor() {
-    this.method = 'GET';
-    this.URL = "http://localhost:5500/dist/";
-    this.HTML = ``;
-    this.date = Date.now();
-  }
-
-  load() {
-    this.setMessage();
-    this.fetch();
-  }
-
-  setMessage() {
-    document.body.innerHTML = "LOADING...";
-  }
-
-  fetch() {
-    const request = new XMLHttpRequest();
-    request.open(this.method, this.URL + "?date=" + this.date, true);
-    request.onload = () => {
-      this.HTML = request.responseText;
-      this.write();
-    };
-    request.onerror = () => {
-      document.body.innerHTML = "<div style='width: 100%; text-align: center; font-size: 24px; font-family: sans-serif;'>Failed to fetch HSLO files.</div>";
+GM_xmlhttpRequest({
+    method: 'GET',
+    url: 'http://localhost:5500/dist/index.html?v=' + Math.random(),
+    onload: function(data) {
+        document.open();
+        document.write(data.responseText);
+        document.close();
     }
-    request.send();
-  }
-    replace(hello) {
-        return hello;
-    }
-
-  write() {
-    document.open();
-    document.write(this.replace(this.HTML));
-    document.close();
-  }
-}
-HSLO.load();
+});
 ```
 
 ## Build [PROD]
